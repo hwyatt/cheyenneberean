@@ -13,67 +13,11 @@ import { FaMountain } from "react-icons/fa";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
-
-const CONNECT_LINKS = [
-  {
-    title: "I'm New",
-    icon: "person",
-  },
-  {
-    title: "Groups",
-    icon: "people",
-  },
-  {
-    title: "Volunteer",
-    icon: "serve",
-  },
-  {
-    title: "Prayer Request",
-    icon: "prayer",
-  },
-  {
-    title: "Giving",
-    icon: "give",
-  },
-];
-
-const FAMILY_LINKS = [
-  {
-    title: "Kids",
-    icon: "kids",
-  },
-  {
-    title: "Youth",
-    icon: "youth",
-  },
-  {
-    title: "Awana",
-    icon: "awana",
-  },
-];
-
-const CONTACT_LINKS = [
-  {
-    title: "Facebook",
-    icon: "facebook",
-  },
-  {
-    title: "YouTube",
-    icon: "youtube",
-  },
-  {
-    title: "Email",
-    icon: "email",
-  },
-  {
-    title: "Phone",
-    icon: "phone",
-  },
-];
+import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "./layout";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200 pb-16 md:pb-32">
       <div className="site-container flex flex-col gap-8 w-full px-4 py-8 mx-auto">
         <div className="bg-accent rounded-lg shadow-lg relative overflow-hidden">
           <img
