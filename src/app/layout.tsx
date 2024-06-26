@@ -144,9 +144,13 @@ export default function RootLayout({
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-300">
+        <div className="relative border-t border-gray-300 overflow-hidden">
+          <img
+            src="/light-mountains.png"
+            className="absolute object-cover hidden md:block w-full md:top-[-128px]"
+          />
           <footer className="bg-white px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
-            <div className="footer">
+            <div className="footer z-10">
               <nav>
                 <h6 className="font-bold text-accent uppercase mb-2">About</h6>
                 {aboutSection?.sub.map((link) => (
@@ -186,7 +190,7 @@ export default function RootLayout({
                 ))}
               </nav>
             </div>
-            <div className="flex flex-col md:flex-row gap-1 md:gap-4 w-full items-center justify-center">
+            <div className="flex flex-col md:flex-row gap-1 md:gap-4 w-full items-center justify-center z-10">
               <p className="text-sm text-gray-800">
                 5716 Powderhouse Rd, Cheyenne, WY 82009
               </p>
