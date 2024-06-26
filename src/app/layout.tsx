@@ -112,7 +112,7 @@ export default function RootLayout({
               </div>
             </div>
             <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200 pb-8">
-              <div className="site-container w-full px-4 md:px-0 py-8 mx-auto">
+              <div className="site-container w-full px-4 py-8 mx-auto">
                 {children}
               </div>
             </main>
