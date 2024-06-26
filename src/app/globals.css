@@ -2,32 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.btn-accent,
+.btn-primary {
+    @apply text-white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.btn-secondary,
+.btn-ghost {
+    @apply text-accent;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.btn-lg {
+    @apply text-sm;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.btn-link {
+    @apply no-underline hover:underline text-accent;
 }
+
+.site-container {
+    max-width: 1312px;
+}
+
+.copy-container {
+    max-width: 768px;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 55px;
+    right: 0;
+    height: 100%;
+    border-radius: 12px;
+    background: hsla(0, 0%, 100%, 0)
+        linear-gradient(
+            180deg,
+            transparent 10%,
+            hsla(0, 0%, 100%, 0.1) 40%,
+            rgba(56, 59, 64, 0.5) 75%,
+            rgba(56, 59, 64, 0.8)
+        )
+        repeat scroll 0 0;
+}
+
+/* .banner {
+    background: linear-gradient(
+            360deg,
+            rgba(31, 64, 97, 0.65) 0%,
+            rgba(31, 64, 97, 0.8) 80%,
+            #1f4061 100%
+        ),
+        url(https://lh3.googleusercontent.com/p/AF1QipOPKNaEcmvtUo-_ZNjE6PDvED2dFm_NuYG0VkBb=s1360-w1360-h1020);
+    background-position: center;
+    background-size: cover;
+} */
