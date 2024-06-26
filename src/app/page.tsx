@@ -13,7 +13,7 @@ import { FaMountain } from "react-icons/fa";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
-import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "./layout";
+import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "./LINKS";
 
 export default function Home() {
   return (
