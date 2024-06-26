@@ -60,7 +60,7 @@ export default function Home() {
         <div className="flex flex-col md:grid grid-cols-12 gap-8">
           <div className="col-span-8 flex flex-col gap-8">
             {/* <div>
-                            <div className="aspect-video rounded-lg flex flex-col relative hover:scale-105 duration-300 shadow-sm hover:shadow-lg">
+                            <div className="aspect-video rounded-lg flex flex-col relative md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg">
                                 <div className="bg-overlay"></div>
                                 <img
                                     src="https://cheyenneberean.org/wp-content/uploads/2024/04/Psalms-of-Ascent-002.png"
@@ -94,7 +94,7 @@ export default function Home() {
                         </div> */}
             <div className="flex flex-col gap-12 border-b-2 pb-12 border-gray-300">
               <div>
-                <div className="aspect-video rounded-lg flex flex-col relative shadow-sm hover:shadow-lg">
+                <div className="aspect-video rounded-lg flex flex-col relative shadow-sm md:hover:shadow-lg">
                   <div className="bg-overlay"></div>
                   <img
                     src="https://cheyenneberean.org/wp-content/uploads/2024/04/Psalms-of-Ascent-002.png"
@@ -133,7 +133,7 @@ export default function Home() {
               <div className="flex flex-col md:grid grid-cols-12 gap-4">
                 <a
                   href="#"
-                  className="col-span-6 aspect-video bg-gray-800 rounded-lg p-4 hover:scale-105 duration-300 shadow-sm hover:shadow-lg"
+                  className="col-span-6 aspect-video bg-gray-800 rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg"
                 >
                   <img
                     src="https://assets.answersingenesis.org/img/cms/content/contentnode/image/zoomerang-logo.png"
@@ -142,7 +142,7 @@ export default function Home() {
                 </a>
                 <a
                   href="#"
-                  className="relative overflow-hidden flex flex-col items-center justify-center gap-2 col-span-6 aspect-video bg-accent rounded-lg p-4 hover:scale-105 duration-300 shadow-sm hover:shadow-lg"
+                  className="relative overflow-hidden flex flex-col items-center justify-center gap-2 col-span-6 aspect-video bg-accent rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg"
                 >
                   <div className="absolute bottom-[16px] left-[16px] z-10">
                     <h4 className="font-semibold text-white text-lg z-10">
@@ -162,7 +162,7 @@ export default function Home() {
                 </a>
                 <a
                   href="#"
-                  className="relative overflow-hidden flex flex-col items-center justify-center gap-2 col-span-6 aspect-video rounded-lg p-4 hover:scale-105 duration-300 shadow-sm hover:shadow-lg"
+                  className="relative overflow-hidden flex flex-col items-center justify-center gap-2 col-span-6 aspect-video rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg"
                 >
                   <div className="bg-overlay z-10"></div>
                   <img
@@ -200,7 +200,7 @@ export default function Home() {
                   Cheyenne, WY 82009
                 </span>
               </div>
-              <button className="text-accent font-semibold hover:underline text-sm mt-2 inline-flex items-center self-start p-0 gap-1">
+              <button className="text-accent font-semibold md:hover:underline text-sm mt-2 inline-flex items-center self-start p-0 gap-1">
                 <span>Get Directions</span>
                 <IoChevronForward size={16} className="text-gray-800" />
               </button>
@@ -213,7 +213,7 @@ export default function Home() {
                 {CONNECT_LINKS.map((link) => (
                   <a
                     key={link.title}
-                    className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition ease-in-out hover:-translate-y-0.5 hover:scale-105 duration-300"
+                    className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md md:hover:shadow-lg transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-300"
                     href="#"
                   >
                     <div className="flex items-center gap-4">
@@ -251,7 +251,7 @@ export default function Home() {
                 {FAMILY_LINKS.map((link) => (
                   <a
                     key={link.title}
-                    className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition ease-in-out hover:-translate-y-0.5 hover:scale-105 duration-300"
+                    className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md md:hover:shadow-lg transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-300"
                     href="#"
                   >
                     <div className="flex items-center gap-4">
@@ -288,7 +288,7 @@ export default function Home() {
                 {CONTACT_LINKS.map((link) => (
                   <a
                     key={link.title}
-                    className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition ease-in-out hover:-translate-y-0.5 hover:scale-105 duration-300"
+                    className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md md:hover:shadow-lg transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-300"
                     href="#"
                   >
                     <div className="flex items-center gap-4">

@@ -233,7 +233,7 @@ export default function RootLayout({
           </div>
         </div>
         <div className="border-t border-gray-300">
-          <footer className="bg-white p-8 site-container px-4 m-auto flex flex-col gap-8 md:gap-16">
+          <footer className="bg-white px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
             <div className="footer">
               <nav>
                 <h6 className="font-bold text-accent uppercase mb-2">About</h6>
@@ -274,11 +274,11 @@ export default function RootLayout({
                 ))}
               </nav>
             </div>
-            <div className="flex gap-4 w-full items-center justify-center">
+            <div className="flex flex-col md:flex-row gap-1 md:gap-4 w-full items-center justify-center">
               <p className="text-sm text-gray-800">
                 5716 Powderhouse Rd, Cheyenne, WY 82009
               </p>
-              <p className="text-sm text-gray-400">|</p>
+              <p className="hidden md:block text-sm text-gray-400">|</p>
               <a className="text-sm text-primary">123-456-7890</a>
             </div>
           </footer>
