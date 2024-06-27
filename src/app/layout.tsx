@@ -2,8 +2,18 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { IoChevronForward } from "react-icons/io5";
 import { NAV_LINKS, CONNECT_LINKS, FAMILY_LINKS, CONTACT_LINKS } from "./LINKS";
+import {
+  IoChevronForward,
+  IoPersonOutline,
+  IoPeopleOutline,
+} from "react-icons/io5";
+import { FaRegMessage } from "react-icons/fa6";
+import { FaHandHoldingHeart } from "react-icons/fa";
+import { PiHandsPrayingFill } from "react-icons/pi";
+import { SocialIcon } from "react-social-icons";
+import "react-social-icons/facebook";
+import "react-social-icons/email";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +36,7 @@ export default function RootLayout({
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col">
             {/* Navbar */}
-            <div className="border-b border-gray-300">
+            <div className="md:border-b md:border-gray-300">
               <div className="navbar bg-white w-full m-auto px-4 relative site-container">
                 <div className="flex-none md:hidden">
                   <label
@@ -111,6 +121,32 @@ export default function RootLayout({
                 </div>
               </div>
             </div>
+            <div className="md:hidden border-b border-gray-300 overflow-x-auto">
+              <div className="px-4 pt-4 pb-2 flex justify-between sm:justify-evenly">
+                {CONNECT_LINKS.map((link) => (
+                  <a
+                    key={link.route}
+                    href={link.route}
+                    className="flex flex-col justify-center items-center gap-1"
+                  >
+                    {link.icon === "person" ? (
+                      <IoPersonOutline size={24} className="text-gray-800" />
+                    ) : link.icon === "serve" ? (
+                      <IoPeopleOutline size={24} className="text-gray-800" />
+                    ) : link.icon === "people" ? (
+                      <FaRegMessage size={24} className="text-gray-800" />
+                    ) : link.icon === "give" ? (
+                      <FaHandHoldingHeart size={24} className="text-gray-800" />
+                    ) : link.icon === "prayer" ? (
+                      <PiHandsPrayingFill size={24} className="text-gray-800" />
+                    ) : null}
+                    <p className="font-semibold text-gray-600 text-xs">
+                      {link.title === "Prayer Request" ? "Prayer" : link.title}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
             <main className="flex min-h-screen flex-col items-center justify-between bg-gray-200 pb-8">
               <div className="site-container w-full px-4 py-8 mx-auto">
                 {children}
@@ -123,9 +159,9 @@ export default function RootLayout({
               aria-label="close sidebar"
               className="drawer-overlay text-accent"
             ></label>
-            <ul className="menu bg-white min-h-full w-80 p-4">
+            <ul className="menu bg-white min-h-full w-80 p-0">
               {/* Sidebar content here */}
-              <div className="flex flex-col border-t-2 border-gray-200">
+              <div className="flex flex-col border-gray-200">
                 {NAV_LINKS.map((link) => (
                   <li
                     key={link.title}
@@ -133,10 +169,10 @@ export default function RootLayout({
                   >
                     <a
                       href={link.route}
-                      className="text-accent font-semibold uppercase text-2xl hover:text-primary flex items-center justify-between"
+                      className="text-accent font-semibold uppercase text-xl hover:text-primary flex items-center justify-between"
                     >
                       <span>{link.title}</span>
-                      <IoChevronForward size={32} className="text-accent" />
+                      <IoChevronForward size={24} className="text-accent" />
                     </a>
                   </li>
                 ))}
@@ -150,8 +186,8 @@ export default function RootLayout({
             className="absolute object-cover hidden md:block w-full md:top-[-128px]"
           />
           <footer className="bg-white px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
-            <div className="footer z-10">
-              <nav>
+            <div className="grid w-full grid-cols-12 gap-y-8 gap-x-4 z-10">
+              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
                 <h6 className="font-bold text-accent uppercase mb-2">About</h6>
                 {aboutSection?.sub.map((link) => (
                   <a className="text-gray-800 hover:underline" key={link.title}>
@@ -159,7 +195,7 @@ export default function RootLayout({
                   </a>
                 ))}
               </nav>
-              <nav>
+              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
                 <h6 className="font-bold text-accent uppercase mb-2">
                   Get Involved
                 </h6>
@@ -169,7 +205,7 @@ export default function RootLayout({
                   </a>
                 ))}
               </nav>
-              <nav>
+              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
                 <h6 className="font-bold text-accent uppercase mb-2">
                   For Your Family
                 </h6>
@@ -179,7 +215,7 @@ export default function RootLayout({
                   </a>
                 ))}
               </nav>
-              <nav>
+              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
                 <h6 className="font-bold text-accent uppercase mb-2">
                   Connect With Us
                 </h6>
@@ -190,12 +226,44 @@ export default function RootLayout({
                 ))}
               </nav>
             </div>
-            <div className="flex flex-col md:flex-row gap-1 md:gap-4 w-full items-center justify-center z-10">
-              <p className="text-sm text-gray-800">
-                5716 Powderhouse Rd, Cheyenne, WY 82009
-              </p>
-              <p className="hidden md:block text-sm text-gray-400">|</p>
-              <a className="text-sm text-primary">123-456-7890</a>
+            <div className="flex flex-col gap-4 items-center justify-center">
+              <div className="flex gap-4">
+                <SocialIcon
+                  style={{
+                    height: 48,
+                    width: 48,
+                  }}
+                  bgColor="#1F4061"
+                  className="text-gray-800"
+                  url="https://www.facebook.com/cheyenneberean/"
+                />
+                <SocialIcon
+                  style={{
+                    height: 48,
+                    width: 48,
+                  }}
+                  bgColor="#1F4061"
+                  className="text-gray-800"
+                  url="https://www.youtube.com/c/CheyenneBereanChurch"
+                />
+                <SocialIcon
+                  style={{
+                    height: 48,
+                    width: 48,
+                  }}
+                  className="text-gray-800"
+                  bgColor="#1F4061"
+                  url="mailto:office@cheyenneberean.org"
+                />
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-1 md:gap-4 w-full items-center justify-center z-10">
+                <p className="text-sm text-gray-800">
+                  5716 Powderhouse Rd, Cheyenne, WY 82009
+                </p>
+                <p className="hidden md:block text-sm text-gray-400">|</p>
+                <a className="text-sm text-primary">123-456-7890</a>
+              </div>
             </div>
           </footer>
         </div>

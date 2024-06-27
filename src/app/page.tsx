@@ -9,7 +9,6 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { MdPhone } from "react-icons/md";
 import { BsArrowRightSquareFill } from "react-icons/bs";
-import { FaMountain } from "react-icons/fa";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
@@ -171,6 +170,27 @@ export default function Home() {
                 <div className="absolute bottom-[16px] left-[16px] z-10">
                   <h4 className="font-semibold text-white text-lg z-10">
                     Bible Study
+                  </h4>
+                  <span className="font-light text-white text-sm z-10">
+                    September 7 | 5:00pm
+                  </span>
+                </div>
+                <div className="absolute bottom-[16px] right-[16px] z-10">
+                  <BsArrowRightSquareFill size={32} className="text-white" />
+                </div>
+              </a>
+              <a
+                href="#"
+                className="relative overflow-hidden flex flex-col items-center justify-center gap-2 col-span-6 aspect-video rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg"
+              >
+                <div className="bg-overlay z-10"></div>
+                <img
+                  src="https://www.yourchurch.com/content/uploads/2023/09/8BEF47C2-9F21-46EF-9F03-7316D9BF9759.jpg"
+                  className="aspect-video absolute object-cover w-full h-full"
+                />
+                <div className="absolute bottom-[16px] left-[16px] z-10">
+                  <h4 className="font-semibold text-white text-lg z-10">
+                    Student Conference
                   </h4>
                   <span className="font-light text-white text-sm z-10">
                     September 7 | 5:00pm
