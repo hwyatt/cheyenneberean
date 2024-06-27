@@ -135,7 +135,7 @@ export default function Home() {
               >
                 <img
                   src="https://assets.answersingenesis.org/img/cms/content/contentnode/image/zoomerang-logo.png"
-                  className="aspect-video h-full w-full object-contain"
+                  className="h-full w-full object-contain"
                 />
               </a>
               <a
