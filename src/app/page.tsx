@@ -267,11 +267,25 @@ export default function Home() {
                 >
                   <div className="flex items-center gap-4">
                     {link.icon === "kids" ? (
-                      <img src="/logo-kids-awana.png" className="w-12 h-auto" />
+                      <img
+                        src="/logo-berean-kids.png"
+                        className="w-12 h-6 object-contain"
+                      />
                     ) : link.icon === "youth" ? (
-                      <img src="/logo-kids-awana.png" className="w-12 h-auto" />
+                      <img
+                        src="/logo-kids-awana.png"
+                        className="w-12 h-6 object-contain"
+                      />
+                    ) : link.icon === "young-adults" ? (
+                      <img
+                        src="/logo-crossroads-412.jpg"
+                        className="w-12 h-6 object-contain"
+                      />
                     ) : link.icon === "awana" ? (
-                      <img src="/logo-kids-awana.png" className="w-12 h-auto" />
+                      <img
+                        src="/logo-kids-awana.png"
+                        className="w-12 h-6 object-contain"
+                      />
                     ) : null}
                     <span className="font-semibold text-gray-800">
                       {link.title}

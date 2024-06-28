@@ -76,6 +76,10 @@ export const FAMILY_LINKS = [
     icon: "youth",
   },
   {
+    title: "Young Adults",
+    icon: "young-adults",
+  },
+  {
     title: "Awana",
     icon: "awana",
   },
