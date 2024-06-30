@@ -11,7 +11,7 @@ export const SermonSeries = ({
   watchSermonLink,
   imgUrl,
 }: any) => {
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const options = {
       year: "numeric",
