@@ -12,7 +12,7 @@ async function fetchGraphQL(query: string) {
   ).then((response) => response.json());
 }
 
-const EventDetailsPage = async ({ params: id }) => {
+const EventDetailsPage = async ({ params: id }: any) => {
   //   const data = await fetchGraphQL(`
   //   query {
   //     eventCollection(order: startDateTime_ASC, limit: 4) {

@@ -18,12 +18,12 @@ import { Tile } from "./components/Tile/Tile";
 
 const formatDateTime = (dateString: string) => {
   const date = new Date(dateString);
-  const dateOptions = {
+  const dateOptions: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-  const timeOptions = {
+  const timeOptions: Intl.DateTimeFormatOptions = {
     hour: "numeric",
     minute: "numeric",
     hour12: true,
