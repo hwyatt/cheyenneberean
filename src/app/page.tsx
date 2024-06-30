@@ -149,6 +149,7 @@ export default async function Home() {
               <div className="flex flex-col md:grid grid-cols-12 gap-4">
                 {eventContent.items.map((event: any) => (
                   <Tile
+                    key={event.title}
                     link={`/events/${event._id}`}
                     title={event.title}
                     description={formatDateTime(event.startDateTime)}
