@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NAV_LINKS, CONNECT_LINKS, FAMILY_LINKS, CONTACT_LINKS } from "./LINKS";
@@ -60,13 +61,15 @@ export default function RootLayout({
                   </label>
                 </div>
                 <div className="mx-2 flex-1 px-2">
-                  <Image
-                    src="/CBC-Circle-Logo.png"
-                    alt="Cheyenne Berean Church Logo"
-                    width={48}
-                    height={48}
-                    className="absolute md:relative m-auto md:m-0 inset-0"
-                  />
+                  <Link href="/">
+                    <Image
+                      src="/CBC-Circle-Logo.png"
+                      alt="Cheyenne Berean Church Logo"
+                      width={48}
+                      height={48}
+                      className="absolute md:relative m-auto md:m-0 inset-0"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden flex-none md:block">
                   <ul className="menu menu-horizontal items-center gap-8">
@@ -87,7 +90,7 @@ export default function RootLayout({
                             <ul className="z-50 rounded-t-none p-2 min-w-48">
                               {link.sub.map((subLink) => (
                                 <li key={subLink.title}>
-                                  <a
+                                  <Link
                                     href={subLink.route}
                                     className={`${
                                       link.title === "Giving"
@@ -96,7 +99,7 @@ export default function RootLayout({
                                     } font-semibold hover:text-primary`}
                                   >
                                     {subLink.title}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -104,7 +107,7 @@ export default function RootLayout({
                         </li>
                       ) : (
                         <li key={link.title}>
-                          <a
+                          <Link
                             href={link.route}
                             className={`${
                               link.title === "Giving"
@@ -113,7 +116,7 @@ export default function RootLayout({
                             } font-semibold hover:text-primary`}
                           >
                             {link.title}
-                          </a>
+                          </Link>
                         </li>
                       )
                     )}
@@ -124,7 +127,7 @@ export default function RootLayout({
             <div className="md:hidden border-b border-gray-300 overflow-x-auto">
               <div className="px-4 pt-4 pb-2 flex justify-between sm:justify-evenly">
                 {CONNECT_LINKS.map((link) => (
-                  <a
+                  <Link
                     key={link.route}
                     href={link.route}
                     className="flex flex-col justify-center items-center gap-1"
@@ -143,7 +146,7 @@ export default function RootLayout({
                     <p className="font-semibold text-gray-600 text-xs">
                       {link.title === "Prayer Request" ? "Prayer" : link.title}
                     </p>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -167,13 +170,13 @@ export default function RootLayout({
                     key={link.title}
                     className="border-b-2 border-gray-200 py-4"
                   >
-                    <a
+                    <Link
                       href={link.route}
                       className="text-accent font-semibold uppercase text-xl hover:text-primary flex items-center justify-between"
                     >
                       <span>{link.title}</span>
                       <IoChevronForward size={24} className="text-accent" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </div>
@@ -190,9 +193,13 @@ export default function RootLayout({
               <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
                 <h6 className="font-bold text-accent uppercase mb-2">About</h6>
                 {aboutSection?.sub.map((link) => (
-                  <a className="text-gray-800 hover:underline" key={link.title}>
+                  <Link
+                    href={link.route}
+                    className="text-gray-800 hover:underline"
+                    key={link.title}
+                  >
                     {link.title}
-                  </a>
+                  </Link>
                 ))}
               </nav>
               <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
@@ -200,9 +207,13 @@ export default function RootLayout({
                   Get Involved
                 </h6>
                 {CONNECT_LINKS.map((link) => (
-                  <a className="text-gray-800 hover:underline" key={link.title}>
+                  <Link
+                    href={link.route}
+                    className="text-gray-800 hover:underline"
+                    key={link.title}
+                  >
                     {link.title}
-                  </a>
+                  </Link>
                 ))}
               </nav>
               <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
@@ -210,9 +221,13 @@ export default function RootLayout({
                   For Your Family
                 </h6>
                 {FAMILY_LINKS.map((link) => (
-                  <a className="text-gray-800 hover:underline" key={link.title}>
+                  <Link
+                    href={link.route}
+                    className="text-gray-800 hover:underline"
+                    key={link.title}
+                  >
                     {link.title}
-                  </a>
+                  </Link>
                 ))}
               </nav>
               <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
@@ -220,9 +235,13 @@ export default function RootLayout({
                   Connect With Us
                 </h6>
                 {CONTACT_LINKS.map((link) => (
-                  <a className="text-gray-800 hover:underline" key={link.title}>
+                  <Link
+                    href={link.route}
+                    className="text-gray-800 hover:underline"
+                    key={link.title}
+                  >
                     {link.title}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>

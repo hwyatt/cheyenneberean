@@ -15,6 +15,7 @@ import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "./LINKS";
 import { HeroBanner } from "./components/HeroBanner/HeroBanner";
 import { SermonSeries } from "./components/SermonSeries/SermonSeries";
 import { Tile } from "./components/Tile/Tile";
+import { fetchGraphQL } from "./api/contentful";
 
 const formatDateTime = (dateString: string) => {
   const date = new Date(dateString);
@@ -38,7 +39,7 @@ const formatDateTime = (dateString: string) => {
 };
 
 const HOME_PAGE_QUERY = `
-query homeHeroBanner {
+query homePage {
   heroBanner(id: "2thbXCaTgQCPtTZDMSWoaC") {
     sys {
       id
@@ -87,20 +88,6 @@ query homeHeroBanner {
     }
   }
 }`;
-
-async function fetchGraphQL(query: string) {
-  return fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-      },
-      body: JSON.stringify({ query }),
-    }
-  ).then((response) => response.json());
-}
 
 export default async function Home() {
   const data = await fetchGraphQL(HOME_PAGE_QUERY);
