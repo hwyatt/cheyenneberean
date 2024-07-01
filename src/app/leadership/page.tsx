@@ -3,6 +3,14 @@ import { SocialIcon } from "react-social-icons";
 import { fetchGraphQL } from "../api/contentful";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 
+type StaffMember = {
+  position: string;
+  name: string;
+  image: {
+    url: string;
+  };
+  email: string;
+};
 const LeadershipPage = async ({}) => {
   const data = await fetchGraphQL(`
   query {
@@ -24,7 +32,7 @@ const LeadershipPage = async ({}) => {
 
   const staffContent = data.data.staffMemberCollection;
   const leadPastorContent = staffContent.items.filter(
-    (member) => member.position === "Lead Pastor"
+    (member: StaffMember) => member.position === "Lead Pastor"
   )[0];
   const shepherdsContent = data.data.shepherds.name;
 
@@ -61,7 +69,7 @@ const LeadershipPage = async ({}) => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {staffContent.items.map(
-              (item) =>
+              (item: StaffMember) =>
                 item.position !== "Lead Pastor" && (
                   <div
                     key={item.name}
@@ -108,7 +116,7 @@ const LeadershipPage = async ({}) => {
             SHEPHERDS
           </h2>
           <div className="flex flex-col gap-2">
-            {shepherdsContent.map((shepherd) => (
+            {shepherdsContent.map((shepherd: string) => (
               <span key={shepherd} className="text-center">
                 {shepherd}
               </span>
