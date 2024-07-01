@@ -109,7 +109,9 @@ const LeadershipPage = async ({}) => {
           </h2>
           <div className="flex flex-col gap-2">
             {shepherdsContent.map((shepherd) => (
-              <span className="text-center">{shepherd}</span>
+              <span key={shepherd} className="text-center">
+                {shepherd}
+              </span>
             ))}
           </div>
         </div>
