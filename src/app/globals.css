@@ -4,47 +4,51 @@
 
 .btn-accent,
 .btn-primary {
-    @apply text-white;
+  @apply text-white;
 }
 
 .btn-secondary,
 .btn-ghost {
-    @apply text-accent;
+  @apply text-accent;
 }
 
 .btn-lg {
-    @apply text-sm;
+  @apply text-sm;
 }
 
 .btn-link {
-    @apply no-underline hover:underline text-accent;
+  @apply no-underline hover:underline text-accent;
 }
 
 .site-container {
-    max-width: 1312px;
+  max-width: 1312px;
 }
 
 .copy-container {
-    max-width: 768px;
+  max-width: 768px;
 }
 
 .bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 55px;
-    right: 0;
-    height: 100%;
-    border-radius: 12px;
-    background: hsla(0, 0%, 100%, 0)
-        linear-gradient(
-            180deg,
-            transparent 10%,
-            hsla(0, 0%, 100%, 0.1) 40%,
-            rgba(56, 59, 64, 0.5) 75%,
-            rgba(56, 59, 64, 0.8)
-        )
-        repeat scroll 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 55px;
+  right: 0;
+  height: 100%;
+  border-radius: 12px;
+  background: hsla(0, 0%, 100%, 0)
+    linear-gradient(
+      180deg,
+      transparent 10%,
+      hsla(0, 0%, 100%, 0.1) 40%,
+      rgba(56, 59, 64, 0.5) 75%,
+      rgba(56, 59, 64, 0.8)
+    )
+    repeat scroll 0 0;
+}
+
+.markdown-container p {
+  @apply mb-4;
 }
 
 /* .banner {

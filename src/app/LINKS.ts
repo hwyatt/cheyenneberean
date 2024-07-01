@@ -9,8 +9,8 @@ export const NAV_LINKS = [
         route: "#",
       },
       {
-        title: "Pastors and Staff",
-        route: "#",
+        title: "Leadership",
+        route: "/leadership",
       },
       {
         title: "Ministries",
@@ -26,7 +26,7 @@ export const NAV_LINKS = [
   },
   {
     title: `Events`,
-    route: "#",
+    route: "/events",
     icon: "person",
     sub: [],
   },
@@ -70,18 +70,22 @@ export const FAMILY_LINKS = [
   {
     title: "Kids",
     icon: "kids",
+    route: "#",
   },
   {
     title: "Youth",
     icon: "youth",
+    route: "#",
   },
   {
     title: "Young Adults",
     icon: "young-adults",
+    route: "#",
   },
   {
     title: "Awana",
     icon: "awana",
+    route: "#",
   },
 ];
 
@@ -89,17 +93,21 @@ export const CONTACT_LINKS = [
   {
     title: "Facebook",
     icon: "facebook",
+    route: "#",
   },
   {
     title: "YouTube",
     icon: "youtube",
+    route: "#",
   },
   {
     title: "Email",
     icon: "email",
+    route: "#",
   },
   {
     title: "Phone",
     icon: "phone",
+    route: "#",
   },
 ];
