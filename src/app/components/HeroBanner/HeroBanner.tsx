@@ -1,10 +1,8 @@
+import Image from "next/image";
+
 export const HeroBanner = ({ title, description, eyebrowText }: any) => {
   return (
     <div className="bg-accent rounded-lg shadow-lg relative overflow-hidden">
-      {/* <img
-        src="/dark-mountains.png"
-        className="absolute object-cover w-full h-full right-[-35%]"
-      /> */}
       <div className="w-full p-4 md:p-8 mx-auto flex flex-col-reverse gap-8 md:grid grid-cols-12">
         <div className="copy-container flex flex-col gap-4 col-span-8 h-full justify-between">
           <div className="flex flex-col gap-4">
@@ -29,8 +27,13 @@ export const HeroBanner = ({ title, description, eyebrowText }: any) => {
             <button className="btn btn-secondary">Stream Online</button>
           </div>
         </div>
-        <div className="col-span-4">
-          <img src="/vector.png" />
+        <div className="col-span-4 h-64 md:h-auto relative">
+          <Image
+            src="/vector.png"
+            alt={"Cheyenne Berean Church Building"}
+            layout="fill"
+            objectFit="contain"
+          />
         </div>
       </div>
     </div>

@@ -213,24 +213,36 @@ export default async function Home() {
                 >
                   <div className="flex items-center gap-4">
                     {link.icon === "kids" ? (
-                      <img
+                      <Image
                         src="/logo-berean-kids.png"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Berean Kids"
                       />
                     ) : link.icon === "youth" ? (
-                      <img
+                      <Image
                         src="/logo-kids-awana.png"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Berean Youth"
                       />
                     ) : link.icon === "young-adults" ? (
-                      <img
+                      <Image
                         src="/logo-crossroads-412.jpg"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Berean Young Adults"
                       />
                     ) : link.icon === "awana" ? (
-                      <img
+                      <Image
                         src="/logo-kids-awana.png"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Awana"
                       />
                     ) : null}
                     <span className="font-semibold text-gray-800">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 
@@ -33,11 +34,23 @@ export const Tile = ({
       {coverImg && (
         <>
           <div className="bg-overlay z-10"></div>
-          <img src={coverImg} className="absolute object-cover w-full h-full" />
+          <Image
+            src={coverImg}
+            alt={title}
+            className="absolute"
+            layout="fill"
+            objectFit="cover"
+          />
         </>
       )}
       {!coverImg && logoImg && (
-        <img src={logoImg} className="h-full w-full object-contain" />
+        <Image
+          src={logoImg}
+          alt={title}
+          layout="fill"
+          objectFit="contain"
+          className="p-4"
+        />
       )}
       {!logoImg && (
         <div className="absolute bottom-[16px] left-[16px] z-10">
@@ -51,9 +64,11 @@ export const Tile = ({
         <BsArrowRightSquareFill size={32} className="text-white" />
       </div>
       {!coverImg && !logoImg && (
-        <img
+        <Image
           src="/dark-mountains.png"
-          className="absolute object-cover w-full h-full"
+          alt={title}
+          layout="fill"
+          objectFit="cover"
         />
       )}
     </Link>
