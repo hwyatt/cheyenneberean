@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 
@@ -28,16 +29,28 @@ export const Tile = ({
     <Link
       key={title}
       href={link}
-      className={`relative overflow-hidden flex flex-col items-center justify-center gap-2 col-span-6 aspect-video rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg ${tileBGColor}`}
+      className={`relative overflow-hidden flex flex-col items-center justify-center gap-2 aspect-video rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg ${tileBGColor}`}
     >
       {coverImg && (
         <>
           <div className="bg-overlay z-10"></div>
-          <img src={coverImg} className="absolute object-cover w-full h-full" />
+          <Image
+            src={coverImg}
+            alt={title}
+            className="absolute"
+            layout="fill"
+            objectFit="cover"
+          />
         </>
       )}
       {!coverImg && logoImg && (
-        <img src={logoImg} className="h-full w-full object-contain" />
+        <Image
+          src={logoImg}
+          alt={title}
+          layout="fill"
+          objectFit="contain"
+          className="p-4"
+        />
       )}
       {!logoImg && (
         <div className="absolute bottom-[16px] left-[16px] z-10">
@@ -51,9 +64,11 @@ export const Tile = ({
         <BsArrowRightSquareFill size={32} className="text-white" />
       </div>
       {!coverImg && !logoImg && (
-        <img
+        <Image
           src="/dark-mountains.png"
-          className="absolute object-cover w-full h-full"
+          alt={title}
+          layout="fill"
+          objectFit="cover"
         />
       )}
     </Link>

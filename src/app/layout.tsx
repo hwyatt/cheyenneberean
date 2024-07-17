@@ -184,9 +184,12 @@ export default function RootLayout({
           </div>
         </div>
         <div className="relative border-t border-gray-300 overflow-hidden">
-          <img
+          <Image
             src="/light-mountains.png"
-            className="absolute object-cover hidden md:block w-full md:top-[-128px]"
+            alt="light mountain logo"
+            className="hidden md:block md:top-[-128px]"
+            layout="fill"
+            objectFit="cover"
           />
           <footer className="bg-white px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
             <div className="grid w-full grid-cols-12 gap-y-8 gap-x-4 z-10">

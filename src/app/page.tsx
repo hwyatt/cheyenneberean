@@ -126,7 +126,7 @@ export default async function Home() {
                 <h3 className="text-lg font-semibold text-accent uppercase">
                   Events
                 </h3>
-                <a href="#" className="flex items-center gap-1">
+                <a href="/events" className="flex items-center gap-1">
                   <span className="text-gray-600 font-semibold text-sm">
                     See All Events
                   </span>
@@ -135,15 +135,16 @@ export default async function Home() {
               </div>
               <div className="flex flex-col md:grid grid-cols-12 gap-4">
                 {eventContent.items.map((event: any) => (
-                  <Tile
-                    key={event.title}
-                    link={`/events/${event._id}`}
-                    title={event.title}
-                    description={formatDateTime(event.startDateTime)}
-                    coverImg={event.coverImage?.url}
-                    logoImg={event.logoImage?.url}
-                    bgColor={event.backgroundColor}
-                  />
+                  <div className="col-span-6" key={event.title}>
+                    <Tile
+                      link={`/events/${event._id}`}
+                      title={event.title}
+                      description={formatDateTime(event.startDateTime)}
+                      coverImg={event.coverImage?.url}
+                      logoImg={event.logoImage?.url}
+                      bgColor={event.backgroundColor}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -209,28 +210,40 @@ export default async function Home() {
                 <a
                   key={link.title}
                   className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md md:hover:shadow-lg transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-300"
-                  href="#"
+                  href={link.route}
                 >
                   <div className="flex items-center gap-4">
                     {link.icon === "kids" ? (
-                      <img
+                      <Image
                         src="/logo-berean-kids.png"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Berean Kids"
                       />
                     ) : link.icon === "youth" ? (
-                      <img
+                      <Image
                         src="/logo-kids-awana.png"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Berean Youth"
                       />
                     ) : link.icon === "young-adults" ? (
-                      <img
+                      <Image
                         src="/logo-crossroads-412.jpg"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Berean Young Adults"
                       />
                     ) : link.icon === "awana" ? (
-                      <img
+                      <Image
                         src="/logo-kids-awana.png"
                         className="w-12 h-6 object-contain"
+                        width={48}
+                        height={24}
+                        alt="Awana"
                       />
                     ) : null}
                     <span className="font-semibold text-gray-800">
@@ -251,7 +264,7 @@ export default async function Home() {
                 <a
                   key={link.title}
                   className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md md:hover:shadow-lg transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-300"
-                  href="#"
+                  href={link.route}
                 >
                   <div className="flex items-center gap-4">
                     {link.icon === "facebook" ? (

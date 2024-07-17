@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { SocialIcon } from "react-social-icons";
 import { fetchGraphQL } from "../api/contentful";
@@ -36,6 +37,8 @@ const LeadershipPage = async ({}) => {
   )[0];
   const shepherdsContent = data.data.shepherds.name;
 
+  console.log(data.data.shepherds);
+
   return (
     <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       <IntroSection
@@ -47,9 +50,12 @@ const LeadershipPage = async ({}) => {
       {leadPastorContent && (
         <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
           <div className="col-span-4 flex flex-col items-center">
-            <img
+            <Image
               className="rounded-lg max-h-80 md:max-h-none"
               src={leadPastorContent.image.url}
+              alt={leadPastorContent.name}
+              width={406}
+              height={608}
             />
           </div>
           <div className="col-span-8 flex flex-col gap-2 md:gap-4">
@@ -77,11 +83,20 @@ const LeadershipPage = async ({}) => {
                   >
                     <div className="relative overflow-hidden rounded-full bg-accent h-40 w-40 md:h-48 md:w-48">
                       {item.image && item.image.url ? (
-                        <img src={item.image.url} className="" />
+                        <Image
+                          src={item.image.url}
+                          className="w-full h-auto"
+                          alt={item.name}
+                          width={200}
+                          height={200}
+                        />
                       ) : (
-                        <img
+                        <Image
                           src="/dark-mountains.png"
                           className="absolute object-cover w-full h-full"
+                          width={200}
+                          height={200}
+                          alt={item.name}
                         />
                       )}
                     </div>

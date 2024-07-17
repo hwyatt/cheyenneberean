@@ -1,31 +1,36 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    ],
-    theme: {
-        extend: {
-            backgroundImage: {
-                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-                "gradient-conic":
-                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-            },
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        kidsAccent: "#4B5048",
+        kidsPrimary: "#6A7165",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+    },
+  },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          accent: "#1F4061",
+          primary: "#0097FA",
+          secondary: "#D3E9FD",
+          kidsAccent: "#6A7165",
         },
-    },
-    daisyui: {
-        themes: [
-            {
-                mytheme: {
-                    accent: "#1F4061",
-                    primary: "#0097FA",
-                    secondary: "#D3E9FD",
-                },
-            },
-        ],
-    },
-    plugins: [require("daisyui")],
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };
 export default config;

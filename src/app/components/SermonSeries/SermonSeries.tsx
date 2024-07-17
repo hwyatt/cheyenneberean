@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   IoChevronForward,
   IoPersonOutline,
@@ -27,10 +28,13 @@ export const SermonSeries = ({
       <div>
         <div className="aspect-video rounded-lg flex flex-col relative shadow-sm md:hover:shadow-lg">
           <div className="bg-overlay"></div>
-          <img
+          <Image
             src={imgUrl}
-            className="object-cover h-full w-full rounded-lg"
-            style={{ objectPosition: "top" }}
+            alt="Latest Sermon"
+            className="rounded-lg"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="top"
           />
           {watchSermonLink && (
             <a
