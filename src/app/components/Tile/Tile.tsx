@@ -29,7 +29,7 @@ export const Tile = ({
     <Link
       key={title}
       href={link}
-      className={`relative overflow-hidden flex flex-col items-center justify-center gap-2 col-span-6 aspect-video rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg ${tileBGColor}`}
+      className={`relative overflow-hidden flex flex-col items-center justify-center gap-2 aspect-video rounded-lg p-4 md:hover:scale-105 duration-300 shadow-sm md:hover:shadow-lg ${tileBGColor}`}
     >
       {coverImg && (
         <>
