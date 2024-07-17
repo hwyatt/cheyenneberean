@@ -94,7 +94,10 @@ const KidsPage = async ({}) => {
           </h2>
           <div className="flex flex-col items-center text-center gap-4">
             {VALUES.map((value) => (
-              <div className="flex flex-col gap-2 items-center text-center">
+              <div
+                className="flex flex-col gap-2 items-center text-center"
+                key={value.title}
+              >
                 <div className="flex items-center text-center gap-2">
                   {value.icon}
                   <span className="text-gray-800 font-semibold">
@@ -112,7 +115,9 @@ const KidsPage = async ({}) => {
           </h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
             {CLASSES.map((kidsClass) => (
-              <div className="col-span-6 lg:col-span-3">{kidsClass.name}</div>
+              <div className="col-span-6 lg:col-span-3" key={kidsClass.name}>
+                {kidsClass.name}
+              </div>
             ))}
           </div>
         </div>

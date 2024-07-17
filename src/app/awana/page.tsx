@@ -71,7 +71,10 @@ const AwanaPage = async ({}) => {
           </h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4">
             {CLUBS.map((club) => (
-              <div className="md:col-span-6 lg:col-span-3 flex flex-col bg-white rounded-lg">
+              <div
+                className="md:col-span-6 lg:col-span-3 flex flex-col bg-white rounded-lg"
+                key={club.name}
+              >
                 <div
                   className="relative rounded-t-lg flex flex-col items-center justify-center p-4"
                   style={{ backgroundColor: club.bgColor }}
