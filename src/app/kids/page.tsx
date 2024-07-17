@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Tile } from "../components/Tile/Tile";
 import { fetchGraphQL } from "../api/contentful";
 import { PiCross } from "react-icons/pi";
 import { LuHeartHandshake } from "react-icons/lu";
 import { AiOutlineSafety } from "react-icons/ai";
 import { LiaCheckCircle } from "react-icons/lia";
 import { TbMoodKid } from "react-icons/tb";
+import { IntroSection } from "../components/IntroSection/IntroSection";
 
 const VALUES = [
   {
@@ -63,16 +63,18 @@ const KidsPage = async ({}) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
-      <div className="relative h-48 w-full">
-        <Image
-          src="/logo-berean-kids.png"
-          alt="Berean Kids"
-          layout="fill"
-          objectFit="contain"
-        />
-      </div>
+      <IntroSection
+        image="/logo-berean-kids.png"
+        copy={`BereanKIDS strives to transform kids lives through accurately
+        teaching the Gospel and showing them how to live for Jesus. We will
+        provide BereanKIDS a nurturing and exciting environment to gather,
+        in order to build their understanding of the God who created them,
+        loves them, and faithfully walks beside them. We believe that life
+        transformation happens in families' lives when the church and home
+        partner together.`}
+      />
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
-        <div className="flex flex-col items-center gap-4 copy-container">
+        {/* <div className="flex flex-col items-center gap-4 copy-container">
           <h2 className="text-lg font-semibold text-kidsAccent uppercase">
             Mission
           </h2>
@@ -85,7 +87,7 @@ const KidsPage = async ({}) => {
             transformation happens in families' lives when the church and home
             partner together.
           </div>
-        </div>
+        </div> */}
         <div className="flex flex-col items-center gap-4 copy-container">
           <h2 className="text-lg font-semibold text-kidsAccent uppercase">
             Values
