@@ -71,7 +71,7 @@ const KidsPage = async ({}) => {
           objectFit="contain"
         />
       </div>
-      <div className="flex flex-col items-center gap-8 w-full">
+      <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-4 copy-container">
           <h2 className="text-lg font-semibold text-kidsAccent uppercase">
             Mission
@@ -113,6 +113,11 @@ const KidsPage = async ({}) => {
               <div className="col-span-6 lg:col-span-3">{kidsClass.name}</div>
             ))}
           </div>
+        </div>
+        <div className="flex flex-col items-center gap-4 w-full">
+          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
+            Events
+          </h2>
         </div>
       </div>
     </div>
