@@ -99,20 +99,6 @@ const KidsPage = async ({}) => {
         partner together.`}
       />
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
-        {/* <div className="flex flex-col items-center gap-4 copy-container">
-          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
-            Mission
-          </h2>
-          <div className="text-center text-gray-800">
-            BereanKIDS strives to transform kids lives through accurately
-            teaching the Gospel and showing them how to live for Jesus. We will
-            provide BereanKIDS a nurturing and exciting environment to gather,
-            in order to build their understanding of the God who created them,
-            loves them, and faithfully walks beside them. We believe that life
-            transformation happens in families' lives when the church and home
-            partner together.
-          </div>
-        </div> */}
         <div className="flex flex-col items-center gap-4 copy-container">
           <h2 className="text-lg font-semibold text-kidsAccent uppercase">
             Values

@@ -6,7 +6,7 @@ export const NAV_LINKS = [
     sub: [
       {
         title: "Our Beliefs",
-        route: "#",
+        route: "/beliefs",
       },
       {
         title: "Leadership",
