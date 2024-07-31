@@ -47,7 +47,7 @@ export const CONNECT_LINKS = [
   {
     title: "Groups",
     icon: "people",
-    route: "#",
+    route: "/groups",
   },
   {
     title: "Volunteer",

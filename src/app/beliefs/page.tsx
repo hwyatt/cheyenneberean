@@ -25,7 +25,7 @@ const BeliefsPage = async () => {
   const beliefsCollection = beliefsPageData?.beliefCollection.items;
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
+    <div className="min-h-screen flex flex-col items-center gap-8">
       {beliefsPageData && (
         <>
           <IntroSection

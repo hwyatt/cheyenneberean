@@ -26,8 +26,10 @@ const LeadershipPage = async ({}) => {
           bio
         }
       }
-      shepherds(id: "7bbu2x2glMTqArQJ75UqAO"){
-        name
+      shepherdsCollection {
+        items {
+          name
+        }
       }
   }`);
 
@@ -35,12 +37,10 @@ const LeadershipPage = async ({}) => {
   const leadPastorContent = staffContent.items.filter(
     (member: StaffMember) => member.position === "Lead Pastor"
   )[0];
-  const shepherdsContent = data.data.shepherds.name;
-
-  console.log(data.data.shepherds);
+  const shepherdsContent = data.data.shepherdsCollection.items[0].name;
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
+    <div className="min-h-screen flex flex-col items-center gap-8">
       <IntroSection
         header={"Our Leadership"}
         copy={`At Cheyenne Berean we are guided by pastors and strengthened by
@@ -139,7 +139,6 @@ const LeadershipPage = async ({}) => {
           </div>
         </div>
       )}
-      {/* {JSON.stringify(data)} */}
     </div>
   );
 };

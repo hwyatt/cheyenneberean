@@ -87,7 +87,7 @@ const KidsPage = async ({}) => {
   //   }`);
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
+    <div className="min-h-screen flex flex-col items-center gap-8">
       <IntroSection
         image="/logo-berean-kids.png"
         copy={`BereanKIDS strives to transform kids lives through accurately
@@ -98,7 +98,7 @@ const KidsPage = async ({}) => {
         transformation happens in families' lives when the church and home
         partner together.`}
       />
-      <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
+      <div className="flex flex-col items-center gap-8 w-full">
         <div className="flex flex-col items-center gap-4 copy-container">
           <h2 className="text-lg font-semibold text-kidsAccent uppercase">
             Values
