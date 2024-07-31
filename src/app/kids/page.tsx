@@ -6,6 +6,7 @@ import { AiOutlineSafety } from "react-icons/ai";
 import { LiaCheckCircle } from "react-icons/lia";
 import { TbMoodKid } from "react-icons/tb";
 import { IntroSection } from "../components/IntroSection/IntroSection";
+import { Card } from "../components/Card/Card";
 
 const VALUES = [
   {
@@ -36,10 +37,34 @@ const VALUES = [
 ];
 
 const CLASSES = [
-  { name: "Embark", ages: "Ages 0-2" },
-  { name: "Ascent", ages: "Ages 3-5" },
-  { name: "Venture", ages: "1st-3rd Grade" },
-  { name: "Anchor", ages: "4th-6th Grade" },
+  {
+    name: "Embark",
+    ages: "Ages 0-2",
+    desc: "As we commit to equipping our youngest group, this class will focus on learning the gospel through play and worship. Your child will sing songs, enjoy a snack, and have fellowship with other children up until their 3rd birthday.",
+    image: "",
+    bgColor: "#97A090",
+  },
+  {
+    name: "Ascent",
+    ages: "Ages 3-5",
+    desc: "We know that play and fun is of the upmost importance, alongside learning. Your child's schedule will consist of a routine including: Bible lesson and story, songs, snack, and play! Children in this room range from 3-6 years old.",
+    image: "",
+    bgColor: "#889082",
+  },
+  {
+    name: "Venture",
+    ages: "1st-3rd Grade",
+    desc: "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
+    image: "",
+    bgColor: "#6A7065",
+  },
+  {
+    name: "Anchor",
+    ages: "4th-6th Grade",
+    desc: "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
+    image: "",
+    bgColor: "#4C5048",
+  },
 ];
 
 const KidsPage = async ({}) => {
@@ -115,9 +140,13 @@ const KidsPage = async ({}) => {
           </h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
             {CLASSES.map((kidsClass) => (
-              <div className="col-span-6 lg:col-span-3" key={kidsClass.name}>
-                {kidsClass.name}
-              </div>
+              <Card
+                title={kidsClass.name}
+                subtitle={kidsClass.ages}
+                description={kidsClass.desc}
+                image={kidsClass.image}
+                backgroundColor={kidsClass.bgColor}
+              />
             ))}
           </div>
         </div>
