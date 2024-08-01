@@ -78,6 +78,7 @@ const AwanaPage = async ({}) => {
                 description={club.desc}
                 image={club.image}
                 backgroundColor={club.bgColor}
+                key={club.name}
               />
             ))}
           </div>

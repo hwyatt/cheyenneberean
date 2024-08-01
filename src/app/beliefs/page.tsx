@@ -34,7 +34,7 @@ const BeliefsPage = async () => {
           />
           <div className="w-full flex flex-col gap-8">
             {beliefsCollection.map((belief: any) => (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4" key={belief.title}>
                 <div className="flex flex-col gap-2">
                   <h3 className="font-semibold text-lg">{belief.title}</h3>
                   <p>{belief.description}</p>
@@ -47,6 +47,7 @@ const BeliefsPage = async () => {
                         href={url}
                         target="_blank"
                         className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"
+                        key={url}
                       >
                         {verse}
                       </Link>

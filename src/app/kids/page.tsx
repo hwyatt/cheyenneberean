@@ -132,6 +132,7 @@ const KidsPage = async ({}) => {
                 description={kidsClass.desc}
                 image={kidsClass.image}
                 backgroundColor={kidsClass.bgColor}
+                key={kidsClass.name}
               />
             ))}
           </div>
