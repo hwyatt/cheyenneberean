@@ -39,14 +39,14 @@ const BeliefsPage = async () => {
                   <h3 className="font-semibold text-lg">{belief.title}</h3>
                   <p>{belief.description}</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   {belief.bibleVerseReferences.map((verseRef: string) => {
                     const [verse, url] = verseRef.split(" | ");
                     return (
                       <Link
                         href={url}
                         target="_blank"
-                        className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"
+                        className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl whitespace-nowrap"
                         key={url}
                       >
                         {verse}
