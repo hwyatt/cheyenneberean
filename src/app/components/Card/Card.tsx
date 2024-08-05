@@ -25,7 +25,7 @@ export const Card = ({
     </div>
     <div className="flex flex-col gap-2 p-4">
       <div className="flex flex-col">
-        <h3 className="font-semibold text-gray-800">{title}</h3>
+        <h3 className="font-semibold text-gray-800 text-lg">{title}</h3>
         <span className="text-sm font-light text-gray-600">{subtitle}</span>
       </div>
       <p className="text-gray-800">{description}</p>

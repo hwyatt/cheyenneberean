@@ -51,6 +51,17 @@
   @apply mb-4;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+a {
+  @apply text-gray-800;
+}
+
 /* .banner {
     background: linear-gradient(
             360deg,

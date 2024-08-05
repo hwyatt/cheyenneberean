@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { SocialIcon } from "react-social-icons";
 import { fetchGraphQL } from "../api/contentful";
 import { IntroSection } from "../components/IntroSection/IntroSection";
+import { TextBlock } from "../components/TextBlock/TextBlock";
 
 type StaffMember = {
   position: string;
@@ -48,25 +49,33 @@ const LeadershipPage = async ({}) => {
           language is clear and concise`}
       />
       {leadPastorContent && (
-        <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
-          <div className="col-span-4 flex flex-col items-center">
-            <Image
-              className="rounded-lg max-h-80 md:max-h-none"
-              src={leadPastorContent.image.url}
-              alt={leadPastorContent.name}
-              width={406}
-              height={608}
-            />
-          </div>
-          <div className="col-span-8 flex flex-col gap-2 md:gap-4">
-            <h2 className="text-accent font-semibold text-2xl">
-              {leadPastorContent.name}
-            </h2>
-            <div className="markdown-container">
-              <ReactMarkdown>{leadPastorContent.bio}</ReactMarkdown>
-            </div>
-          </div>
-        </div>
+        // <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
+        //   <div className="col-span-4 flex flex-col items-center">
+        //     <Image
+        //       className="rounded-lg max-h-80 md:max-h-none"
+        //       src={leadPastorContent.image.url}
+        //       alt={leadPastorContent.name}
+        //       width={406}
+        //       height={608}
+        //     />
+        //   </div>
+        //   <div className="col-span-8 flex flex-col gap-2 md:gap-4">
+        //     <h2 className="text-accent font-semibold text-2xl">
+        //       {leadPastorContent.name}
+        //     </h2>
+        //     <div className="markdown-container">
+        //       <ReactMarkdown>{leadPastorContent.bio}</ReactMarkdown>
+        //     </div>
+        //   </div>
+        // </div>
+        <TextBlock
+          header={leadPastorContent.name}
+          markdown={leadPastorContent.bio}
+          image={{
+            url: leadPastorContent.image.url,
+            alt: leadPastorContent.name,
+          }}
+        />
       )}
       {staffContent && (
         <div className="flex flex-col gap-4 items-center">

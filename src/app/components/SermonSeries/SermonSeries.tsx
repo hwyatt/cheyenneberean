@@ -42,7 +42,7 @@ export const SermonSeries = ({
               target="_blank"
               className="btn btn-primary absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
             >
-              <span>Watch Sermon</span>
+              <span className="text-white">Watch Sermon</span>
               <IoChevronForward size={18} className="text-white" />
             </a>
           )}

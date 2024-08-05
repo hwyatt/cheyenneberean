@@ -89,6 +89,7 @@ const KidsPage = async ({}) => {
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
       <IntroSection
+        header="BereanKIDS"
         image="/logo-berean-kids.png"
         copy={`BereanKIDS strives to transform kids lives through accurately
         teaching the Gospel and showing them how to live for Jesus. We will
@@ -97,12 +98,11 @@ const KidsPage = async ({}) => {
         loves them, and faithfully walks beside them. We believe that life
         transformation happens in families' lives when the church and home
         partner together.`}
+        headerColor="text-gray-800"
       />
       <div className="flex flex-col items-center gap-8 w-full">
-        <div className="flex flex-col items-center gap-4 copy-container">
-          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
-            Values
-          </h2>
+        <div className="flex flex-col items-center gap-2 copy-container">
+          <h2 className="text-lg font-semibold uppercase">Values</h2>
           <div className="flex flex-col items-center text-center gap-4">
             {VALUES.map((value) => (
               <div
@@ -120,10 +120,8 @@ const KidsPage = async ({}) => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
-            Classrooms
-          </h2>
+        <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-lg font-semibold uppercase">Classrooms</h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
             {CLASSES.map((kidsClass) => (
               <Card
@@ -137,10 +135,48 @@ const KidsPage = async ({}) => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
-            Events
-          </h2>
+        <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-lg font-semibold uppercase">Events</h2>
+        </div>
+        <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-lg font-semibold uppercase">BereanKIDS FAQs</h2>
+          <div className="flex flex-col gap-4 copy-container md:min-w-[768px]">
+            <div className="collapse collapse-arrow bg-white rounded-lg">
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-semibold">
+                What will my child learn in BereanKIDS?
+              </div>
+              <div className="collapse-content">
+                <p>
+                  The Bible is the most amazing book ever written, and we strive
+                  to bring its stories to life through creative activities and
+                  discussions that keep kids engaged. We want every child to
+                  love God's Word and understand the value of applying it to
+                  their lives. We know they'll have fun each week as they learn
+                  about who God is through games, activities, small groups, and
+                  video teaching.
+                </p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow bg-white rounded-lg">
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-semibold">
+                Click to open this one and close others
+              </div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow bg-white rounded-lg">
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-semibold">
+                Click to open this one and close others
+              </div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
