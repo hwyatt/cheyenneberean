@@ -62,11 +62,13 @@ const AwanaPage = async ({}) => {
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
       <IntroSection
+        header="Awana"
+        headerColor="text-gray-800"
         image="/logo-kids-awana.png"
         copy={`The mission of Awana is to reach kids with the gospel and to engage them in life-long discipleship.`}
       />
       <div className="flex flex-col items-center gap-8 w-full">
-        <div className="flex flex-col gap-4 items-center">
+        <div className="flex flex-col gap-2 items-center">
           <h2 className="text-lg font-semibold text-gray-800 uppercase">
             Awana Clubs
           </h2>
