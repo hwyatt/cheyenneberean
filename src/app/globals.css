@@ -12,6 +12,11 @@
   @apply text-accent;
 }
 
+.btn-primary,
+.btn-secondary {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .btn-lg {
   @apply text-sm;
 }
@@ -49,6 +54,17 @@
 
 .markdown-container p {
   @apply mb-4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+a {
+  @apply text-gray-800;
 }
 
 /* .banner {

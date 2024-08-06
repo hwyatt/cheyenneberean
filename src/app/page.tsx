@@ -4,10 +4,11 @@ import {
   IoPersonOutline,
   IoPeopleOutline,
 } from "react-icons/io5";
-import { FaRegMessage } from "react-icons/fa6";
+import { FaRegClock, FaRegMessage, FaLocationDot } from "react-icons/fa6";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { MdPhone } from "react-icons/md";
+import { FaCross } from "react-icons/fa";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
@@ -16,6 +17,7 @@ import { HeroBanner } from "./components/HeroBanner/HeroBanner";
 import { SermonSeries } from "./components/SermonSeries/SermonSeries";
 import { Tile } from "./components/Tile/Tile";
 import { fetchGraphQL } from "./api/contentful";
+import { Card } from "./components/Card/Card";
 
 const formatDateTime = (dateString: string) => {
   const date = new Date(dateString);
@@ -151,24 +153,51 @@ export default async function Home() {
           )}
         </div>
         <div className="col-span-4 flex flex-col gap-8">
-          <div className="border-gray-400 border-2 rounded-lg p-4 flex flex-col gap-2 justify-start">
-            <h3 className="text-accent font-semibold text-lg mb-0">
-              Service Times
-            </h3>
-            <span className="text-gray-800 text-sm">Sunday: 9am & 10:30am</span>
-            <div className="flex flex-col">
-              <span className="text-gray-600 text-sm m-0">
-                5716 Powderhouse Rd,
-              </span>
-              <span className="text-gray-600 text-sm m-0">
-                Cheyenne, WY 82009
-              </span>
+          <div className="bg-white rounded-lg flex flex-col justify-start shadow-lg">
+            <div className="aspect-video relative">
+              <Image
+                src="/cbcMap.png"
+                alt="Cheyenne Berean Church location"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-t-lg"
+              />
+              <div className="absolute inset-0 flex justify-center items-center">
+                {/* <div className="flex items-center justify-center rounded-full border-2 border-accent bg-secondary w-16 h-16 opacity-60"></div> */}
+                <FaLocationDot className="text-accent" size={32} />
+              </div>
             </div>
-            <button className="text-accent font-semibold md:hover:underline text-sm mt-2 inline-flex items-center self-start p-0 gap-1">
-              <span>Get Directions</span>
-              <IoChevronForward size={16} className="text-gray-800" />
-            </button>
+            <div className="flex flex-col gap-2 justify-start p-4">
+              <h3 className="text-accent font-semibold text-xl mb-0">
+                Service Times
+              </h3>
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-2">
+                  <div className="flex gap-1 items-center">
+                    <FaRegClock className="text-accent" />
+                    <span className="text-sm">
+                      Sundays at 9:00 AM & 10:30 AM
+                    </span>
+                  </div>
+                  <div className="flex gap-1 items-center">
+                    <FaLocationDot className="text-accent" />
+                    <span className="text-sm m-0">
+                      5716 Powderhouse Rd, Cheyenne, WY 82009
+                    </span>
+                  </div>
+                </div>
+                <button className="btn btn-secondary">Get Directions</button>
+              </div>
+            </div>
           </div>
+          {/* <Card
+            title="Service Times"
+            time="Sundays at 9:00 AM & 10:30 AM"
+            location="5716 Powderhouse Rd, Cheyenne, WY 82009"
+            ctaSecondary="Get Directions | https://g.co/kgs/i6dQMg1"
+            image="/cbcMap.png"
+            imageFit="cover"
+          /> */}
           <div className="flex flex-col gap-2">
             <h3 className="text-lg font-semibold text-accent uppercase">
               Get Involved

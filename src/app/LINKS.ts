@@ -32,7 +32,7 @@ export const NAV_LINKS = [
   },
   {
     title: `Giving`,
-    route: "#",
+    route: "https://pushpay.com/g/cheyenneberean?lang=en&src=pcgl",
     icon: "give",
     sub: [],
   },
@@ -62,7 +62,7 @@ export const CONNECT_LINKS = [
   {
     title: "Giving",
     icon: "give",
-    route: "#",
+    route: "https://pushpay.com/g/cheyenneberean?lang=en&src=pcgl",
   },
 ];
 
@@ -75,12 +75,12 @@ export const FAMILY_LINKS = [
   {
     title: "Youth",
     icon: "youth",
-    route: "#",
+    route: "/youth",
   },
   {
     title: "Young Adults",
     icon: "young-adults",
-    route: "#",
+    route: "/youngAdults",
   },
   {
     title: "Awana",
@@ -93,21 +93,21 @@ export const CONTACT_LINKS = [
   {
     title: "Facebook",
     icon: "facebook",
-    route: "#",
+    route: "https://www.facebook.com/cheyenneberean",
   },
   {
     title: "YouTube",
     icon: "youtube",
-    route: "#",
+    route: "https://www.youtube.com/@CheyenneBereanChurch",
   },
   {
     title: "Email",
     icon: "email",
-    route: "#",
+    route: "mailto:office@cheyenneberean.org",
   },
   {
     title: "Phone",
     icon: "phone",
-    route: "#",
+    route: "tel:307-634-1238",
   },
 ];

@@ -15,6 +15,7 @@ import { PiHandsPrayingFill } from "react-icons/pi";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
+import { MdPhone } from "react-icons/md";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -184,13 +185,13 @@ export default function RootLayout({
           </div>
         </div>
         <div className="relative border-t border-gray-300 overflow-hidden">
-          <Image
+          {/* <Image
             src="/light-mountains.png"
             alt="light mountain logo"
             className="hidden md:block md:top-[-128px]"
             layout="fill"
             objectFit="cover"
-          />
+          /> */}
           <footer className="bg-white px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
             <div className="grid w-full grid-cols-12 gap-y-8 gap-x-4 z-10">
               <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
@@ -248,43 +249,51 @@ export default function RootLayout({
                 ))}
               </nav>
             </div>
-            <div className="flex flex-col gap-4 items-center justify-center">
+            <div className="flex flex-col md:flex-row md:flex-row-reverse gap-8 items-center justify-center md:justify-between">
               <div className="flex gap-4">
-                <SocialIcon
-                  style={{
-                    height: 48,
-                    width: 48,
-                  }}
-                  bgColor="#1F4061"
-                  className="text-gray-800"
-                  url="https://www.facebook.com/cheyenneberean/"
-                />
-                <SocialIcon
-                  style={{
-                    height: 48,
-                    width: 48,
-                  }}
-                  bgColor="#1F4061"
-                  className="text-gray-800"
-                  url="https://www.youtube.com/c/CheyenneBereanChurch"
-                />
-                <SocialIcon
-                  style={{
-                    height: 48,
-                    width: 48,
-                  }}
-                  className="text-gray-800"
-                  bgColor="#1F4061"
-                  url="mailto:office@cheyenneberean.org"
-                />
+                {CONTACT_LINKS.map((link) =>
+                  link.title === "Phone" ? (
+                    <a
+                      key={link.title}
+                      href={`tel:${link.route}`}
+                      className="bg-accent p-1 rounded-full flex items-center justify-center"
+                      style={{
+                        height: 36,
+                        width: 36,
+                      }}
+                    >
+                      <MdPhone size={18} className="text-white" />
+                    </a>
+                  ) : (
+                    <SocialIcon
+                      key={link.title}
+                      style={{
+                        height: 36,
+                        width: 36,
+                      }}
+                      className="text-gray-800"
+                      url={link.route}
+                      bgColor={link.title === "Email" ? "#1F4061" : undefined}
+                    />
+                  )
+                )}
               </div>
 
-              <div className="flex flex-col md:flex-row gap-1 md:gap-4 w-full items-center justify-center z-10">
-                <p className="text-sm text-gray-800">
+              <div className="flex flex-col md:flex-row gap-1 md:gap-2 items-center justify-center z-10">
+                <p className="text-sm md:text-base text-gray-800">
                   5716 Powderhouse Rd, Cheyenne, WY 82009
                 </p>
                 <p className="hidden md:block text-sm text-gray-400">|</p>
-                <a className="text-sm text-primary">123-456-7890</a>
+                <a
+                  href={
+                    CONTACT_LINKS.find((link) => link.title === "Phone")?.route
+                  }
+                  className="text-sm md:text-base text-primary"
+                >
+                  {CONTACT_LINKS.find(
+                    (link) => link.title === "Phone"
+                  )?.route.replace("tel:", "")}
+                </a>
               </div>
             </div>
           </footer>

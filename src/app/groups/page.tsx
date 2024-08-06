@@ -1,6 +1,5 @@
 import { fetchGraphQL } from "../api/contentful";
 import { IntroSection } from "../components/IntroSection/IntroSection";
-import Select from "react-select";
 import { FaRegClock } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { OptionSelect } from "../components/Select/Select";

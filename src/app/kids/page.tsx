@@ -68,41 +68,49 @@ const CLASSES = [
 ];
 
 const KidsPage = async ({}) => {
-  //   const data = await fetchGraphQL(`
-  //   query {
-  //     eventCollection(order: startDateTime_ASC, limit: 4) {
-  //       items {
-  //         _id
-  //         title
-  //         startDateTime
-  //         coverImage {
-  //           url
-  //         }
-  //         logoImage {
-  //           url
-  //         }
-  //         backgroundColor
-  //       }
-  //     }
-  //   }`);
+  const data = await fetchGraphQL(`
+    query {
+      pageCollection(where: { sys: { id: "4eegCLl4Ktr9hs2Zu6kcVX" } }) {
+        items {
+          sys {
+            id
+          }
+          pageIntroSection {
+            heading
+            description
+            ctaPrimary
+            ctaSecondary
+            logo {
+              url
+            }
+          }
+        }
+      }
+    }    
+    `);
+
+  const pageData = data?.data?.pageCollection?.items[0];
+  const { pageIntroSection } = pageData;
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
-      <IntroSection
-        image="/logo-berean-kids.png"
-        copy={`BereanKIDS strives to transform kids lives through accurately
-        teaching the Gospel and showing them how to live for Jesus. We will
-        provide BereanKIDS a nurturing and exciting environment to gather,
-        in order to build their understanding of the God who created them,
-        loves them, and faithfully walks beside them. We believe that life
-        transformation happens in families' lives when the church and home
-        partner together.`}
-      />
+      {pageIntroSection && (
+        <IntroSection
+          header={pageIntroSection.heading}
+          headerColor="text-gray-800"
+          image={pageIntroSection.logo.url}
+          copy={pageIntroSection.description}
+          ctaPrimary={
+            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
+          }
+          ctaSecondary={
+            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
+          }
+        />
+      )}
       <div className="flex flex-col items-center gap-8 w-full">
-        <div className="flex flex-col items-center gap-4 copy-container">
-          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
-            Values
-          </h2>
+        <div className="flex flex-col items-center gap-2 copy-container">
+          <h2 className="text-lg font-semibold uppercase">Values</h2>
           <div className="flex flex-col items-center text-center gap-4">
             {VALUES.map((value) => (
               <div
@@ -120,10 +128,8 @@ const KidsPage = async ({}) => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
-            Classrooms
-          </h2>
+        <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-lg font-semibold uppercase">Classrooms</h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
             {CLASSES.map((kidsClass) => (
               <Card
@@ -137,12 +143,66 @@ const KidsPage = async ({}) => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-lg font-semibold text-kidsAccent uppercase">
-            Events
-          </h2>
+        <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-lg font-semibold uppercase">Events</h2>
+        </div>
+        <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-lg font-semibold uppercase">BereanKIDS FAQs</h2>
+          <div className="flex flex-col gap-4 copy-container md:min-w-[768px]">
+            <div className="collapse collapse-arrow bg-white rounded-lg">
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-semibold">
+                What will my child learn in BereanKIDS?
+              </div>
+              <div className="collapse-content">
+                <p>
+                  {`The Bible is the most amazing book ever written, and we strive
+                  to bring its stories to life through creative activities and
+                  discussions that keep kids engaged. We want every child to
+                  love God's Word and understand the value of applying it to
+                  their lives. We know they'll have fun each week as they learn
+                  about who God is through games, activities, small groups, and
+                  video teaching.`}
+                </p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow bg-white rounded-lg">
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-semibold">
+                Click to open this one and close others
+              </div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow bg-white rounded-lg">
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-semibold">
+                Click to open this one and close others
+              </div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <Card
+        title={"This is a test card"}
+        subtitle={"Subtitle text"}
+        description={
+          "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games."
+        }
+        // image={kidsClass.image}
+        // backgroundColor={kidsClass.bgColor}
+        key={"123456"}
+        context={["Context 1", "Item 2", "Thing 3"]}
+        // location="5716 Mountain Top Ln. Trussville, Al 35244"
+        // people={["Hunter Wyatt", "Nolan Brasington"]}
+        // time="Tuesdays at 7:00PM"
+        ctaPrimary="Primary CTA | https://www.google.com/"
+        ctaSecondary="Secondary CTA | https://www.google.com/"
+      />
     </div>
   );
 };

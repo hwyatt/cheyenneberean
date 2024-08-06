@@ -1,11 +1,4 @@
-import Image from "next/image";
-import { Tile } from "../components/Tile/Tile";
 import { fetchGraphQL } from "../api/contentful";
-import { PiCross } from "react-icons/pi";
-import { LuHeartHandshake } from "react-icons/lu";
-import { AiOutlineSafety } from "react-icons/ai";
-import { LiaCheckCircle } from "react-icons/lia";
-import { TbMoodKid } from "react-icons/tb";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { Card } from "../components/Card/Card";
 
@@ -41,32 +34,48 @@ const CLUBS = [
 ];
 
 const AwanaPage = async ({}) => {
-  //   const data = await fetchGraphQL(`
-  //   query {
-  //     eventCollection(order: startDateTime_ASC, limit: 4) {
-  //       items {
-  //         _id
-  //         title
-  //         startDateTime
-  //         coverImage {
-  //           url
-  //         }
-  //         logoImage {
-  //           url
-  //         }
-  //         backgroundColor
-  //       }
-  //     }
-  //   }`);
+  const data = await fetchGraphQL(`
+    query {
+      pageCollection(where: { sys: { id: "5C61n20INdzml9XNnCweCv" } }) {
+        items {
+          sys {
+            id
+          }
+          pageIntroSection {
+            heading
+            description
+            ctaPrimary
+            ctaSecondary
+            logo {
+              url
+            }
+          }
+        }
+      }
+    }    
+    `);
+
+  const pageData = data?.data?.pageCollection?.items[0];
+  const { pageIntroSection } = pageData;
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
-      <IntroSection
-        image="/logo-kids-awana.png"
-        copy={`The mission of Awana is to reach kids with the gospel and to engage them in life-long discipleship.`}
-      />
+      {pageIntroSection && (
+        <IntroSection
+          header={pageIntroSection.heading}
+          headerColor="text-gray-800"
+          image={pageIntroSection.logo.url}
+          copy={pageIntroSection.description}
+          ctaPrimary={
+            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
+          }
+          ctaSecondary={
+            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
+          }
+        />
+      )}
       <div className="flex flex-col items-center gap-8 w-full">
-        <div className="flex flex-col gap-4 items-center">
+        <div className="flex flex-col gap-2 items-center">
           <h2 className="text-lg font-semibold text-gray-800 uppercase">
             Awana Clubs
           </h2>
