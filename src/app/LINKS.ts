@@ -75,12 +75,12 @@ export const FAMILY_LINKS = [
   {
     title: "Youth",
     icon: "youth",
-    route: "#",
+    route: "/youth",
   },
   {
     title: "Young Adults",
     icon: "young-adults",
-    route: "#",
+    route: "/youngAdults",
   },
   {
     title: "Awana",
