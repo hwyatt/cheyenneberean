@@ -156,13 +156,13 @@ const KidsPage = async ({}) => {
               </div>
               <div className="collapse-content">
                 <p>
-                  The Bible is the most amazing book ever written, and we strive
+                  {`The Bible is the most amazing book ever written, and we strive
                   to bring its stories to life through creative activities and
                   discussions that keep kids engaged. We want every child to
                   love God's Word and understand the value of applying it to
                   their lives. We know they'll have fun each week as they learn
                   about who God is through games, activities, small groups, and
-                  video teaching.
+                  video teaching.`}
                 </p>
               </div>
             </div>
