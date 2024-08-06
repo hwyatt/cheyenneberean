@@ -68,38 +68,46 @@ const CLASSES = [
 ];
 
 const KidsPage = async ({}) => {
-  //   const data = await fetchGraphQL(`
-  //   query {
-  //     eventCollection(order: startDateTime_ASC, limit: 4) {
-  //       items {
-  //         _id
-  //         title
-  //         startDateTime
-  //         coverImage {
-  //           url
-  //         }
-  //         logoImage {
-  //           url
-  //         }
-  //         backgroundColor
-  //       }
-  //     }
-  //   }`);
+  const data = await fetchGraphQL(`
+    query {
+      pageCollection(where: { sys: { id: "4eegCLl4Ktr9hs2Zu6kcVX" } }) {
+        items {
+          sys {
+            id
+          }
+          pageIntroSection {
+            heading
+            description
+            ctaPrimary
+            ctaSecondary
+            logo {
+              url
+            }
+          }
+        }
+      }
+    }    
+    `);
+
+  const pageData = data?.data?.pageCollection?.items[0];
+  const { pageIntroSection } = pageData;
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
-      <IntroSection
-        header="BereanKIDS"
-        image="/logo-berean-kids.png"
-        copy={`BereanKIDS strives to transform kids lives through accurately
-        teaching the Gospel and showing them how to live for Jesus. We will
-        provide BereanKIDS a nurturing and exciting environment to gather,
-        in order to build their understanding of the God who created them,
-        loves them, and faithfully walks beside them. We believe that life
-        transformation happens in families' lives when the church and home
-        partner together.`}
-        headerColor="text-gray-800"
-      />
+      {pageIntroSection && (
+        <IntroSection
+          header={pageIntroSection.heading}
+          headerColor="text-gray-800"
+          image={pageIntroSection.logo.url}
+          copy={pageIntroSection.description}
+          ctaPrimary={
+            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
+          }
+          ctaSecondary={
+            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
+          }
+        />
+      )}
       <div className="flex flex-col items-center gap-8 w-full">
         <div className="flex flex-col items-center gap-2 copy-container">
           <h2 className="text-lg font-semibold uppercase">Values</h2>
@@ -179,6 +187,22 @@ const KidsPage = async ({}) => {
           </div>
         </div>
       </div>
+      <Card
+        title={"This is a test card"}
+        subtitle={"Subtitle text"}
+        description={
+          "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games."
+        }
+        // image={kidsClass.image}
+        // backgroundColor={kidsClass.bgColor}
+        key={"123456"}
+        context={["Context 1", "Item 2", "Thing 3"]}
+        // location="5716 Mountain Top Ln. Trussville, Al 35244"
+        // people={["Hunter Wyatt", "Nolan Brasington"]}
+        // time="Tuesdays at 7:00PM"
+        ctaPrimary="Primary CTA | https://www.google.com/"
+        ctaSecondary="Secondary CTA | https://www.google.com/"
+      />
     </div>
   );
 };

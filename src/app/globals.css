@@ -12,6 +12,11 @@
   @apply text-accent;
 }
 
+.btn-primary,
+.btn-secondary {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .btn-lg {
   @apply text-sm;
 }

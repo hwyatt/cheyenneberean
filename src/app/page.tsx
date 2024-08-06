@@ -17,6 +17,7 @@ import { HeroBanner } from "./components/HeroBanner/HeroBanner";
 import { SermonSeries } from "./components/SermonSeries/SermonSeries";
 import { Tile } from "./components/Tile/Tile";
 import { fetchGraphQL } from "./api/contentful";
+import { Card } from "./components/Card/Card";
 
 const formatDateTime = (dateString: string) => {
   const date = new Date(dateString);
@@ -162,12 +163,12 @@ export default async function Home() {
                 className="rounded-t-lg"
               />
               <div className="absolute inset-0 flex justify-center items-center">
-                <div className="flex items-center justify-center rounded-full border-2 border-accent bg-secondary w-16 h-16 opacity-60"></div>
-                <FaCross className="absolute text-accent z-10" size={32} />
+                {/* <div className="flex items-center justify-center rounded-full border-2 border-accent bg-secondary w-16 h-16 opacity-60"></div> */}
+                <FaLocationDot className="text-accent" size={32} />
               </div>
             </div>
             <div className="flex flex-col gap-2 justify-start p-4">
-              <h3 className="text-accent font-semibold text-lg mb-0">
+              <h3 className="text-accent font-semibold text-xl mb-0">
                 Service Times
               </h3>
               <div className="flex flex-col gap-8">
@@ -189,6 +190,14 @@ export default async function Home() {
               </div>
             </div>
           </div>
+          {/* <Card
+            title="Service Times"
+            time="Sundays at 9:00 AM & 10:30 AM"
+            location="5716 Powderhouse Rd, Cheyenne, WY 82009"
+            ctaSecondary="Get Directions | https://g.co/kgs/i6dQMg1"
+            image="/cbcMap.png"
+            imageFit="cover"
+          /> */}
           <div className="flex flex-col gap-2">
             <h3 className="text-lg font-semibold text-accent uppercase">
               Get Involved
