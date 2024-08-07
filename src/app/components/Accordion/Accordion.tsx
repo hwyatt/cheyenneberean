@@ -1,5 +1,5 @@
-export const Accordion = ({ header, items }: any) => (
-  <div className="flex flex-col items-center gap-2 w-full">
+export const Accordion = ({ header, items, key }: any) => (
+  <div key={key} className="flex flex-col items-center gap-2 w-full">
     <h2 className="text-lg font-semibold uppercase">{header}</h2>
     <div className="flex flex-col gap-4 copy-container md:min-w-[768px]">
       {items.map((item: any) => (

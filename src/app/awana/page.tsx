@@ -1,6 +1,5 @@
 import { fetchGraphQL } from "../api/contentful";
 import { IntroSection } from "../components/IntroSection/IntroSection";
-import { Card } from "../components/Card/Card";
 
 const CLUBS = [
   {
@@ -8,7 +7,7 @@ const CLUBS = [
     ages: "Ages 2-3",
     desc: "Puggles teaches children four Big Truths from the Bible — God made everything, God is great, God loves us, and we give thanks. (For children of volunteers only)",
     img: "/awana/puggles-kid.png",
-    logo: "/awana-puggles.webp",
+    logo: "/awana/awana-puggles.webp",
     bgColor: {
       light: "#fff1cc",
       medium: "#f6c74a",
@@ -20,7 +19,7 @@ const CLUBS = [
     ages: "Ages 4-5",
     desc: `Children in Cubbies are taught about God’s love for them, and how he sent Jesus to save us.`,
     img: "/awana/cubbies-kid.png",
-    logo: "/awana-cubbies.webp",
+    logo: "/awana/awana-cubbies.webp",
     bgColor: {
       light: "#e6f1ff",
       medium: "#99C9FF",
@@ -32,7 +31,7 @@ const CLUBS = [
     ages: "Kindergaten-2nd Grade",
     desc: "The children in Sparks learn about God’s desire to have a personal relationship with us, as they explore His faithfulness through studying people and events in the Bible.",
     img: "/awana/sparks-kid.png",
-    logo: "/awana-sparks.webp",
+    logo: "/awana/awana-sparks.webp",
     bgColor: {
       light: "#ffebe6",
       medium: "#ffc1b0",
@@ -44,7 +43,7 @@ const CLUBS = [
     ages: "3rd-6th Grade",
     desc: "T&T stands for Truth and Training. The focus of T&T is on the badics of the Christian Faith and guides kids to a deeper understanding of God’s Grace.",
     img: "/awana/tt-kid.png",
-    logo: "/awana-t&t.png",
+    logo: "/awana/awana-t&t.png",
     bgColor: {
       light: "#e6fff0",
       medium: "#78f0ac",
@@ -53,8 +52,9 @@ const CLUBS = [
   },
 ];
 
-const ClubCard = ({ img, logo, ages, desc, bgColor }: any) => (
+const ClubCard = ({ img, logo, ages, desc, bgColor, key }: any) => (
   <div
+    key={key}
     className="relative flex items-center overflow-hidden w-screen pt-8 pl-8 md:pb-8"
     style={{ backgroundColor: bgColor.light }}
   >
@@ -128,22 +128,25 @@ const AwanaPage = async ({}) => {
         />
       )}
       <div className="flex flex-col items-center gap-8 w-screen">
-        <div className="flex flex-col items-center w-full">
-          {/* <h2 className="text-lg font-semibold text-gray-800 uppercase">
+        <div className="flex flex-col gap-2 items-center w-full">
+          <h2 className="text-lg font-semibold text-gray-800 uppercase">
             Awana Clubs
-          </h2> */}
-          {CLUBS.map((club: any) => (
-            <ClubCard
-              img={club.img}
-              logo={club.logo}
-              ages={club.ages}
-              desc={club.desc}
-              bgColor={club.bgColor}
-            />
-          ))}
+          </h2>
+          <div>
+            {CLUBS.map((club: any) => (
+              <ClubCard
+                key={club.ages}
+                img={club.img}
+                logo={club.logo}
+                ages={club.ages}
+                desc={club.desc}
+                bgColor={club.bgColor}
+              />
+            ))}
+          </div>
         </div>
       </div>
-      <img src="https://d3hvw7fj496ctv.cloudfront.net/wp-content/uploads/2023/05/AbbeyRoad-RGB-maskedlayers-Kids-e1684935337310.png" />
+      <img src="/awana/awana-kids.png" className="mb-[-64px] max-h-[400px]" />
     </div>
   );
 };

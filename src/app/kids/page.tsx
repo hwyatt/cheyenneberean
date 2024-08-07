@@ -116,40 +116,12 @@ const KidsPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 w-full">
         <div className="flex flex-col items-center gap-2">
-          {/* <h2 className="text-lg font-semibold uppercase">Values</h2> */}
+          <h2 className="text-lg font-semibold uppercase">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
-              // <div
-              //   className="flex flex-col gap-2 items-center text-center"
-              //   key={value.title}
-              // >
-              //   <div className="flex items-center text-center gap-2">
-              //     {value.icon}
-              //     <span className="text-gray-800 font-semibold">
-              //       {value.title}
-              //     </span>
-              //   </div>
-              //   <div className="text-center">{value.desc}</div>
-              // </div>
-
               <div
-                className="
-              font-semibold
-              p-4
-              md:px-8
-              md:pb-8
-              md:pt-16
-              rounded
-              flex flex-col
-              gap-4
-              justify-between
-              relative
-              overflow-hidden
-              text-start
-              md:col-span-1
-              h-full
-              shadow-md
-            "
+                key={value.title}
+                className="font-semibold p-4 md:px-8 md:pb-8 md:pt-16 rounded flex flex-col gap-4 justify-between relative overflow-hidden text-start md:col-span-1 h-full shadow-md"
                 style={{ background: value.bgColor }}
               >
                 <img
