@@ -7,6 +7,7 @@ import { LiaCheckCircle } from "react-icons/lia";
 import { TbMoodKid } from "react-icons/tb";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { Card } from "../components/Card/Card";
+import { Accordion } from "../components/Accordion/Accordion";
 
 const VALUES = [
   {
@@ -146,63 +147,44 @@ const KidsPage = async ({}) => {
         <div className="flex flex-col items-center gap-2 w-full">
           <h2 className="text-lg font-semibold uppercase">Events</h2>
         </div>
-        <div className="flex flex-col items-center gap-2 w-full">
-          <h2 className="text-lg font-semibold uppercase">BereanKIDS FAQs</h2>
-          <div className="flex flex-col gap-4 copy-container md:min-w-[768px]">
-            <div className="collapse collapse-arrow bg-white rounded-lg">
-              <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title text-xl font-semibold">
-                What will my child learn in BereanKIDS?
-              </div>
-              <div className="collapse-content">
-                <p>
-                  {`The Bible is the most amazing book ever written, and we strive
-                  to bring its stories to life through creative activities and
-                  discussions that keep kids engaged. We want every child to
-                  love God's Word and understand the value of applying it to
-                  their lives. We know they'll have fun each week as they learn
-                  about who God is through games, activities, small groups, and
-                  video teaching.`}
-                </p>
-              </div>
-            </div>
-            <div className="collapse collapse-arrow bg-white rounded-lg">
-              <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title text-xl font-semibold">
-                Click to open this one and close others
-              </div>
-              <div className="collapse-content">
-                <p>hello</p>
-              </div>
-            </div>
-            <div className="collapse collapse-arrow bg-white rounded-lg">
-              <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title text-xl font-semibold">
-                Click to open this one and close others
-              </div>
-              <div className="collapse-content">
-                <p>hello</p>
-              </div>
-            </div>
+        <Accordion
+          header="BereanKIDS FAQs"
+          items={[
+            { question: "This is a question", answer: "This is an answer" },
+            { question: "This is a question", answer: "This is an answer" },
+            { question: "This is a question", answer: "This is an answer" },
+            { question: "This is a question", answer: "This is an answer" },
+            { question: "This is a question", answer: "This is an answer" },
+          ]}
+        />
+      </div>
+
+      <div
+        className="
+            flex flex-col
+            md:flex-row
+            items-center
+            justify-between
+            gap-4
+            py-8
+            border-accent border-t-2 border-b-2 w-full
+          "
+      >
+        <div className="flex items-center gap-4">
+          {/* <img src="/logo-berean-kids.png" className="h-auto w-24" /> */}
+          <div className="flex flex-col gap-2">
+            <span className="text-center md:text-start font-semibold text-accent text-2xl leading-5">
+              Have questions about BereanKIDS?
+            </span>
+            <span className="text-center md:text-start text-gray-800 leading-5">
+              Connect with our BereanKIDS team.
+            </span>
           </div>
         </div>
+        <button className="btn btn-secondary w-full md:w-auto">
+          Contact BereanKIDS
+        </button>
       </div>
-      <Card
-        title={"This is a test card"}
-        subtitle={"Subtitle text"}
-        description={
-          "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games."
-        }
-        // image={kidsClass.image}
-        // backgroundColor={kidsClass.bgColor}
-        key={"123456"}
-        context={["Context 1", "Item 2", "Thing 3"]}
-        // location="5716 Mountain Top Ln. Trussville, Al 35244"
-        // people={["Hunter Wyatt", "Nolan Brasington"]}
-        // time="Tuesdays at 7:00PM"
-        ctaPrimary="Primary CTA | https://www.google.com/"
-        ctaSecondary="Secondary CTA | https://www.google.com/"
-      />
     </div>
   );
 };

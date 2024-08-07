@@ -32,7 +32,7 @@ export const IntroSection = ({
           {header}
         </h1>
       )}
-      {copy && <p className="text-center text-lg">{copy}</p>}
+      {copy && <p className="text-center text-lg text-balance">{copy}</p>}
       {(ctaPrimary || ctaSecondary) && (
         <div className="flex flex-col md:flex-row gap-4 mt-4 w-full items-center justify-center">
           {ctaPrimary && (
