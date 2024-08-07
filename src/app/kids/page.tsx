@@ -153,8 +153,8 @@ const KidsPage = async ({}) => {
                 style={{ background: value.bgColor }}
               >
                 <img
-                  src="/dark-mountains-kids.png"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  src="/texture-kids.png"
+                  className="absolute inset-0 h-full w-full object-cover transform scale-150"
                 />
                 <div className="flex flex-col gap-1 z-10">
                   <div className="flex flex-col gap-4">
