@@ -67,14 +67,73 @@ a {
   @apply text-gray-800;
 }
 
-/* .banner {
-    background: linear-gradient(
-            360deg,
-            rgba(31, 64, 97, 0.65) 0%,
-            rgba(31, 64, 97, 0.8) 80%,
-            #1f4061 100%
-        ),
-        url(https://lh3.googleusercontent.com/p/AF1QipOPKNaEcmvtUo-_ZNjE6PDvED2dFm_NuYG0VkBb=s1360-w1360-h1020);
-    background-position: center;
-    background-size: cover;
-} */
+.m-club-info-block__image-side {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  max-height: none;
+}
+
+@media screen and (max-width: 767px) {
+  .m-club-info-block__image-side {
+    position: relative;
+    width: 60%;
+    margin-left: auto;
+  }
+}
+
+.m-club-info-block__image-side:before {
+  content: "";
+  position: absolute;
+  bottom: 138px;
+  left: 25px;
+  width: 136px;
+  height: 88px;
+  background-image: url(//clubs.awana.org/wp-content/themes/genesis-platform-child/assets/css/../images/brand/module-graphics/cib-stars.svg);
+  z-index: 2;
+}
+
+.m-club-info-block__secondary-bg-color {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: calc(100% - 112px);
+  width: 100%;
+  border-top-left-radius: 20px;
+}
+
+.m-club-info-block__primary-bg-color {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(100% - 85px);
+  height: 105px;
+  border-top-left-radius: 20px;
+}
+
+.m-club-info-block__image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -o-object-position: center bottom;
+  object-position: center bottom;
+  z-index: 3;
+  padding-top: 32px;
+}
+
+.m-club-info-block__image-side:after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 42px;
+  width: 67%;
+  height: 62%;
+  background-image: url(//clubs.awana.org/wp-content/themes/genesis-platform-child/assets/css/../images/brand/module-graphics/cib-clouds.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

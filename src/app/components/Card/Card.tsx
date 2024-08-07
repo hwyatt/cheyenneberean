@@ -30,7 +30,7 @@ export const Card = ({
       <div
         className={`relative rounded-t-lg flex flex-col items-center justify-center ${
           !image && backgroundColor && `h-2`
-        } ${image && imageFit !== "cover" && `pt-4 px-4`}`}
+        } ${image && imageFit !== "cover" && `p-4`}`}
         style={{ backgroundColor: backgroundColor }}
       >
         {image && (
