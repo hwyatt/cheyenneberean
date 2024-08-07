@@ -3,7 +3,10 @@ export const Accordion = ({ header, items, key }: any) => (
     <h2 className="text-lg font-semibold uppercase">{header}</h2>
     <div className="flex flex-col gap-4 copy-container md:min-w-[768px]">
       {items.map((item: any) => (
-        <div className="collapse collapse-arrow bg-white rounded-lg shadow-md">
+        <div
+          className="collapse collapse-arrow bg-white rounded-lg shadow-md"
+          key={item.question}
+        >
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title font-semibold text-gray-800 flex items-center">
             {item.question}
