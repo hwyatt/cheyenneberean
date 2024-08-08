@@ -10,7 +10,7 @@ import {
   IoPeopleOutline,
 } from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
-import { FaHandHoldingHeart } from "react-icons/fa";
+import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
@@ -137,6 +137,8 @@ export default function RootLayout({
                       <IoPersonOutline size={24} className="text-gray-800" />
                     ) : link.icon === "serve" ? (
                       <IoPeopleOutline size={24} className="text-gray-800" />
+                    ) : link.icon === "walking" ? (
+                      <FaWalking size={24} className="text-gray-800" />
                     ) : link.icon === "people" ? (
                       <FaRegMessage size={24} className="text-gray-800" />
                     ) : link.icon === "give" ? (

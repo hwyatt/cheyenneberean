@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
   {
     title: "About",
-    route: "#",
+    route: "/about",
     icon: "person",
     sub: [
       {
@@ -14,13 +14,13 @@ export const NAV_LINKS = [
       },
       {
         title: "Ministries",
-        route: "#",
+        route: "/ministries",
       },
     ],
   },
   {
     title: `I'm New`,
-    route: "#",
+    route: "/welcome",
     icon: "person",
     sub: [],
   },
@@ -42,7 +42,12 @@ export const CONNECT_LINKS = [
   {
     title: "I'm New",
     icon: "person",
-    route: "#",
+    route: "/welcome",
+  },
+  {
+    title: "Next Steps",
+    icon: "walking",
+    route: "/nextSteps",
   },
   {
     title: "Groups",
@@ -52,7 +57,7 @@ export const CONNECT_LINKS = [
   {
     title: "Volunteer",
     icon: "serve",
-    route: "#",
+    route: "/serve",
   },
   {
     title: "Prayer Request",

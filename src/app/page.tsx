@@ -5,7 +5,7 @@ import {
   IoPeopleOutline,
 } from "react-icons/io5";
 import { FaRegClock, FaRegMessage, FaLocationDot } from "react-icons/fa6";
-import { FaHandHoldingHeart } from "react-icons/fa";
+import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { MdPhone } from "react-icons/md";
 import { FaCross } from "react-icons/fa";
@@ -364,6 +364,8 @@ export default async function Home() {
                       <FaHandHoldingHeart size={24} className="text-gray-800" />
                     ) : link.icon === "prayer" ? (
                       <PiHandsPrayingFill size={24} className="text-gray-800" />
+                    ) : link.icon === "walking" ? (
+                      <FaWalking size={24} className="text-gray-800" />
                     ) : null}
                     <span className="font-semibold text-gray-800">
                       {link.title}
