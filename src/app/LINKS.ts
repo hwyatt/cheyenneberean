@@ -59,11 +59,11 @@ export const CONNECT_LINKS = [
     icon: "serve",
     route: "/serve",
   },
-  {
-    title: "Prayer Request",
-    icon: "prayer",
-    route: "#",
-  },
+  // {
+  //   title: "Prayer Request",
+  //   icon: "prayer",
+  //   route: "#",
+  // },
   {
     title: "Giving",
     icon: "give",

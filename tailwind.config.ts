@@ -8,10 +8,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        kidsAccent: "#4B5048",
-        kidsPrimary: "#6A7165",
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -26,7 +22,11 @@ const config: Config = {
           accent: "#1F4061",
           primary: "#0097FA",
           secondary: "#D3E9FD",
-          kidsAccent: "#6A7165",
+        },
+      },
+      {
+        kids: {
+          primary: "#D45D0D", // Burnt Orange
         },
       },
     ],

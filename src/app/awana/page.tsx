@@ -1,5 +1,22 @@
 import { fetchGraphQL } from "../api/contentful";
+import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
+import { ValuesTile } from "../components/ValuesTile/ValuesTile";
+
+const VALUES = [
+  {
+    title: "Gospel Centered",
+    desc: "Our lessons come directly from Scripture. Our curriculum and conversations regularly establish our need for Jesus both to save us from our sins and to live courageously for Him.",
+  },
+  {
+    title: "Partnership",
+    desc: "Scripture stresses the importance of parents and the local church in spiritual formation. We commit to partnering together; equipping and releasing a team of people who want to see children's lives transformed.",
+  },
+  {
+    title: "Safety",
+    desc: "We use structured and thorough safety protocols. All volunteers are consistently screened to ensure maximum safety and security for families.",
+  },
+];
 
 const CLUBS = [
   {
@@ -127,8 +144,16 @@ const AwanaPage = async ({}) => {
           }
         />
       )}
-      <div className="flex flex-col items-center gap-8 w-screen">
-        <div className="flex flex-col gap-2 items-center w-full">
+      <div className="flex flex-col items-center gap-8 w-full">
+        <div className="flex flex-col items-center gap-2">
+          <h2 className="text-lg font-semibold uppercase">Values</h2>
+          <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
+            {VALUES.map((value) => (
+              <ValuesTile title={value.title} desc={value.desc} theme="awana" />
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 items-center w-screen">
           <h2 className="text-lg font-semibold text-gray-800 uppercase">
             Awana Clubs
           </h2>
@@ -146,7 +171,13 @@ const AwanaPage = async ({}) => {
           </div>
         </div>
       </div>
-      <img src="/awana/awana-kids.png" className="mb-[-64px] max-h-[400px]" />
+      <img src="/awana/awana-kids.png" className="max-h-[400px]" />
+      <ConnectSection
+        img={"/logo-kids-awana.png"}
+        header="Have questions about Awana?"
+        copy="Connect with our team."
+        cta="Contact Us"
+      />
     </div>
   );
 };
