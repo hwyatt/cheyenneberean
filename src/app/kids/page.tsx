@@ -126,6 +126,7 @@ const KidsPage = async ({}) => {
                 desc={value.desc}
                 icon={value.icon}
                 theme="kids"
+                key={value.title}
               />
             ))}
           </div>

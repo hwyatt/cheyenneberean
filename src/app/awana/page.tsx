@@ -150,7 +150,12 @@ const AwanaPage = async ({}) => {
           <h2 className="text-lg font-semibold uppercase">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
-              <ValuesTile title={value.title} desc={value.desc} theme="awana" />
+              <ValuesTile
+                title={value.title}
+                desc={value.desc}
+                theme="awana"
+                key={value.title}
+              />
             ))}
           </div>
         </div>
