@@ -1,20 +1,21 @@
 import { fetchGraphQL } from "../api/contentful";
+import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { ValuesTile } from "../components/ValuesTile/ValuesTile";
 
 const VALUES = [
   {
-    title: "Gospel Centered",
-    desc: "Our lessons come directly from Scripture. Our curriculum and conversations regularly establish our need for Jesus both to save us from our sins and to live courageously for Him.",
+    title: "Belong",
+    desc: "Highly relational ministry led by loving, caring adults.",
   },
   {
-    title: "Partnership",
-    desc: "Scripture stresses the importance of parents and the local church in spiritual formation. We commit to partnering together; equipping and releasing a team of people who want to see children's lives transformed.",
+    title: "Believe",
+    desc: "Deeply scriptural ministry rooted in the Gospel and the truth of God’s Word in order that kids may know, love and serve Jesus Christ.",
   },
   {
-    title: "Safety",
-    desc: "We use structured and thorough safety protocols. All volunteers are consistently screened to ensure maximum safety and security for families.",
+    title: "Become",
+    desc: "Truly experiential ministry designed to help kids navigate a changing culture, experience God’s presence and walk in the ways of Jesus.",
   },
 ];
 
@@ -72,11 +73,11 @@ const CLUBS = [
 const ClubCard = ({ img, logo, ages, desc, bgColor, key }: any) => (
   <div
     key={key}
-    className="relative flex items-center overflow-hidden w-screen pt-8 pl-8 md:pb-8"
+    className="relative flex items-center overflow-hidden w-screen pt-8 pl-8 md:pb-8 md:min-h-[315px]"
     style={{ backgroundColor: bgColor.light }}
   >
     <div className="site-container w-full mx-auto flex flex-col md:flex-row">
-      <div className="w-full md:w-2/5 flex flex-col gap-4">
+      <div className="w-full md:w-2/5 flex flex-col gap-4 pr-8 md:pr-0">
         <img
           src={logo}
           alt="Puggles logo"
@@ -170,14 +171,34 @@ const AwanaPage = async ({}) => {
             ))}
           </div>
         </div>
+        <Accordion
+          header="What happens at an Awana club?"
+          items={[
+            {
+              question: "Large Group Time",
+              answer:
+                "Kids gather together for Bible teaching, worship, announcements, and awards. This is a great opportunity for kids to hear the gospel and Biblical truth directly from pastors, missionaries, and guest speakers.",
+            },
+            {
+              question: "Small Group Time",
+              answer:
+                "Relationships and belonging begin in small groups as kids huddle up with a consistent leader from week to week to discuss Bible lessons, ask and answer important questions, pray together and complete handbooks.",
+            },
+            {
+              question: "Group Activity Time",
+              answer:
+                "A session of Awana Games, crafts, or other team-building activity help foster fun and encouraging relationships in the midst of the evening.",
+            },
+          ]}
+        />
+        <img src="/awana/awana-kids.png" className="max-h-[400px]" />
+        <ConnectSection
+          img={"/logo-kids-awana.png"}
+          header="Have questions about Awana?"
+          copy="Connect with our team."
+          cta="Contact Us"
+        />
       </div>
-      <img src="/awana/awana-kids.png" className="max-h-[400px]" />
-      <ConnectSection
-        img={"/logo-kids-awana.png"}
-        header="Have questions about Awana?"
-        copy="Connect with our team."
-        cta="Contact Us"
-      />
     </div>
   );
 };

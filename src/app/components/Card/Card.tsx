@@ -14,6 +14,7 @@ export const Card = ({
   location,
   ctaPrimary,
   ctaSecondary,
+  theme,
 }: any) => {
   let primaryText, primaryUrl, secondaryText, secondaryUrl;
   if (ctaPrimary) {
@@ -60,7 +61,13 @@ export const Card = ({
             </div>
           )}
           {title && (
-            <h3 className="font-semibold text-gray-800 text-xl">{title}</h3>
+            <h3
+              className={`font-semibold text-gray-800 ${
+                theme === "kids" ? `font-bobby text-2xl` : "text-xl"
+              }`}
+            >
+              {title}
+            </h3>
           )}
           {subtitle && (
             <span className="text-sm font-light text-gray-600">{subtitle}</span>

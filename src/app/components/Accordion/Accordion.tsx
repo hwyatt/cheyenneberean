@@ -1,9 +1,15 @@
-export const Accordion = ({ header, items, key }: any) => (
+export const Accordion = ({ header, items, key, theme }: any) => (
   <div
     key={key}
     className="flex flex-col items-center gap-2 bg-white rounded-lg p-4 md:p-8 min-w-full lg:min-w-none"
   >
-    <h2 className="text-lg font-semibold uppercase">{header}</h2>
+    <h2
+      className={`${
+        theme === "kids" ? `font-bobby text-3xl` : "text-xl"
+      } font-semibold uppercase`}
+    >
+      {header}
+    </h2>
     <div className="flex flex-col min-w-full">
       {items.map((item: any, index: any) => (
         <div

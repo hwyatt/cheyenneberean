@@ -34,7 +34,13 @@ export const ValuesTile = ({ title, desc, icon, theme }: any) => {
               className="w-6 h-auto"
             />
           )}
-          <span className={`text-xl ${textColor} z-10`}>{title}</span>
+          <span
+            className={`${textColor} z-10 ${
+              theme === "kids" ? `font-bobby text-2xl` : "text-xl"
+            }`}
+          >
+            {title}
+          </span>
         </div>
         <p className={`${textColor} font-light z-10`}>{desc}</p>
       </div>

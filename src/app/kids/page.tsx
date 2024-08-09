@@ -9,6 +9,7 @@ import { Card } from "../components/Card/Card";
 import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { ValuesTile } from "../components/ValuesTile/ValuesTile";
+import { BKDots } from "../components/BKDots/BKDots";
 
 const VALUES = [
   {
@@ -115,7 +116,9 @@ const KidsPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 w-full">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-lg font-semibold uppercase">Values</h2>
+          <h2 className="text-3xl font-semibold uppercase font-bobby">
+            Values
+          </h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -128,23 +131,28 @@ const KidsPage = async ({}) => {
           </div>
         </div>
         <div className="flex flex-col items-center gap-2 w-full">
-          <h2 className="text-lg font-semibold uppercase">Classrooms</h2>
+          <h2 className="text-3xl font-semibold uppercase font-bobby">
+            Classrooms
+          </h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
             {CLASSES.map((kidsClass) => (
               <Card
                 title={kidsClass.name}
                 subtitle={kidsClass.ages}
                 description={kidsClass.desc}
-                image={kidsClass.image}
-                backgroundColor={kidsClass.bgColor}
+                // image={kidsClass.image}
+                // backgroundColor={kidsClass.bgColor}
+                theme="kids"
                 key={kidsClass.name}
               />
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-2 w-full">
-          <h2 className="text-lg font-semibold uppercase">Events</h2>
-        </div>
+        {/* <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-3xl font-semibold uppercase font-bobby">
+            Events
+          </h2>
+        </div> */}
         <Accordion
           header="BereanKIDS FAQs"
           items={[
@@ -154,14 +162,18 @@ const KidsPage = async ({}) => {
             { question: "This is a question", answer: "This is an answer" },
             { question: "This is a question", answer: "This is an answer" },
           ]}
+          theme="kids"
         />
+        <ConnectSection
+          img={"/logo-berean-kids.png"}
+          header="Connect with the BereanKIDS Team"
+          copy="Have a question? Looking for resources?"
+          cta="Contact BereanKIDS"
+        />
+        <div className="hidden md:block">
+          <BKDots />
+        </div>
       </div>
-      <ConnectSection
-        img={"/logo-berean-kids.png"}
-        header="Connect with the BereanKIDS Team"
-        copy="Have a question? Looking for resources?"
-        cta="Contact BereanKIDS"
-      />
     </div>
   );
 };
