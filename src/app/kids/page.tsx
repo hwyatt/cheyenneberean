@@ -129,9 +129,11 @@ const KidsPage = async ({}) => {
                 key={value.title}
               />
             ))}
-            <div className="hidden md:block h-full w-full">
-              <ValuesTile theme="kids" />
-            </div>
+            <ValuesTile
+              theme="kidsVerse"
+              verse="3 John 1:4"
+              verseText={`"I have no greater joy than to hear that my children are walking in the truth."`}
+            />
           </div>
         </div>
         <div className="flex flex-col items-center gap-2 w-full">

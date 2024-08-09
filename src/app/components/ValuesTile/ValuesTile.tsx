@@ -1,4 +1,11 @@
-export const ValuesTile = ({ title, desc, icon, theme }: any) => {
+export const ValuesTile = ({
+  title,
+  desc,
+  icon,
+  theme,
+  verse,
+  verseText,
+}: any) => {
   let textColor, bgColor, bgImg, iconImg;
 
   if (theme === "kids") {
@@ -14,16 +21,24 @@ export const ValuesTile = ({ title, desc, icon, theme }: any) => {
     iconImg = "/awana/yellow-arrowhead.png";
   }
 
+  if (theme === "kidsVerse") {
+    textColor = "text-white";
+    bgColor = "#4C5048";
+    bgImg = null;
+  }
+
   return (
     <div
       key={title}
       className="font-semibold p-4 md:px-8 md:pb-8 md:pt-16 rounded flex flex-col gap-4 justify-between relative overflow-hidden text-start md:col-span-1 h-full shadow-md"
       style={{ background: bgColor }}
     >
-      <img
-        src={bgImg}
-        className="absolute inset-0 h-full w-full object-cover transform scale-150"
-      />
+      {bgImg && (
+        <img
+          src={bgImg}
+          className="absolute inset-0 h-full w-full object-cover transform scale-150"
+        />
+      )}
       <div className="flex flex-col gap-1 z-10">
         <div className="flex flex-col gap-4">
           {icon && icon}
@@ -34,15 +49,25 @@ export const ValuesTile = ({ title, desc, icon, theme }: any) => {
               className="w-6 h-auto"
             />
           )}
-          <span
-            className={`${textColor} z-10 ${
-              theme === "kids" ? `font-bobby text-2xl` : "text-xl"
-            }`}
-          >
-            {title}
-          </span>
+          {verse && verseText && (
+            <div className="flex flex-col z-10">
+              <span className="text-sm text-gray-200 uppercase font-light tracking-widest">
+                {verse}
+              </span>
+              <h1 className="text-3xl font-semibold text-white">{verseText}</h1>
+            </div>
+          )}
+          {title && (
+            <span
+              className={`${textColor} z-10 ${
+                theme === "kids" ? `font-bobby text-2xl` : "text-xl"
+              }`}
+            >
+              {title}
+            </span>
+          )}
         </div>
-        <p className={`${textColor} font-light z-10`}>{desc}</p>
+        {desc && <p className={`${textColor} font-light z-10`}>{desc}</p>}
       </div>
     </div>
   );
