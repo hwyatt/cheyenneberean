@@ -129,6 +129,9 @@ const KidsPage = async ({}) => {
                 key={value.title}
               />
             ))}
+            <div className="hidden md:block h-full w-full">
+              <ValuesTile theme="kids" />
+            </div>
           </div>
         </div>
         <div className="flex flex-col items-center gap-2 w-full">
@@ -141,8 +144,6 @@ const KidsPage = async ({}) => {
                 title={kidsClass.name}
                 subtitle={kidsClass.ages}
                 description={kidsClass.desc}
-                // image={kidsClass.image}
-                // backgroundColor={kidsClass.bgColor}
                 theme="kids"
                 key={kidsClass.name}
               />
@@ -171,7 +172,7 @@ const KidsPage = async ({}) => {
           copy="Have a question? Looking for resources?"
           cta="Contact BereanKIDS"
         />
-        <div className="hidden md:block w-screen overflow-hidden">
+        <div className="hidden md:block w-screen overflow-hidden mb-[-100px]">
           <BKDots />
         </div>
       </div>

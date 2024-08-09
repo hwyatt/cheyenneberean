@@ -196,13 +196,13 @@ const AwanaPage = async ({}) => {
             },
           ]}
         />
-        <img src="/awana/awana-kids.png" className="max-h-[400px]" />
         <ConnectSection
           img={"/logo-kids-awana.png"}
           header="Have questions about Awana?"
           copy="Connect with our team."
           cta="Contact Us"
         />
+        <img src="/awana/awana-kids.png" className="max-h-[400px] mb-[-64px]" />
       </div>
     </div>
   );
