@@ -1,11 +1,14 @@
-import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
-export const TextBlock = ({ image, header, markdown }: any) => {
+export const TextBlock = ({ image, header, markdown, reverse }: any) => {
   return (
-    <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
+    <div
+      className={`flex flex-col md:flex-row ${
+        reverse && "md:flex-row-reverse"
+      } gap-4 md:gap-8`}
+    >
       {image && (
-        <div className="col-span-4 flex flex-col items-center">
+        <div className="flex-shrink-0 w-full md:w-1/3 flex items-center">
           <img
             className="rounded-lg w-full h-auto"
             src={image.url}
@@ -13,11 +16,7 @@ export const TextBlock = ({ image, header, markdown }: any) => {
           />
         </div>
       )}
-      <div
-        className={`${
-          image ? `col-span-8` : `col-span-12`
-        } flex flex-col gap-2 md:gap-4`}
-      >
+      <div className="flex-grow flex flex-col gap-2 md:gap-4">
         <h2 className="text-accent font-semibold text-2xl">{header}</h2>
         <div className="markdown-container">
           <ReactMarkdown>{markdown}</ReactMarkdown>

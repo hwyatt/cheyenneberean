@@ -31,7 +31,6 @@ const WelcomePage = async ({}) => {
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}
-          headerColor="text-gray-800"
           image={pageIntroSection.logo ? pageIntroSection.logo.url : null}
           copy={pageIntroSection.description}
           ctaPrimary={
