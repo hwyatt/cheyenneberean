@@ -8,37 +8,13 @@ import { FaRegClock, FaRegMessage, FaLocationDot } from "react-icons/fa6";
 import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { MdPhone } from "react-icons/md";
-import { FaCross } from "react-icons/fa";
 import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
 import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "./LINKS";
 import { HeroBanner } from "./components/HeroBanner/HeroBanner";
 import { SermonSeries } from "./components/SermonSeries/SermonSeries";
-import { Tile } from "./components/Tile/Tile";
 import { fetchGraphQL } from "./api/contentful";
-import { Card } from "./components/Card/Card";
-
-const formatDateTime = (dateString: string) => {
-  const date = new Date(dateString);
-  const dateOptions: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  const timeOptions: Intl.DateTimeFormatOptions = {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  };
-  const formattedDate = new Intl.DateTimeFormat("en-US", dateOptions).format(
-    date
-  );
-  const formattedTime = new Intl.DateTimeFormat("en-US", timeOptions).format(
-    date
-  );
-  return `${formattedDate} | ${formattedTime}`;
-};
 
 const HOME_PAGE_QUERY = `
 query homePage {
@@ -132,7 +108,7 @@ export default async function Home() {
       )}
       <div className="flex flex-col md:grid grid-cols-12 gap-8">
         <div className="col-span-8 flex flex-col gap-8">
-          {sermonSeriesContent && (
+          {sermonSeriesContent && sermonContent && (
             <SermonSeries
               sermonTitle={sermonContent.title}
               sermonDate={sermonContent.date}

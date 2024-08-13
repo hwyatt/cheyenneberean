@@ -114,7 +114,7 @@ const KidsPage = async ({}) => {
           }
         />
       )}
-      <div className="flex flex-col items-center gap-8 w-full">
+      <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
           <h2 className="text-3xl font-semibold uppercase font-bobby">
             Values

@@ -1,63 +1,52 @@
-import Link from "next/link";
 import { fetchGraphQL } from "../api/contentful";
 import { IntroSection } from "../components/IntroSection/IntroSection";
+import ReactMarkdown from "react-markdown";
 
-const BeliefsPage = async () => {
+const BeliefsPage = async ({}) => {
   const data = await fetchGraphQL(`
-  query {
-    beliefsCollection {
-      items {
-        header
-        description
-        beliefCollection {
-          items {
-            title
-            description
-            bibleVerseReferences
+    query {
+      pageCollection(where: { sys: { id: "2hRfPACaZKMcTslwu12oYH" } }) {
+        items {
+          sys {
+            id
           }
+          pageIntroSection {
+            heading
+            description
+            ctaPrimary
+            ctaSecondary
+            logo {
+              url
+            }
+          }
+          textSection
         }
       }
-    }
-  }
+    }       
     `);
 
-  const beliefsPageData = data?.data?.beliefsCollection?.items[0];
-  const beliefsCollection = beliefsPageData?.beliefCollection.items;
+  const pageData = data?.data?.pageCollection?.items[0];
+  const { pageIntroSection, textSection } = pageData;
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8">
-      {beliefsPageData && (
-        <>
-          <IntroSection
-            header={beliefsPageData.header}
-            copy={beliefsPageData.description}
-          />
-          <div className="w-full flex flex-col gap-8">
-            {beliefsCollection.map((belief: any) => (
-              <div className="flex flex-col gap-4" key={belief.title}>
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-semibold text-lg">{belief.title}</h3>
-                  <p>{belief.description}</p>
-                </div>
-                <div className="flex gap-2 flex-wrap">
-                  {belief.bibleVerseReferences.map((verseRef: string) => {
-                    const [verse, url] = verseRef.split(" | ");
-                    return (
-                      <Link
-                        href={url}
-                        target="_blank"
-                        className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl whitespace-nowrap"
-                        key={url}
-                      >
-                        {verse}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
+    <div className="page-beliefs min-h-screen flex flex-col items-center gap-8">
+      {pageIntroSection && (
+        <IntroSection
+          header={pageIntroSection.heading}
+          image={pageIntroSection.logo ? pageIntroSection.logo.url : null}
+          copy={pageIntroSection.description}
+          ctaPrimary={
+            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
+          }
+          ctaSecondary={
+            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
+          }
+        />
+      )}
+      {textSection && (
+        <div className="markdown-container">
+          <ReactMarkdown>{textSection}</ReactMarkdown>
+        </div>
       )}
     </div>
   );
