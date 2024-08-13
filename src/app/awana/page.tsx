@@ -145,7 +145,7 @@ const AwanaPage = async ({}) => {
           }
         />
       )}
-      <div className="flex flex-col items-center gap-8 w-full">
+      <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
           <h2 className="text-lg font-semibold uppercase">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">

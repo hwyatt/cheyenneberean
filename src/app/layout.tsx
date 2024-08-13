@@ -192,7 +192,7 @@ export default function RootLayout({
             </ul>
           </div>
         </div>
-        <div className="relative border-t border-gray-300 overflow-hidden">
+        <div className="relative border-t border-gray-300 overflow-hidden bg-white">
           {/* <Image
             src="/light-mountains.png"
             alt="light mountain logo"
@@ -200,7 +200,7 @@ export default function RootLayout({
             layout="fill"
             objectFit="cover"
           /> */}
-          <footer className="bg-white px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
+          <footer className="px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
             <div className="grid w-full grid-cols-12 gap-y-8 gap-x-4 z-10">
               <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
                 <h6 className="font-bold text-accent uppercase mb-2">About</h6>

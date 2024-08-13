@@ -31,18 +31,29 @@ export const Card = ({
       <div
         className={`relative rounded-t-lg flex flex-col items-center justify-center ${
           !image && backgroundColor && `h-2`
-        } ${image && imageFit !== "cover" && `p-4`}`}
-        style={{ backgroundColor: backgroundColor }}
+        } ${image && imageFit !== "cover" && `p-4`} ${
+          theme === "staff" && "aspect-square bg-accent"
+        }`}
+        style={{ backgroundColor: theme !== "staff" && backgroundColor }}
       >
+        {console.log(imageFit)}
         {image && (
           <img
             src={image}
             alt={title}
             className={`${
-              imageFit !== "cover"
-                ? `max-h-[95px] h-auto object-contain`
-                : `aspect-video object-cover`
+              theme === "staff"
+                ? "aspect-square object-cover"
+                : imageFit !== "cover"
+                ? "max-h-[95px] h-auto object-contain"
+                : "aspect-video object-cover"
             }`}
+          />
+        )}
+        {!image && (
+          <img
+            src="/dark-mountains.png"
+            className="absolute object-contain w-full h-full p-4"
           />
         )}
       </div>

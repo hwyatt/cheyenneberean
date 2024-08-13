@@ -23,7 +23,7 @@ export const ValuesTile = ({
 
   if (theme === "kidsVerse") {
     textColor = "text-white";
-    bgColor = "#4C5048";
+    bgColor = "#D45D0E";
     bgImg = null;
   }
 

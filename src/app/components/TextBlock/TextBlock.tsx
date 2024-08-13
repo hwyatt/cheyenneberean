@@ -6,12 +6,10 @@ export const TextBlock = ({ image, header, markdown }: any) => {
     <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
       {image && (
         <div className="col-span-4 flex flex-col items-center">
-          <Image
+          <img
             className="rounded-lg w-full h-auto"
             src={image.url}
             alt={image.alt}
-            height={0}
-            width={0}
           />
         </div>
       )}

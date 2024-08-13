@@ -34,7 +34,6 @@ export const SermonSeries = ({
             className="rounded-lg"
             layout="fill"
             objectFit="cover"
-            objectPosition="top"
           />
           {watchSermonLink && (
             <a
