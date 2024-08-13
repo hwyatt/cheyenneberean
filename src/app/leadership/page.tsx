@@ -95,6 +95,7 @@ const LeadershipPage = async ({}) => {
                       image={item.image?.url}
                       theme="staff"
                       imageFit="cover"
+                      key={item.name}
                     />
                   </div>
                 )
