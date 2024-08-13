@@ -88,14 +88,13 @@ const LeadershipPage = async ({}) => {
             {staffContent.items.map(
               (item: StaffMember) =>
                 item.position !== "Lead Pastor" && (
-                  <div className="col-span-12 md:col-span-3">
+                  <div className="col-span-12 md:col-span-3" key={item.name}>
                     <Card
                       title={item.name}
                       subtitle={item.position}
                       image={item.image?.url}
                       theme="staff"
                       imageFit="cover"
-                      key={item.name}
                     />
                   </div>
                 )
