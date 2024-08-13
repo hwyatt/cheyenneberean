@@ -97,6 +97,7 @@ const AboutPage = async ({}) => {
           header={item.header}
           markdown={item.markdown}
           reverse={item.reverse}
+          key={item.header}
         />
       ))}
       <Accordion header="Common Questions" items={FAQS} theme="brand" />
