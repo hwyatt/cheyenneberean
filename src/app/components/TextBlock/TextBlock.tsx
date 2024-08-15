@@ -1,4 +1,3 @@
-import { useId } from "react";
 import ReactMarkdown from "react-markdown";
 
 export const TextBlock = ({
@@ -17,7 +16,6 @@ export const TextBlock = ({
       className={`flex flex-col md:flex-row ${
         reverse && "md:flex-row-reverse"
       } gap-4 md:gap-8 w-full`}
-      key={useId()}
     >
       {image && (
         <div className="flex-shrink-0 w-full md:w-1/3 flex items-center">

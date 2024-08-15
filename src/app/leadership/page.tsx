@@ -131,7 +131,7 @@ const LeadershipPage = async ({}) => {
       )}
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: any) => (
-          <div>
+          <div key={item.header}>
             <TextBlock
               image={item.image}
               header={item.heading}
