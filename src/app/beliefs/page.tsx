@@ -72,16 +72,18 @@ const BeliefsPage = async ({}) => {
       )}
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: any) => (
-          <TextBlock
-            image={item.image}
-            header={item.heading}
-            markdown={item.markdown}
-            reverse={item.reverse}
-            ctaPrimaryLabel={item.primaryCtaLabel}
-            ctaPrimaryLink={item.primaryCtaLink}
-            ctaSecondaryLabel={item.secondaryCtaLabel}
-            ctaSecondaryLink={item.secondaryCtaLink}
-          />
+          <div>
+            <TextBlock
+              image={item.image}
+              header={item.heading}
+              markdown={item.markdown}
+              reverse={item.reverse}
+              ctaPrimaryLabel={item.primaryCtaLabel}
+              ctaPrimaryLink={item.primaryCtaLink}
+              ctaSecondaryLabel={item.secondaryCtaLabel}
+              ctaSecondaryLink={item.secondaryCtaLink}
+            />
+          </div>
         ))}
       {pageConnectSection && (
         <ConnectSection
