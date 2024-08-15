@@ -1,6 +1,7 @@
 import { fetchGraphQL } from "../api/contentful";
+import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
-import ReactMarkdown from "react-markdown";
+import { TextBlock } from "../components/TextBlock/TextBlock";
 
 const BeliefsPage = async ({}) => {
   const data = await fetchGraphQL(`
@@ -19,14 +20,40 @@ const BeliefsPage = async ({}) => {
               url
             }
           }
-          textSection
+          pageTextSectionCollection(limit: 10) {
+            items {
+      			heading
+      			markdown
+      			image {
+      			url
+      			}
+      			primaryCtaLabel
+      			primaryCtaLink
+      			secondaryCtaLabel
+      			secondaryCtaLink
+    			 	}
+          }
+          pageFaQs {
+            heading
+            questions
+          }
+          pageConnectSection {
+            heading
+            description
+            logo {
+              url
+            }
+            ctaLabel
+            ctaLink
+          }
         }
       }
     }       
     `);
 
   const pageData = data?.data?.pageCollection?.items[0];
-  const { pageIntroSection, textSection } = pageData;
+  const { pageIntroSection, pageTextSectionCollection, pageConnectSection } =
+    pageData;
 
   return (
     <div className="page-beliefs min-h-screen flex flex-col items-center gap-8">
@@ -43,10 +70,28 @@ const BeliefsPage = async ({}) => {
           }
         />
       )}
-      {textSection && (
-        <div className="markdown-container">
-          <ReactMarkdown>{textSection}</ReactMarkdown>
-        </div>
+      {pageTextSectionCollection &&
+        pageTextSectionCollection.items.map((item: any) => (
+          <TextBlock
+            image={item.image}
+            header={item.heading}
+            markdown={item.markdown}
+            reverse={item.reverse}
+            ctaPrimaryLabel={item.primaryCtaLabel}
+            ctaPrimaryLink={item.primaryCtaLink}
+            ctaSecondaryLabel={item.secondaryCtaLabel}
+            ctaSecondaryLink={item.secondaryCtaLink}
+          />
+        ))}
+      {pageConnectSection && (
+        <ConnectSection
+          header={pageConnectSection.heading}
+          copy={pageConnectSection.description}
+          ctaLabel={pageConnectSection.ctaLabel}
+          ctaLink={pageConnectSection.ctaLink}
+          img={pageConnectSection.logo?.url}
+          theme="brand"
+        />
       )}
     </div>
   );

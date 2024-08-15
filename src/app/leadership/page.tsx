@@ -2,7 +2,7 @@ import { fetchGraphQL } from "../api/contentful";
 import { Card } from "../components/Card/Card";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
-import ReactMarkdown from "react-markdown";
+import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 
 type StaffMember = {
   position: string;
@@ -30,7 +30,33 @@ const LeadershipPage = async ({}) => {
               url
             }
           }
-          textSection
+          pageTextSectionCollection(limit: 5) {
+            items {
+            heading
+            markdown
+            image {
+            url
+            }
+            primaryCtaLabel
+            primaryCtaLink
+            secondaryCtaLabel
+            secondaryCtaLink
+            reverse
+            }
+          }
+          pageFaQs {
+            heading
+            questions
+          }
+          pageConnectSection {
+            heading
+            description
+            logo {
+              url
+            }
+            ctaLabel
+            ctaLink
+          }
         }
       }
       staffMemberCollection(order: name_ASC) {
@@ -48,7 +74,8 @@ const LeadershipPage = async ({}) => {
     `);
 
   const pageData = data?.data?.pageCollection?.items[0];
-  const { pageIntroSection, textSection } = pageData;
+  const { pageIntroSection, pageTextSectionCollection, pageConnectSection } =
+    pageData;
   const staffContent = data.data.staffMemberCollection;
   const leadPastorContent = staffContent.items.filter(
     (member: StaffMember) => member.position === "Lead Pastor"
@@ -81,7 +108,7 @@ const LeadershipPage = async ({}) => {
       )}
       {staffContent && (
         <div className="flex flex-col gap-2 w-full">
-          <h2 className="text-lg font-semibold text-accent text-center uppercase">
+          <h2 className="text-accent font-semibold text-2xl text-center">
             Church Staff
           </h2>
           <div className="grid grid-cols-12 gap-4">
@@ -102,15 +129,29 @@ const LeadershipPage = async ({}) => {
           </div>
         </div>
       )}
-      {textSection && (
-        <div className="flex flex-col gap-2 w-full">
-          <h2 className="text-lg font-semibold text-accent text-center uppercase">
-            SHEPHERDS
-          </h2>
-          <div className="markdown-container items-center">
-            <ReactMarkdown>{textSection}</ReactMarkdown>
-          </div>
-        </div>
+      {pageTextSectionCollection &&
+        pageTextSectionCollection.items.map((item: any) => (
+          <TextBlock
+            image={item.image}
+            header={item.heading}
+            markdown={item.markdown}
+            reverse={item.reverse}
+            ctaPrimaryLabel={item.primaryCtaLabel}
+            ctaPrimaryLink={item.primaryCtaLink}
+            ctaSecondaryLabel={item.secondaryCtaLabel}
+            ctaSecondaryLink={item.secondaryCtaLink}
+            centerText
+          />
+        ))}
+      {pageConnectSection && (
+        <ConnectSection
+          header={pageConnectSection.heading}
+          copy={pageConnectSection.description}
+          ctaLabel={pageConnectSection.ctaLabel}
+          ctaLink={pageConnectSection.ctaLink}
+          img={pageConnectSection.logo?.url}
+          theme="brand"
+        />
       )}
     </div>
   );

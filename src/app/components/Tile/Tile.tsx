@@ -23,8 +23,6 @@ export const Tile = ({
       ? "bg-gray-200"
       : "bg-accent";
 
-  console.log("Tile BG Color:", bgColor, tileBGColor);
-
   return (
     <Link
       key={title}

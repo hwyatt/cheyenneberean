@@ -1,4 +1,11 @@
-export const ConnectSection = ({ img, header, copy, cta, theme }: any) => (
+export const ConnectSection = ({
+  img,
+  header,
+  copy,
+  ctaLabel,
+  ctaLink,
+  theme,
+}: any) => (
   <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-8 border-gray-300 border-t-2 border-b-2 w-full">
     <div className="flex flex-col md:flex-row items-center gap-4">
       {img && <img src={img} className="h-auto w-32 mb-4 md:mb-0" />}
@@ -15,6 +22,8 @@ export const ConnectSection = ({ img, header, copy, cta, theme }: any) => (
         </span>
       </div>
     </div>
-    <button className="btn btn-primary w-full md:w-auto">{cta}</button>
+    <a href={ctaLink} className="btn btn-primary w-full md:w-auto">
+      {ctaLabel}
+    </a>
   </div>
 );

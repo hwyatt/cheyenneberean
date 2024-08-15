@@ -36,7 +36,6 @@ export const Card = ({
         }`}
         style={{ backgroundColor: theme !== "staff" && backgroundColor }}
       >
-        {console.log(imageFit)}
         {image && (
           <img
             src={image}

@@ -200,7 +200,8 @@ const AwanaPage = async ({}) => {
           img={"/logo-kids-awana.png"}
           header="Have questions about Awana?"
           copy="Connect with our team."
-          cta="Contact Us"
+          ctaLabel="Contact Us"
+          ctaLink="/contact"
         />
         <img src="/awana/awana-kids.png" className="max-h-[400px] mb-[-64px]" />
       </div>

@@ -172,7 +172,8 @@ const KidsPage = async ({}) => {
           img={"/logo-berean-kids.png"}
           header="Connect with the BereanKIDS Team"
           copy="Have a question? Looking for resources?"
-          cta="Contact BereanKIDS"
+          ctaLabel="Contact BereanKIDS"
+          ctaLink="/contact"
         />
         <div className="hidden md:block w-screen overflow-hidden mb-[-100px]">
           <BKDots />
