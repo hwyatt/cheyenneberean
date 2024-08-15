@@ -78,17 +78,18 @@ const AboutPage = async ({}) => {
       )}
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: any) => (
-          <TextBlock
-            image={item.image}
-            header={item.heading}
-            markdown={item.markdown}
-            reverse={item.reverse}
-            key={item.header}
-            ctaPrimaryLabel={item.primaryCtaLabel}
-            ctaPrimaryLink={item.primaryCtaLink}
-            ctaSecondaryLabel={item.secondaryCtaLabel}
-            ctaSecondaryLink={item.secondaryCtaLink}
-          />
+          <div key={item.header}>
+            <TextBlock
+              image={item.image}
+              header={item.heading}
+              markdown={item.markdown}
+              reverse={item.reverse}
+              ctaPrimaryLabel={item.primaryCtaLabel}
+              ctaPrimaryLink={item.primaryCtaLink}
+              ctaSecondaryLabel={item.secondaryCtaLabel}
+              ctaSecondaryLink={item.secondaryCtaLink}
+            />
+          </div>
         ))}
       {pageFaQs && (
         <Accordion
