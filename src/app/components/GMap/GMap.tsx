@@ -19,8 +19,9 @@ export const GMap = ({
       style={mapStyle}
       defaultCenter={center}
       defaultZoom={zoom}
-      gestureHandling="greedy"
+      gestureHandling="none"
       disableDefaultUI={true}
+      zoomControl={false}
     >
       <MapComponent center={center} zoom={zoom} />
     </Map>

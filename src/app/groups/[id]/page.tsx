@@ -4,7 +4,7 @@ import { GMap } from "@/app/components/GMap/GMap";
 import { FaRegClock } from "react-icons/fa6";
 import { IoPersonOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
-import { formatGroupDayAndTime } from "../page";
+import { formatGroupDayAndTime } from "../../utils/dates";
 
 const GroupDetailsPage = async ({ params: id }: any) => {
   const data = await fetchGraphQL(`
