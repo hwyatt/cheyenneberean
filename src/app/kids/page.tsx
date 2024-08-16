@@ -10,6 +10,7 @@ import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { ValuesTile } from "../components/ValuesTile/ValuesTile";
 import { BKDots } from "../components/BKDots/BKDots";
+import Image from "next/image";
 
 const VALUES = [
   {
@@ -87,13 +88,26 @@ const KidsPage = async ({}) => {
               url
             }
           }
+          pageFaQs {
+            heading
+            questions
+          }
+          pageConnectSection {
+            heading
+            description
+            logo {
+              url
+            }
+            ctaLabel
+            ctaLink
+          }
         }
       }
     }    
     `);
 
   const pageData = data?.data?.pageCollection?.items[0];
-  const { pageIntroSection } = pageData;
+  const { pageIntroSection, pageFaQs, pageConnectSection } = pageData;
 
   return (
     <div
@@ -152,31 +166,31 @@ const KidsPage = async ({}) => {
             ))}
           </div>
         </div>
-        {/* <div className="flex flex-col items-center gap-2 w-full">
-          <h2 className="text-3xl font-semibold uppercase font-bobby">
-            Events
-          </h2>
-        </div> */}
-        <Accordion
-          header="BereanKIDS FAQs"
-          items={[
-            { question: "This is a question", answer: "This is an answer" },
-            { question: "This is a question", answer: "This is an answer" },
-            { question: "This is a question", answer: "This is an answer" },
-            { question: "This is a question", answer: "This is an answer" },
-            { question: "This is a question", answer: "This is an answer" },
-          ]}
-          theme="kids"
-        />
-        <ConnectSection
-          img={"/logo-berean-kids.png"}
-          header="Connect with the BereanKIDS Team"
-          copy="Have a question? Looking for resources?"
-          ctaLabel="Contact BereanKIDS"
-          ctaLink="/contact"
-        />
-        <div className="hidden md:block w-screen overflow-hidden mb-[-100px]">
-          <BKDots />
+        {pageFaQs && (
+          <Accordion
+            header={pageFaQs.heading}
+            items={pageFaQs.questions}
+            theme="kids"
+          />
+        )}
+        {pageConnectSection && (
+          <ConnectSection
+            img={pageConnectSection.logo?.url}
+            header={pageConnectSection.heading}
+            copy={pageConnectSection.description}
+            ctaLabel={pageConnectSection.ctaLabel}
+            ctaLink={pageConnectSection.ctaLink}
+          />
+        )}
+        <div className="w-screen overflow-hidden mb-[-100px] md:mb-[-225px]">
+          <Image
+            src="/kids/mountains-vector.png"
+            alt="BereanKIDS Mountains Vector"
+            layout="responsive"
+            width={4500}
+            height={1830}
+            quality={100}
+          />
         </div>
       </div>
     </div>

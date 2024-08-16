@@ -6,6 +6,22 @@ import { Card } from "../components/Card/Card";
 const GroupsPage = async () => {
   const data = await fetchGraphQL(`
     query {
+      pageCollection(where: { sys: { id: "2VdTxtA9jSYJ25VDRceR1t" } }) {
+        items {
+          sys {
+            id
+          }
+          pageIntroSection {
+            heading
+            description
+            ctaPrimary
+            ctaSecondary
+            logo {
+              url
+            }
+          }
+        }
+      }
         groupCollection {
           items {
             title
@@ -21,6 +37,8 @@ const GroupsPage = async () => {
     `);
 
   const groups = data?.data?.groupCollection?.items;
+  const pageData = data?.data?.pageCollection?.items[0];
+  const { pageIntroSection } = pageData;
 
   const formatGroupDayAndTime = (isoString: string): string => {
     const date = new Date(isoString);
@@ -52,20 +70,27 @@ const GroupsPage = async () => {
     { value: "sunday", label: "Sunday" },
   ];
 
-  //   const allCategories: string[] = groups.flatMap(
-  //     (group: any) => group.categories
-  //   );
-  //   const uniqueCategories: string[] = Array.from(new Set(allCategories));
-
-  //   console.log(uniqueCategories);
+  // const allCategories: string[] = groups.flatMap(
+  //   (group: any) => group.categories
+  // );
+  // const uniqueCategories: string[] = Array.from(new Set(allCategories));
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
-      <IntroSection
-        header={"Groups"}
-        copy={`This is the group directory for Cheyenne Berean church`}
-      />
-      <div className="flex flex-col md:grid grid-cols-12 gap-8">
+      {pageIntroSection && (
+        <IntroSection
+          header={pageIntroSection.heading}
+          image={pageIntroSection.logo ? pageIntroSection.logo.url : null}
+          copy={pageIntroSection.description}
+          ctaPrimary={
+            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
+          }
+          ctaSecondary={
+            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
+          }
+        />
+      )}
+      <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
         <div className="flex flex-col gap-4 md:col-span-4">
           <div className="flex flex-col gap-2">
             <label className="font-semibold text-gray-800 uppercase leading-none">
@@ -92,6 +117,9 @@ const GroupsPage = async () => {
               key={group.name}
               time={formatGroupDayAndTime(group.dayAndTime)}
               location={group.location}
+              people={group.leaders}
+              context={group.categories}
+              ctaSecondaryLabel="Join Group"
             />
           </div>
         ))}

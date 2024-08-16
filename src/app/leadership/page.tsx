@@ -107,7 +107,7 @@ const LeadershipPage = async ({}) => {
         />
       )}
       {staffContent && (
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col gap-2 md:gap-4 w-full">
           <h2 className="text-accent font-semibold text-2xl text-center">
             Church Staff
           </h2>

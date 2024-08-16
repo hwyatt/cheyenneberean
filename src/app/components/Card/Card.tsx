@@ -12,115 +12,108 @@ export const Card = ({
   time,
   people,
   location,
-  ctaPrimary,
-  ctaSecondary,
+  ctaPrimaryLabel,
+  ctaPrimaryLink,
+  ctaSecondaryLabel,
+  ctaSecondaryLink,
   theme,
-}: any) => {
-  let primaryText, primaryUrl, secondaryText, secondaryUrl;
-  if (ctaPrimary) {
-    [primaryText, primaryUrl] = ctaPrimary.split(" | ");
-  }
-  if (ctaSecondary) {
-    [secondaryText, secondaryUrl] = ctaSecondary.split(" | ");
-  }
-  return (
+}: any) => (
+  <div
+    className="md:col-span-6 lg:col-span-3 flex flex-col bg-white rounded-lg shadow-md"
+    key={title}
+  >
     <div
-      className="md:col-span-6 lg:col-span-3 flex flex-col bg-white rounded-lg shadow-md"
-      key={title}
+      className={`relative rounded-t-lg flex flex-col items-center justify-center ${
+        !image && backgroundColor && `h-2`
+      } ${image && imageFit !== "cover" && `p-4`} ${
+        theme === "staff" && "aspect-square bg-accent"
+      }`}
+      style={{ backgroundColor: theme !== "staff" && backgroundColor }}
     >
-      <div
-        className={`relative rounded-t-lg flex flex-col items-center justify-center ${
-          !image && backgroundColor && `h-2`
-        } ${image && imageFit !== "cover" && `p-4`} ${
-          theme === "staff" && "aspect-square bg-accent"
-        }`}
-        style={{ backgroundColor: theme !== "staff" && backgroundColor }}
-      >
-        {image && (
-          <img
-            src={image}
-            alt={title}
-            className={`${
-              theme === "staff"
-                ? "aspect-square object-cover"
-                : imageFit !== "cover"
-                ? "max-h-[95px] h-auto object-contain"
-                : "aspect-video object-cover"
-            }`}
-          />
+      {image && (
+        <img
+          src={image}
+          alt={title}
+          className={`${
+            theme === "staff"
+              ? "aspect-square object-cover"
+              : imageFit !== "cover"
+              ? "max-h-[95px] h-auto object-contain"
+              : "aspect-video object-cover"
+          }`}
+        />
+      )}
+      {!image && (
+        <img
+          src="/dark-mountains.png"
+          className="absolute object-contain w-full h-full p-4"
+        />
+      )}
+    </div>
+    <div className="flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-1">
+        {context && (
+          <div className="flex gap-2">
+            {context.map((item: any) => (
+              <div
+                className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"
+                key={item}
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         )}
-        {!image && (
-          <img
-            src="/dark-mountains.png"
-            className="absolute object-contain w-full h-full p-4"
-          />
+        {title && (
+          <h3
+            className={`font-semibold text-gray-800 ${
+              theme === "kids" ? `font-bobby text-2xl` : "text-xl"
+            }`}
+          >
+            {title}
+          </h3>
+        )}
+        {subtitle && (
+          <span className="text-sm font-light text-gray-600">{subtitle}</span>
         )}
       </div>
-      <div className="flex flex-col gap-4 p-4">
+      {description && <p className="text-gray-800">{description}</p>}
+      {(time || people || location) && (
         <div className="flex flex-col gap-1">
-          {context && (
-            <div className="flex gap-2">
-              {context.map((item: any) => (
-                <div
-                  className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"
-                  key={item}
-                >
-                  {item}
-                </div>
-              ))}
+          {time && (
+            <div className="flex gap-1 items-center">
+              <FaRegClock className="text-accent" />
+              <span className="text-sm">{time}</span>
             </div>
           )}
-          {title && (
-            <h3
-              className={`font-semibold text-gray-800 ${
-                theme === "kids" ? `font-bobby text-2xl` : "text-xl"
-              }`}
-            >
-              {title}
-            </h3>
+          {people && (
+            <div className="flex gap-1 items-center">
+              <IoPersonOutline className="text-accent" />
+              <span className="text-sm m-0">{people.join(", ")}</span>
+            </div>
           )}
-          {subtitle && (
-            <span className="text-sm font-light text-gray-600">{subtitle}</span>
+          {location && (
+            <div className="flex gap-1 items-center">
+              <FaLocationDot className="text-accent" />
+              <span className="text-sm m-0">{location}</span>
+            </div>
           )}
         </div>
-        {description && <p className="text-gray-800">{description}</p>}
-        {(time || people || location) && (
-          <div className="flex flex-col gap-1">
-            {time && (
-              <div className="flex gap-1 items-center">
-                <FaRegClock className="text-accent" />
-                <span className="text-sm">{time}</span>
-              </div>
-            )}
-            {people && (
-              <div className="flex gap-1 items-center">
-                <IoPersonOutline className="text-accent" />
-                <span className="text-sm m-0">{people.join(", ")}</span>
-              </div>
-            )}
-            {location && (
-              <div className="flex gap-1 items-center">
-                <FaLocationDot className="text-accent" />
-                <span className="text-sm m-0">{location}</span>
-              </div>
-            )}
-          </div>
-        )}
-        {(ctaPrimary || ctaSecondary) && (
-          <div className="flex flex-col gap-2 mt-4">
-            {ctaPrimary && (
-              <a href={primaryUrl} className="btn btn-primary">
-                {primaryText}
-              </a>
-            )}
-            {ctaSecondary && (
-              <a href={secondaryUrl} className="btn btn-secondary">
-                {secondaryText}
-              </a>
-            )}
-          </div>
-        )}
-      </div>
+      )}
+      {(ctaPrimaryLabel || ctaSecondaryLabel) && (
+        <div className="flex flex-col gap-2 mt-4">
+          {ctaPrimaryLabel && (
+            <a href={ctaPrimaryLink} className="btn btn-primary">
+              {ctaPrimaryLabel}
+            </a>
+          )}
+          {ctaSecondaryLabel && (
+            <a href={ctaSecondaryLink} className="btn btn-secondary">
+              {ctaSecondaryLabel}
+            </a>
+          )}
+        </div>
+      )}
     </div>
-  );
-};
+  </div>
+);

@@ -121,13 +121,26 @@ const AwanaPage = async ({}) => {
               url
             }
           }
+          pageFaQs {
+            heading
+            questions
+          }
+          pageConnectSection {
+            heading
+            description
+            logo {
+              url
+            }
+            ctaLabel
+            ctaLink
+          }
         }
       }
     }    
     `);
 
   const pageData = data?.data?.pageCollection?.items[0];
-  const { pageIntroSection } = pageData;
+  const { pageIntroSection, pageFaQs, pageConnectSection } = pageData;
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
@@ -147,7 +160,7 @@ const AwanaPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-lg font-semibold uppercase">Values</h2>
+          <h2 className="font-semibold text-2xl text-center">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -160,9 +173,7 @@ const AwanaPage = async ({}) => {
           </div>
         </div>
         <div className="flex flex-col gap-2 items-center w-screen">
-          <h2 className="text-lg font-semibold text-gray-800 uppercase">
-            Awana Clubs
-          </h2>
+          <h2 className="font-semibold text-2xl text-center">Awana Clubs</h2>
           <div>
             {CLUBS.map((club: any) => (
               <ClubCard
@@ -176,33 +187,18 @@ const AwanaPage = async ({}) => {
             ))}
           </div>
         </div>
-        <Accordion
-          header="What happens at an Awana club?"
-          items={[
-            {
-              question: "Large Group Time",
-              answer:
-                "Kids gather together for Bible teaching, worship, announcements, and awards. This is a great opportunity for kids to hear the gospel and Biblical truth directly from pastors, missionaries, and guest speakers.",
-            },
-            {
-              question: "Small Group Time",
-              answer:
-                "Relationships and belonging begin in small groups as kids huddle up with a consistent leader from week to week to discuss Bible lessons, ask and answer important questions, pray together and complete handbooks.",
-            },
-            {
-              question: "Group Activity Time",
-              answer:
-                "A session of Awana Games, crafts, or other team-building activity help foster fun and encouraging relationships in the midst of the evening.",
-            },
-          ]}
-        />
-        <ConnectSection
-          img={"/logo-kids-awana.png"}
-          header="Have questions about Awana?"
-          copy="Connect with our team."
-          ctaLabel="Contact Us"
-          ctaLink="/contact"
-        />
+        {pageFaQs && (
+          <Accordion header={pageFaQs.heading} items={pageFaQs.questions} />
+        )}
+        {pageConnectSection && (
+          <ConnectSection
+            img={pageConnectSection.logo?.url}
+            header={pageConnectSection.heading}
+            copy={pageConnectSection.description}
+            ctaLabel={pageConnectSection.ctaLabel}
+            ctaLink={pageConnectSection.ctaLink}
+          />
+        )}
         <img src="/awana/awana-kids.png" className="max-h-[400px] mb-[-64px]" />
       </div>
     </div>

@@ -2,8 +2,8 @@ export const Accordion = ({ header, items, theme }: any) => (
   <div className="flex flex-col items-center gap-2 bg-white rounded-lg p-4 md:p-8 min-w-full lg:min-w-none">
     <h2
       className={`${
-        theme === "kids" ? `font-bobby text-3xl` : "text-xl"
-      } font-semibold uppercase ${theme === "brand" && "text-accent"}`}
+        theme === "kids" ? `font-bobby text-3xl uppercase` : "text-2xl"
+      } font-semibold ${theme === "brand" && "text-accent"}`}
     >
       {header}
     </h2>
