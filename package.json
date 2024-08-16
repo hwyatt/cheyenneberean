@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "^14.2.5",
+    "@vis.gl/react-google-maps": "^1.1.0",
     "contentful": "^10.12.4",
     "next": "14.2.4",
     "react": "^18",

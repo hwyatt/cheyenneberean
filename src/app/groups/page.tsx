@@ -3,6 +3,26 @@ import { IntroSection } from "../components/IntroSection/IntroSection";
 import { OptionSelect } from "../components/Select/Select";
 import { Card } from "../components/Card/Card";
 
+export const formatGroupDayAndTime = (isoString: string): string => {
+  const date = new Date(isoString);
+
+  const dayOptions: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+    timeZone: "UTC",
+  };
+  const day = new Intl.DateTimeFormat("en-US", dayOptions).format(date);
+
+  const timeOptions: Intl.DateTimeFormatOptions = {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+    timeZone: "UTC", // Ensure it is treated as UTC time
+  };
+  const time = new Intl.DateTimeFormat("en-US", timeOptions).format(date);
+
+  return `${day}s at ${time}`;
+};
+
 const GroupsPage = async () => {
   const data = await fetchGraphQL(`
     query {
@@ -24,6 +44,9 @@ const GroupsPage = async () => {
       }
         groupCollection {
           items {
+            sys {
+              id
+            }
             title
             description
             dayAndTime
@@ -39,26 +62,6 @@ const GroupsPage = async () => {
   const groups = data?.data?.groupCollection?.items;
   const pageData = data?.data?.pageCollection?.items[0];
   const { pageIntroSection } = pageData;
-
-  const formatGroupDayAndTime = (isoString: string): string => {
-    const date = new Date(isoString);
-
-    const dayOptions: Intl.DateTimeFormatOptions = {
-      weekday: "long",
-      timeZone: "UTC",
-    };
-    const day = new Intl.DateTimeFormat("en-US", dayOptions).format(date);
-
-    const timeOptions: Intl.DateTimeFormatOptions = {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-      timeZone: "UTC", // Ensure it is treated as UTC time
-    };
-    const time = new Intl.DateTimeFormat("en-US", timeOptions).format(date);
-
-    return `${day}s at ${time}`;
-  };
 
   const options: any = [
     { value: "monday", label: "Monday" },
@@ -120,6 +123,7 @@ const GroupsPage = async () => {
               people={group.leaders}
               context={group.categories}
               ctaSecondaryLabel="Join Group"
+              ctaSecondaryLink={`/groups/${group.sys.id}`}
             />
           </div>
         ))}
