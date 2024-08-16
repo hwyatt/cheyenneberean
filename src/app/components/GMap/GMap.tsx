@@ -3,7 +3,7 @@
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import MapComponent from "./MapComponent";
 
-const API_KEY = "AIzaSyAQjKHXZ8LP2RZWwof_msz9o2GRrelswjo";
+const API_KEY: any = process.env.GOOGLE_MAPS_API_KEY;
 
 export const GMap = ({
   center,
