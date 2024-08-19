@@ -9,7 +9,7 @@ import { Card } from "../components/Card/Card";
 import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { ValuesTile } from "../components/ValuesTile/ValuesTile";
-import { BKDots } from "../components/BKDots/BKDots";
+import { Tile } from "../components/Tile/Tile";
 import Image from "next/image";
 
 const VALUES = [
@@ -88,6 +88,7 @@ const KidsPage = async ({}) => {
               url
             }
           }
+          showEvents
           pageFaQs {
             heading
             questions
@@ -107,7 +108,23 @@ const KidsPage = async ({}) => {
     `);
 
   const pageData = data?.data?.pageCollection?.items[0];
-  const { pageIntroSection, pageFaQs, pageConnectSection } = pageData;
+  const { pageIntroSection, showEvents, pageFaQs, pageConnectSection } =
+    pageData;
+
+  // const eventData = await fetchGraphQL(`query {
+  //     eventCollection(where: { categories_contains_some: ["Kids"] }) {
+  //       items {
+  //         title
+  //         coverImage {
+  //           url
+  //         }
+  //       }
+  //     }
+  //   }
+  //   `);
+
+  // const pageEvents = eventData.data.eventCollection.items;
+  // const numberOfEvents = pageEvents.length;
 
   return (
     <div
@@ -166,6 +183,25 @@ const KidsPage = async ({}) => {
             ))}
           </div>
         </div>
+        {/* {showEvents && eventData && (
+          <div className="flex flex-col items-center gap-2 w-full">
+            <h2 className="text-3xl font-semibold uppercase font-bobby">
+              Events
+            </h2>
+            <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
+              {pageEvents.map((event: any) => (
+                <div className="md:col-span-4" key={event.title}>
+                  <Tile
+                    header={event.title}
+                    backgroundImg={event.coverImage.url}
+                    ctaLabel="Sign Up"
+                    theme="dark"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )} */}
         {pageFaQs && (
           <Accordion
             header={pageFaQs.heading}
@@ -182,7 +218,7 @@ const KidsPage = async ({}) => {
             ctaLink={pageConnectSection.ctaLink}
           />
         )}
-        <div className="w-screen overflow-hidden mb-[-100px] md:mb-[-225px]">
+        <div className="w-[calc(100vw-16px)] overflow-hidden mb-[-100px] md:mb-[-225px]">
           <Image
             src="/kids/mountains-vector.png"
             alt="BereanKIDS Mountains Vector"

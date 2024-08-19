@@ -13,6 +13,7 @@ import "react-social-icons/facebook";
 import "react-social-icons/email";
 import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "./LINKS";
 import { HeroBanner } from "./components/HeroBanner/HeroBanner";
+import { Tile } from "./components/Tile/Tile";
 import { SermonSeries } from "./components/SermonSeries/SermonSeries";
 import { fetchGraphQL } from "./api/contentful";
 
@@ -74,29 +75,6 @@ export default async function Home() {
   const sermonSeriesContent = homePageContent.sermonSeriesCollection.items[0];
   const sermonContent = sermonSeriesContent.sermonsCollection.items[0];
 
-  const theme: string = "brand";
-
-  let gradient: string;
-  let background: string;
-
-  switch (theme) {
-    case "light":
-      gradient = "from-[rgba(255,255,255,0.9)] to-[rgba(255,255,255,0)]";
-      background = "bg-white";
-      break;
-    case "dark":
-      gradient = "from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0)]";
-      background = "bg-gray-800";
-      break;
-    case "brand":
-      gradient = "from-[rgba(3,50,76,0.9)] to-[rgba(3,50,76,0)]";
-      background = "bg-accent";
-      break;
-    default:
-      gradient = "from-[rgba(3,50,76,0.9)] to-[rgba(3,50,76,0)]";
-      background = "bg-accent";
-  }
-
   return (
     <div className="flex flex-col gap-8">
       {homePageContent.heroBanner && (
@@ -124,158 +102,28 @@ export default async function Home() {
           {eventContent && eventContent.items.length > 0 && (
             <div className="flex flex-col gap-2">
               <div className="flex flex-col md:grid grid-cols-12 gap-4">
-                {/* RESPONSIVE 12 COL */}
-                <div
-                  className={`flex flex-col items-start justify-end col-span-12 relative rounded-lg min-h-[350px]`}
-                >
-                  <div className="absolute inset-0 h-full w-full">
-                    <img
-                      src="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
-                      className="h-full w-full object-cover rounded-lg"
-                    />
-                    {/* CHANGES HERE */}
-                    <div
-                      className={`absolute inset-0 bottom-0 rounded-md bg-gradient-to-t md:bg-gradient-to-l ${gradient}`}
-                    ></div>
-                  </div>
-                  <div className="flex flex-col justify-end md:justify-center md:self-end md:max-w-[40%] gap-4 p-4 lg:p-8 relative z-10 h-full">
-                    <div className="flex flex-col gap-4">
-                      <div className="flex flex-col">
-                        <span
-                          className={`${
-                            theme === "light" ? `text-accent` : `text-white`
-                          } text-xl md:text-2xl font-bold`}
-                        >
-                          Testing 123
-                        </span>
-                        <span
-                          className={`${
-                            theme === "light" ? `text-gray-800` : `text-white`
-                          } text-sm md:text-base font-light`}
-                        >
-                          Testing description on a promo tile for the home page
-                          of Cheyenne Berean Church
-                        </span>
-                      </div>
-                      <div className="flex">
-                        <button className="btn btn-primary w-auto">
-                          Sign Up
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* STACKED 6 COL */}
-                <div
-                  className={`flex flex-col items-start justify-end col-span-6 relative rounded-lg min-h-[350px]`}
-                >
-                  <div className="absolute inset-0 h-full w-full">
-                    <img
-                      src="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
-                      className="h-full w-full object-cover rounded-lg"
-                    />
-                    <div
-                      className={`absolute inset-x-0 bottom-0 rounded-md h-[75%] bg-gradient-to-t ${gradient}`}
-                    ></div>
-                  </div>
-                  <div className="flex flex-col justify-end gap-4 p-4 lg:p-8 relative z-10 h-full">
-                    <div className="flex flex-col">
-                      <span
-                        className={`${
-                          theme === "light" ? `text-accent` : `text-white`
-                        } text-xl font-bold`}
-                      >
-                        Testing 123
-                      </span>
-                      <span
-                        className={`${
-                          theme === "light" ? `text-gray-800` : `text-white`
-                        } text-sm font-light`}
-                      >
-                        Testing description on a promo tile for the home page of
-                        Cheyenne Berean Church
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <button className="btn btn-primary w-auto">
-                        Sign Up
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                {/* STACKED 6 COL */}
-                <div
-                  className={`flex flex-col items-start justify-end col-span-6 relative rounded-lg min-h-[350px]`}
-                >
-                  <div className="absolute inset-0 h-full w-full">
-                    <img
-                      src="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
-                      className="h-full w-full object-cover rounded-lg"
-                    />
-                    <div
-                      className={`absolute inset-x-0 bottom-0 rounded-md h-[75%] bg-gradient-to-t ${gradient}`}
-                    ></div>
-                  </div>
-                  <div className="flex flex-col justify-end gap-4 p-4 lg:p-8 relative z-10 h-full">
-                    <div className="flex flex-col">
-                      <span
-                        className={`${
-                          theme === "light" ? `text-accent` : `text-white`
-                        } text-xl font-bold`}
-                      >
-                        Testing 123
-                      </span>
-                      <span
-                        className={`${
-                          theme === "light" ? `text-gray-800` : `text-white`
-                        } text-sm font-light`}
-                      >
-                        Testing description on a promo tile for the home page of
-                        Cheyenne Berean Church
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <button className="btn btn-primary w-auto">
-                        Sign Up
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                {/* STACKED 6 COL w/ Logo */}
-                {/* <div
-                  className={`flex flex-col items-start justify-end col-span-6 relative rounded-lg min-h-[350px] ${background}`}
-                >
-                  <div className="pt-4 px-4 md:pt-8 md:px-8 max-h-[175px] w-full flex justify-center">
-                    <img
-                      src="/logo-kids-awana.png"
-                      className="object-contain h-full w-auto"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-end gap-4 p-4 lg:p-8 relative z-10 h-full">
-                    <div className="flex flex-col">
-                      <span
-                        className={`${
-                          theme === "light" ? `text-accent` : `text-white`
-                        } text-xl font-bold`}
-                      >
-                        Testing 123
-                      </span>
-                      <span
-                        className={`${
-                          theme === "light" ? `text-gray-800` : `text-white`
-                        } text-sm font-light`}
-                      >
-                        Testing description on a promo tile for the home page of
-                        Cheyenne Berean Church
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <button className="btn btn-primary w-auto">
-                        Sign Up
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
+                <Tile
+                  header="Testing 123"
+                  description="Testing description on a promo tile for the home page of Cheyenne Berean Church"
+                  ctaLabel="Sign Up"
+                  responsive
+                  backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
+                  theme="brand"
+                />
+                <Tile
+                  header="Testing 123"
+                  description="Testing description on a promo tile for the home page of Cheyenne Berean Church"
+                  ctaLabel="Sign Up"
+                  backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
+                  theme="brand"
+                />
+                <Tile
+                  header="Testing 123"
+                  description="Testing description on a promo tile for the home page of Cheyenne Berean Church"
+                  ctaLabel="Sign Up"
+                  backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
+                  theme="brand"
+                />
               </div>
             </div>
           )}
