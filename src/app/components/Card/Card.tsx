@@ -66,8 +66,8 @@ export const Card = ({
         )}
         {title && (
           <h3
-            className={`font-semibold text-gray-800 ${
-              theme === "kids" ? `font-bobby text-2xl` : "text-xl"
+            className={`text-gray-800 ${
+              theme === "kids" ? `font-bobby text-2xl` : "text-xl font-semibold"
             }`}
           >
             {title}

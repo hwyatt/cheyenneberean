@@ -30,7 +30,7 @@ export const ValuesTile = ({
   return (
     <div
       key={title}
-      className="font-semibold p-4 md:px-8 md:pb-8 md:pt-16 rounded flex flex-col gap-4 justify-between relative overflow-hidden text-start md:col-span-1 h-full shadow-md"
+      className="font-semibold p-4 md:px-8 md:pb-8 md:pt-16 rounded flex flex-col gap-4 justify-between relative overflow-hidden text-start md:col-span-1 shadow-md min-h-[225px] md:min-h-[300px]"
       style={{ background: bgColor }}
     >
       {bgImg && (
@@ -60,7 +60,7 @@ export const ValuesTile = ({
           {title && (
             <span
               className={`${textColor} z-10 ${
-                theme === "kids" ? `font-bobby text-2xl` : "text-xl"
+                theme === "kids" ? `font-bobby text-2xl font-normal` : "text-xl"
               }`}
             >
               {title}
