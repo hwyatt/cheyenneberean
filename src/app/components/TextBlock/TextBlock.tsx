@@ -21,7 +21,9 @@ export const TextBlock = ({
       {image && (
         <div className="flex-shrink-0 w-full md:w-1/3 flex items-center">
           <img
-            className="rounded-lg w-full h-auto"
+            className={`rounded-lg w-full h-auto ${
+              theme === "kids" && "aspect-video object-cover md:aspect-square"
+            }`}
             src={image.url}
             alt={image.alt}
           />
