@@ -11,6 +11,7 @@ import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { ValuesTile } from "../components/ValuesTile/ValuesTile";
 import { Tile } from "../components/Tile/Tile";
 import Image from "next/image";
+import { TextBlock } from "../components/TextBlock/TextBlock";
 
 const VALUES = [
   {
@@ -88,6 +89,20 @@ const KidsPage = async ({}) => {
               url
             }
           }
+          pageTextSectionCollection(limit: 5) {
+            items {
+            heading
+            markdown
+            image {
+            url
+            }
+            primaryCtaLabel
+            primaryCtaLink
+            secondaryCtaLabel
+            secondaryCtaLink
+            reverse
+            }
+          }
           showEvents
           pageFaQs {
             heading
@@ -108,8 +123,13 @@ const KidsPage = async ({}) => {
     `);
 
   const pageData = data?.data?.pageCollection?.items[0];
-  const { pageIntroSection, showEvents, pageFaQs, pageConnectSection } =
-    pageData;
+  const {
+    pageIntroSection,
+    pageTextSectionCollection,
+    showEvents,
+    pageFaQs,
+    pageConnectSection,
+  } = pageData;
 
   // const eventData = await fetchGraphQL(`query {
   //     eventCollection(where: { categories_contains_some: ["Kids"] }) {
@@ -128,7 +148,7 @@ const KidsPage = async ({}) => {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center gap-8 bg-transparent"
+      className="page-kids min-h-screen flex flex-col items-center gap-8 bg-transparent"
       data-theme="kids"
     >
       {pageIntroSection && (
@@ -165,20 +185,25 @@ const KidsPage = async ({}) => {
             />
           </div>
         </div>
-        <div className="flex flex-col items-center gap-2 w-full">
-          <h2 className="text-3xl uppercase font-bobby">Classrooms</h2>
-          <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
-            {CLASSES.map((kidsClass) => (
-              <Card
-                title={kidsClass.name}
-                subtitle={kidsClass.ages}
-                description={kidsClass.desc}
-                theme="kids"
-                key={kidsClass.name}
-              />
-            ))}
-          </div>
-        </div>
+        {pageTextSectionCollection &&
+          pageTextSectionCollection.items.length > 0 && (
+            <div className="flex flex-col items-center gap-2">
+              <h2 className="text-3xl uppercase font-bobby">Classrooms</h2>
+              <div className="flex flex-col items-center gap-4 w-full">
+                {pageTextSectionCollection.items.map((item: any) => (
+                  <div key={item.heading}>
+                    <TextBlock
+                      header={item.heading}
+                      markdown={item.markdown}
+                      image={item.image}
+                      reverse={item.reverse}
+                      theme="kids"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         {/* {showEvents && eventData && (
           <div className="flex flex-col items-center gap-2 w-full">
             <h2 className="text-3xl uppercase font-bobby">

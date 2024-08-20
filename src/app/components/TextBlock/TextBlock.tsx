@@ -10,12 +10,13 @@ export const TextBlock = ({
   ctaSecondaryLabel,
   ctaSecondaryLink,
   centerText,
+  theme,
 }: any) => {
   return (
     <div
       className={`flex flex-col md:flex-row ${
         reverse && "md:flex-row-reverse"
-      } gap-4 md:gap-8 w-full`}
+      } gap-4 md:gap-8 w-full ${theme === "kids" && `bg-[#1E1E1E] rounded-lg`}`}
     >
       {image && (
         <div className="flex-shrink-0 w-full md:w-1/3 flex items-center">
@@ -26,11 +27,17 @@ export const TextBlock = ({
           />
         </div>
       )}
-      <div className="flex-grow flex flex-col gap-2 md:gap-4">
+      <div
+        className={`flex-grow flex flex-col gap-2 md:gap-4 ${
+          theme === "kids" && "p-4 md:p-8"
+        }`}
+      >
         {header && (
           <h2
-            className={`text-accent font-semibold text-2xl ${
-              centerText && "text-center"
+            className={`${centerText && "text-center"} ${
+              theme === "kids"
+                ? "font-bobby text-3xl text-white"
+                : "text-accent font-semibold text-2xl"
             }`}
           >
             {header}

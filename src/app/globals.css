@@ -70,8 +70,13 @@
   @apply flex flex-wrap gap-2 mb-4;
 }
 
-.page-about .markdown-container p {
+.page-about .markdown-container p,
+.page-kids .markdown-container p {
   @apply text-lg;
+}
+
+.page-kids .markdown-container p {
+  @apply text-gray-300;
 }
 
 h1,
