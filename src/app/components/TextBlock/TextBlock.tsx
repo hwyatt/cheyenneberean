@@ -16,7 +16,7 @@ export const TextBlock = ({
     <div
       className={`flex flex-col md:flex-row ${
         reverse && "md:flex-row-reverse"
-      } gap-4 md:gap-8 w-full ${theme === "kids" && `bg-[#1E1E1E] rounded-lg`}`}
+      } gap-4 md:gap-8 w-full ${theme === "kids" && `bg-white rounded-lg`}`}
     >
       {image && (
         <div className="flex-shrink-0 w-full md:w-1/3 flex items-center">
@@ -36,7 +36,7 @@ export const TextBlock = ({
           <h2
             className={`${centerText && "text-center"} ${
               theme === "kids"
-                ? "font-bobby text-3xl text-white"
+                ? "font-bobby text-3xl"
                 : "text-accent font-semibold text-2xl"
             }`}
           >

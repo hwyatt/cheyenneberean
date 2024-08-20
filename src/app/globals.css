@@ -75,10 +75,6 @@
   @apply text-lg;
 }
 
-.page-kids .markdown-container p {
-  @apply text-gray-300;
-}
-
 h1,
 h2,
 h3,

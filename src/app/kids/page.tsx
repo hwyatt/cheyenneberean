@@ -41,37 +41,6 @@ const VALUES = [
   },
 ];
 
-const CLASSES = [
-  {
-    name: "Embark",
-    ages: "Ages 0-2",
-    desc: "As we commit to equipping our youngest group, this class will focus on learning the gospel through play and worship. Your child will sing songs, enjoy a snack, and have fellowship with other children up until their 3rd birthday.",
-    image: "",
-    bgColor: "#97A090",
-  },
-  {
-    name: "Ascent",
-    ages: "Ages 3-5",
-    desc: "We know that play and fun is of the upmost importance, alongside learning. Your child's schedule will consist of a routine including: Bible lesson and story, songs, snack, and play! Children in this room range from 3-6 years old.",
-    image: "",
-    bgColor: "#889082",
-  },
-  {
-    name: "Venture",
-    ages: "1st-3rd Grade",
-    desc: "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
-    image: "",
-    bgColor: "#4C5048",
-  },
-  {
-    name: "Anchor",
-    ages: "4th-6th Grade",
-    desc: "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
-    image: "",
-    bgColor: "#4C5048",
-  },
-];
-
 const KidsPage = async ({}) => {
   const data = await fetchGraphQL(`
     query {
