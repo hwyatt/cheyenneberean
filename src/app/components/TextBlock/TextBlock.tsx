@@ -31,7 +31,8 @@ export const TextBlock = ({
       )}
       <div
         className={`flex-grow flex flex-col gap-2 md:gap-4 ${
-          theme === "kids" && "p-4 md:p-8"
+          theme === "kids" &&
+          `px-4 pb-4 md:py-8 ${reverse ? `md:pl-8 md:pr-0` : `md:pl-0 md:pr-8`}`
         }`}
       >
         {header && (

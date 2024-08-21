@@ -222,7 +222,7 @@ export default async function Home() {
                       />
                     ) : link.icon === "youth" ? (
                       <Image
-                        src="/logo-kids-awana.png"
+                        src="/youth/circle-black.webp"
                         className="w-12 h-6 object-contain"
                         width={48}
                         height={24}
