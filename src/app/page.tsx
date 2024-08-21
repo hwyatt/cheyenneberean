@@ -132,7 +132,7 @@ export default async function Home() {
           <div className="bg-white rounded-lg flex flex-col justify-start shadow-lg">
             <div className="aspect-video relative">
               <Image
-                src="/cbcMap.png"
+                src="/brand/cbcMap.png"
                 alt="Cheyenne Berean Church location"
                 layout="fill"
                 objectFit="cover"
