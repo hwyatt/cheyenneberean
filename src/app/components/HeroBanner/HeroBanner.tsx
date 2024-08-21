@@ -29,7 +29,7 @@ export const HeroBanner = ({ title, description, eyebrowText }: any) => {
         </div>
         <div className="col-span-4 h-64 md:h-auto relative">
           <Image
-            src="/vector.png"
+            src="/brand/vector.png"
             alt={"Cheyenne Berean Church Building"}
             layout="fill"
             objectFit="contain"
