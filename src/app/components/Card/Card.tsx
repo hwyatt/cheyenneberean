@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
-import { IoPersonOutline } from "react-icons/io5";
+import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
 
 export const Card = ({
   title,
@@ -16,6 +17,7 @@ export const Card = ({
   ctaPrimaryLink,
   ctaSecondaryLabel,
   ctaSecondaryLink,
+  ctaStyle,
   theme,
 }: any) => (
   <div
@@ -25,7 +27,7 @@ export const Card = ({
     <div
       className={`relative rounded-t-lg flex flex-col items-center justify-center ${
         !image && backgroundColor && `h-2`
-      } ${image && imageFit !== "cover" && `p-4`} ${
+      } ${image && imageFit !== "cover" && `pt-4 px-4`} ${
         theme === "staff" && "aspect-square bg-accent"
       }`}
       style={{ backgroundColor: theme !== "staff" && backgroundColor }}
@@ -102,16 +104,44 @@ export const Card = ({
       )}
       {(ctaPrimaryLabel || ctaSecondaryLabel) && (
         <div className="flex flex-col gap-2 mt-4">
-          {ctaPrimaryLabel && (
-            <a href={ctaPrimaryLink} className="btn btn-primary">
-              {ctaPrimaryLabel}
-            </a>
-          )}
-          {ctaSecondaryLabel && (
-            <a href={ctaSecondaryLink} className="btn btn-secondary">
-              {ctaSecondaryLabel}
-            </a>
-          )}
+          {ctaPrimaryLabel &&
+            (ctaStyle === "link" ? (
+              <Link
+                href={ctaPrimaryLink}
+                className="flex items-center gap-1 group"
+              >
+                <span className="font-semibold text-primary group-hover:text-accent">
+                  {ctaPrimaryLabel}
+                </span>
+                <IoChevronForward
+                  size={18}
+                  className="text-primary group-hover:text-accent"
+                />
+              </Link>
+            ) : (
+              <Link href={ctaPrimaryLink} className={`btn btn-primary`}>
+                {ctaPrimaryLabel}
+              </Link>
+            ))}
+          {ctaSecondaryLabel &&
+            (ctaStyle === "link" ? (
+              <Link
+                href={ctaSecondaryLink}
+                className="flex items-center gap-1 group"
+              >
+                <span className="font-semibold text-primary group-hover:text-accent">
+                  {ctaSecondaryLabel}
+                </span>
+                <IoChevronForward
+                  size={18}
+                  className="text-primary group-hover:text-accent"
+                />
+              </Link>
+            ) : (
+              <Link href={ctaSecondaryLink} className={`btn btn-secondary`}>
+                {ctaSecondaryLabel}
+              </Link>
+            ))}
         </div>
       )}
     </div>

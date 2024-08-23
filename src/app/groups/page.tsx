@@ -103,8 +103,9 @@ const GroupsPage = async () => {
               location={group.location}
               people={group.leaders}
               context={group.categories}
-              ctaSecondaryLabel="Join Group"
+              ctaSecondaryLabel="More Info"
               ctaSecondaryLink={`/groups/${group.sys.id}`}
+              ctaStyle="link"
             />
           </div>
         ))}

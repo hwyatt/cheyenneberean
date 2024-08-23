@@ -2,11 +2,11 @@ import Link from "next/link";
 import { fetchGraphQL } from "@/app/api/contentful";
 import { GMap } from "@/app/components/GMap/GMap";
 import { FaRegClock } from "react-icons/fa6";
-import { IoPersonOutline } from "react-icons/io5";
+import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
 import { formatGroupDayAndTime } from "../../utils/dates";
 
-const GroupDetailsPage = async ({ params: id }: any) => {
+const GroupDetailsPage = async () => {
   const data = await fetchGraphQL(`
     query {
       group(id: "4HLsLmDnXCcQetPLvhFmkL") {
@@ -42,14 +42,6 @@ const GroupDetailsPage = async ({ params: id }: any) => {
         }}
       />
       <div className="flex flex-col w-full gap-8">
-        <div className="breadcrumbs text-sm">
-          <ul>
-            <li>
-              <Link href="/groups">Groups</Link>
-            </li>
-            <li className="font-semibold text-gray-600">{group.title}</li>
-          </ul>
-        </div>
         <div className="flex flex-col md:flex-row justify-between md:items-center border-gray-300 border-b-2 gap-4 md:gap-0 pb-4">
           <div className="flex flex-col gap-2">
             <div className="flex flex-col gap-2">
@@ -102,6 +94,13 @@ const GroupDetailsPage = async ({ params: id }: any) => {
             <p className="md:text-lg">{group.description}</p>
           </div>
         </div>
+        <Link
+          href="/groups"
+          className="btn btn-primary self-center mt-8 w-full md:w-auto"
+        >
+          <span className="font-semibold text-white">See All Groups</span>
+          <IoChevronForward size={18} className="text-white" />
+        </Link>
       </div>
     </div>
   );
