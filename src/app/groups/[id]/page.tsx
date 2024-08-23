@@ -6,10 +6,18 @@ import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
 import { formatGroupDayAndTime } from "../../utils/dates";
 
-const GroupDetailsPage = async () => {
+type GroupPageProps = {
+  params: {
+    id: string;
+  };
+};
+
+const GroupDetailsPage = async ({ params }: GroupPageProps) => {
+  const { id } = params;
+
   const data = await fetchGraphQL(`
     query {
-      group(id: "4HLsLmDnXCcQetPLvhFmkL") {
+      group(id: "${id}") {
         sys {
           id
         }

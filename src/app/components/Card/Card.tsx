@@ -55,7 +55,7 @@ export const Card = ({
     <div className="flex flex-col gap-4 p-4">
       <div className="flex flex-col gap-1">
         {context && (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {context.map((item: any) => (
               <div
                 className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"

@@ -8,7 +8,9 @@ const EventPage = async ({}) => {
   query {
     eventCollection(order: startDateTime_ASC) {
       items {
-        _id
+        sys {
+          id
+        }
         title
         description
         startDateTime
@@ -109,7 +111,7 @@ const EventPage = async ({}) => {
                 // description={event.description}
                 context={event.categories}
                 ctaSecondaryLabel="More Info"
-                ctaSecondaryLink={`/events/${event._id}`}
+                ctaSecondaryLink={`/events/${event.sys.id}`}
                 ctaStyle="link"
                 image={event.coverImage.url}
                 imageFit="cover"

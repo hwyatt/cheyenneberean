@@ -54,10 +54,14 @@ const GroupsPage = async () => {
     { value: "sunday", label: "Sunday" },
   ];
 
-  // const allCategories: string[] = groups.flatMap(
-  //   (group: any) => group.categories
-  // );
-  // const uniqueCategories: string[] = Array.from(new Set(allCategories));
+  const allCategories: string[] = groups.flatMap(
+    (group: any) => group.categories
+  );
+  const uniqueCategories: string[] = Array.from(new Set(allCategories));
+  const categoryOptions = uniqueCategories.map((category) => ({
+    value: category.toLowerCase().replace(/\s+/g, "-"),
+    label: category,
+  }));
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
@@ -74,25 +78,20 @@ const GroupsPage = async () => {
           }
         />
       )}
-      <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
-        <div className="flex flex-col gap-4 md:col-span-4">
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold text-gray-800 uppercase leading-none">
-              Day of Week
-            </label>
+      <div className="md:col-span-4 pb-8 border-b-2 border-gray-300 w-full">
+        <div className="flex flex-col gap-2 md:w-1/2">
+          <h2 className="text-accent font-semibold text-lg">Filters</h2>
+          <div className="flex flex-col md:flex-row gap-4">
             <OptionSelect options={options} isMulti={true} placeholder="Day" />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold text-gray-800 uppercase leading-none">
-              Categories
-            </label>
             <OptionSelect
-              options={options}
+              options={categoryOptions}
               isMulti={true}
               placeholder="Categories"
             />
           </div>
         </div>
+      </div>
+      <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
         {groups.map((group: any) => (
           <div className="md:col-span-4" key={group.title}>
             <Card

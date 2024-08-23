@@ -6,10 +6,20 @@ import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
 import { formatEventDayAndTime } from "../../utils/dates";
 
-const EventDetailsPage = async ({ params: id }: any) => {
+type EventPageProps = {
+  params: {
+    id: string;
+  };
+};
+
+const EventDetailsPage = async ({ params }: EventPageProps) => {
+  const { id } = params;
+
+  console.log("testy", id);
+
   const data = await fetchGraphQL(`
     query {
-      event(id:"7Bk8yCYoD0FU7p7tI5iyqR"){
+      event(id: "${id}"){
         title
             description
             startDateTime
