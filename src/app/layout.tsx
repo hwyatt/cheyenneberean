@@ -171,23 +171,55 @@ export default function RootLayout({
               aria-label="close sidebar"
               className="drawer-overlay text-accent"
             ></label>
-            <ul className="menu bg-white min-h-full w-80 p-0">
+            <ul className="mobile-menu menu bg-white min-h-full w-3/4 p-0">
               {/* Sidebar content here */}
-              <div className="flex flex-col border-gray-200">
-                {NAV_LINKS.map((link) => (
-                  <li
-                    key={link.title}
-                    className="border-b-2 border-gray-200 py-4"
-                  >
-                    <Link
-                      href={link.route}
-                      className="text-accent font-semibold uppercase text-xl hover:text-primary flex items-center justify-between"
-                    >
-                      <span>{link.title}</span>
-                      <IoChevronForward size={24} className="text-accent" />
-                    </Link>
-                  </li>
-                ))}
+              <div className="flex flex-col gap-16 mt-8 border-gray-200">
+                {NAV_LINKS.map((link) =>
+                  link.sub && link.sub.length > 0 ? (
+                    <li key={link.title}>
+                      <details>
+                        <summary
+                          className={`${
+                            link.title === "Giving"
+                              ? `text-primary`
+                              : `text-accent`
+                          } font-semibold hover:text-primary text-3xl px-4 py-0`}
+                        >
+                          {link.title}
+                        </summary>
+                        <ul className="z-50 rounded-t-none p-0 min-w-48 flex flex-col gap-8 mt-8">
+                          {link.sub.map((subLink) => (
+                            <li key={subLink.title}>
+                              <Link
+                                href={subLink.route}
+                                className={`${
+                                  link.title === "Giving"
+                                    ? `text-primary`
+                                    : `text-accent`
+                                } text-3xl font-semibold hover:text-primary px-4 py-0`}
+                              >
+                                {subLink.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    </li>
+                  ) : (
+                    <li key={link.title}>
+                      <Link
+                        href={link.route}
+                        className={`${
+                          link.title === "Giving"
+                            ? `text-primary`
+                            : `text-accent`
+                        } text-3xl font-semibold hover:text-primary px-4 py-0`}
+                      >
+                        {link.title}
+                      </Link>
+                    </li>
+                  )
+                )}
               </div>
             </ul>
           </div>

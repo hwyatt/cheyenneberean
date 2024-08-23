@@ -25,6 +25,10 @@
   @apply no-underline hover:underline text-accent;
 }
 
+.textarea-placeholder::placeholder {
+  font-size: 1rem; /* Adjust this value to your desired font size */
+}
+
 .site-container {
   max-width: 1312px;
 }
@@ -54,6 +58,11 @@
 
 .markdown-container {
   @apply flex flex-col gap-4;
+}
+
+.mobile-menu :where(li > details > summary):after {
+  height: 0px;
+  width: 0px;
 }
 
 /* BELIEFS PAGE MARKDOWN STYLES */

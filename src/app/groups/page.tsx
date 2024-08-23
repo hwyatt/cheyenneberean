@@ -94,7 +94,7 @@ const GroupsPage = async () => {
           </div>
         </div>
         {groups.map((group: any) => (
-          <div className="md:col-span-4" key={group.name}>
+          <div className="md:col-span-4" key={group.title}>
             <Card
               title={group.title}
               description={group.description}

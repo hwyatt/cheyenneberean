@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const HeroBanner = ({ title, description, eyebrowText }: any) => {
   return (
@@ -24,7 +25,12 @@ export const HeroBanner = ({ title, description, eyebrowText }: any) => {
           </div>
           <div className="flex gap-4 mt-4 z-10">
             <button className="btn btn-primary">Join Us For Service</button>
-            <button className="btn btn-secondary">Stream Online</button>
+            <Link
+              href="https://www.youtube.com/@CheyenneBereanChurch/streams"
+              className="btn btn-secondary"
+            >
+              Stream Online
+            </Link>
           </div>
         </div>
         <div className="col-span-4 h-64 md:h-auto relative">

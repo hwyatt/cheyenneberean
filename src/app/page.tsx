@@ -16,6 +16,7 @@ import { HeroBanner } from "./components/HeroBanner/HeroBanner";
 import { Tile } from "./components/Tile/Tile";
 import { SermonSeries } from "./components/SermonSeries/SermonSeries";
 import { fetchGraphQL } from "./api/contentful";
+import Link from "next/link";
 
 const HOME_PAGE_QUERY = `
 query homePage {
@@ -162,7 +163,34 @@ export default async function Home() {
                     </span>
                   </div>
                 </div>
-                <button className="btn btn-secondary">Get Directions</button>
+                <div className="dropdown dropdown-top">
+                  <div tabIndex={0} role="button" className="btn btn-secondary">
+                    Get Directions
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-white border border-gray-200 rounded-box z-[1] w-52 p-2 shadow-lg mb-2"
+                  >
+                    <li>
+                      <Link
+                        href="https://maps.apple.com/?address=5716%20Powderhouse%20Rd,%20Cheyenne,%20WY%20%2082009,%20United%20States&auid=3348263254314329745&ll=41.172238,-104.809766&lsp=9902&q=Cheyenne%20Berean%20Church&t=m"
+                        className="font-semibold"
+                        target="_blank"
+                      >
+                        Apple Maps
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://maps.app.goo.gl/RR66LxPk2KjXGhEf7"
+                        className="font-semibold"
+                        target="_blank"
+                      >
+                        Google Maps
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

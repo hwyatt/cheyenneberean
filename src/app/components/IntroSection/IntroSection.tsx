@@ -25,7 +25,7 @@ export const IntroSection = ({
       )}
       {header && (
         <h1
-          className={`font-semibold text-3xl ${
+          className={`font-semibold text-3xl text-center ${
             !headerColor ? "text-accent" : headerColor
           }`}
         >
