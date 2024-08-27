@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
   {
     title: "About",
-    route: "/about",
+    route: "/welcome",
     icon: "person",
     sub: [
       {

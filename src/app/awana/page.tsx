@@ -143,7 +143,7 @@ const AwanaPage = async ({}) => {
   const { pageIntroSection, pageFaQs, pageConnectSection } = pageData;
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8">
+    <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}
@@ -151,10 +151,14 @@ const AwanaPage = async ({}) => {
           image={pageIntroSection.logo.url}
           copy={pageIntroSection.description}
           ctaPrimary={
-            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
+            pageIntroSection.ctaPrimaryLabel
+              ? `${pageIntroSection.ctaPrimaryLabel} | ${pageIntroSection.ctaPrimaryLink}`
+              : null
           }
           ctaSecondary={
-            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
+            pageIntroSection.ctaSecondaryLabel
+              ? `${pageIntroSection.ctaSecondaryLabel} | ${pageIntroSection.ctaSecondaryLink}`
+              : null
           }
         />
       )}

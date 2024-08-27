@@ -110,13 +110,10 @@ export const Card = ({
                 href={ctaPrimaryLink}
                 className="flex items-center gap-1 group"
               >
-                <span className="font-semibold text-primary group-hover:text-accent">
+                <span className="font-semibold text-primary group-hover:underline group-hover:underline-offset-4 decoration-2">
                   {ctaPrimaryLabel}
                 </span>
-                <IoChevronForward
-                  size={18}
-                  className="text-primary group-hover:text-accent"
-                />
+                <IoChevronForward size={18} className="text-primary" />
               </Link>
             ) : (
               <Link href={ctaPrimaryLink} className={`btn btn-primary`}>
@@ -129,13 +126,10 @@ export const Card = ({
                 href={ctaSecondaryLink}
                 className="flex items-center gap-1 group"
               >
-                <span className="font-semibold text-primary group-hover:text-accent">
+                <span className="font-semibold text-primary group-hover:underline group-hover:underline-offset-4 decoration-2">
                   {ctaSecondaryLabel}
                 </span>
-                <IoChevronForward
-                  size={18}
-                  className="text-primary group-hover:text-accent"
-                />
+                <IoChevronForward size={18} className="text-primary" />
               </Link>
             ) : (
               <Link href={ctaSecondaryLink} className={`btn btn-secondary`}>

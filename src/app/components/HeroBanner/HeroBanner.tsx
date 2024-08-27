@@ -23,7 +23,7 @@ export const HeroBanner = ({ title, description, eyebrowText }: any) => {
               </p>
             )}
           </div>
-          <div className="flex gap-4 mt-4 z-10">
+          {/* <div className="flex gap-4 mt-4 z-10">
             <button className="btn btn-primary">Join Us For Service</button>
             <Link
               href="https://www.youtube.com/@CheyenneBereanChurch/streams"
@@ -31,7 +31,7 @@ export const HeroBanner = ({ title, description, eyebrowText }: any) => {
             >
               Stream Online
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className="col-span-4 h-64 md:h-auto relative">
           <Image

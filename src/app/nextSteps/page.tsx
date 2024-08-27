@@ -27,7 +27,7 @@ const NextStepsPage = async ({}) => {
   const { pageIntroSection } = pageData;
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8">
+    <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}

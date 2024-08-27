@@ -95,6 +95,10 @@ a {
   @apply text-gray-800;
 }
 
+.markdown-container a {
+  @apply font-semibold text-primary hover:underline hover:underline-offset-4 decoration-2;
+}
+
 .m-club-info-block__image-side {
   position: absolute;
   top: 0;

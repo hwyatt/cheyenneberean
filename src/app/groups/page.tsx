@@ -64,7 +64,7 @@ const GroupsPage = async () => {
   }));
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-8">
+    <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}
@@ -78,7 +78,7 @@ const GroupsPage = async () => {
           }
         />
       )}
-      <div className="md:col-span-4 pb-8 border-b-2 border-gray-300 w-full">
+      {/* <div className="md:col-span-4 pb-8 border-b-2 border-gray-300 w-full">
         <div className="flex flex-col gap-2 md:w-1/2">
           <h2 className="text-accent font-semibold text-lg">Filters</h2>
           <div className="flex flex-col md:flex-row gap-4">
@@ -90,7 +90,7 @@ const GroupsPage = async () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
         {groups.map((group: any) => (
           <div className="md:col-span-4" key={group.title}>

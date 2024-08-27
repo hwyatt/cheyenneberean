@@ -117,7 +117,7 @@ const KidsPage = async ({}) => {
 
   return (
     <div
-      className="page-kids min-h-screen flex flex-col items-center gap-8 bg-transparent"
+      className="page-kids min-h-screen flex flex-col items-center gap-8 md:gap-16 bg-transparent"
       data-theme="kids"
     >
       {pageIntroSection && (
