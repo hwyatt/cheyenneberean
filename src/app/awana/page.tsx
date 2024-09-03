@@ -115,8 +115,10 @@ const AwanaPage = async ({}) => {
           pageIntroSection {
             heading
             description
-            ctaPrimary
-            ctaSecondary
+            primaryCtaLabel
+            primaryCtaLink
+            secondaryCtaLabel
+            secondaryCtaLink
             logo {
               url
             }
