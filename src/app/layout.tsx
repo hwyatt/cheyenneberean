@@ -5,11 +5,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NAV_LINKS, CONNECT_LINKS, FAMILY_LINKS, CONTACT_LINKS } from "./LINKS";
-import {
-  IoChevronForward,
-  IoPersonOutline,
-  IoPeopleOutline,
-} from "react-icons/io5";
+import { IoPersonOutline, IoPeopleOutline } from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
 import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
