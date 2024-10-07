@@ -4,67 +4,71 @@ import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
 
-const WelcomePage = async ({}) => {
+const ContentPage = async ({ params }: any) => {
+  const { content } = params;
+
+  console.log("$$$ I AM A CONTENT PAGE $$$");
+
   const data = await fetchGraphQL(`
-  query {
-    pageCollection(where: { sys: { id: "5eX8mSA1goVHv9FZW6L1fQ" } }) {
-      items {
-        sys {
-          id
-        }
-        pageIntroSection {
-          heading
-          description
-          primaryCtaLabel
-          primaryCtaLink
-          secondaryCtaLabel
-          secondaryCtaLink
-          logo {
-            url
+    query {
+      pageCollection(where: { url: "/${content}" }) {
+        items {
+          sys {
+            id
           }
-        }
-        pageTextSectionCollection(limit: 5) {
-          items {
-          heading
-          markdown
-          image {
-          url
+          pageIntroSection {
+            heading
+            description
+            primaryCtaLabel
+            primaryCtaLink
+            secondaryCtaLabel
+            secondaryCtaLink
+            logo {
+              url
+            }
           }
-          primaryCtaLabel
-          primaryCtaLink
-          secondaryCtaLabel
-          secondaryCtaLink
-          reverse
+          pageTextSectionCollection(limit: 10) {
+            items {
+      			heading
+      			markdown
+      			image {
+      			url
+      			}
+      			primaryCtaLabel
+      			primaryCtaLink
+      			secondaryCtaLabel
+      			secondaryCtaLink
+    			 	}
           }
-        }
-        pageFaQs {
-          heading
-          questions
-        }
-        pageConnectSection {
-          heading
-          description
-          logo {
-            url
+          pageFaQs {
+            heading
+            questions
           }
-          ctaLabel
-          ctaLink
+          pageConnectSection {
+            heading
+            description
+            logo {
+              url
+            }
+            ctaLabel
+            ctaLink
+          }
         }
       }
-    }
-  }
+    }       
     `);
 
   const pageData = data?.data?.pageCollection?.items[0];
   const {
     pageIntroSection,
     pageTextSectionCollection,
+    showEvents,
     pageFaQs,
     pageConnectSection,
   } = pageData;
 
   return (
-    <div className="page-about min-h-screen flex flex-col items-center gap-8 md:gap-16">
+    <div className="page-beliefs min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}
@@ -94,11 +98,7 @@ const WelcomePage = async ({}) => {
           </div>
         ))}
       {pageFaQs && (
-        <Accordion
-          header={pageFaQs.heading}
-          items={pageFaQs.questions}
-          theme="brand"
-        />
+        <Accordion header={pageFaQs.heading} items={pageFaQs.questions} />
       )}
       {pageConnectSection && (
         <ConnectSection
@@ -114,4 +114,4 @@ const WelcomePage = async ({}) => {
   );
 };
 
-export default WelcomePage;
+export default ContentPage;

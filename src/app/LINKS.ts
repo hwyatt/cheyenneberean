@@ -47,7 +47,7 @@ export const CONNECT_LINKS = [
   {
     title: "Next Steps",
     icon: "walking",
-    route: "/nextSteps",
+    route: "/next-steps",
   },
   {
     title: "Groups",
@@ -85,7 +85,7 @@ export const FAMILY_LINKS = [
   {
     title: "Young Adults",
     icon: "young-adults",
-    route: "/youngAdults",
+    route: "/young-adults",
   },
   {
     title: "Awana",
