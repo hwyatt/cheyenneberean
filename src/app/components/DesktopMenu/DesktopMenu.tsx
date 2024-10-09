@@ -4,12 +4,12 @@ import { useRef } from "react";
 import { NAV_LINKS } from "../../LINKS";
 
 export const DesktopMenu = () => {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
   return (
     <div className="hidden flex-none md:block">
       <ul className="menu menu-horizontal items-center gap-8">
         {NAV_LINKS.map((link) => {
-          const detailsRef = useRef<HTMLDetailsElement>(null);
-
           return link.sub && link.sub.length > 0 ? (
             <li key={link.title}>
               <details ref={detailsRef}>
