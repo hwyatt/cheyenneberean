@@ -7,8 +7,6 @@ import { TextBlock } from "../components/TextBlock/TextBlock";
 const ContentPage = async ({ params }: any) => {
   const { content } = params;
 
-  console.log("$$$ I AM A CONTENT PAGE $$$");
-
   const data = await fetchGraphQL(`
     query {
       pageCollection(where: { url: "/${content}" }) {
@@ -67,8 +65,12 @@ const ContentPage = async ({ params }: any) => {
     pageConnectSection,
   } = pageData;
 
+  const pageClass = content === "beliefs" ? "page-beliefs" : "";
+
   return (
-    <div className="page-beliefs min-h-screen flex flex-col items-center gap-8 md:gap-16">
+    <div
+      className={`${pageClass} min-h-screen flex flex-col items-center gap-8 md:gap-16`}
+    >
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}

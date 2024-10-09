@@ -4,15 +4,16 @@ import Link from "next/link";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { NAV_LINKS, CONNECT_LINKS, FAMILY_LINKS, CONTACT_LINKS } from "./LINKS";
+import { NAV_LINKS, CONNECT_LINKS } from "./LINKS";
 import { IoPersonOutline, IoPeopleOutline } from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
 import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
-import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
-import { MdPhone } from "react-icons/md";
+import { DesktopMenu } from "./components/DesktopMenu/DesktopMenu";
+import { MobileMenu } from "./components/MobileMenu/MobileMenu";
+import { Footer } from "./components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -74,57 +75,7 @@ export default function RootLayout({
                     />
                   </Link>
                 </div>
-                <div className="hidden flex-none md:block">
-                  <ul className="menu menu-horizontal items-center gap-8">
-                    {/* Navbar menu content here */}
-                    {NAV_LINKS.map((link) =>
-                      link.sub && link.sub.length > 0 ? (
-                        <li key={link.title}>
-                          <details>
-                            <summary
-                              className={`${
-                                link.title === "Giving"
-                                  ? `text-primary`
-                                  : `text-accent`
-                              } font-semibold hover:text-primary`}
-                            >
-                              {link.title}
-                            </summary>
-                            <ul className="z-50 rounded-t-none p-2 min-w-48">
-                              {link.sub.map((subLink) => (
-                                <li key={subLink.title}>
-                                  <Link
-                                    href={subLink.route}
-                                    className={`${
-                                      link.title === "Giving"
-                                        ? `text-primary`
-                                        : `text-accent`
-                                    } font-semibold hover:text-primary`}
-                                  >
-                                    {subLink.title}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </details>
-                        </li>
-                      ) : (
-                        <li key={link.title}>
-                          <Link
-                            href={link.route}
-                            className={`${
-                              link.title === "Giving"
-                                ? `text-primary`
-                                : `text-accent`
-                            } font-semibold hover:text-primary`}
-                          >
-                            {link.title}
-                          </Link>
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </div>
+                <DesktopMenu />
               </div>
             </div>
             <div className="md:hidden border-b border-gray-300 overflow-x-auto">
@@ -161,178 +112,10 @@ export default function RootLayout({
               </div>
             </main>
           </div>
-          <div className="drawer-side z-50">
-            <label
-              htmlFor="my-drawer-3"
-              aria-label="close sidebar"
-              className="drawer-overlay text-accent"
-            ></label>
-            <ul className="mobile-menu menu bg-white min-h-full w-3/4 p-0">
-              {/* Sidebar content here */}
-              <div className="flex flex-col gap-16 mt-8 border-gray-200">
-                {NAV_LINKS.map((link) =>
-                  link.sub && link.sub.length > 0 ? (
-                    <li key={link.title}>
-                      <details>
-                        <summary
-                          className={`${
-                            link.title === "Giving"
-                              ? `text-primary`
-                              : `text-accent`
-                          } font-semibold hover:text-primary text-3xl px-4 py-0`}
-                        >
-                          {link.title}
-                        </summary>
-                        <ul className="z-50 rounded-t-none p-0 min-w-48 flex flex-col gap-8 mt-8">
-                          {link.sub.map((subLink) => (
-                            <li key={subLink.title}>
-                              <Link
-                                href={subLink.route}
-                                className={`${
-                                  link.title === "Giving"
-                                    ? `text-primary`
-                                    : `text-accent`
-                                } text-3xl font-semibold hover:text-primary px-4 py-0`}
-                              >
-                                {subLink.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </details>
-                    </li>
-                  ) : (
-                    <li key={link.title}>
-                      <Link
-                        href={link.route}
-                        className={`${
-                          link.title === "Giving"
-                            ? `text-primary`
-                            : `text-accent`
-                        } text-3xl font-semibold hover:text-primary px-4 py-0`}
-                      >
-                        {link.title}
-                      </Link>
-                    </li>
-                  )
-                )}
-              </div>
-            </ul>
-          </div>
+          <MobileMenu />
         </div>
         <div className="relative border-t border-gray-300 overflow-hidden bg-white">
-          {/* <Image
-            src="/light-mountains.png"
-            alt="light mountain logo"
-            className="hidden md:block md:top-[-128px]"
-            layout="fill"
-            objectFit="cover"
-          /> */}
-          <footer className="px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
-            <div className="grid w-full grid-cols-12 gap-y-8 gap-x-4 z-10">
-              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-                <h6 className="font-bold text-accent uppercase mb-2">About</h6>
-                {aboutSection?.sub.map((link) => (
-                  <Link
-                    href={link.route}
-                    className="text-gray-800 hover:underline"
-                    key={link.title}
-                  >
-                    {link.title}
-                  </Link>
-                ))}
-              </nav>
-              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-                <h6 className="font-bold text-accent uppercase mb-2">
-                  Get Involved
-                </h6>
-                {CONNECT_LINKS.map((link) => (
-                  <Link
-                    href={link.route}
-                    className="text-gray-800 hover:underline"
-                    key={link.title}
-                  >
-                    {link.title}
-                  </Link>
-                ))}
-              </nav>
-              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-                <h6 className="font-bold text-accent uppercase mb-2">
-                  For Your Family
-                </h6>
-                {FAMILY_LINKS.map((link) => (
-                  <Link
-                    href={link.route}
-                    className="text-gray-800 hover:underline"
-                    key={link.title}
-                  >
-                    {link.title}
-                  </Link>
-                ))}
-              </nav>
-              <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-                <h6 className="font-bold text-accent uppercase mb-2">
-                  Connect With Us
-                </h6>
-                {CONTACT_LINKS.map((link) => (
-                  <Link
-                    href={link.route}
-                    className="text-gray-800 hover:underline"
-                    key={link.title}
-                  >
-                    {link.title}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-            <div className="flex flex-col md:flex-row md:flex-row-reverse gap-8 items-center justify-center md:justify-between">
-              <div className="flex gap-4">
-                {CONTACT_LINKS.map((link) =>
-                  link.title === "Phone" ? (
-                    <a
-                      key={link.title}
-                      href={`tel:${link.route}`}
-                      className="bg-accent p-1 rounded-full flex items-center justify-center"
-                      style={{
-                        height: 36,
-                        width: 36,
-                      }}
-                    >
-                      <MdPhone size={18} className="text-white" />
-                    </a>
-                  ) : (
-                    <SocialIcon
-                      key={link.title}
-                      style={{
-                        height: 36,
-                        width: 36,
-                      }}
-                      className="text-gray-800"
-                      url={link.route}
-                      bgColor={link.title === "Email" ? "#1F4061" : undefined}
-                    />
-                  )
-                )}
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-1 md:gap-2 items-center justify-center z-10">
-                <p className="text-sm md:text-base text-gray-800">
-                  5716 Powderhouse Rd, Cheyenne, WY 82009
-                </p>
-                <p className="hidden md:block text-sm text-gray-400">|</p>
-                <a
-                  href={
-                    CONTACT_LINKS.find((link) => link.title === "Phone")?.route
-                  }
-                  className="text-sm md:text-base text-primary"
-                >
-                  {CONTACT_LINKS.find(
-                    (link) => link.title === "Phone"
-                  )?.route.replace("tel:", "")}
-                </a>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </div>
       </body>
     </html>

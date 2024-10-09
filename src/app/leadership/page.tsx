@@ -84,7 +84,7 @@ const LeadershipPage = async ({}) => {
   )[0];
 
   return (
-    <div className="page-beliefs min-h-screen flex flex-col items-center gap-8 md:gap-16">
+    <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}
