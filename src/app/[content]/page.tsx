@@ -66,6 +66,10 @@ const ContentPage = async ({ params }: any) => {
   } = pageData;
 
   const pageClass = content === "beliefs" ? "page-beliefs" : "";
+  const textColor =
+    content === "youth" || content === "young-adults"
+      ? "text-dark-800"
+      : "text-accent";
 
   return (
     <div
@@ -74,6 +78,7 @@ const ContentPage = async ({ params }: any) => {
       {pageIntroSection && (
         <IntroSection
           header={pageIntroSection.heading}
+          headerColor={textColor}
           image={pageIntroSection.logo ? pageIntroSection.logo.url : null}
           copy={pageIntroSection.description}
           ctaPrimary={
@@ -109,7 +114,7 @@ const ContentPage = async ({ params }: any) => {
           ctaLabel={pageConnectSection.ctaLabel}
           ctaLink={pageConnectSection.ctaLink}
           img={pageConnectSection.logo?.url}
-          theme="brand"
+          theme={textColor === "text-accent" ? "text-accent" : "text-gray-800"}
         />
       )}
     </div>

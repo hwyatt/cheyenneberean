@@ -32,8 +32,9 @@ export const Tile = ({
   }
 
   return responsive ? (
-    <div
+    <a
       className={`flex flex-col items-start justify-end col-span-12 relative rounded-lg min-h-[350px]`}
+      href={ctaLink}
     >
       <div className="absolute inset-0 h-full w-full">
         <img
@@ -63,16 +64,19 @@ export const Tile = ({
             </span>
           </div>
           <div className="flex">
-            <a href={ctaLink} className="btn btn-primary w-auto">
-              {ctaLabel}
-            </a>
+            {ctaLink && ctaLabel && (
+              <a href={ctaLink} className="btn btn-primary w-auto">
+                {ctaLabel}
+              </a>
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </a>
   ) : (
-    <div
+    <a
       className={`flex flex-col items-start justify-end col-span-6 relative rounded-lg min-h-[350px]`}
+      href={ctaLink}
     >
       <div className="absolute inset-0 h-full w-full">
         <img
@@ -101,11 +105,13 @@ export const Tile = ({
           </span>
         </div>
         <div className="flex">
-          <a href={ctaLink} className="btn btn-primary w-auto">
-            {ctaLabel}
-          </a>
+          {ctaLink && ctaLabel && (
+            <a href={ctaLink} className="btn btn-primary w-auto">
+              {ctaLabel}
+            </a>
+          )}
         </div>
       </div>
-    </div>
+    </a>
   );
 };

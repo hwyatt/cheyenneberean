@@ -12,10 +12,10 @@ export const NAV_LINKS = [
         title: "Leadership",
         route: "/leadership",
       },
-      {
-        title: "Ministries",
-        route: "/ministries",
-      },
+      // {
+      //   title: "Ministries",
+      //   route: "/ministries",
+      // },
     ],
   },
   {
@@ -44,11 +44,11 @@ export const CONNECT_LINKS = [
     icon: "person",
     route: "/welcome",
   },
-  {
-    title: "Next Steps",
-    icon: "walking",
-    route: "/next-steps",
-  },
+  // {
+  //   title: "Next Steps",
+  //   icon: "walking",
+  //   route: "/next-steps",
+  // },
   {
     title: "Groups",
     icon: "people",

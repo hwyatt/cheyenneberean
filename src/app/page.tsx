@@ -98,23 +98,15 @@ export default async function Home() {
                   header="Testing 123"
                   description="Testing description on a promo tile for the home page of Cheyenne Berean Church"
                   ctaLabel="Sign Up"
+                  ctaLink="/"
                   responsive
                   backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
                   theme="brand"
                 />
                 <Tile
-                  header="Testing 123"
-                  description="Testing description on a promo tile for the home page of Cheyenne Berean Church"
-                  ctaLabel="Sign Up"
+                  ctaLink="/"
                   backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
-                  theme="brand"
-                />
-                <Tile
-                  header="Testing 123"
-                  description="Testing description on a promo tile for the home page of Cheyenne Berean Church"
-                  ctaLabel="Sign Up"
-                  backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
-                  theme="brand"
+                  responsive
                 />
               </div>
             </div>

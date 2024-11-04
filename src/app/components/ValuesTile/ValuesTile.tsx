@@ -11,7 +11,7 @@ export const ValuesTile = ({
   if (theme === "kids") {
     textColor = "text-white";
     bgColor = "#6A7065";
-    bgImg = "/texture-kids.png";
+    bgImg = "/kids/texture-kids.png";
   }
 
   if (theme === "awana") {
