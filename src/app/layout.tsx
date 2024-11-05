@@ -67,10 +67,10 @@ export default function RootLayout({
                 <div className="mx-2 flex-1 px-2">
                   <Link href="/">
                     <Image
-                      src="/brand/CBC-Circle-Logo.png"
+                      src="/brand/blue_logo.png"
                       alt="Cheyenne Berean Church Logo"
-                      width={48}
-                      height={48}
+                      width={80}
+                      height={80}
                       className="absolute md:relative m-auto md:m-0 inset-0"
                     />
                   </Link>

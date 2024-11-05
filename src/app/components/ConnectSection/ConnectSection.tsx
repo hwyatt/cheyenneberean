@@ -8,7 +8,7 @@ export const ConnectSection = ({
 }: any) => (
   <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-8 border-gray-300 border-t-2 border-b-2 w-full">
     <div className="flex flex-col md:flex-row items-center gap-4">
-      {img && <img src={img} className="h-auto w-32 mb-4 md:mb-0" />}
+      {img && <img src={img} className="max-h-12 mb-4 md:mb-0" />}
       <div className="flex flex-col gap-2 mb-4 md:mb-0">
         <span
           className={`text-center md:text-start font-semibold ${

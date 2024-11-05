@@ -28,13 +28,6 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
               lat
               lon
             }
-            coverImage {
-              url
-            }
-            logoImage {
-              url
-            }
-            backgroundColor
             categories
       }
     }

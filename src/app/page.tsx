@@ -44,18 +44,19 @@ query homePage {
       }
     }
   }
-  eventCollection(order: startDateTime_ASC, limit: 4) {
+  homePageCollection {
     items {
-      _id
-      title
-      startDateTime
-      coverImage {
-        url
+      promoTilesCollection {
+        items {
+          heading
+          description
+          ctaLabel
+          ctaLink
+        backgroundImage {
+          url
+        }
+        }
       }
-      logoImage {
-        url
-      }
-      backgroundColor
     }
   }
 }`;
@@ -63,7 +64,8 @@ query homePage {
 export default async function Home() {
   const data = await fetchGraphQL(HOME_PAGE_QUERY);
   const homePageContent = data.data;
-  const eventContent = data.data.eventCollection;
+  const promoTilesContent =
+    data.data.homePageCollection.items[0].promoTilesCollection;
   const sermonSeriesContent = homePageContent.sermonSeriesCollection.items[0];
   const sermonContent = sermonSeriesContent.sermonsCollection.items[0];
 
@@ -91,23 +93,20 @@ export default async function Home() {
               watchSermonLink={sermonContent.link}
             />
           )}
-          {eventContent && eventContent.items.length > 0 && (
+          {promoTilesContent && promoTilesContent.items.length > 0 && (
             <div className="flex flex-col gap-2">
               <div className="flex flex-col md:grid grid-cols-12 gap-4">
-                <Tile
-                  header="Testing 123"
-                  description="Testing description on a promo tile for the home page of Cheyenne Berean Church"
-                  ctaLabel="Sign Up"
-                  ctaLink="/"
-                  responsive
-                  backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
-                  theme="brand"
-                />
-                <Tile
-                  ctaLink="/"
-                  backgroundImg="https://thebelonging.co/wp-content/uploads/2021/04/PAST-MESSAGES_DESKTOP.jpg"
-                  responsive
-                />
+                {promoTilesContent.items.map((promo: any) => (
+                  <Tile
+                    header={promo.heading}
+                    description={promo.description}
+                    ctaLabel={promo.ctaLabel}
+                    ctaLink={promo.ctaLink}
+                    responsive
+                    backgroundImg={promo.backgroundImage.url}
+                    theme="brand"
+                  />
+                ))}
               </div>
             </div>
           )}

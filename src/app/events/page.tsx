@@ -19,21 +19,11 @@ const EventPage = async ({}) => {
           lat
           lon
         }
-        coverImage {
-          url
-        }
-        logoImage {
-          url
-        }
-        backgroundColor
         categories
       }
     }
     pageCollection(where: { sys: { id: "5ITN1PZVKAkYgSaMvIxAjk" } }) {
       items {
-        sys {
-          id
-        }
         pageIntroSection {
           heading
           description
@@ -45,34 +35,7 @@ const EventPage = async ({}) => {
             url
           }
         }
-        pageTextSectionCollection(limit: 5) {
-          items {
-          heading
-          markdown
-          image {
-          url
-          }
-          primaryCtaLabel
-          primaryCtaLink
-          secondaryCtaLabel
-          secondaryCtaLink
-          reverse
-          }
-        }
         showEvents
-        pageFaQs {
-          heading
-          questions
-        }
-        pageConnectSection {
-          heading
-          description
-          logo {
-            url
-          }
-          ctaLabel
-          ctaLink
-        }
       }
     }
   }`);
@@ -115,7 +78,7 @@ const EventPage = async ({}) => {
                 ctaSecondaryLabel="More Info"
                 ctaSecondaryLink={`/events/${event.sys.id}`}
                 ctaStyle="link"
-                image={event.coverImage.url}
+                // image={event.coverImage.url}
                 imageFit="cover"
               />
             </div>

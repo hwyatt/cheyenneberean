@@ -58,7 +58,7 @@ export const Tile = ({
             <span
               className={`${
                 theme === "light" ? `text-gray-800` : `text-white`
-              } text-sm md:text-base font-light`}
+              } text-sm md:text-base font-light text-balance`}
             >
               {description}
             </span>
