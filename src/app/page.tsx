@@ -48,6 +48,7 @@ query homePage {
     items {
       promoTilesCollection {
         items {
+          _id
           heading
           description
           ctaLabel
@@ -98,6 +99,7 @@ export default async function Home() {
               <div className="flex flex-col md:grid grid-cols-12 gap-4">
                 {promoTilesContent.items.map((promo: any) => (
                   <Tile
+                    key={promo._id}
                     header={promo.heading}
                     description={promo.description}
                     ctaLabel={promo.ctaLabel}
