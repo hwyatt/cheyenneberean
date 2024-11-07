@@ -16,30 +16,23 @@ export const TextBlock = ({
     <div
       className={`flex flex-col md:flex-row ${
         reverse && "md:flex-row-reverse"
-      } gap-4 md:gap-8 w-full ${theme === "kids" && `bg-white rounded-lg`}`}
+      } gap-4 md:gap-8 w-full`}
     >
       {image && (
         <div className="flex-shrink-0 w-full md:w-1/3 flex items-center">
           <img
-            className={`rounded-lg w-full h-auto ${
-              theme === "kids" && "aspect-video object-cover md:aspect-square"
-            }`}
+            className={`rounded-lg w-full h-auto`}
             src={image.url}
             alt={image.alt}
           />
         </div>
       )}
-      <div
-        className={`flex-grow flex flex-col gap-2 md:gap-4 ${
-          theme === "kids" &&
-          `px-4 pb-4 md:py-8 ${reverse ? `md:pl-8 md:pr-0` : `md:pl-0 md:pr-8`}`
-        }`}
-      >
+      <div className={`flex-grow flex flex-col gap-2 md:gap-4`}>
         {header && (
           <h2
             className={`${centerText && "text-center"} ${
               theme === "kids"
-                ? "font-bobby text-3xl"
+                ? "text-gray-800 font-semibold text-2xl"
                 : "text-accent font-semibold text-2xl"
             }`}
           >

@@ -114,7 +114,7 @@ const ContentPage = async ({ params }: any) => {
           ctaLabel={pageConnectSection.ctaLabel}
           ctaLink={pageConnectSection.ctaLink}
           img={pageConnectSection.logo?.url}
-          theme={textColor === "text-accent" ? "text-accent" : "text-gray-800"}
+          theme={textColor === "text-accent" ? "brand" : "text-gray-800"}
         />
       )}
     </div>

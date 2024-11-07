@@ -166,7 +166,6 @@ const AwanaPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="font-semibold text-2xl text-center">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -179,7 +178,6 @@ const AwanaPage = async ({}) => {
           </div>
         </div>
         <div className="flex flex-col gap-2 items-center w-screen">
-          <h2 className="font-semibold text-2xl text-center">Awana Clubs</h2>
           <div>
             {CLUBS.map((club: any) => (
               <ClubCard

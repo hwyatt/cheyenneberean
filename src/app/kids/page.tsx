@@ -138,7 +138,6 @@ const KidsPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-3xl uppercase font-bobby">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -159,8 +158,7 @@ const KidsPage = async ({}) => {
         {pageTextSectionCollection &&
           pageTextSectionCollection.items.length > 0 && (
             <div className="flex flex-col items-center gap-2">
-              <h2 className="text-3xl uppercase font-bobby">Classrooms</h2>
-              <div className="flex flex-col items-center gap-4 w-full">
+              <div className="flex flex-col items-center gap-4 md:gap-8 w-full">
                 {pageTextSectionCollection.items.map((item: any) => (
                   <div key={item.heading}>
                     <TextBlock
@@ -177,7 +175,7 @@ const KidsPage = async ({}) => {
           )}
         {/* {showEvents && eventData && (
           <div className="flex flex-col items-center gap-2 w-full">
-            <h2 className="text-3xl uppercase font-bobby">
+            <h2 className="text-3xl uppercase">
               Events
             </h2>
             <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
