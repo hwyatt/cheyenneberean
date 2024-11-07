@@ -26,7 +26,7 @@ export const SermonSeries = ({
   return (
     <div className="flex flex-col gap-12 border-b-2 pb-12 border-gray-300">
       <div>
-        <div className="aspect-video rounded-lg flex flex-col relative shadow-sm md:hover:shadow-lg">
+        <div className="aspect-video rounded-lg flex flex-col relative shadow-sm">
           <div className="bg-overlay"></div>
           <Image
             src={imgUrl}

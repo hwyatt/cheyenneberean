@@ -20,28 +20,15 @@ import Link from "next/link";
 
 const HOME_PAGE_QUERY = `
 query homePage {
-  sermonSeriesCollection(order: date_DESC, limit: 1) {
+  sermonCollection(order: date_DESC, limit: 1) {
     items {
-      sys {
-        id
-      }
       title
-      description
-      date
-      image {
-        url
-      }
-      sermonsCollection(order: date_DESC, limit: 1) {
-        items {
-          title
           speaker
           date
           link
           image {
             url
           }
-        }
-      }
     }
   }
   homePageCollection {
@@ -67,8 +54,9 @@ export default async function Home() {
   const homePageContent = data.data;
   const promoTilesContent =
     data.data.homePageCollection.items[0].promoTilesCollection;
-  const sermonSeriesContent = homePageContent.sermonSeriesCollection.items[0];
-  const sermonContent = sermonSeriesContent.sermonsCollection.items[0];
+  const sermonContent = homePageContent.sermonCollection.items[0];
+
+  console.log(sermonContent);
 
   return (
     <div className="flex flex-col gap-8">
@@ -81,16 +69,12 @@ export default async function Home() {
       />
       <div className="flex flex-col md:grid grid-cols-12 gap-8">
         <div className="col-span-8 flex flex-col gap-8">
-          {sermonSeriesContent && sermonContent && (
+          {sermonContent && (
             <SermonSeries
               sermonTitle={sermonContent.title}
               sermonDate={sermonContent.date}
               sermonSpeaker={sermonContent.speaker}
-              imgUrl={
-                sermonContent.image
-                  ? sermonContent.image.url
-                  : sermonSeriesContent.image.url
-              }
+              imgUrl={sermonContent.image.url}
               watchSermonLink={sermonContent.link}
             />
           )}
