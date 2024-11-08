@@ -58,13 +58,7 @@ export const ValuesTile = ({
             </div>
           )}
           {title && (
-            <span
-              className={`${textColor} z-10 ${
-                theme === "kids" ? `font-bobby text-2xl font-normal` : "text-xl"
-              }`}
-            >
-              {title}
-            </span>
+            <span className={`${textColor} z-10 text-xl`}>{title}</span>
           )}
         </div>
         {desc && <p className={`${textColor} font-light z-10`}>{desc}</p>}

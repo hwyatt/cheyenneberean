@@ -102,20 +102,19 @@ const KidsPage = async ({}) => {
     pageConnectSection,
   } = pageData;
 
-  // const eventData = await fetchGraphQL(`query {
-  //     eventCollection(where: { categories_contains_some: ["Kids"] }) {
-  //       items {
-  //         title
-  //         coverImage {
-  //           url
-  //         }
-  //       }
-  //     }
-  //   }
-  //   `);
+  const eventData = await fetchGraphQL(`query {
+    eventCollection(where: { categories_contains_some: ["Kids"] }, limit: 3) {
+      items {
+        title
+        image {
+          url
+        }
+      }
+    }
+    }
+    `);
 
-  // const pageEvents = eventData.data.eventCollection.items;
-  // const numberOfEvents = pageEvents.length;
+  const pageEvents = eventData.data.eventCollection.items;
 
   return (
     <div
@@ -138,6 +137,7 @@ const KidsPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
+          <h2 className="text-2xl font-semibold">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -158,9 +158,10 @@ const KidsPage = async ({}) => {
         {pageTextSectionCollection &&
           pageTextSectionCollection.items.length > 0 && (
             <div className="flex flex-col items-center gap-2">
+              <h2 className="text-2xl font-semibold">Classes</h2>
               <div className="flex flex-col items-center gap-4 md:gap-8 w-full">
                 {pageTextSectionCollection.items.map((item: any) => (
-                  <div key={item.heading}>
+                  <div key={item.heading} className="w-full">
                     <TextBlock
                       header={item.heading}
                       markdown={item.markdown}
@@ -173,25 +174,24 @@ const KidsPage = async ({}) => {
               </div>
             </div>
           )}
-        {/* {showEvents && eventData && (
+        {showEvents && eventData && (
           <div className="flex flex-col items-center gap-2 w-full">
-            <h2 className="text-3xl uppercase">
-              Events
-            </h2>
+            <h2 className="text-2xl font-semibold">Events</h2>
             <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
               {pageEvents.map((event: any) => (
                 <div className="md:col-span-4" key={event.title}>
                   <Tile
                     header={event.title}
-                    backgroundImg={event.coverImage.url}
-                    ctaLabel="Sign Up"
+                    backgroundImg={event.image.url}
+                    ctaLabel="Learn More"
+                    ctaLink={`/`}
                     theme="dark"
                   />
                 </div>
               ))}
             </div>
           </div>
-        )} */}
+        )}
         {pageFaQs && (
           <Accordion
             header={pageFaQs.heading}

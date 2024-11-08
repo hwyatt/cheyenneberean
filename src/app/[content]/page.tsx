@@ -3,6 +3,7 @@ import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
+import { Tile } from "../components/Tile/Tile";
 
 const ContentPage = async ({ params }: any) => {
   const { content } = params;
@@ -51,6 +52,7 @@ const ContentPage = async ({ params }: any) => {
             ctaLabel
             ctaLink
           }
+          showEvents
         }
       }
     }       
@@ -64,6 +66,29 @@ const ContentPage = async ({ params }: any) => {
     pageFaQs,
     pageConnectSection,
   } = pageData;
+
+  const eventParam =
+    content === "youth"
+      ? "Youth"
+      : content === "young-adults"
+      ? "Young Adults"
+      : null;
+
+  const eventData =
+    eventParam &&
+    (await fetchGraphQL(`query {
+    eventCollection(where: { categories_contains_some: ["Youth"] }, limit: 3) {
+      items {
+        title
+        image {
+          url
+        }
+      }
+    }
+    }
+    `));
+
+  const pageEvents = eventData?.data.eventCollection.items;
 
   const pageClass = content === "beliefs" ? "page-beliefs" : "";
   const textColor =
@@ -104,6 +129,24 @@ const ContentPage = async ({ params }: any) => {
             />
           </div>
         ))}
+      {showEvents && eventData && (
+        <div className="flex flex-col items-center gap-2 w-full">
+          <h2 className="text-2xl font-semibold">Events</h2>
+          <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
+            {pageEvents.map((event: any) => (
+              <div className="md:col-span-4" key={event.title}>
+                <Tile
+                  header={event.title}
+                  backgroundImg={event.image.url}
+                  ctaLabel="Learn More"
+                  ctaLink={`/`}
+                  theme="dark"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       {pageFaQs && (
         <Accordion header={pageFaQs.heading} items={pageFaQs.questions} />
       )}
