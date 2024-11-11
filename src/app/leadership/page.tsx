@@ -152,7 +152,7 @@ const LeadershipPage = async ({}) => {
           header={pageConnectSection.heading}
           copy={pageConnectSection.description}
           ctaLabel={pageConnectSection.ctaLabel}
-          ctaLink={pageConnectSection.ctaLink}
+          ctaLink={`${pageConnectSection.ctaLink}?referrer=leadership`}
           img={pageConnectSection.logo?.url}
           theme="brand"
         />

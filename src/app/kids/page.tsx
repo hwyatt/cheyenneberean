@@ -205,7 +205,7 @@ const KidsPage = async ({}) => {
             header={pageConnectSection.heading}
             copy={pageConnectSection.description}
             ctaLabel={pageConnectSection.ctaLabel}
-            ctaLink={pageConnectSection.ctaLink}
+            ctaLink={`${pageConnectSection.ctaLink}?referrer=kids`}
           />
         )}
         <div className="w-[calc(100vw-16px)] overflow-hidden mb-[-100px] md:mb-[-225px]">

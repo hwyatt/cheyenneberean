@@ -155,7 +155,7 @@ const ContentPage = async ({ params }: any) => {
           header={pageConnectSection.heading}
           copy={pageConnectSection.description}
           ctaLabel={pageConnectSection.ctaLabel}
-          ctaLink={pageConnectSection.ctaLink}
+          ctaLink={`${pageConnectSection.ctaLink}?referrer=${content}`}
           img={pageConnectSection.logo?.url}
           theme={textColor === "text-accent" ? "brand" : "text-gray-800"}
         />

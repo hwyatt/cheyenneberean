@@ -202,7 +202,7 @@ const AwanaPage = async ({}) => {
             header={pageConnectSection.heading}
             copy={pageConnectSection.description}
             ctaLabel={pageConnectSection.ctaLabel}
-            ctaLink={pageConnectSection.ctaLink}
+            ctaLink={`${pageConnectSection.ctaLink}?referrer=awana`}
           />
         )}
         <img src="/awana/awana-kids.png" className="max-h-[400px] mb-[-64px]" />

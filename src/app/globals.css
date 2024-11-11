@@ -26,7 +26,12 @@
 }
 
 .textarea-placeholder::placeholder {
-  font-size: 1rem; /* Adjust this value to your desired font size */
+  font-size: 1rem;
+}
+
+.textarea:focus {
+  outline-color: oklch(0.661537 0.179833 248.406);
+  border-color: oklch(0.661537 0.179833 248.406);
 }
 
 .site-container {
