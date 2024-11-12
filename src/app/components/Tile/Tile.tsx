@@ -31,18 +31,26 @@ export const Tile = ({
       background = "bg-accent";
   }
 
+  const imgOnly =
+    backgroundImg && ctaLink && !ctaLabel && !header && !description;
+
   return responsive ? (
-    <a
-      className={`flex flex-col items-start justify-end col-span-12 relative rounded-lg min-h-[350px]`}
+    <Link
+      className={`flex flex-col items-start justify-end col-span-12 relative rounded-lg aspect-video`}
       href={ctaLink}
     >
       <div className="absolute inset-0 h-full w-full">
-        <img
+        <Image
           src={backgroundImg}
-          className="h-full w-full object-cover rounded-lg"
+          alt={`${header} background image`}
+          objectFit="cover"
+          layout="fill"
+          className="rounded-lg"
         />
         <div
-          className={`absolute inset-0 bottom-0 rounded-md bg-gradient-to-t md:bg-gradient-to-l ${gradient}`}
+          className={`absolute inset-0 bottom-0 rounded-md bg-gradient-to-t md:bg-gradient-to-l ${
+            imgOnly ? "" : gradient
+          }`}
         ></div>
       </div>
       <div className="flex flex-col justify-end md:justify-center md:self-end md:max-w-[40%] gap-4 p-4 lg:p-8 relative z-10 h-full">
@@ -72,19 +80,24 @@ export const Tile = ({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   ) : (
-    <a
+    <Link
       className={`flex flex-col items-start justify-end col-span-6 relative rounded-lg min-h-[350px]`}
       href={ctaLink}
     >
       <div className="absolute inset-0 h-full w-full">
-        <img
+        <Image
           src={backgroundImg}
-          className="h-full w-full object-cover rounded-lg"
+          alt={`${header} background image`}
+          objectFit="cover"
+          layout="fill"
+          className="rounded-lg"
         />
         <div
-          className={`absolute inset-x-0 bottom-0 rounded-md h-[75%] bg-gradient-to-t ${gradient}`}
+          className={`absolute inset-x-0 bottom-0 rounded-md h-[75%] bg-gradient-to-t ${
+            imgOnly ? "" : gradient
+          }`}
         ></div>
       </div>
       <div className="flex flex-col justify-end gap-4 p-4 lg:p-8 relative z-10 h-full">
@@ -112,6 +125,6 @@ export const Tile = ({
           )}
         </div>
       </div>
-    </a>
+    </Link>
   );
 };

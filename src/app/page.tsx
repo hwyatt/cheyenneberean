@@ -88,7 +88,7 @@ export default async function Home() {
                     ctaLink={promo.ctaLink}
                     responsive
                     backgroundImg={promo.backgroundImage.url}
-                    theme="brand"
+                    theme={promo.theme ? promo.theme : "brand"}
                   />
                 ))}
               </div>
@@ -106,7 +106,6 @@ export default async function Home() {
                 className="rounded-t-lg"
               />
               <div className="absolute inset-0 flex justify-center items-center">
-                {/* <div className="flex items-center justify-center rounded-full border-2 border-accent bg-secondary w-16 h-16 opacity-60"></div> */}
                 <FaLocationDot className="text-accent" size={32} />
               </div>
             </div>
