@@ -40,9 +40,9 @@ query homePage {
           description
           ctaLabel
           ctaLink
-        backgroundImage {
-          url
-        }
+          backgroundImage {
+            url
+          }
         }
       }
     }
@@ -55,8 +55,6 @@ export default async function Home() {
   const promoTilesContent =
     data.data.homePageCollection.items[0].promoTilesCollection;
   const sermonContent = homePageContent.sermonCollection.items[0];
-
-  console.log(sermonContent);
 
   return (
     <div className="flex flex-col gap-8">
