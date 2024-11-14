@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import Link from "next/link";
 import { MdPhone } from "react-icons/md";
 import { SocialIcon } from "react-social-icons";
@@ -16,6 +17,8 @@ type Link = {
 
 export const Footer = () => {
   const aboutSection = NAV_LINKS.find((link: Link) => link.title === "About");
+
+  const { isEnabled } = draftMode();
 
   return (
     <footer className="px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
@@ -120,6 +123,7 @@ export const Footer = () => {
           </a>
         </div>
       </div>
+      {isEnabled && <span className="text-xs">*You are in preview mode</span>}
     </footer>
   );
 };

@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import { fetchGraphQL } from "../api/contentful";
 import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
@@ -5,12 +6,13 @@ import { IntroSection } from "../components/IntroSection/IntroSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
 import { Tile } from "../components/Tile/Tile";
 
-const ContentPage = async ({ params }: any) => {
-  const { content } = params;
-
-  const data = await fetchGraphQL(`
+export const getPageData = async (content: string, isDraftMode = false) => {
+  return await fetchGraphQL(
+    `
     query {
-      pageCollection(where: { url: "/${content}" }) {
+      pageCollection(where: { url: "/${content}" }, limit: 1, preview: ${
+      isDraftMode ? "true" : "false"
+    }) {
         items {
           sys {
             id
@@ -56,7 +58,16 @@ const ContentPage = async ({ params }: any) => {
         }
       }
     }       
-    `);
+    `,
+    isDraftMode
+  );
+};
+
+const ContentPage = async ({ params }: any) => {
+  const { isEnabled } = draftMode();
+  const { content } = params;
+
+  const data = await getPageData(content, isEnabled);
 
   const pageData = data?.data?.pageCollection?.items[0];
   const {
@@ -88,7 +99,7 @@ const ContentPage = async ({ params }: any) => {
     }
     `));
 
-  const pageEvents = eventData?.data.eventCollection.items;
+  const pageEvents = eventData?.data?.eventCollection?.items;
 
   const pageClass = content === "beliefs" ? "page-beliefs" : "";
   const textColor =

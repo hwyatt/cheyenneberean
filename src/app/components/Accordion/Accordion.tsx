@@ -1,5 +1,5 @@
 export const Accordion = ({ header, items, theme }: any) => (
-  <div className="bg-white p-4 md:p-8 w-screen">
+  <div className="bg-white p-4 md:p-8 w-[calc(100vw-16px)]">
     <div className="flex flex-col items-center gap-2 site-container m-auto">
       <h2
         className={`text-2xl font-semibold
