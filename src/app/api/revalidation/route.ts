@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
+import { draftMode } from "next/headers";
 
 export async function POST(request: any) {
   //   const requestHeaders = new Headers(request.headers);
@@ -21,5 +22,6 @@ export async function POST(request: any) {
     );
   }
 
+  draftMode().disable();
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }
