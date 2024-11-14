@@ -1,67 +1,11 @@
 import { draftMode } from "next/headers";
 import { fetchGraphQL } from "../api/contentful";
+import { getPageData } from "../api/queries/page";
 import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
 import { Tile } from "../components/Tile/Tile";
-
-export const getPageData = async (content: string, isDraftMode = false) => {
-  return await fetchGraphQL(
-    `
-    query {
-      pageCollection(where: { url: "/${content}" }, limit: 1, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
-        items {
-          sys {
-            id
-          }
-          pageIntroSection {
-            heading
-            description
-            primaryCtaLabel
-            primaryCtaLink
-            secondaryCtaLabel
-            secondaryCtaLink
-            logo {
-              url
-            }
-          }
-          pageTextSectionCollection(limit: 10) {
-            items {
-      			heading
-      			markdown
-      			image {
-      			url
-      			}
-      			primaryCtaLabel
-      			primaryCtaLink
-      			secondaryCtaLabel
-      			secondaryCtaLink
-    			 	}
-          }
-          pageFaQs {
-            heading
-            questions
-          }
-          pageConnectSection {
-            heading
-            description
-            logo {
-              url
-            }
-            ctaLabel
-            ctaLink
-          }
-          showEvents
-        }
-      }
-    }       
-    `,
-    isDraftMode
-  );
-};
 
 const ContentPage = async ({ params }: any) => {
   const { isEnabled } = draftMode();
