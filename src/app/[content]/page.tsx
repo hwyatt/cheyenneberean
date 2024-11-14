@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 import { fetchGraphQL } from "../api/contentful";
-import { getPageData } from "../api/queries/page";
+import { getPageData } from "../api/queries/contentPage";
 import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
