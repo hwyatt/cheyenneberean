@@ -5,16 +5,12 @@ export const IntroSection = ({
   copy,
   image,
   headerColor,
-  ctaPrimary,
-  ctaSecondary,
+  ctaPrimaryLabel,
+  ctaPrimaryLink,
+  ctaSecondaryLabel,
+  ctaSecondaryLink,
 }: any) => {
-  let primaryText, primaryUrl, secondaryText, secondaryUrl;
-  if (ctaPrimary) {
-    [primaryText, primaryUrl] = ctaPrimary.split(" | ");
-  }
-  if (ctaSecondary) {
-    [secondaryText, secondaryUrl] = ctaSecondary.split(" | ");
-  }
+  const hasTwoButtons = ctaPrimaryLink && ctaSecondaryLink;
 
   return (
     <div className="copy-container flex flex-col gap-4 items-center mb-8">
@@ -33,19 +29,26 @@ export const IntroSection = ({
         </h1>
       )}
       {copy && <p className="text-center text-lg text-balance">{copy}</p>}
-      {(ctaPrimary || ctaSecondary) && (
+      {(ctaPrimaryLink || ctaSecondaryLink) && (
         <div className="flex flex-col md:flex-row gap-4 mt-4 w-full items-center justify-center">
-          {ctaPrimary && (
-            <a href={primaryUrl} className="btn btn-primary w-full md:w-1/2">
-              {primaryText}
+          {ctaPrimaryLink && (
+            <a
+              href={ctaPrimaryLink}
+              className={`btn btn-primary w-full ${
+                !hasTwoButtons ? "md:w-auto" : "md:w-1/2"
+              }`}
+            >
+              {ctaPrimaryLabel}
             </a>
           )}
-          {ctaSecondary && (
+          {ctaSecondaryLink && (
             <a
-              href={secondaryUrl}
-              className="btn btn-secondary w-full md:w-1/2"
+              href={ctaSecondaryLink}
+              className={`btn btn-primary w-full ${
+                !hasTwoButtons ? "md:w-auto" : "md:w-1/2"
+              }`}
             >
-              {secondaryText}
+              {ctaSecondaryLabel}
             </a>
           )}
         </div>

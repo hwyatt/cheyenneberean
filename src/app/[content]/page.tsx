@@ -22,6 +22,8 @@ const ContentPage = async ({ params }: any) => {
     pageConnectSection,
   } = pageData;
 
+  console.log(pageIntroSection);
+
   const eventParam =
     content === "youth"
       ? "Youth"
@@ -61,12 +63,10 @@ const ContentPage = async ({ params }: any) => {
           headerColor={textColor}
           image={pageIntroSection.logo ? pageIntroSection.logo.url : null}
           copy={pageIntroSection.description}
-          ctaPrimary={
-            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
-          }
-          ctaSecondary={
-            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
-          }
+          ctaPrimaryLabel={pageIntroSection.primaryCtaLabel}
+          ctaPrimaryLink={pageIntroSection.primaryCtaLink}
+          ctaSecondaryLabel={pageIntroSection.secondaryCtaLabel}
+          ctaSecondaryLink={pageIntroSection.secondaryCtaLink}
         />
       )}
       {pageTextSectionCollection &&
