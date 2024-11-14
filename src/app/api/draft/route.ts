@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
-import { getPageData } from "@/app/[content]/page";
+import { getPageData } from "../queries/page";
 
 export async function GET(request: any) {
   const { searchParams } = new URL(request.url);
