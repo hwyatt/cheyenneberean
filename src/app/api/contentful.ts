@@ -13,7 +13,23 @@ export async function fetchGraphQL(query: string, isDraftMode = false) {
       },
       body: JSON.stringify({ query }),
       // next: { revalidate: 60 * 5 },
-      next: { tags: ["event"] },
+      next: {
+        tags: [
+          "event",
+          "group",
+          "ministry",
+          "staffMember",
+          "sermon",
+          "sermonSeries",
+          "homePage",
+          "page",
+          "pageIntroSection",
+          "pageTextSection",
+          "pageFAQs",
+          "pageConnectSection",
+          "pageNextStep",
+        ],
+      },
     }
   ).then((response) => response.json());
 }
