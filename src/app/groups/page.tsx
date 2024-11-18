@@ -98,7 +98,7 @@ const GroupsPage = async () => {
           <div className="md:col-span-4" key={group.title}>
             <Card
               title={group.title}
-              description={group.description}
+              // description={group.description}
               key={group.name}
               time={formatGroupDayAndTime(group.dayAndTime)}
               location={group.location}

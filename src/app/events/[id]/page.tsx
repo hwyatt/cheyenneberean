@@ -49,7 +49,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
         }}
       />
       <div className="flex flex-col w-full gap-8">
-        <div className="flex flex-col md:flex-row justify-between md:items-center border-gray-300 border-b-2 gap-4 md:gap-0 pb-4">
+        <div className="flex flex-col md:flex-row justify-between md:items-center border-gray-300 border-b-2 gap-4 pb-4">
           <div className="flex flex-col gap-2">
             <div className="flex flex-col gap-2">
               {event.categories && (
@@ -64,7 +64,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
                   ))}
                 </div>
               )}
-              <h1 className="text-accent font-semibold text-2xl md:text-3xl">
+              <h1 className="text-accent font-semibold text-2xl md:text-3xl text-balance">
                 {event?.title}
               </h1>
             </div>
