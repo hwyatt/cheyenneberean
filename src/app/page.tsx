@@ -169,6 +169,7 @@ export default async function Home() {
                   key={link.title}
                   className="flex items-center justify-between gap-4 bg-white rounded-lg p-4 shadow-md md:hover:shadow-lg transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-300"
                   href={link.route}
+                  target={link.icon === "give" ? "_blank" : "_self"}
                 >
                   <div className="flex items-center gap-4">
                     {link.icon === "person" ? (

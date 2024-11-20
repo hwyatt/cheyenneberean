@@ -64,6 +64,7 @@ export const MobileMenu = () => {
                 <li key={link.title}>
                   <Link
                     href={link.route}
+                    target={link.title === "Giving" ? "_blank" : "_self"}
                     className={`${
                       link.title === "Giving" ? `text-primary` : `text-gray-600`
                     } text-3xl font-semibold hover:text-primary py-0 uppercase`}

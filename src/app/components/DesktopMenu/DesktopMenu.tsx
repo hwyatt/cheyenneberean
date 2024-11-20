@@ -26,6 +26,7 @@ export const DesktopMenu = () => {
                     <li key={subLink.title}>
                       <Link
                         href={subLink.route}
+                        target={link.title === "Giving" ? "_blank" : "_self"}
                         className={`${
                           link.title === "Giving"
                             ? `text-primary`
@@ -48,6 +49,7 @@ export const DesktopMenu = () => {
             <li key={link.title}>
               <Link
                 href={link.route}
+                target={link.title === "Giving" ? "_blank" : "_self"}
                 className={`${
                   link.title === "Giving" ? `text-primary` : `text-gray-800`
                 } font-semibold hover:text-blue-500 uppercase`}

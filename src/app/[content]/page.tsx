@@ -67,7 +67,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
     }
   }`));
 
-  const pageEvents = eventData?.data?.eventCollection?.items;
+  const pageEvents: ContentfulEvent[] = eventData?.data?.eventCollection?.items;
 
   return (
     <div

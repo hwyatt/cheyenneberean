@@ -1,4 +1,5 @@
 import { fetchGraphQL } from "../api/contentful";
+import { ContentPageResponse } from "../api/types";
 import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
@@ -105,7 +106,7 @@ const ClubCard = ({ img, logo, ages, description, bgColor, key }: any) => (
 );
 
 const AwanaPage = async ({}) => {
-  const data = await fetchGraphQL(`
+  const data: ContentPageResponse = await fetchGraphQL(`
     query {
       pageCollection(where: { sys: { id: "5C61n20INdzml9XNnCweCv" } }) {
         items {
