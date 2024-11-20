@@ -1,9 +1,57 @@
 "use client";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { FaPhone } from "react-icons/fa6";
 
+const getMessage = (referrer: string | null) => {
+  switch (referrer) {
+    case "prayer":
+      return {
+        heading: "Prayer Request",
+        description:
+          "We believe in the power of prayer. Let us know how we can pray for you.",
+      };
+    case "kids":
+      return {
+        heading: "Contact BereanKIDS",
+        description:
+          "We would love to connect with you on any questions you may have about BereanKIDS.",
+      };
+    case "youth":
+      return {
+        heading: "Contact The Refuge",
+        description:
+          "We would love to connect with you on any questions you may have about The Refuge.",
+      };
+    case "young-adults":
+      return {
+        heading: "Contact Crossroads 412",
+        description:
+          "We would love to connect with you on any questions you may have about Crossroads 412.",
+      };
+    case "awana":
+      return {
+        heading: "Contact Us",
+        description:
+          "We would love to connect with you on any questions you may have about Awana at Cheyenne Berean Church.",
+      };
+    default:
+      return {
+        heading: "Contact Us",
+        description:
+          "We would love to connect with you on any questions you have, or help you get plugged into church life at Cheyenne Berean Church.",
+      };
+  }
+};
+
 const ContactPage = () => {
+  const searchParams = useSearchParams();
+  const referrer = searchParams.get("referrer");
+  const message = referrer
+    ? getMessage(referrer)
+    : { heading: "Contact Us", description: "" };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,8 +95,8 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       <IntroSection
-        heading="Contact Us"
-        description="We would love to connect with you on any questions you have, or help you get plugged into church life at Cheyenne Berean Church."
+        heading={message.heading}
+        description={message.description}
       />
       {!status && (
         <form
