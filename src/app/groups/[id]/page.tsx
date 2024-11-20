@@ -57,7 +57,7 @@ const GroupDetailsPage = async ({ params }: GroupPageProps) => {
                 <div className="flex gap-2">
                   {group.categories.map((item: any) => (
                     <div
-                      className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"
+                      className="font-semibold text-xs text-white bg-secondary py-1 px-2 rounded-xl"
                       key={item}
                     >
                       {item}
@@ -65,14 +65,16 @@ const GroupDetailsPage = async ({ params }: GroupPageProps) => {
                   ))}
                 </div>
               )}
-              <h1 className="text-accent font-semibold text-2xl md:text-3xl text-balance">
+              <h1 className="text-gray-800 font-semibold text-2xl md:text-3xl text-balance">
                 {group?.title}
               </h1>
             </div>
           </div>
 
           <div className="flex gap-4">
-            <button className="btn btn-primary">Join This Group</button>
+            <Link href="/contact" className="btn btn-accent">
+              Join This Group
+            </Link>
             <button className="btn btn-square btn-secondary">
               <PiShareFat size="24" />
             </button>
@@ -82,7 +84,7 @@ const GroupDetailsPage = async ({ params }: GroupPageProps) => {
           <div className="flex flex-col gap-1 md:w-1/3">
             {group.dayAndTime && (
               <div className="flex gap-2 items-center">
-                <FaRegClock className="text-accent text-lg" />
+                <FaRegClock className="text-gray-800 text-lg" />
                 <span className="text-base">
                   {formatGroupDayAndTime(group.dayAndTime)}
                 </span>
@@ -90,7 +92,7 @@ const GroupDetailsPage = async ({ params }: GroupPageProps) => {
             )}
             {group.leaders && (
               <div className="flex gap-2 items-center">
-                <IoPersonOutline className="text-accent text-lg" />
+                <IoPersonOutline className="text-gray-800 text-lg" />
                 <span className="text-base m-0">
                   {group.leaders.join(", ")}
                 </span>
@@ -104,10 +106,10 @@ const GroupDetailsPage = async ({ params }: GroupPageProps) => {
         </div>
         <Link
           href="/groups"
-          className="btn btn-primary self-center mt-8 w-full md:w-auto"
+          className="btn btn-secondary self-center mt-8 w-full md:w-auto"
         >
-          <span className="font-semibold text-white">See All Groups</span>
-          <IoChevronForward size={18} className="text-white" />
+          <span className="font-semibold text-gray-800">See All Groups</span>
+          <IoChevronForward size={18} className="text-gray-800" />
         </Link>
       </div>
     </div>

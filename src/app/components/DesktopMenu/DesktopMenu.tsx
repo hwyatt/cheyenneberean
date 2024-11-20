@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { NAV_LINKS } from "../../LINKS";
+import { RiAccountCircleLine } from "react-icons/ri";
 
 export const DesktopMenu = () => {
   const detailsRef = useRef<HTMLDetailsElement>(null);
@@ -15,8 +16,8 @@ export const DesktopMenu = () => {
               <details ref={detailsRef}>
                 <summary
                   className={`${
-                    link.title === "Giving" ? `text-primary` : `text-accent`
-                  } font-semibold hover:text-primary`}
+                    link.title === "Giving" ? `text-primary` : `text-gray-400`
+                  } font-semibold hover:text-blue-500 uppercase`}
                 >
                   {link.title}
                 </summary>
@@ -28,8 +29,8 @@ export const DesktopMenu = () => {
                         className={`${
                           link.title === "Giving"
                             ? `text-primary`
-                            : `text-accent`
-                        } font-semibold hover:text-primary`}
+                            : `text-gray-400`
+                        } font-semibold hover:text-blue-500 uppercase`}
                         onClick={() => {
                           if (detailsRef.current) {
                             detailsRef.current.open = false; // Close the details
@@ -48,14 +49,24 @@ export const DesktopMenu = () => {
               <Link
                 href={link.route}
                 className={`${
-                  link.title === "Giving" ? `text-primary` : `text-accent`
-                } font-semibold hover:text-primary`}
+                  link.title === "Giving" ? `text-primary` : `text-gray-400`
+                } font-semibold hover:text-blue-500 uppercase`}
               >
                 {link.title}
               </Link>
             </li>
           );
         })}
+        <Link
+          href="https://cheyenneberean.ccbchurch.com/goto/login"
+          className="flex flex-row items-center gap-2 text-primary font-semibold group uppercase"
+        >
+          <RiAccountCircleLine
+            size={24}
+            className="text-gray-600 group-hover:text-blue-500"
+          />
+          <span className="text-primary group-hover:text-blue-500">Log In</span>
+        </Link>
       </ul>
     </div>
   );

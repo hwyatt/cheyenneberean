@@ -110,7 +110,7 @@ const ContactPage = () => {
             placeholder="Message"
             className="textarea-placeholder textarea textarea-bordered border-accent textarea-lg min-h-64 text-gray-800"
           ></textarea>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-accent">
             Submit
           </button>
         </form>

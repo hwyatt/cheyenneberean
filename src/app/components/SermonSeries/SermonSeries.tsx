@@ -39,7 +39,7 @@ export const SermonSeries = ({
             <a
               href={watchSermonLink}
               target="_blank"
-              className="btn btn-primary absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
+              className="btn btn-accent absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
             >
               <span className="text-white">Watch Sermon</span>
               <IoChevronForward size={18} className="text-white" />
@@ -50,7 +50,7 @@ export const SermonSeries = ({
       {sermonTitle && sermonDate && sermonSpeaker && (
         <div className="flex flex-col gap-2 items-center text-center">
           <div className="flex flex-col">
-            <h2 className="font-semibold text-xl md:text-3xl text-accent m-0">
+            <h2 className="font-semibold text-xl md:text-3xl text-gray-800 m-0">
               {sermonTitle}
             </h2>
             <span className="text-gray-800 font-light text-sm">

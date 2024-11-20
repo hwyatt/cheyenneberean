@@ -24,11 +24,11 @@ export const Footer = () => {
     <footer className="px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
       <div className="grid w-full grid-cols-12 gap-y-8 gap-x-4 z-10">
         <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-          <h6 className="font-bold text-accent uppercase mb-2">About</h6>
+          <h6 className="font-bold text-gray-800 uppercase mb-2">About</h6>
           {aboutSection?.sub.map((link) => (
             <Link
               href={link.route}
-              className="text-gray-800 hover:underline"
+              className="text-gray-800 hover:text-blue-500"
               key={link.title}
             >
               {link.title}
@@ -36,11 +36,13 @@ export const Footer = () => {
           ))}
         </nav>
         <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-          <h6 className="font-bold text-accent uppercase mb-2">Get Involved</h6>
+          <h6 className="font-bold text-gray-800 uppercase mb-2">
+            Get Involved
+          </h6>
           {CONNECT_LINKS.map((link: Link) => (
             <Link
               href={link.route}
-              className="text-gray-800 hover:underline"
+              className="text-gray-800 hover:text-blue-500"
               key={link.title}
             >
               {link.title}
@@ -48,13 +50,13 @@ export const Footer = () => {
           ))}
         </nav>
         <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-          <h6 className="font-bold text-accent uppercase mb-2">
+          <h6 className="font-bold text-gray-800 uppercase mb-2">
             For Your Family
           </h6>
           {FAMILY_LINKS.map((link: Link) => (
             <Link
               href={link.route}
-              className="text-gray-800 hover:underline"
+              className="text-gray-800 hover:text-blue-500"
               key={link.title}
             >
               {link.title}
@@ -62,13 +64,13 @@ export const Footer = () => {
           ))}
         </nav>
         <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-          <h6 className="font-bold text-accent uppercase mb-2">
+          <h6 className="font-bold text-gray-800 uppercase mb-2">
             Connect With Us
           </h6>
           {CONTACT_LINKS.map((link: Link) => (
             <Link
               href={link.route}
-              className="text-gray-800 hover:underline"
+              className="text-gray-800 hover:text-blue-500"
               key={link.title}
             >
               {link.title}
@@ -83,7 +85,7 @@ export const Footer = () => {
               <a
                 key={link.title}
                 href={`tel:${link.route}`}
-                className="bg-accent p-1 rounded-full flex items-center justify-center"
+                className="bg-black p-1 rounded-full flex items-center justify-center"
                 style={{
                   height: 36,
                   width: 36,
@@ -100,7 +102,7 @@ export const Footer = () => {
                 }}
                 className="text-gray-800"
                 url={link.route}
-                bgColor={link.title === "Email" ? "#1F4061" : undefined}
+                bgColor={link.title === "Email" ? "#202838" : undefined}
               />
             )
           )}
@@ -115,7 +117,7 @@ export const Footer = () => {
             href={
               CONTACT_LINKS.find((link: Link) => link.title === "Phone")?.route
             }
-            className="text-sm md:text-base text-primary"
+            className="text-sm md:text-base text-blue-500"
           >
             {CONTACT_LINKS.find(
               (link: Link) => link.title === "Phone"

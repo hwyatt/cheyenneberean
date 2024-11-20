@@ -28,7 +28,7 @@ export const Card = ({
       className={`relative rounded-t-lg flex flex-col items-center justify-center ${
         !image && backgroundColor && `h-2`
       } ${image && imageFit !== "cover" && `pt-4 px-4`} ${
-        theme === "staff" && "aspect-square bg-accent"
+        theme === "staff" && "aspect-square bg-black"
       }`}
       style={{ backgroundColor: theme !== "staff" && backgroundColor }}
     >
@@ -58,7 +58,7 @@ export const Card = ({
           <div className="flex flex-wrap gap-2">
             {context.map((item: any) => (
               <div
-                className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"
+                className="font-semibold text-xs text-white bg-gray-600 py-1 px-2 rounded-xl"
                 key={item}
               >
                 {item}
@@ -84,19 +84,19 @@ export const Card = ({
         <div className="flex flex-col gap-1">
           {time && (
             <div className="flex gap-1 items-center">
-              <FaRegClock className="text-accent" />
+              <FaRegClock className="text-gray-800" />
               <span className="text-sm">{time}</span>
             </div>
           )}
           {people && (
             <div className="flex gap-1 items-center">
-              <IoPersonOutline className="text-accent" />
+              <IoPersonOutline className="text-gray-800" />
               <span className="text-sm m-0">{people.join(", ")}</span>
             </div>
           )}
           {location && (
             <div className="flex gap-1 items-center">
-              <FaLocationDot className="text-accent" />
+              <FaLocationDot className="text-gray-800" />
               <span className="text-sm m-0">{location}</span>
             </div>
           )}
@@ -116,7 +116,7 @@ export const Card = ({
                 <IoChevronForward size={18} className="text-primary" />
               </Link>
             ) : (
-              <Link href={ctaPrimaryLink} className={`btn btn-primary`}>
+              <Link href={ctaPrimaryLink} className={`btn btn-accent`}>
                 {ctaPrimaryLabel}
               </Link>
             ))}

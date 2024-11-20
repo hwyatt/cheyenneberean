@@ -88,7 +88,7 @@ export default async function Home() {
                     ctaLink={promo.ctaLink}
                     responsive
                     backgroundImg={promo.backgroundImage.url}
-                    theme={promo.theme ? promo.theme : "brand"}
+                    theme={promo.theme ? promo.theme : "dark"}
                   />
                 ))}
               </div>
@@ -106,23 +106,23 @@ export default async function Home() {
                 className="rounded-t-lg"
               />
               <div className="absolute inset-0 flex justify-center items-center">
-                <FaLocationDot className="text-accent" size={32} />
+                <FaLocationDot className="text-gray-800" size={32} />
               </div>
             </div>
             <div className="flex flex-col gap-2 justify-start p-4">
-              <h3 className="text-accent font-semibold text-xl mb-0">
+              <h3 className="text-gray-800 font-semibold text-xl mb-0">
                 Service Times
               </h3>
               <div className="flex flex-col gap-8">
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-1 items-center">
-                    <FaRegClock className="text-accent" />
+                    <FaRegClock className="text-gray-800" />
                     <span className="text-sm">
                       Sundays at 9:00 AM & 10:30 AM
                     </span>
                   </div>
                   <div className="flex gap-1 items-center">
-                    <FaLocationDot className="text-accent" />
+                    <FaLocationDot className="text-gray-800" />
                     <span className="text-sm m-0">
                       5716 Powderhouse Rd, Cheyenne, WY 82009
                     </span>
@@ -160,7 +160,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold text-accent uppercase">
+            <h3 className="text-lg font-semibold text-gray-800 uppercase">
               Get Involved
             </h3>
             <div className="flex flex-col gap-4">
@@ -194,7 +194,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold text-accent uppercase">
+            <h3 className="text-lg font-semibold text-gray-800 uppercase">
               For Your Family
             </h3>
             <div className="flex flex-col gap-4">
@@ -248,7 +248,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold text-accent uppercase">
+            <h3 className="text-lg font-semibold text-gray-800 uppercase">
               Connect with Us
             </h3>
             <div className="flex flex-col gap-4">
@@ -284,11 +284,11 @@ export default async function Home() {
                           width: 24,
                         }}
                         className="text-gray-800"
-                        bgColor="#1F4061"
+                        bgColor="#202838"
                         url="mailto:office@cheyenneberean.org"
                       />
                     ) : link.icon === "phone" ? (
-                      <div className="bg-accent p-1 rounded-full max-w-8">
+                      <div className="bg-black p-1 rounded-full max-w-8">
                         <MdPhone size={14} className="text-white" />
                       </div>
                     ) : null}

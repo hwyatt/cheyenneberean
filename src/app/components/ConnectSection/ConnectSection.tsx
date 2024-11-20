@@ -12,7 +12,7 @@ export const ConnectSection = ({
       <div className="flex flex-col gap-2 mb-4 md:mb-0">
         <span
           className={`text-center md:text-start font-semibold ${
-            theme === "brand" ? "text-accent" : "text-gray-800"
+            theme === "brand" ? "text-gray-800" : "text-gray-800"
           } text-2xl leading-5 text-balance`}
         >
           {header}

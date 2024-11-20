@@ -22,8 +22,6 @@ const ContentPage = async ({ params }: any) => {
     pageConnectSection,
   } = pageData;
 
-  console.log(pageIntroSection);
-
   const eventParam =
     content === "youth"
       ? "Youth"
@@ -51,7 +49,7 @@ const ContentPage = async ({ params }: any) => {
   const textColor =
     content === "youth" || content === "young-adults"
       ? "text-dark-800"
-      : "text-accent";
+      : "text-gray-800";
 
   return (
     <div
@@ -112,7 +110,7 @@ const ContentPage = async ({ params }: any) => {
           ctaLabel={pageConnectSection.ctaLabel}
           ctaLink={`${pageConnectSection.ctaLink}?referrer=${content}`}
           img={pageConnectSection.logo?.url}
-          theme={textColor === "text-accent" ? "brand" : "text-gray-800"}
+          theme={textColor === "text-gray-800" ? "brand" : "text-gray-800"}
         />
       )}
     </div>

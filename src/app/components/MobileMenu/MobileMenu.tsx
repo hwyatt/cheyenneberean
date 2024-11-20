@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { RiAccountCircleLine } from "react-icons/ri";
 import { NAV_LINKS } from "../../LINKS";
 
 export const MobileMenu = () => {
@@ -22,19 +23,21 @@ export const MobileMenu = () => {
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"
-          className="drawer-overlay text-accent"
+          className="drawer-overlay text-gray-800"
         ></label>
         <ul className="mobile-menu menu bg-white min-h-full w-3/4 p-0">
           {/* Sidebar content here */}
-          <div className="flex flex-col gap-16 mt-8 border-gray-200">
+          <div className="flex flex-col gap-16 mt-8 border-gray-200 border-b pb-8 mx-4">
             {NAV_LINKS.map((link) =>
               link.sub && link.sub.length > 0 ? (
                 <li key={link.title}>
                   <details>
                     <summary
                       className={`${
-                        link.title === "Giving" ? `text-primary` : `text-accent`
-                      } font-semibold hover:text-primary text-3xl px-4 py-0`}
+                        link.title === "Giving"
+                          ? `text-primary`
+                          : `text-gray-600`
+                      } font-semibold hover:text-primary text-3xl py-0 uppercase`}
                     >
                       {link.title}
                     </summary>
@@ -46,8 +49,8 @@ export const MobileMenu = () => {
                             className={`${
                               link.title === "Giving"
                                 ? `text-primary`
-                                : `text-accent`
-                            } text-3xl font-semibold hover:text-primary px-4 py-0`}
+                                : `text-gray-600`
+                            } text-3xl font-semibold hover:text-primary py-0 uppercase`}
                             onClick={closeDrawer} // Close drawer on link click
                           >
                             {subLink.title}
@@ -62,8 +65,8 @@ export const MobileMenu = () => {
                   <Link
                     href={link.route}
                     className={`${
-                      link.title === "Giving" ? `text-primary` : `text-accent`
-                    } text-3xl font-semibold hover:text-primary px-4 py-0`}
+                      link.title === "Giving" ? `text-primary` : `text-gray-600`
+                    } text-3xl font-semibold hover:text-primary py-0 uppercase`}
                     onClick={closeDrawer} // Close drawer on link click
                   >
                     {link.title}
@@ -72,6 +75,13 @@ export const MobileMenu = () => {
               )
             )}
           </div>
+          <Link
+            href="https://cheyenneberean.ccbchurch.com/goto/login"
+            className="flex flex-row items-center gap-2 text-primary font-semibold hover:text-primary uppercase mt-8 mx-4"
+          >
+            <RiAccountCircleLine size={48} className="text-gray-600" />
+            <span className="text-primary text-3xl">Log In</span>
+          </Link>
         </ul>
       </div>
     </>

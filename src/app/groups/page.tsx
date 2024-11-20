@@ -82,7 +82,7 @@ const GroupsPage = async () => {
       )}
       {/* <div className="md:col-span-4 pb-8 border-b-2 border-gray-300 w-full">
         <div className="flex flex-col gap-2 md:w-1/2">
-          <h2 className="text-accent font-semibold text-lg">Filters</h2>
+          <h2 className="text-gray-800 font-semibold text-lg">Filters</h2>
           <div className="flex flex-col md:flex-row gap-4">
             <OptionSelect options={options} isMulti={true} placeholder="Day" />
             <OptionSelect

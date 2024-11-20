@@ -21,14 +21,15 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
     query {
       event(id: "${id}"){
         title
-            description
-            startDateTime
-            endDateTime
-            location {
-              lat
-              lon
-            }
-            categories
+        description
+        startDateTime
+        endDateTime
+        location {
+          lat
+          lon
+        }
+        categories
+        registrationLink
       }
     }
   `);
@@ -56,7 +57,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
                 <div className="flex gap-2">
                   {event.categories.map((item: any) => (
                     <div
-                      className="font-semibold text-xs text-accent bg-secondary py-1 px-2 rounded-xl"
+                      className="font-semibold text-xs text-white bg-secondary py-1 px-2 rounded-xl"
                       key={item}
                     >
                       {item}
@@ -64,14 +65,16 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
                   ))}
                 </div>
               )}
-              <h1 className="text-accent font-semibold text-2xl md:text-3xl text-balance">
+              <h1 className="text-gray-800 font-semibold text-2xl md:text-3xl text-balance">
                 {event?.title}
               </h1>
             </div>
           </div>
 
           <div className="flex gap-4">
-            <button className="btn btn-primary">Register Now</button>
+            <Link href={event.registrationLink} className="btn btn-accent">
+              Register Now
+            </Link>
             <button className="btn btn-square btn-secondary">
               <PiShareFat size="24" />
             </button>
@@ -81,7 +84,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
           <div className="flex flex-col gap-1 md:w-1/3">
             {event.startDateTime && (
               <div className="flex gap-2 items-center">
-                <FaRegClock className="text-accent text-lg" />
+                <FaRegClock className="text-gray-800 text-lg" />
                 <span className="text-base">
                   {formatEventDayAndTime(event.startDateTime)}
                 </span>
@@ -89,7 +92,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
             )}
             {/* {event.leaders && (
               <div className="flex gap-2 items-center">
-                <IoPersonOutline className="text-accent text-lg" />
+                <IoPersonOutline className="text-gray-800 text-lg" />
                 <span className="text-base m-0">
                   {event.leaders.join(", ")}
                 </span>
@@ -103,10 +106,10 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
         </div>
         <Link
           href="/events"
-          className="btn btn-primary self-center mt-8 w-full md:w-auto"
+          className="btn btn-secondary self-center mt-8 w-full md:w-auto"
         >
-          <span className="font-semibold text-white">See All Events</span>
-          <IoChevronForward size={18} className="text-white" />
+          <span className="font-semibold text-gray-800">See All Events</span>
+          <IoChevronForward size={18} className="text-gray-800" />
         </Link>
       </div>
     </div>

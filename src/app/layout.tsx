@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { NAV_LINKS, CONNECT_LINKS } from "./LINKS";
+import { CONNECT_LINKS } from "./LINKS";
 import { IoPersonOutline, IoPeopleOutline } from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
 import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
@@ -16,11 +15,6 @@ import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 import { Footer } from "./components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const bobby = localFont({
-  src: [{ path: "../../public/fonts/Bobby Jones Condensed.otf" }],
-  variable: "--font-bobby",
-});
 
 export const metadata: Metadata = {
   title: "Cheyenne Berean Church",
@@ -44,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={bobby.variable}>
+    <html lang="en">
       <body className={inter.className}>
         <div className="drawer">
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -56,7 +50,7 @@ export default function RootLayout({
                   <label
                     htmlFor="my-drawer-3"
                     aria-label="open sidebar"
-                    className="btn btn-square btn-ghost"
+                    className="btn btn-square btn-link"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +70,7 @@ export default function RootLayout({
                 <div className="mx-2 flex-1 px-2">
                   <Link href="/">
                     <Image
-                      src="/brand/blue_logo.png"
+                      src="/brand/logo.png"
                       alt="Cheyenne Berean Church Logo"
                       width={80}
                       height={80}

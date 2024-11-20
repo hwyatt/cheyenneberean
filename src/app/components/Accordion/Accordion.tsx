@@ -3,7 +3,7 @@ export const Accordion = ({ header, items, theme }: any) => (
     <div className="flex flex-col items-center gap-2 site-container m-auto">
       <h2
         className={`text-2xl font-semibold
-         ${theme === "brand" && "text-accent"}`}
+         ${theme === "brand" && "text-gray-800"}`}
       >
         {header}
       </h2>

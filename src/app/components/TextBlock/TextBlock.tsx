@@ -33,7 +33,7 @@ export const TextBlock = ({
             className={`${centerText && "text-center"} ${
               theme === "kids"
                 ? "text-gray-800 font-semibold text-2xl"
-                : "text-accent font-semibold text-2xl"
+                : "text-gray-800 font-semibold text-2xl"
             }`}
           >
             {header}
@@ -45,7 +45,7 @@ export const TextBlock = ({
         {(ctaPrimaryLabel || ctaPrimaryLink) && (
           <div className="flex flex-col md:flex-row gap-2 md:gap-4 mt-4 md:mt-0">
             {ctaPrimaryLabel && ctaPrimaryLink && (
-              <a href={ctaPrimaryLink} className="btn btn-primary">
+              <a href={ctaPrimaryLink} className="btn btn-accent">
                 {ctaPrimaryLabel}
               </a>
             )}

@@ -22,7 +22,7 @@ export const IntroSection = ({
       {header && (
         <h1
           className={`font-semibold text-3xl text-center ${
-            !headerColor ? "text-accent" : headerColor
+            !headerColor ? "text-gray-800" : headerColor
           }`}
         >
           {header}
@@ -34,7 +34,7 @@ export const IntroSection = ({
           {ctaPrimaryLink && (
             <a
               href={ctaPrimaryLink}
-              className={`btn btn-primary w-full ${
+              className={`btn btn-accent w-full ${
                 !hasTwoButtons ? "md:w-auto" : "md:w-1/2"
               }`}
             >
@@ -44,7 +44,7 @@ export const IntroSection = ({
           {ctaSecondaryLink && (
             <a
               href={ctaSecondaryLink}
-              className={`btn btn-primary w-full ${
+              className={`btn btn-accent w-full ${
                 !hasTwoButtons ? "md:w-auto" : "md:w-1/2"
               }`}
             >

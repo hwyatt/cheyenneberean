@@ -20,15 +20,11 @@ export const Tile = ({
       break;
     case "dark":
       gradient = "from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0)]";
-      background = "bg-gray-800";
-      break;
-    case "brand":
-      gradient = "from-[rgba(3,50,76,0.9)] to-[rgba(3,50,76,0)]";
-      background = "bg-accent";
+      background = "bg-black";
       break;
     default:
       gradient = "from-[rgba(3,50,76,0.9)] to-[rgba(3,50,76,0)]";
-      background = "bg-accent";
+      background = "bg-black";
   }
 
   const imgOnly =
@@ -58,7 +54,7 @@ export const Tile = ({
           <div className="flex flex-col">
             <span
               className={`${
-                theme === "light" ? `text-accent` : `text-white`
+                theme === "light" ? `text-gray-800` : `text-white`
               } text-xl md:text-2xl font-bold`}
             >
               {header}
@@ -73,7 +69,7 @@ export const Tile = ({
           </div>
           <div className="flex">
             {ctaLink && ctaLabel && (
-              <a href={ctaLink} className="btn btn-primary w-auto">
+              <a href={ctaLink} className="btn btn-accent w-auto">
                 {ctaLabel}
               </a>
             )}
@@ -104,7 +100,7 @@ export const Tile = ({
         <div className="flex flex-col">
           <span
             className={`${
-              theme === "light" ? `text-accent` : `text-white`
+              theme === "light" ? `text-gray-800` : `text-white`
             } text-xl font-bold`}
           >
             {header}
@@ -119,7 +115,7 @@ export const Tile = ({
         </div>
         <div className="flex">
           {ctaLink && ctaLabel && (
-            <a href={ctaLink} className="btn btn-primary w-auto">
+            <a href={ctaLink} className="btn btn-accent w-auto">
               {ctaLabel}
             </a>
           )}
