@@ -16,7 +16,7 @@ export const DesktopMenu = () => {
               <details ref={detailsRef}>
                 <summary
                   className={`${
-                    link.title === "Giving" ? `text-primary` : `text-gray-400`
+                    link.title === "Giving" ? `text-primary` : `text-gray-800`
                   } font-semibold hover:text-blue-500 uppercase`}
                 >
                   {link.title}
@@ -29,7 +29,7 @@ export const DesktopMenu = () => {
                         className={`${
                           link.title === "Giving"
                             ? `text-primary`
-                            : `text-gray-400`
+                            : `text-gray-800`
                         } font-semibold hover:text-blue-500 uppercase`}
                         onClick={() => {
                           if (detailsRef.current) {
@@ -49,7 +49,7 @@ export const DesktopMenu = () => {
               <Link
                 href={link.route}
                 className={`${
-                  link.title === "Giving" ? `text-primary` : `text-gray-400`
+                  link.title === "Giving" ? `text-primary` : `text-gray-800`
                 } font-semibold hover:text-blue-500 uppercase`}
               >
                 {link.title}

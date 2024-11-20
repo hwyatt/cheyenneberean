@@ -47,8 +47,8 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       <IntroSection
-        header="Contact Us"
-        copy="We would love to connect with you on any questions you have, or help you get plugged into church life at Cheyenne Berean Church."
+        heading="Contact Us"
+        description="We would love to connect with you on any questions you have, or help you get plugged into church life at Cheyenne Berean Church."
       />
       {!status && (
         <form

@@ -1,17 +1,17 @@
+import { TextBlockParams } from "@/app/api/types";
 import ReactMarkdown from "react-markdown";
 
 export const TextBlock = ({
+  heading,
   image,
-  header,
   markdown,
-  reverse,
-  ctaPrimaryLabel,
-  ctaPrimaryLink,
-  ctaSecondaryLabel,
-  ctaSecondaryLink,
-  centerText,
-  theme,
-}: any) => {
+  reverse = false,
+  primaryCtaLabel,
+  primaryCtaLink,
+  secondaryCtaLabel,
+  secondaryCtaLink,
+  centerText = false,
+}: TextBlockParams) => {
   return (
     <div
       className={`flex flex-col md:flex-row ${
@@ -28,30 +28,28 @@ export const TextBlock = ({
         </div>
       )}
       <div className={`flex-grow flex flex-col gap-2 md:gap-4`}>
-        {header && (
+        {heading && (
           <h2
-            className={`${centerText && "text-center"} ${
-              theme === "kids"
-                ? "text-gray-800 font-semibold text-2xl"
-                : "text-gray-800 font-semibold text-2xl"
-            }`}
+            className={`${
+              centerText && "text-center"
+            } font-semibold text-2xl text-gray-800`}
           >
-            {header}
+            {heading}
           </h2>
         )}
         <div className={`markdown-container ${centerText && "text-center"}`}>
           <ReactMarkdown>{markdown}</ReactMarkdown>
         </div>
-        {(ctaPrimaryLabel || ctaPrimaryLink) && (
+        {(primaryCtaLabel || secondaryCtaLabel) && (
           <div className="flex flex-col md:flex-row gap-2 md:gap-4 mt-4 md:mt-0">
-            {ctaPrimaryLabel && ctaPrimaryLink && (
-              <a href={ctaPrimaryLink} className="btn btn-accent">
-                {ctaPrimaryLabel}
+            {primaryCtaLabel && primaryCtaLink && (
+              <a href={primaryCtaLink} className="btn btn-accent">
+                {primaryCtaLabel}
               </a>
             )}
-            {ctaSecondaryLabel && ctaSecondaryLink && (
-              <a href={ctaSecondaryLink} className="btn btn-secondary">
-                {ctaSecondaryLabel}
+            {secondaryCtaLabel && secondaryCtaLink && (
+              <a href={secondaryCtaLink} className="btn btn-secondary">
+                {secondaryCtaLabel}
               </a>
             )}
           </div>

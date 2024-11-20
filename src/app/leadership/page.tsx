@@ -87,20 +87,18 @@ const LeadershipPage = async ({}) => {
     <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
-          header={pageIntroSection.heading}
-          image={pageIntroSection.logo ? pageIntroSection.logo.url : null}
-          copy={pageIntroSection.description}
-          ctaPrimary={
-            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
-          }
-          ctaSecondary={
-            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
-          }
+          heading={pageIntroSection.heading}
+          logo={pageIntroSection.logo}
+          description={pageIntroSection.description}
+          primaryCtaLabel={pageIntroSection.primaryCtaLabel}
+          primaryCtaLink={pageIntroSection.primaryCtaLink}
+          secondaryCtaLabel={pageIntroSection.secondaryCtaLabel}
+          secondaryCtaLink={pageIntroSection.secondaryCtaLink}
         />
       )}
       {leadPastorContent && (
         <TextBlock
-          header={leadPastorContent.name}
+          heading={leadPastorContent.name}
           markdown={leadPastorContent.bio}
           image={{
             url: leadPastorContent.image.url,
@@ -136,25 +134,24 @@ const LeadershipPage = async ({}) => {
           <div key={item.header}>
             <TextBlock
               image={item.image}
-              header={item.heading}
+              heading={item.heading}
               markdown={item.markdown}
               reverse={item.reverse}
-              ctaPrimaryLabel={item.primaryCtaLabel}
-              ctaPrimaryLink={item.primaryCtaLink}
-              ctaSecondaryLabel={item.secondaryCtaLabel}
-              ctaSecondaryLink={item.secondaryCtaLink}
+              primaryCtaLabel={item.primaryCtaLabel}
+              primaryCtaLink={item.primaryCtaLink}
+              secondaryCtaLabel={item.secondaryCtaLabel}
+              secondaryCtaLink={item.secondaryCtaLink}
               centerText
             />
           </div>
         ))}
       {pageConnectSection && (
         <ConnectSection
-          header={pageConnectSection.heading}
-          copy={pageConnectSection.description}
+          heading={pageConnectSection.heading}
+          description={pageConnectSection.description}
           ctaLabel={pageConnectSection.ctaLabel}
           ctaLink={`${pageConnectSection.ctaLink}?referrer=leadership`}
-          img={pageConnectSection.logo?.url}
-          theme="brand"
+          logo={pageConnectSection.logo}
         />
       )}
     </div>

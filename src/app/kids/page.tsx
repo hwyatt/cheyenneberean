@@ -123,16 +123,13 @@ const KidsPage = async ({}) => {
     >
       {pageIntroSection && (
         <IntroSection
-          header={pageIntroSection.heading}
-          headerColor="text-gray-800"
-          image={pageIntroSection.logo.url}
-          copy={pageIntroSection.description}
-          ctaPrimary={
-            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
-          }
-          ctaSecondary={
-            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
-          }
+          heading={pageIntroSection.heading}
+          logo={pageIntroSection.logo}
+          description={pageIntroSection.description}
+          primaryCtaLabel={pageIntroSection.primaryCtaLabel}
+          primaryCtaLink={pageIntroSection.primaryCtaLink}
+          secondaryCtaLabel={pageIntroSection.secondaryCtaLabel}
+          secondaryCtaLink={pageIntroSection.secondaryCtaLink}
         />
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
@@ -142,7 +139,7 @@ const KidsPage = async ({}) => {
             {VALUES.map((value) => (
               <ValuesTile
                 title={value.title}
-                desc={value.desc}
+                description={value.desc}
                 icon={value.icon}
                 theme="kids"
                 key={value.title}
@@ -163,11 +160,10 @@ const KidsPage = async ({}) => {
                 {pageTextSectionCollection.items.map((item: any) => (
                   <div key={item.heading} className="w-full">
                     <TextBlock
-                      header={item.heading}
+                      heading={item.heading}
                       markdown={item.markdown}
                       image={item.image}
                       reverse={item.reverse}
-                      theme="kids"
                     />
                   </div>
                 ))}
@@ -181,11 +177,10 @@ const KidsPage = async ({}) => {
               {pageEvents.map((event: any) => (
                 <div className="md:col-span-4" key={event.title}>
                   <Tile
-                    header={event.title}
-                    backgroundImg={event.image.url}
+                    heading={event.title}
+                    image={event.image.url}
                     ctaLabel="Learn More"
                     ctaLink={`/`}
-                    theme="dark"
                   />
                 </div>
               ))}
@@ -194,16 +189,15 @@ const KidsPage = async ({}) => {
         )}
         {pageFaQs && (
           <Accordion
-            header={pageFaQs.heading}
-            items={pageFaQs.questions}
-            theme="kids"
+            heading={pageFaQs.heading}
+            questions={pageFaQs.questions}
           />
         )}
         {pageConnectSection && (
           <ConnectSection
-            img={pageConnectSection.logo?.url}
-            header={pageConnectSection.heading}
-            copy={pageConnectSection.description}
+            logo={pageConnectSection.logo}
+            heading={pageConnectSection.heading}
+            description={pageConnectSection.description}
             ctaLabel={pageConnectSection.ctaLabel}
             ctaLink={`${pageConnectSection.ctaLink}?referrer=kids`}
           />

@@ -1,6 +1,6 @@
 export const ValuesTile = ({
   title,
-  desc,
+  description,
   icon,
   theme,
   verse,
@@ -61,7 +61,9 @@ export const ValuesTile = ({
             <span className={`${textColor} z-10 text-xl`}>{title}</span>
           )}
         </div>
-        {desc && <p className={`${textColor} font-light z-10`}>{desc}</p>}
+        {description && (
+          <p className={`${textColor} font-light z-10`}>{description}</p>
+        )}
       </div>
     </div>
   );

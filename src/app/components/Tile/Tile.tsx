@@ -1,15 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 
+type TileParams = {
+  heading: string;
+  description?: string;
+  image: string;
+  ctaLabel: string;
+  ctaLink: string;
+  responsive?: boolean;
+  theme?: string;
+};
+
 export const Tile = ({
-  header,
+  heading,
   description,
   ctaLabel,
   ctaLink,
-  responsive,
-  theme,
-  backgroundImg,
-}: any) => {
+  responsive = false,
+  theme = "dark",
+  image,
+}: TileParams) => {
   let gradient: string;
   let background: string;
 
@@ -27,8 +37,7 @@ export const Tile = ({
       background = "bg-black";
   }
 
-  const imgOnly =
-    backgroundImg && ctaLink && !ctaLabel && !header && !description;
+  const imgOnly = image && ctaLink && !ctaLabel && !heading && !description;
 
   return responsive ? (
     <Link
@@ -37,8 +46,8 @@ export const Tile = ({
     >
       <div className="absolute inset-0 h-full w-full">
         <Image
-          src={backgroundImg}
-          alt={`${header} background image`}
+          src={image}
+          alt={`${heading} background image`}
           objectFit="cover"
           layout="fill"
           className="rounded-lg"
@@ -57,7 +66,7 @@ export const Tile = ({
                 theme === "light" ? `text-gray-800` : `text-white`
               } text-xl md:text-2xl font-bold`}
             >
-              {header}
+              {heading}
             </span>
             <span
               className={`${
@@ -84,8 +93,8 @@ export const Tile = ({
     >
       <div className="absolute inset-0 h-full w-full">
         <Image
-          src={backgroundImg}
-          alt={`${header} background image`}
+          src={image}
+          alt={`${heading} background image`}
           objectFit="cover"
           layout="fill"
           className="rounded-lg"
@@ -103,7 +112,7 @@ export const Tile = ({
               theme === "light" ? `text-gray-800` : `text-white`
             } text-xl font-bold`}
           >
-            {header}
+            {heading}
           </span>
           <span
             className={`${

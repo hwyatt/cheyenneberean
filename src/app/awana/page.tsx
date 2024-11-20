@@ -70,7 +70,7 @@ const CLUBS = [
   },
 ];
 
-const ClubCard = ({ img, logo, ages, desc, bgColor, key }: any) => (
+const ClubCard = ({ img, logo, ages, description, bgColor, key }: any) => (
   <div
     key={key}
     className="relative flex items-center overflow-hidden w-screen pt-8 pl-8 md:pb-8 md:min-h-[315px]"
@@ -84,7 +84,7 @@ const ClubCard = ({ img, logo, ages, desc, bgColor, key }: any) => (
           className="object-contain w-full max-w-[242px] max-h-[100px] object-left"
         />
         <p className="text-gray-800 font-semibold text-lg">{ages}</p>
-        <p className="text-lg">{desc}</p>
+        <p className="text-lg">{description}</p>
       </div>
       <div className="m-club-info-block__image-side">
         <div
@@ -148,20 +148,13 @@ const AwanaPage = async ({}) => {
     <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
-          header={pageIntroSection.heading}
-          headerColor="text-gray-800"
-          image={pageIntroSection.logo.url}
-          copy={pageIntroSection.description}
-          ctaPrimary={
-            pageIntroSection.ctaPrimaryLabel
-              ? `${pageIntroSection.ctaPrimaryLabel} | ${pageIntroSection.ctaPrimaryLink}`
-              : null
-          }
-          ctaSecondary={
-            pageIntroSection.ctaSecondaryLabel
-              ? `${pageIntroSection.ctaSecondaryLabel} | ${pageIntroSection.ctaSecondaryLink}`
-              : null
-          }
+          heading={pageIntroSection.heading}
+          logo={pageIntroSection.logo}
+          description={pageIntroSection.description}
+          primaryCtaLabel={pageIntroSection.primaryCtaLabel}
+          primaryCtaLink={pageIntroSection.primaryCtaLink}
+          secondaryCtaLabel={pageIntroSection.secondaryCtaLabel}
+          secondaryCtaLink={pageIntroSection.secondaryCtaLink}
         />
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
@@ -171,7 +164,7 @@ const AwanaPage = async ({}) => {
             {VALUES.map((value) => (
               <ValuesTile
                 title={value.title}
-                desc={value.desc}
+                description={value.desc}
                 theme="awana"
                 key={value.title}
               />
@@ -187,20 +180,23 @@ const AwanaPage = async ({}) => {
                 img={club.img}
                 logo={club.logo}
                 ages={club.ages}
-                desc={club.desc}
+                description={club.desc}
                 bgColor={club.bgColor}
               />
             ))}
           </div>
         </div>
         {pageFaQs && (
-          <Accordion header={pageFaQs.heading} items={pageFaQs.questions} />
+          <Accordion
+            heading={pageFaQs.heading}
+            questions={pageFaQs.questions}
+          />
         )}
         {pageConnectSection && (
           <ConnectSection
-            img={pageConnectSection.logo?.url}
-            header={pageConnectSection.heading}
-            copy={pageConnectSection.description}
+            logo={pageConnectSection.logo}
+            heading={pageConnectSection.heading}
+            description={pageConnectSection.description}
             ctaLabel={pageConnectSection.ctaLabel}
             ctaLink={`${pageConnectSection.ctaLink}?referrer=awana`}
           />

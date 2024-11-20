@@ -82,13 +82,13 @@ export default async function Home() {
                 {promoTilesContent.items.map((promo: any) => (
                   <Tile
                     key={promo._id}
-                    header={promo.heading}
+                    heading={promo.heading}
                     description={promo.description}
                     ctaLabel={promo.ctaLabel}
                     ctaLink={promo.ctaLink}
                     responsive
-                    backgroundImg={promo.backgroundImage.url}
-                    theme={promo.theme ? promo.theme : "dark"}
+                    image={promo.backgroundImage.url}
+                    theme={promo.theme}
                   />
                 ))}
               </div>

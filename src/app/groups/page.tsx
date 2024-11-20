@@ -69,15 +69,13 @@ const GroupsPage = async () => {
     <div className="min-h-screen flex flex-col items-center gap-8 md:gap-16">
       {pageIntroSection && (
         <IntroSection
-          header={pageIntroSection.heading}
-          image={pageIntroSection.logo ? pageIntroSection.logo.url : null}
-          copy={pageIntroSection.description}
-          ctaPrimary={
-            pageIntroSection.ctaPrimary ? pageIntroSection.ctaPrimary : null
-          }
-          ctaSecondary={
-            pageIntroSection.ctaSecondary ? pageIntroSection.ctaSecondary : null
-          }
+          heading={pageIntroSection.heading}
+          logo={pageIntroSection.logo}
+          description={pageIntroSection.description}
+          primaryCtaLabel={pageIntroSection.primaryCtaLabel}
+          primaryCtaLink={pageIntroSection.primaryCtaLink}
+          secondaryCtaLabel={pageIntroSection.secondaryCtaLabel}
+          secondaryCtaLink={pageIntroSection.secondaryCtaLink}
         />
       )}
       {/* <div className="md:col-span-4 pb-8 border-b-2 border-gray-300 w-full">
