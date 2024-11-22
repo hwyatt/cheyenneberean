@@ -35,7 +35,7 @@ export const LinkSection = ({
 const LinkCard = ({ link }: { link: any }) => {
   return (
     <Link
-      className="flex items-center justify-between gap-4 p-4 transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-300"
+      className="flex items-center justify-between gap-4 p-4 transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-700"
       href={link.route}
       target={link.icon === "give" ? "_blank" : "_self"}
     >
