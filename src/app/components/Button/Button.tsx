@@ -7,7 +7,7 @@ type ButtonProps = {
   fullWidth?: boolean;
   onClick?: () => void;
   size?: "Small" | "Medium" | "Large";
-  variant?: "Primary" | "Secondary" | "Dark";
+  variant?: "Primary" | "Secondary" | "Dark" | "Cedar";
   href?: string;
   target?: "_self" | "_blank";
 };
@@ -27,6 +27,8 @@ export const Button = ({
       ? "bg-inverse text-buttonDark border-2 border-borderSecondary hover:bg-natural hover:text-buttonDark hover:border-2 hover:border-buttonDark active:bg-borderSecondary active:text-white active:border-borderSecondary"
       : variant === "Dark"
       ? "bg-buttonDark text-inverse border-2 border-buttonDark hover:bg-[#edeae3] hover:text-[rgba(12,11,8,.75)] active:bg-buttonDark active:text-inverse"
+      : variant === "Cedar"
+      ? "bg-redCedar text-inverse border-2 border-redCedar hover:bg-natural hover:text-redCedar active:bg-redCedar active:text-inverse"
       : // Primary
         "bg-spruce text-inverse border-2 border-spruce hover:bg-natural hover:text-spruce hover:border-2 border-spruce active:bg-sound active:text-white";
 

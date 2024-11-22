@@ -9,10 +9,10 @@ export const ValuesTile = ({
   let textColor, secondaryTextColor, bgColor, bgImg, iconImg;
 
   if (theme === "kids") {
-    textColor = "text-white";
+    textColor = "text-dark";
     secondaryTextColor = null;
-    bgColor = "#6A7065";
-    bgImg = "/kids/texture-kids.png";
+    bgColor = "#f7f5f3";
+    bgImg = "/kids/texture.png";
   }
 
   if (theme === "awana") {
@@ -26,7 +26,7 @@ export const ValuesTile = ({
   if (theme === "kidsVerse") {
     textColor = "text-white";
     secondaryTextColor = null;
-    bgColor = "#D45D0E";
+    bgColor = "#C7370F";
     bgImg = null;
   }
 

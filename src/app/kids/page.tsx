@@ -17,27 +17,27 @@ const VALUES = [
   {
     title: "Gospel Centered",
     desc: "Our lessons come directly from Scripture. Our curriculum and conversations regularly establish our need for Jesus both to save us from our sins and to live courageously for Him.",
-    icon: <PiCross className="h-8 w-8 text-orange-600" />,
+    icon: <PiCross className="h-8 w-8 text-redCedar" />,
   },
   {
     title: "Partnership",
     desc: "Scripture stresses the importance of parents and the local church in spiritual formation. We commit to partnering together; equipping and releasing a team of people who want to see children's lives transformed.",
-    icon: <LuHeartHandshake className="h-8 w-8 text-orange-600" />,
+    icon: <LuHeartHandshake className="h-8 w-8 text-redCedar" />,
   },
   {
     title: "Safety",
     desc: "We use structured and thorough safety protocols. All volunteers are consistently screened to ensure maximum safety and security for families.",
-    icon: <AiOutlineSafety className="h-8 w-8 text-orange-600" />,
+    icon: <AiOutlineSafety className="h-8 w-8 text-redCedar" />,
   },
   {
     title: "Excellence",
     desc: "We provide quality teaching and instruction to kids of all ages. We strive to be organized, consistent, and impactful so the Gospel can reach kids in lasting ways.",
-    icon: <LiaCheckCircle className="h-8 w-8 text-orange-600" />,
+    icon: <LiaCheckCircle className="h-8 w-8 text-redCedar" />,
   },
   {
     title: "Age Specific",
     desc: "Our curriculum runs chronologically through the Bible to help a child understand the Bible as a whole. We commit to helping even the youngest of our congregation become resilient followers of Jesus.",
-    icon: <TbMoodKid className="h-8 w-8 text-orange-600" />,
+    icon: <TbMoodKid className="h-8 w-8 text-redCedar" />,
   },
 ];
 

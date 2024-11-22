@@ -30,7 +30,7 @@ export const ConnectSection = ({
     <Button
       href={ctaLink}
       className="w-full md:w-auto"
-      variant={theme === "awana" || theme === "kids" ? "Dark" : "Primary"}
+      variant={theme === "awana" || theme === "kids" ? "Cedar" : "Primary"}
     >
       {ctaLabel}
     </Button>
