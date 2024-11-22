@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
 import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
+import { Button } from "../Button/Button";
+import { Chip } from "../Chip/Chip";
 
 export const Card = ({
   title,
@@ -21,7 +23,7 @@ export const Card = ({
   theme,
 }: any) => (
   <div
-    className="md:col-span-6 lg:col-span-3 flex flex-col bg-white rounded-lg shadow-md"
+    className="md:col-span-6 lg:col-span-3 flex flex-col bg-palette rounded-lg shadow-md"
     key={title}
   >
     <div
@@ -57,47 +59,42 @@ export const Card = ({
         {context && (
           <div className="flex flex-wrap gap-2">
             {context.map((item: any) => (
-              <div
-                className="font-semibold text-xs text-white bg-gray-600 py-1 px-2 rounded-xl"
-                key={item}
-              >
-                {item}
-              </div>
+              <Chip key={item}>{item}</Chip>
             ))}
           </div>
         )}
         {title && (
           <h3
-            className={`text-gray-800 ${
-              theme === "kids" ? `font-bobby text-2xl` : "text-xl font-semibold"
+            className={`text-dark ${
+              theme === "kids" ? `font-bobby text-2xl` : "text-xl font-medium"
             }`}
           >
             {title}
           </h3>
         )}
         {subtitle && (
-          <span className="text-sm font-light text-gray-600">{subtitle}</span>
+          <span className="text-sm font-light text-body">{subtitle}</span>
         )}
       </div>
-      {description && <p className="text-gray-800">{description}</p>}
+      {description && <p className="text-body">{description}</p>}
       {(time || people || location) && (
         <div className="flex flex-col gap-1">
           {time && (
             <div className="flex gap-1 items-center">
-              <FaRegClock className="text-gray-800" />
-              <span className="text-sm">{time}</span>
+              <FaRegClock className="text-body" />
+              <span className="text-body text-sm">{time}</span>
             </div>
           )}
           {people && (
             <div className="flex gap-1 items-center">
-              <IoPersonOutline className="text-gray-800" />
-              <span className="text-sm m-0">{people.join(", ")}</span>
+              <IoPersonOutline className="text-body" />
+              <span className="text-body text-sm m-0">{people.join(", ")}</span>
             </div>
           )}
           {location && (
             <div className="flex gap-1 items-center">
-              <FaLocationDot className="text-gray-800" />
-              <span className="text-sm m-0">{location}</span>
+              <FaLocationDot className="text-body" />
+              <span className="text-body text-sm m-0">{location}</span>
             </div>
           )}
         </div>
@@ -110,15 +107,13 @@ export const Card = ({
                 href={ctaPrimaryLink}
                 className="flex items-center gap-1 group"
               >
-                <span className="font-semibold text-primary group-hover:underline group-hover:underline-offset-4 decoration-2">
+                <span className="font-medium text-dark group-hover:underline group-hover:underline-offset-4 decoration-2">
                   {ctaPrimaryLabel}
                 </span>
-                <IoChevronForward size={18} className="text-primary" />
+                <IoChevronForward size={18} className="text-dark" />
               </Link>
             ) : (
-              <Link href={ctaPrimaryLink} className={`btn btn-accent`}>
-                {ctaPrimaryLabel}
-              </Link>
+              <Button href={ctaPrimaryLink}>{ctaPrimaryLabel}</Button>
             ))}
           {ctaSecondaryLabel &&
             (ctaStyle === "link" ? (
@@ -126,15 +121,15 @@ export const Card = ({
                 href={ctaSecondaryLink}
                 className="flex items-center gap-1 group"
               >
-                <span className="font-semibold text-primary group-hover:underline group-hover:underline-offset-4 decoration-2">
+                <span className="font-medium text-dark group-hover:underline group-hover:underline-offset-4 decoration-2">
                   {ctaSecondaryLabel}
                 </span>
-                <IoChevronForward size={18} className="text-primary" />
+                <IoChevronForward size={18} className="text-dark" />
               </Link>
             ) : (
-              <Link href={ctaSecondaryLink} className={`btn btn-secondary`}>
+              <Button href={ctaSecondaryLink} variant="Secondary">
                 {ctaSecondaryLabel}
-              </Link>
+              </Button>
             ))}
         </div>
       )}

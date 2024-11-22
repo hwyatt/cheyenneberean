@@ -16,16 +16,32 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        spruce: "#1F513F",
+        dark: "#1C1C1A",
+        sound: "#13352C",
+        sagebrush: "#ACB4A2",
+        moss: "#BFB33E",
+        salmonberry: "#E74F3D",
+        redCedar: "#C7370F",
+        birch: "#E8EOCE",
+        natural: "#F4F2ED",
+        info: "#1b437e",
+        link: "#406eb5",
+        linkActive: "#0b2d60",
+        borderPrimary: "#dcd6cb",
+        borderSecondary: "#928b80",
+        inverse: "#f9f8f6",
+        buttonDark: "#4e4d49",
+        palette: "#f7f5f3",
+        body: "#0c0b08bf",
+      },
     },
   },
   daisyui: {
     themes: [
       {
-        mytheme: {
-          accent: "#1F2937",
-          primary: "#1F2937",
-          secondary: "#1F2937",
-        },
+        mytheme: {},
       },
       {
         kids: {

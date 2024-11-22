@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { FaPhone } from "react-icons/fa6";
+import { Button } from "../components/Button/Button";
 
 // const getMessage = (referrer: string | null) => {
 //   switch (referrer) {
@@ -106,9 +107,9 @@ const ContactPage = () => {
       {!status && (
         <form
           onSubmit={handleSubmit}
-          className="w-full md:w-1/2 flex flex-col gap-8 text-primary"
+          className="w-full md:w-1/2 flex flex-col gap-8 text-dark"
         >
-          <label className="input input-bordered border-accent flex items-center gap-2">
+          <label className="input input-bordered border-spruce flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -122,11 +123,11 @@ const ContactPage = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="grow text-gray-800"
+              className="grow text-dark"
               placeholder="Name"
             />
           </label>
-          <label className="input input-bordered border-accent flex items-center gap-2">
+          <label className="input input-bordered border-spruce flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -141,18 +142,18 @@ const ContactPage = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="grow text-gray-800"
+              className="grow text-dark"
               placeholder="Email"
             />
           </label>
-          <label className="input input-bordered border-accent flex items-center gap-2">
+          <label className="input input-bordered border-spruce flex items-center gap-2">
             <FaPhone fill="currentColor" className="h-4 w-4" />
             <input
               type="text"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="grow text-gray-800"
+              className="grow text-dark"
               placeholder="Phone Number"
             />
           </label>
@@ -161,14 +162,13 @@ const ContactPage = () => {
             value={formData.message}
             onChange={handleChange}
             placeholder="Message"
-            className="textarea-placeholder textarea textarea-bordered border-accent textarea-lg min-h-64 text-gray-800"
+            className="textarea-placeholder textarea textarea-bordered border-spruce textarea-lg min-h-64 text-dark"
           ></textarea>
-          <button type="submit" className="btn btn-accent">
-            Submit
-          </button>
+          {/* TODO: FIX SUBMIT WITH TYPE=SUBMIT */}
+          <Button>Submit</Button>
         </form>
       )}
-      {status && <p className="font-semibold text-lg">{status}</p>}
+      {status && <p className="font-medium text-lg">{status}</p>}
     </div>
   );
 };

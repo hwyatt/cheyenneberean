@@ -1,5 +1,6 @@
 import { TextBlockParams } from "@/app/api/types";
 import ReactMarkdown from "react-markdown";
+import { Button } from "../Button/Button";
 
 export const TextBlock = ({
   heading,
@@ -29,11 +30,7 @@ export const TextBlock = ({
       )}
       <div className={`flex-grow flex flex-col gap-2 md:gap-4`}>
         {heading && (
-          <h2
-            className={`${
-              centerText && "text-center"
-            } font-semibold text-2xl text-gray-800`}
-          >
+          <h2 className={`${centerText && "text-center"} font-medium text-2xl`}>
             {heading}
           </h2>
         )}
@@ -43,14 +40,12 @@ export const TextBlock = ({
         {(primaryCtaLabel || secondaryCtaLabel) && (
           <div className="flex flex-col md:flex-row gap-2 md:gap-4 mt-4 md:mt-0">
             {primaryCtaLabel && primaryCtaLink && (
-              <a href={primaryCtaLink} className="btn btn-accent">
-                {primaryCtaLabel}
-              </a>
+              <Button href={primaryCtaLink}>{primaryCtaLabel}</Button>
             )}
             {secondaryCtaLabel && secondaryCtaLink && (
-              <a href={secondaryCtaLink} className="btn btn-secondary">
+              <Button href={secondaryCtaLink} variant={"Secondary"}>
                 {secondaryCtaLabel}
-              </a>
+              </Button>
             )}
           </div>
         )}

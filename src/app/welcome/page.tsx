@@ -1,4 +1,5 @@
 import { draftMode } from "next/headers";
+import { FaCircle } from "react-icons/fa6";
 import { fetchGraphQL } from "../api/contentful";
 import { getPageData } from "../api/queries/contentPage";
 import {
@@ -11,21 +12,12 @@ import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
 import { Tile } from "../components/Tile/Tile";
+import { ValuesTile } from "../components/ValuesTile/ValuesTile";
 
-type ContentPageParams = {
-  params: {
-    content: string;
-  };
-};
-
-const ContentPage = async ({ params }: ContentPageParams) => {
+const WelcomePage = async () => {
   const { isEnabled } = draftMode();
-  const { content } = params;
+  const content = "welcome";
 
-  // Filter out the favicon.ico request
-  if (content === "favicon.ico") {
-    return;
-  }
   const data: ContentPageResponse = await getPageData(content, isEnabled);
 
   const pageData = data?.data?.pageCollection?.items[0];
@@ -84,6 +76,26 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           secondaryCtaLink={pageIntroSection.secondaryCtaLink}
         />
       )}
+      <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3 w-full">
+        <ValuesTile
+          title="Gather"
+          description="Strength, companionship, and joy are found in unified gathering. Our lives are changed as we band together pursuing and proclaiming Jesus. We seek to encourage and enjoy one another by gathering together on Sunday mornings and throughout the week in smaller gatherings called grow groups."
+          icon={<FaCircle className="text-sagebrush" />}
+          theme="church"
+        />
+        <ValuesTile
+          title="Grow"
+          description="Together, with eyes fixed on Jesus we are being transformed to be more like him. We want to encounter Jesus; be filled with his characteristics and qualities; so that others will experience Jesus who is alive in us."
+          icon={<FaCircle className="text-moss" />}
+          theme="church"
+        />
+        <ValuesTile
+          title="Go"
+          description="God lovingly and sovereignly set us in a place, a time, and for a purpose. Together, we are discovering where God is at work around us and joining Him. We are taking steps together and encouraging one another as we make Jesus known locally, regionally, and globally."
+          icon={<FaCircle className="text-salmonberry" />}
+          theme="church"
+        />
+      </div>
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: any) => (
           <div key={item.header}>
@@ -132,4 +144,4 @@ const ContentPage = async ({ params }: ContentPageParams) => {
   );
 };
 
-export default ContentPage;
+export default WelcomePage;

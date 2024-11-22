@@ -84,7 +84,7 @@ const ClubCard = ({ img, logo, ages, description, bgColor, key }: any) => (
           alt="Puggles logo"
           className="object-contain w-full max-w-[242px] max-h-[100px] object-left"
         />
-        <p className="text-gray-800 font-semibold text-lg">{ages}</p>
+        <p className="text-dark font-medium text-lg">{ages}</p>
         <p className="text-lg">{description}</p>
       </div>
       <div className="m-club-info-block__image-side">
@@ -160,7 +160,7 @@ const AwanaPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-2xl font-semibold">Values</h2>
+          <h2 className="text-2xl font-medium">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -173,7 +173,7 @@ const AwanaPage = async ({}) => {
           </div>
         </div>
         <div className="flex flex-col gap-2 items-center w-screen">
-          <h2 className="text-2xl font-semibold">Awana Clubs</h2>
+          <h2 className="text-2xl font-medium">Awana Clubs</h2>
           <div>
             {CLUBS.map((club: any) => (
               <ClubCard
@@ -191,6 +191,7 @@ const AwanaPage = async ({}) => {
           <Accordion
             heading={pageFaQs.heading}
             questions={pageFaQs.questions}
+            theme="awana"
           />
         )}
         {pageConnectSection && (
@@ -200,6 +201,7 @@ const AwanaPage = async ({}) => {
             description={pageConnectSection.description}
             ctaLabel={pageConnectSection.ctaLabel}
             ctaLink={`${pageConnectSection.ctaLink}?referrer=awana`}
+            theme="awana"
           />
         )}
         <img src="/awana/awana-kids.png" className="max-h-[400px] mb-[-64px]" />

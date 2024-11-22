@@ -23,7 +23,7 @@ export const MobileMenu = () => {
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"
-          className="drawer-overlay text-gray-800"
+          className="drawer-overlay text-dark"
         ></label>
         <ul className="mobile-menu menu bg-white min-h-full w-3/4 p-0">
           {/* Sidebar content here */}
@@ -34,10 +34,8 @@ export const MobileMenu = () => {
                   <details>
                     <summary
                       className={`${
-                        link.title === "Giving"
-                          ? `text-primary`
-                          : `text-gray-600`
-                      } font-semibold hover:text-primary text-3xl py-0 uppercase`}
+                        link.title === "Giving" ? `text-dark` : `text-dark`
+                      } font-medium hover:text-dark text-3xl py-0 uppercase`}
                     >
                       {link.title}
                     </summary>
@@ -48,9 +46,9 @@ export const MobileMenu = () => {
                             href={subLink.route}
                             className={`${
                               link.title === "Giving"
-                                ? `text-primary`
-                                : `text-gray-600`
-                            } text-3xl font-semibold hover:text-primary py-0 uppercase`}
+                                ? `text-dark`
+                                : `text-dark`
+                            } text-3xl font-medium hover:text-dark py-0 uppercase`}
                             onClick={closeDrawer} // Close drawer on link click
                           >
                             {subLink.title}
@@ -66,8 +64,8 @@ export const MobileMenu = () => {
                     href={link.route}
                     target={link.title === "Giving" ? "_blank" : "_self"}
                     className={`${
-                      link.title === "Giving" ? `text-primary` : `text-gray-600`
-                    } text-3xl font-semibold hover:text-primary py-0 uppercase`}
+                      link.title === "Giving" ? `text-dark` : `text-dark`
+                    } text-3xl font-medium hover:text-dark py-0 uppercase`}
                     onClick={closeDrawer} // Close drawer on link click
                   >
                     {link.title}
@@ -78,10 +76,10 @@ export const MobileMenu = () => {
           </div>
           <Link
             href="https://cheyenneberean.ccbchurch.com/goto/login"
-            className="flex flex-row items-center gap-2 text-primary font-semibold hover:text-primary uppercase mt-8 mx-4"
+            className="flex flex-row items-center gap-2 text-dark font-medium hover:text-dark uppercase mt-8 mx-4"
           >
-            <RiAccountCircleLine size={48} className="text-gray-600" />
-            <span className="text-primary text-3xl">Log In</span>
+            <RiAccountCircleLine size={48} className="text-dark" />
+            <span className="text-dark text-3xl">Log In</span>
           </Link>
         </ul>
       </div>

@@ -1,5 +1,6 @@
 import { PageIntroSection } from "@/app/api/types";
 import Image from "next/image";
+import { Button } from "../Button/Button";
 
 export const IntroSection = ({
   heading,
@@ -25,34 +26,33 @@ export const IntroSection = ({
         </div>
       )}
       {heading && (
-        <h1 className={`font-semibold text-3xl text-center text-gray-800`}>
+        <h1 className={`font-medium text-3xl text-center text-dark`}>
           {heading}
         </h1>
       )}
       {description && (
-        <p className="text-center text-lg text-balance">{description}</p>
+        <p className="text-center text-lg text-balance text-body">
+          {description}
+        </p>
       )}
       {(primaryCtaLink || secondaryCtaLink) && (
         <div className="flex flex-col md:flex-row gap-4 mt-4 w-full items-center justify-center">
           {primaryCtaLink && (
-            <a
+            <Button
               href={primaryCtaLink}
-              className={`btn btn-accent w-full ${
-                !hasTwoButtons ? "md:w-auto" : "md:w-1/2"
-              }`}
+              className={!hasTwoButtons ? "md:w-auto" : "md:w-1/2"}
             >
               {primaryCtaLabel}
-            </a>
+            </Button>
           )}
           {secondaryCtaLink && (
-            <a
+            <Button
               href={secondaryCtaLink}
-              className={`btn btn-accent w-full ${
-                !hasTwoButtons ? "md:w-auto" : "md:w-1/2"
-              }`}
+              className={!hasTwoButtons ? "md:w-auto" : "md:w-1/2"}
+              variant="Secondary"
             >
               {secondaryCtaLabel}
-            </a>
+            </Button>
           )}
         </div>
       )}

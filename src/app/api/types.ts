@@ -28,6 +28,7 @@ export type TextBlockParams = {
 export type FAQ = {
   heading: string;
   questions: FAQQuestionAnswer[];
+  theme?: string;
 };
 
 export type FAQQuestionAnswer = {
@@ -41,6 +42,7 @@ export type ConnectSectionProps = {
   ctaLabel: string;
   ctaLink: string;
   logo?: Image;
+  theme?: string;
 };
 
 export type PageData = {

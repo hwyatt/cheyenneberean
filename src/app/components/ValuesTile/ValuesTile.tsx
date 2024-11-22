@@ -6,16 +6,18 @@ export const ValuesTile = ({
   verse,
   verseText,
 }: any) => {
-  let textColor, bgColor, bgImg, iconImg;
+  let textColor, secondaryTextColor, bgColor, bgImg, iconImg;
 
   if (theme === "kids") {
     textColor = "text-white";
+    secondaryTextColor = null;
     bgColor = "#6A7065";
     bgImg = "/kids/texture-kids.png";
   }
 
   if (theme === "awana") {
-    textColor = "text-gray-800";
+    textColor = "text-dark";
+    secondaryTextColor = null;
     bgColor = "#ffffff";
     bgImg = "/awana/value-background.png";
     iconImg = "/awana/yellow-arrowhead.png";
@@ -23,14 +25,24 @@ export const ValuesTile = ({
 
   if (theme === "kidsVerse") {
     textColor = "text-white";
+    secondaryTextColor = null;
     bgColor = "#D45D0E";
+    bgImg = null;
+  }
+
+  if (theme === "church") {
+    textColor = "text-dark";
+    secondaryTextColor = "text-body";
+    bgColor = "#f7f5f3";
     bgImg = null;
   }
 
   return (
     <div
       key={title}
-      className="font-semibold p-4 md:px-8 md:pb-8 md:pt-16 rounded flex flex-col gap-4 justify-between relative overflow-hidden text-start md:col-span-1 shadow-md min-h-[225px] md:min-h-[300px]"
+      className={`h-full font-medium p-4 md:px-8 md:pb-8 md:pt-16 rounded flex flex-col gap-4 justify-between relative overflow-hidden text-start md:col-span-1 shadow-md min-h-[225px] md:min-h-[300px] ${
+        theme === "awana" ? "border border-gray-200" : ""
+      }`}
       style={{ background: bgColor }}
     >
       {bgImg && (
@@ -54,7 +66,7 @@ export const ValuesTile = ({
               <span className="text-sm text-gray-200 uppercase font-light tracking-widest">
                 {verse}
               </span>
-              <h1 className="text-3xl font-semibold text-white">{verseText}</h1>
+              <h1 className="text-3xl font-medium text-white">{verseText}</h1>
             </div>
           )}
           {title && (
@@ -62,7 +74,13 @@ export const ValuesTile = ({
           )}
         </div>
         {description && (
-          <p className={`${textColor} font-light z-10`}>{description}</p>
+          <p
+            className={`${
+              secondaryTextColor ? secondaryTextColor : textColor
+            } font-light z-10`}
+          >
+            {description}
+          </p>
         )}
       </div>
     </div>

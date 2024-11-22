@@ -134,7 +134,7 @@ const KidsPage = async ({}) => {
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-2xl font-semibold">Values</h2>
+          <h2 className="text-2xl font-medium">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -155,7 +155,7 @@ const KidsPage = async ({}) => {
         {pageTextSectionCollection &&
           pageTextSectionCollection.items.length > 0 && (
             <div className="flex flex-col items-center gap-2">
-              <h2 className="text-2xl font-semibold">Classes</h2>
+              <h2 className="text-2xl font-medium">Classes</h2>
               <div className="flex flex-col items-center gap-4 md:gap-8 w-full">
                 {pageTextSectionCollection.items.map((item: any) => (
                   <div key={item.heading} className="w-full">
@@ -172,7 +172,7 @@ const KidsPage = async ({}) => {
           )}
         {showEvents && eventData && (
           <div className="flex flex-col items-center gap-2 w-full">
-            <h2 className="text-2xl font-semibold">Events</h2>
+            <h2 className="text-2xl font-medium">Events</h2>
             <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
               {pageEvents.map((event: any) => (
                 <div className="md:col-span-4" key={event.title}>
@@ -200,6 +200,7 @@ const KidsPage = async ({}) => {
             description={pageConnectSection.description}
             ctaLabel={pageConnectSection.ctaLabel}
             ctaLink={`${pageConnectSection.ctaLink}?referrer=kids`}
+            theme="kids"
           />
         )}
         <div className="w-[calc(100vw-16px)] overflow-hidden mb-[-100px] md:mb-[-225px]">

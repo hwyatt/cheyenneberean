@@ -2,29 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn-accent,
-.btn-primary {
-  @apply text-white;
-}
-
-.btn-secondary,
-.btn-ghost {
-  @apply bg-transparent text-gray-800 border border-gray-800 !important;
-}
-
-.btn-primary,
-.btn-secondary {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.btn-lg {
-  @apply text-sm;
-}
-
-.btn-link {
-  @apply no-underline hover:underline text-gray-800;
-}
-
 .textarea-placeholder::placeholder {
   font-size: 1rem;
 }
@@ -60,23 +37,23 @@
   @apply flex flex-col gap-4;
 }
 
+.markdown-container * {
+  @apply text-body;
+}
+
 .mobile-menu :where(li > details > summary):after {
   height: 0px;
   width: 0px;
 }
 
-.page-kids .btn-primary {
-  @apply text-white;
-}
-
 /* BELIEFS PAGE MARKDOWN */
 
 .page-beliefs .markdown-container h3 {
-  @apply text-lg font-semibold;
+  @apply text-lg font-medium;
 }
 
 .page-beliefs .markdown-container a {
-  @apply font-semibold text-xs text-white bg-gray-600 py-1 px-2 rounded-xl whitespace-nowrap;
+  @apply bg-white text-xs rounded-lg border border-borderPrimary hover:bg-natural hover:border-borderSecondary py-1 px-2 rounded-xl whitespace-nowrap no-underline;
 }
 
 .page-beliefs .markdown-container p:has(a) {
@@ -95,12 +72,12 @@ h5,
 p,
 span,
 a {
-  @apply text-gray-800;
+  @apply text-dark;
 }
 
-.markdown-container a {
-  @apply font-semibold text-primary hover:underline hover:underline-offset-4 decoration-2;
-}
+/* .markdown-container a {
+  @apply font-medium text-dark hover:underline hover:underline-offset-4 decoration-2;
+} */
 
 .m-club-info-block__image-side {
   position: absolute;

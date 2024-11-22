@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../Button/Button";
 
 type TileParams = {
   heading: string;
@@ -63,25 +64,21 @@ export const Tile = ({
           <div className="flex flex-col">
             <span
               className={`${
-                theme === "light" ? `text-gray-800` : `text-white`
+                theme === "light" ? `text-dark` : `text-white`
               } text-xl md:text-2xl font-bold`}
             >
               {heading}
             </span>
             <span
               className={`${
-                theme === "light" ? `text-gray-800` : `text-white`
+                theme === "light" ? `text-dark` : `text-white`
               } text-sm md:text-base font-light text-balance`}
             >
               {description}
             </span>
           </div>
           <div className="flex">
-            {ctaLink && ctaLabel && (
-              <a href={ctaLink} className="btn btn-accent w-auto">
-                {ctaLabel}
-              </a>
-            )}
+            {ctaLink && ctaLabel && <Button href={ctaLink}>{ctaLabel}</Button>}
           </div>
         </div>
       </div>
@@ -109,25 +106,21 @@ export const Tile = ({
         <div className="flex flex-col">
           <span
             className={`${
-              theme === "light" ? `text-gray-800` : `text-white`
+              theme === "light" ? `text-dark` : `text-white`
             } text-xl font-bold`}
           >
             {heading}
           </span>
           <span
             className={`${
-              theme === "light" ? `text-gray-800` : `text-white`
+              theme === "light" ? `text-dark` : `text-white`
             } text-sm font-light`}
           >
             {description}
           </span>
         </div>
         <div className="flex">
-          {ctaLink && ctaLabel && (
-            <a href={ctaLink} className="btn btn-accent w-auto">
-              {ctaLabel}
-            </a>
-          )}
+          {ctaLink && ctaLabel && <Button href={ctaLink}>{ctaLabel}</Button>}
         </div>
       </div>
     </Link>

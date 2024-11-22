@@ -1,9 +1,6 @@
 import Image from "next/image";
-import {
-  IoChevronForward,
-  IoPersonOutline,
-  IoPeopleOutline,
-} from "react-icons/io5";
+import { IoChevronForward } from "react-icons/io5";
+import { Button } from "../Button/Button";
 
 export const SermonSeries = ({
   sermonTitle,
@@ -27,7 +24,6 @@ export const SermonSeries = ({
     <div className="flex flex-col gap-12 border-b-2 pb-12 border-gray-300">
       <div>
         <div className="aspect-video rounded-lg flex flex-col relative shadow-sm">
-          <div className="bg-overlay"></div>
           <Image
             src={imgUrl}
             alt="Latest Sermon"
@@ -36,27 +32,27 @@ export const SermonSeries = ({
             objectFit="cover"
           />
           {watchSermonLink && (
-            <a
+            <Button
+              size="Large"
+              variant="Dark"
+              className="flex items-center gap-2 absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
               href={watchSermonLink}
               target="_blank"
-              className="btn btn-accent absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
             >
-              <span className="text-white">Watch Sermon</span>
-              <IoChevronForward size={18} className="text-white" />
-            </a>
+              <span className="text-inherit">Watch Sermon</span>
+              <IoChevronForward size={18} />
+            </Button>
           )}
         </div>
       </div>
       {sermonTitle && sermonDate && sermonSpeaker && (
-        <div className="flex flex-col gap-2 items-center text-center">
-          <div className="flex flex-col">
-            <h2 className="font-semibold text-xl md:text-3xl text-gray-800 m-0">
-              {sermonTitle}
-            </h2>
-            <span className="text-gray-800 font-light text-sm">
-              {formatDate(sermonDate)} | {sermonSpeaker}
-            </span>
-          </div>
+        <div className="flex flex-col gap-2 text-center">
+          <h2 className="font-medium text-2xl md:text-3xl m-0">
+            {sermonTitle}
+          </h2>
+          <span className="text-sm md:text-base text-body">
+            {formatDate(sermonDate)} | {sermonSpeaker}
+          </span>
         </div>
       )}
     </div>

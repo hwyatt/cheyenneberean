@@ -75,7 +75,6 @@ const EventPage = async ({}) => {
                 context={event.categories}
                 ctaSecondaryLabel="More Info"
                 ctaSecondaryLink={`/events/${event.sys.id}`}
-                ctaStyle="link"
                 // image={event.coverImage.url}
                 imageFit="cover"
               />
