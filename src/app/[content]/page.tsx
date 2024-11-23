@@ -126,6 +126,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           ctaLabel={pageConnectSection.ctaLabel}
           ctaLink={`${pageConnectSection.ctaLink}?referrer=${content}`}
           logo={pageConnectSection.logo}
+          theme={content === "youth" || "young-adults" ? "youth" : "Primary"}
         />
       )}
     </div>

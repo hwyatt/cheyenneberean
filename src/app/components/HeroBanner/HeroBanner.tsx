@@ -12,7 +12,7 @@ export const HeroBanner = ({ title, description, eyebrowText }: any) => {
                   {eyebrowText}
                 </span>
               )}
-              <h1 className="text-xl md:text-3xl font-semibold text-inverse">
+              <h1 className="text-xl md:text-3xl font-medium text-inverse">
                 {title}
               </h1>
             </div>
