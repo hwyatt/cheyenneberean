@@ -12,18 +12,6 @@ import { FaLocationDot, FaRegClock } from "react-icons/fa6";
 
 const LocationCard = () => (
   <div className="bg-palette rounded-lg flex flex-col justify-start shadow-lg">
-    {/* <div className="aspect-video relative">
-  <Image
-    src="/brand/cbcMap.png"
-    alt="Cheyenne Berean Church location"
-    layout="fill"
-    objectFit="cover"
-    className="rounded-t-lg"
-  />
-  <div className="absolute inset-0 flex justify-center items-center">
-    <FaLocationDot size={32} />
-  </div>
-</div> */}
     <div className="flex flex-col gap-4 justify-start p-4">
       <h3 className="font-medium text-xl mb-0">Service Times</h3>
       <div className="flex flex-col gap-2">
@@ -82,6 +70,24 @@ const LocationCard = () => (
           </li>
         </ul>
       </div>
+    </div>
+  </div>
+);
+
+const LoginCard = () => (
+  <div className="bg-palette rounded-lg flex flex-col justify-start shadow-lg">
+    <div className="flex flex-col gap-4 justify-start p-4">
+      <h3 className="font-medium text-xl mb-0">Login to CCB Church</h3>
+      <span className="text-sm text-body">
+        Manage giving, find a group, see events and more.
+      </span>
+      <Button
+        href="https://cheyenneberean.ccbchurch.com/goto/login"
+        className="self-start mt-4"
+        size="Small"
+      >
+        Log In
+      </Button>
     </div>
   </div>
 );
@@ -168,6 +174,7 @@ export default async function Home() {
           <LinkSection title="Get Involved" links={CONNECT_LINKS} />
           <LinkSection title="For Your Family" links={FAMILY_LINKS} />
           <LinkSection title="Connect with Us" links={CONTACT_LINKS} />
+          <LoginCard />
         </div>
       </div>
     </div>

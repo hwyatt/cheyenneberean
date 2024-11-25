@@ -2,36 +2,23 @@ import Image from "next/image";
 
 export const HeroBanner = ({ title, description, eyebrowText }: any) => {
   return (
-    <div className="bg-magnoliaDark rounded-lg shadow-lg relative overflow-hidden">
-      <div className="w-full mx-auto flex flex-col-reverse gap-8 md:grid grid-cols-12">
-        <div className="copy-container flex flex-col gap-4 col-span-8 h-full justify-between px-8 pb-8 md:pt-8 md:pr-0">
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col z-10">
-              {eyebrowText && (
-                <span className="text-sm text-inverse uppercase font-light tracking-widest">
-                  {eyebrowText}
-                </span>
-              )}
-              <h1 className="text-xl md:text-3xl font-medium text-inverse">
-                {title}
-              </h1>
-            </div>
-            {description && (
-              <p className="text-inverse text-sm md:text-base z-10">
-                {description}
-              </p>
-            )}
-          </div>
-        </div>
-        <div className="col-span-4 h-64 md:h-auto relative mt-8 md:mt-0">
-          <Image
-            src="/brand/vector.png"
-            alt={"Cheyenne Berean Church Building"}
-            layout="fill"
-            objectFit="contain"
-          />
+    <div className="relative overflow-hidden rounded-lg bg-dark shadow-lg p-8 md:p-16 md:min-h-[350px] flex justify-center items-center">
+      <div className="mx-auto flex h-full w-full items-center">
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="text-center text-balance text-2xl font-medium text-inverse md:text-3xl">
+            “They (those in Berea) received the word with all eagerness,
+            examining the Scriptures daily”
+          </h1>
+          <span className="text-center text-sm font-light uppercase tracking-widest text-inverse">
+            Acts 17:11
+          </span>
         </div>
       </div>
+      <img
+        src="brand/nameless-vector.png"
+        className="absolute bottom-0 opacity-5 pointer-events-none"
+        alt="Background Image"
+      />
     </div>
   );
 };

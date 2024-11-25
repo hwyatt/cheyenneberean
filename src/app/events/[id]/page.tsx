@@ -1,8 +1,6 @@
-import Link from "next/link";
 import { fetchGraphQL } from "@/app/api/contentful";
 import { GMap } from "@/app/components/GMap/GMap";
 import { FaRegClock } from "react-icons/fa6";
-import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
 import { formatEventDayAndTime } from "../../utils/dates";
 import { Button } from "@/app/components/Button/Button";
@@ -97,13 +95,8 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
             <p className="text-body md:text-lg">{event.description}</p>
           </div>
         </div>
-        <Button
-          variant="Secondary"
-          className="flex items-center gap-2 self-center"
-          href="/events"
-        >
+        <Button variant="Secondary" className="self-center" href="/events">
           <span className="text-inherit">See All Events</span>
-          <IoChevronForward size={18} />
         </Button>
       </div>
     </div>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { IoChevronForward } from "react-icons/io5";
 import { Button } from "../Button/Button";
 
 export const SermonSeries = ({
@@ -32,16 +31,25 @@ export const SermonSeries = ({
             objectFit="cover"
           />
           {watchSermonLink && (
-            <Button
-              size="Large"
-              variant="Dark"
-              className="flex items-center gap-2 absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
-              href={watchSermonLink}
-              target="_blank"
-            >
-              <span className="text-inherit">Watch Sermon</span>
-              <IoChevronForward size={18} />
-            </Button>
+            <div>
+              <Button
+                size="Large"
+                variant="Dark"
+                className="hidden md:flex items-center text-nowrap gap-2 absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
+                href={watchSermonLink}
+                target="_blank"
+              >
+                <span className="text-inherit">Watch Sermon</span>
+              </Button>
+              <Button
+                variant="Dark"
+                className="md:hidden flex items-center text-nowrap gap-2 absolute bottom-[-22px] left-1/2 transform -translate-x-1/2"
+                href={watchSermonLink}
+                target="_blank"
+              >
+                <span className="text-inherit">Watch Sermon</span>
+              </Button>
+            </div>
           )}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
-import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
 import { Button } from "../Button/Button";
 import { Chip } from "../Chip/Chip";
 
@@ -110,7 +110,6 @@ export const Card = ({
                 <span className="font-medium text-dark group-hover:underline group-hover:underline-offset-4 decoration-2">
                   {ctaPrimaryLabel}
                 </span>
-                <IoChevronForward size={18} className="text-dark" />
               </Link>
             ) : (
               <Button href={ctaPrimaryLink}>{ctaPrimaryLabel}</Button>
@@ -124,7 +123,6 @@ export const Card = ({
                 <span className="font-medium text-dark group-hover:underline group-hover:underline-offset-4 decoration-2">
                   {ctaSecondaryLabel}
                 </span>
-                <IoChevronForward size={18} className="text-dark" />
               </Link>
             ) : (
               <Button href={ctaSecondaryLink} variant="Secondary">

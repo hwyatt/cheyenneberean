@@ -25,9 +25,9 @@ export const MobileMenu = () => {
           aria-label="close sidebar"
           className="drawer-overlay text-dark"
         ></label>
-        <ul className="mobile-menu menu bg-white min-h-full w-3/4 p-0">
+        <ul className="mobile-menu menu bg-natural min-h-full w-3/4 p-0">
           {/* Sidebar content here */}
-          <div className="flex flex-col gap-16 mt-8 border-gray-200 border-b pb-8 mx-4">
+          <div className="flex flex-col gap-16 mt-8 border-borderPrimary border-b-2 pb-8 mx-4">
             {NAV_LINKS.map((link) =>
               link.sub && link.sub.length > 0 ? (
                 <li key={link.title}>
@@ -35,7 +35,7 @@ export const MobileMenu = () => {
                     <summary
                       className={`${
                         link.title === "Giving" ? `text-dark` : `text-dark`
-                      } font-medium hover:text-dark text-3xl py-0 uppercase`}
+                      } font-medium hover:text-dark text-xl py-0`}
                     >
                       {link.title}
                     </summary>
@@ -48,7 +48,7 @@ export const MobileMenu = () => {
                               link.title === "Giving"
                                 ? `text-dark`
                                 : `text-dark`
-                            } text-3xl font-medium hover:text-dark py-0 uppercase`}
+                            } text-xl font-medium hover:text-dark py-0`}
                             onClick={closeDrawer} // Close drawer on link click
                           >
                             {subLink.title}
@@ -65,7 +65,7 @@ export const MobileMenu = () => {
                     target={link.title === "Giving" ? "_blank" : "_self"}
                     className={`${
                       link.title === "Giving" ? `text-dark` : `text-dark`
-                    } text-3xl font-medium hover:text-dark py-0 uppercase`}
+                    } text-xl font-medium hover:text-dark py-0`}
                     onClick={closeDrawer} // Close drawer on link click
                   >
                     {link.title}
@@ -76,10 +76,10 @@ export const MobileMenu = () => {
           </div>
           <Link
             href="https://cheyenneberean.ccbchurch.com/goto/login"
-            className="flex flex-row items-center gap-2 text-dark font-medium hover:text-dark uppercase mt-8 mx-4"
+            className="flex flex-row items-center gap-2 text-dark font-medium hover:text-dark mt-8 mx-8"
           >
-            <RiAccountCircleLine size={48} className="text-dark" />
-            <span className="text-dark text-3xl">Log In</span>
+            <RiAccountCircleLine size={24} className="text-dark" />
+            <span className="text-dark text-xl">Log In</span>
           </Link>
         </ul>
       </div>

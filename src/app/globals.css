@@ -38,6 +38,10 @@
 }
 
 .markdown-container * {
+  @apply text-dark;
+}
+
+.markdown-container p {
   @apply text-body;
 }
 

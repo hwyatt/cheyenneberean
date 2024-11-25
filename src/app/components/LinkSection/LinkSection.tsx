@@ -1,11 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  IoChevronForward,
-  IoPersonOutline,
-  IoPeopleOutline,
-} from "react-icons/io5";
-import { FaRegMessage, FaLocationDot } from "react-icons/fa6";
+import { IoPersonOutline, IoPeopleOutline } from "react-icons/io5";
+import { BsArrowRight } from "react-icons/bs";
+import { FaRegMessage } from "react-icons/fa6";
 import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { MdPhone } from "react-icons/md";
@@ -43,7 +40,7 @@ const LinkCard = ({ link }: { link: any }) => {
         {renderIcon(link.icon)}
         <span className="font-medium text-dark">{link.title}</span>
       </div>
-      <IoChevronForward size={24} />
+      <BsArrowRight size={24} />
     </Link>
   );
 };

@@ -43,7 +43,7 @@ const config: Config = {
         inverse: "#f9f8f6",
         buttonDark: "#4e4d49",
         // palette: "#f7f5f3",
-        // TRUEW WHITE:
+        // TRUE WHITE:
         palette: "#f5f6f2",
         body: "#0c0b08bf",
       },
@@ -53,11 +53,6 @@ const config: Config = {
     themes: [
       {
         mytheme: {},
-      },
-      {
-        kids: {
-          primary: "#D45D0D", // Burnt Orange
-        },
       },
     ],
   },

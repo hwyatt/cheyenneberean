@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { fetchGraphQL } from "@/app/api/contentful";
 import { GMap } from "@/app/components/GMap/GMap";
 import { FaRegClock } from "react-icons/fa6";
-import { IoChevronForward, IoPersonOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
 import { PiShareFat } from "react-icons/pi";
 import { formatGroupDayAndTime } from "../../utils/dates";
 import { Button } from "@/app/components/Button/Button";

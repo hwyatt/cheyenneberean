@@ -88,7 +88,7 @@ export default function RootLayout({
                   <CustomLink
                     key={link.route}
                     href={link.route}
-                    className="flex flex-col justify-center items-center gap-1"
+                    className="flex flex-col justify-center items-center gap-1 group"
                     variant="Secondary"
                   >
                     {link.icon === "person" ? (
@@ -104,7 +104,7 @@ export default function RootLayout({
                     ) : link.icon === "prayer" ? (
                       <PiHandsPrayingFill size={24} />
                     ) : null}
-                    <p className="font-medium text-xs">
+                    <p className="font-medium text-xs group-hover:text-link">
                       {link.title === "Prayer Request" ? "Prayer" : link.title}
                     </p>
                   </CustomLink>
