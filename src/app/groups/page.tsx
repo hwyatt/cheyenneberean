@@ -58,7 +58,7 @@ const GroupsPage = async () => {
           secondaryCtaLink={pageIntroSection.secondaryCtaLink}
         />
       )}
-      <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8">
+      <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8 w-full">
         {groups.map((group: any) => (
           <div className="md:col-span-4" key={group.title}>
             <Card
