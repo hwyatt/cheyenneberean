@@ -30,7 +30,7 @@ export const Button = ({
       : variant === "Cedar"
       ? "bg-redCedar text-inverse border-2 border-redCedar hover:bg-natural hover:text-redCedar active:bg-redCedar active:text-inverse"
       : // Primary
-        "bg-spruce text-inverse border-2 border-spruce hover:bg-natural hover:text-spruce hover:border-2 border-spruce active:bg-sound active:text-white";
+        "bg-spruce text-inverse border-2 border-spruce hover:bg-natural hover:text-spruce hover:border-2 border-spruce active:bg-magnoliaDark active:text-white";
 
   const width = fullWidth ? "w-full" : "w-auto";
 

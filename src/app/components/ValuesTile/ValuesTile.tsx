@@ -24,9 +24,9 @@ export const ValuesTile = ({
   }
 
   if (theme === "kidsVerse") {
-    textColor = "text-white";
+    textColor = "text-inverse";
     secondaryTextColor = null;
-    bgColor = "#C7370F";
+    bgColor = "#a04303";
     bgImg = null;
   }
 

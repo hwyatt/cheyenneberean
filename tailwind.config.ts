@@ -17,23 +17,34 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        spruce: "#1F513F",
-        dark: "#1C1C1A",
-        sound: "#13352C",
+        // spruce: "#1F513F",
+        // MAGNOLIA:
+        spruce: "#6b7d39",
+        // dark: "#1C1C1A",
+        // BLACKBOARD:
+        dark: "#303439",
+        // MAGNOLIA DARK:
+        magnoliaDark: "#59692c",
         sagebrush: "#ACB4A2",
-        moss: "#BFB33E",
+        // moss: "#BFB33E",
+        // BRIGHT DAYS:
+        moss: "#ccb137",
         salmonberry: "#E74F3D",
-        redCedar: "#C7370F",
-        birch: "#E8EOCE",
-        natural: "#F4F2ED",
-        info: "#1b437e",
+        // redCedar: "#C7370F",
+        // BOSQUE
+        redCedar: "#a04303",
+        // natural: "#F4F2ED",
+        // LINEN:
+        natural: "#f3f1e9",
         link: "#406eb5",
         linkActive: "#0b2d60",
         borderPrimary: "#dcd6cb",
         borderSecondary: "#928b80",
         inverse: "#f9f8f6",
         buttonDark: "#4e4d49",
-        palette: "#f7f5f3",
+        // palette: "#f7f5f3",
+        // TRUEW WHITE:
+        palette: "#f5f6f2",
         body: "#0c0b08bf",
       },
     },

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const HeroBanner = ({ title, description, eyebrowText }: any) => {
   return (
-    <div className="bg-spruce rounded-lg shadow-lg relative overflow-hidden">
+    <div className="bg-magnoliaDark rounded-lg shadow-lg relative overflow-hidden">
       <div className="w-full mx-auto flex flex-col-reverse gap-8 md:grid grid-cols-12">
         <div className="copy-container flex flex-col gap-4 col-span-8 h-full justify-between px-8 pb-8 md:pt-8 md:pr-0">
           <div className="flex flex-col gap-4">
