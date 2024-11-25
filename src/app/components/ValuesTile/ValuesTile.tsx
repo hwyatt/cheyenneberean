@@ -63,10 +63,10 @@ export const ValuesTile = ({
           )}
           {verse && verseText && (
             <div className="flex flex-col z-10">
-              <span className="text-sm text-gray-200 uppercase font-light tracking-widest">
+              <span className="text-sm text-inverse uppercase font-light tracking-widest">
                 {verse}
               </span>
-              <h1 className="text-3xl font-medium text-white">{verseText}</h1>
+              <h1 className="text-3xl font-medium text-inverse">{verseText}</h1>
             </div>
           )}
           {title && (

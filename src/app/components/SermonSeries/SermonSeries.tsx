@@ -20,7 +20,7 @@ export const SermonSeries = ({
   };
 
   return (
-    <div className="flex flex-col gap-12 border-b-2 pb-12 border-gray-300">
+    <div className="flex flex-col gap-12 border-b-2 pb-12 border-borderPrimary">
       <div>
         <div className="aspect-video rounded-lg flex flex-col relative shadow-sm">
           <Image
