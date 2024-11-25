@@ -110,7 +110,7 @@ export const Footer = () => {
                 }}
                 className="text-dark"
                 url={link.route}
-                bgColor={link.title === "Email" ? "#202838" : undefined}
+                bgColor={link.title === "Email" ? "#000000" : undefined}
               />
             )
           )}
