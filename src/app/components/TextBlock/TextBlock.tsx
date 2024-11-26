@@ -1,6 +1,7 @@
 import { TextBlockParams } from "@/app/api/types";
 import ReactMarkdown from "react-markdown";
 import { Button } from "../Button/Button";
+import Image from "next/image";
 
 export const TextBlock = ({
   heading,
@@ -21,10 +22,13 @@ export const TextBlock = ({
     >
       {image && (
         <div className="flex-shrink-0 w-full md:w-1/2 flex items-start">
-          <img
-            className={`rounded-lg w-full h-auto`}
+          <Image
+            className="rounded-lg w-full h-auto"
             src={image.url}
-            alt={image.alt}
+            alt={""}
+            width={640}
+            height={640}
+            layout="responsive"
           />
         </div>
       )}

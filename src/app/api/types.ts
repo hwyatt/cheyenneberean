@@ -49,6 +49,7 @@ export type PageData = {
   pageIntroSection?: PageIntroSection;
   pageTextSectionCollection?: { items: TextBlockParams[] };
   showEvents: boolean;
+  staff: any;
   pageFaQs?: FAQ;
   pageConnectSection?: ConnectSectionProps;
 };

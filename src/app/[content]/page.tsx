@@ -9,8 +9,13 @@ import {
 import { Accordion } from "../components/Accordion/Accordion";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
+import { StaffSection } from "../components/StaffSection/StaffSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
 import { Tile } from "../components/Tile/Tile";
+import {
+  KidsPageTiles,
+  WelcomePageTiles,
+} from "../components/ValuesTile/ValuesTile";
 
 type ContentPageParams = {
   params: {
@@ -33,6 +38,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
     pageIntroSection,
     pageTextSectionCollection,
     showEvents,
+    staff,
     pageFaQs,
     pageConnectSection,
   } = pageData;
@@ -84,6 +90,11 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           secondaryCtaLink={pageIntroSection.secondaryCtaLink}
         />
       )}
+      {content === "welcome" ? (
+        <WelcomePageTiles />
+      ) : content === "kids" ? (
+        <KidsPageTiles />
+      ) : null}
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: any) => (
           <div key={item.header} className="w-full">
@@ -99,6 +110,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
             />
           </div>
         ))}
+      {staff && <StaffSection staffMember={staff} theme="kids" />}
       {showEvents && eventData && (
         <div className="flex flex-col items-center gap-4 w-full">
           <h2 className="text-2xl font-medium">Events</h2>
@@ -129,6 +141,8 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           theme={
             content === "youth" || content === "young-adults"
               ? "youth"
+              : content === "kids"
+              ? "kids"
               : "Primary"
           }
         />
