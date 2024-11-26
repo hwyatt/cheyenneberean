@@ -3,6 +3,7 @@ import { FaLocationDot, FaRegClock } from "react-icons/fa6";
 import { IoPersonOutline } from "react-icons/io5";
 import { Button } from "../Button/Button";
 import { Chip } from "../Chip/Chip";
+import { BsArrowRight } from "react-icons/bs";
 
 export const Card = ({
   title,
@@ -23,14 +24,14 @@ export const Card = ({
   theme,
 }: any) => (
   <div
-    className="md:col-span-6 lg:col-span-3 flex flex-col bg-palette rounded-lg shadow-md"
+    className="md:col-span-6 lg:col-span-3 flex flex-col bg-palette rounded-lg shadow-md h-full"
     key={title}
   >
     <div
       className={`relative rounded-t-lg flex flex-col items-center justify-center ${
         !image && backgroundColor && `h-2`
       } ${image && imageFit !== "cover" && `pt-4 px-4`} ${
-        theme === "staff" && "aspect-square bg-black"
+        theme === "staff" && "bg-palette pt-4 px-4"
       }`}
       style={{ backgroundColor: theme !== "staff" && backgroundColor }}
     >
@@ -40,17 +41,11 @@ export const Card = ({
           alt={title}
           className={`${
             theme === "staff"
-              ? "aspect-square object-cover"
+              ? "object-cover rounded-full h-48 w-48"
               : imageFit !== "cover"
               ? "max-h-[95px] h-auto object-contain"
               : "aspect-video object-cover"
           }`}
-        />
-      )}
-      {!image && (
-        <img
-          src="/brand/vector.png"
-          className="absolute object-contain w-full h-full p-4"
         />
       )}
     </div>
@@ -105,11 +100,12 @@ export const Card = ({
             (ctaStyle === "link" ? (
               <Link
                 href={ctaPrimaryLink}
-                className="flex items-center gap-1 group"
+                className="flex items-center gap-2 group"
               >
-                <span className="font-medium text-dark group-hover:underline group-hover:underline-offset-4 decoration-2">
+                <span className="font-medium text-dark group-hover:text-link">
                   {ctaPrimaryLabel}
                 </span>
+                <BsArrowRight size={20} className="group-hover:text-link" />
               </Link>
             ) : (
               <Button href={ctaPrimaryLink}>{ctaPrimaryLabel}</Button>
@@ -120,9 +116,10 @@ export const Card = ({
                 href={ctaSecondaryLink}
                 className="flex items-center gap-1 group"
               >
-                <span className="font-medium text-dark group-hover:underline group-hover:underline-offset-4 decoration-2">
+                <span className="font-medium text-dark group-hover:text-link">
                   {ctaSecondaryLabel}
                 </span>
+                <BsArrowRight size={20} className="group-hover:text-link" />
               </Link>
             ) : (
               <Button href={ctaSecondaryLink} variant="Secondary">

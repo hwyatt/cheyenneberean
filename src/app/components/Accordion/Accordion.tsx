@@ -2,7 +2,7 @@ import { FAQ, FAQQuestionAnswer } from "@/app/api/types";
 
 export const Accordion = ({ heading, questions, theme }: FAQ) => (
   <div className="bg-palette p-4 md:p-8 w-[calc(100vw-16px)]">
-    <div className="flex flex-col items-center gap-2 site-container m-auto">
+    <div className="flex flex-col items-center gap-4 site-container m-auto">
       <h2 className={`text-2xl font-medium text-dark`}>{heading}</h2>
       <div className="flex flex-col min-w-full">
         {questions.map((item: FAQQuestionAnswer, index: number) => (

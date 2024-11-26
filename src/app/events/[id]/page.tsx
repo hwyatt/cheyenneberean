@@ -34,7 +34,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
 
   const event = data.data.event;
 
-  console.log(id);
+  console.log(event);
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">

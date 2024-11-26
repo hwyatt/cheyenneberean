@@ -12,6 +12,7 @@ import { ValuesTile } from "../components/ValuesTile/ValuesTile";
 import { Tile } from "../components/Tile/Tile";
 import Image from "next/image";
 import { TextBlock } from "../components/TextBlock/TextBlock";
+import { StaffSection } from "../components/StaffSection/StaffSection";
 
 const VALUES = [
   {
@@ -38,6 +39,33 @@ const VALUES = [
     title: "Age Specific",
     desc: "Our curriculum runs chronologically through the Bible to help a child understand the Bible as a whole. We commit to helping even the youngest of our congregation become resilient followers of Jesus.",
     icon: <TbMoodKid className="h-8 w-8 text-redCedar" />,
+  },
+];
+
+const CLASSES = [
+  {
+    title: "Embark",
+    description:
+      "As we commit to equipping our youngest group, this class will focus on learning the gospel through play and worship. Your child will sing songs, enjoy a snack, and have fellowship with other children up until their 3rd birthday.",
+    ages: "Ages 0-2",
+  },
+  {
+    title: "Ascent",
+    description:
+      "We know that play and fun is of the upmost importance, alongside learning. Your child's schedule will consist of a routine including: Bible lesson and story, songs, snack, and play! Children in this room range from 3-6 years old.",
+    ages: "Ages 3-5",
+  },
+  {
+    title: "Venture",
+    description:
+      "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
+    ages: "1st-3rd Grade",
+  },
+  {
+    title: "Anchor",
+    description:
+      "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
+    ages: "4th-6th Grade",
   },
 ];
 
@@ -75,6 +103,16 @@ const KidsPage = async ({}) => {
             }
           }
           showEvents
+          staff {
+            firstName
+            lastName
+            email
+            position
+            bio
+            image {
+              url
+            }
+          }
           pageFaQs {
             heading
             questions
@@ -98,13 +136,19 @@ const KidsPage = async ({}) => {
     pageIntroSection,
     pageTextSectionCollection,
     showEvents,
+    staff,
     pageFaQs,
     pageConnectSection,
   } = pageData;
 
-  const eventData = await fetchGraphQL(`query {
+  const eventData =
+    showEvents &&
+    (await fetchGraphQL(`query {
     eventCollection(where: { categories_contains_some: ["Kids"] }, limit: 3) {
       items {
+        sys {
+          id
+        }
         title
         image {
           url
@@ -112,9 +156,9 @@ const KidsPage = async ({}) => {
       }
     }
     }
-    `);
+    `));
 
-  const pageEvents = eventData.data.eventCollection.items;
+  const pageEvents = eventData ? eventData.data.eventCollection.items : null;
 
   return (
     <div
@@ -133,8 +177,8 @@ const KidsPage = async ({}) => {
         />
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
-        <div className="flex flex-col items-center gap-2">
-          <h2 className="text-2xl font-medium">Values</h2>
+        <div className="flex flex-col items-center gap-4">
+          <h2 className="text-2xl font-medium">What to expect on Sundays</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
               <ValuesTile
@@ -152,26 +196,41 @@ const KidsPage = async ({}) => {
             />
           </div>
         </div>
-        {pageTextSectionCollection &&
-          pageTextSectionCollection.items.length > 0 && (
-            <div className="flex flex-col items-center gap-2">
-              <h2 className="text-2xl font-medium">Classes</h2>
-              <div className="flex flex-col items-center gap-4 md:gap-8 w-full">
-                {pageTextSectionCollection.items.map((item: any) => (
-                  <div key={item.heading} className="w-full">
-                    <TextBlock
-                      heading={item.heading}
-                      markdown={item.markdown}
-                      image={item.image}
-                      reverse={item.reverse}
-                    />
-                  </div>
-                ))}
+        <div className="flex flex-col items-center gap-4 w-full">
+          <h2 className="text-2xl font-medium">Our Kids Environments</h2>
+          <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
+            {CLASSES.map((classroom: any) => (
+              <div
+                className="md:col-span-6 lg:col-span-3"
+                key={classroom.title}
+              >
+                <Card
+                  title={classroom.title}
+                  description={classroom.description}
+                  context={[classroom.ages]}
+                />
               </div>
+            ))}
+          </div>
+        </div>
+        {pageTextSectionCollection &&
+          pageTextSectionCollection.items.map((item: any) => (
+            <div key={item.header} className="w-full">
+              <TextBlock
+                image={item.image}
+                heading={item.heading}
+                markdown={item.markdown}
+                reverse={item.reverse}
+                primaryCtaLabel={item.primaryCtaLabel}
+                primaryCtaLink={item.primaryCtaLink}
+                secondaryCtaLabel={item.secondaryCtaLabel}
+                secondaryCtaLink={item.secondaryCtaLink}
+              />
             </div>
-          )}
-        {showEvents && eventData && (
-          <div className="flex flex-col items-center gap-2 w-full">
+          ))}
+        {staff && <StaffSection staffMember={staff} theme="kids" />}
+        {eventData && pageEvents.length > 0 && (
+          <div className="flex flex-col items-center gap-4 w-full">
             <h2 className="text-2xl font-medium">Events</h2>
             <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
               {pageEvents.map((event: any) => (
@@ -179,8 +238,8 @@ const KidsPage = async ({}) => {
                   <Tile
                     heading={event.title}
                     image={event.image.url}
-                    ctaLabel="Learn More"
-                    ctaLink={`/`}
+                    ctaLabel="Register Now"
+                    ctaLink={`/events/${event.sys.id}`}
                   />
                 </div>
               ))}

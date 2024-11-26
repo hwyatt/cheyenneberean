@@ -20,7 +20,7 @@ export const TextBlock = ({
       } gap-4 md:gap-8 w-full`}
     >
       {image && (
-        <div className="flex-shrink-0 w-full md:w-1/3 flex items-center">
+        <div className="flex-shrink-0 w-full md:w-1/2 flex items-start">
           <img
             className={`rounded-lg w-full h-auto`}
             src={image.url}
@@ -34,11 +34,15 @@ export const TextBlock = ({
             {heading}
           </h2>
         )}
-        <div className={`markdown-container ${centerText && "text-center"}`}>
+        <div
+          className={`markdown-container text-balance ${
+            centerText && "text-center"
+          }`}
+        >
           <ReactMarkdown>{markdown}</ReactMarkdown>
         </div>
         {(primaryCtaLabel || secondaryCtaLabel) && (
-          <div className="flex flex-col md:flex-row gap-2 md:gap-4 mt-4 md:mt-0">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-4 mt-4">
             {primaryCtaLabel && primaryCtaLink && (
               <Button href={primaryCtaLink}>{primaryCtaLabel}</Button>
             )}

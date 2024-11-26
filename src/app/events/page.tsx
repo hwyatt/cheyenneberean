@@ -70,12 +70,9 @@ const EventPage = async ({}) => {
               <Card
                 title={event.title}
                 time={formatEventDayAndTime(event.startDateTime)}
-                // location={`${event.location.lat}, ${event.location.lon}`}
-                // description={event.description}
                 context={event.categories}
                 ctaSecondaryLabel="More Info"
                 ctaSecondaryLink={`/events/${event.sys.id}`}
-                // image={event.coverImage.url}
                 imageFit="cover"
               />
             </div>

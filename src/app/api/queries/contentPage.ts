@@ -49,6 +49,16 @@ export const getPageData = async (content: string, isDraftMode = false) => {
               ctaLink
             }
             showEvents
+            staff {
+              firstName
+              lastName
+              email
+              position
+              bio
+              image {
+                url
+              }
+            }
           }
         }
       }       

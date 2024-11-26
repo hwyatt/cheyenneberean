@@ -86,7 +86,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
       )}
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: any) => (
-          <div key={item.header}>
+          <div key={item.header} className="w-full">
             <TextBlock
               image={item.image}
               heading={item.heading}
@@ -100,7 +100,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           </div>
         ))}
       {showEvents && eventData && (
-        <div className="flex flex-col items-center gap-2 w-full">
+        <div className="flex flex-col items-center gap-4 w-full">
           <h2 className="text-2xl font-medium">Events</h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
             {pageEvents.map((event: ContentfulEvent) => (

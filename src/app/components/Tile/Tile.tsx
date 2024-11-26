@@ -29,13 +29,10 @@ export const Tile = ({
       gradient = "from-[rgba(255,255,255,0.9)] to-[rgba(255,255,255,0)]";
       background = "bg-white";
       break;
-    case "dark":
+    default:
       gradient = "from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0)]";
       background = "bg-black";
       break;
-    default:
-      gradient = "from-[rgba(3,50,76,0.9)] to-[rgba(3,50,76,0)]";
-      background = "bg-black";
   }
 
   const imgOnly = image && ctaLink && !ctaLabel && !heading && !description;
@@ -120,7 +117,11 @@ export const Tile = ({
           </span>
         </div>
         <div className="flex">
-          {ctaLink && ctaLabel && <Button href={ctaLink}>{ctaLabel}</Button>}
+          {ctaLink && ctaLabel && (
+            <Button href={ctaLink} variant={"Dark"}>
+              {ctaLabel}
+            </Button>
+          )}
         </div>
       </div>
     </Link>

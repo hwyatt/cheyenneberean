@@ -108,14 +108,16 @@ const LeadershipPage = async ({}) => {
             url: leadPastorContent.image.url,
             alt: leadPastorContent.name,
           }}
+          primaryCtaLabel={`Contact ${leadPastorContent.firstName}`}
+          primaryCtaLink={`mailto:${leadPastorContent.email}`}
         />
       )}
       {staffContent && (
-        <div className="flex flex-col gap-2 md:gap-4 w-full">
+        <div className="flex flex-col gap-4 md:gap-4 w-full">
           <h2 className="text-dark font-medium text-2xl text-center">
             Church Staff
           </h2>
-          <div className="grid grid-cols-12 gap-4">
+          <div className="grid grid-cols-12 gap-4 md:gap-8">
             {staffContent.items.map(
               (item: StaffMember) =>
                 item.position !== "Lead Pastor" && (
@@ -129,6 +131,12 @@ const LeadershipPage = async ({}) => {
                       image={item.image?.url}
                       theme="staff"
                       imageFit="cover"
+                      ctaSecondaryLabel={
+                        item.email ? `Contact ${item.firstName}` : null
+                      }
+                      ctaSecondaryLink={
+                        item.email ? `mailto:${item.email}` : null
+                      }
                     />
                   </div>
                 )

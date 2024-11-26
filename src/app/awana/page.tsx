@@ -159,7 +159,7 @@ const AwanaPage = async ({}) => {
         />
       )}
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full">
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-4">
           <h2 className="text-2xl font-medium">Values</h2>
           <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
             {VALUES.map((value) => (
@@ -172,7 +172,7 @@ const AwanaPage = async ({}) => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col gap-2 items-center w-screen">
+        <div className="flex flex-col gap-4 items-center w-screen">
           <h2 className="text-2xl font-medium">Awana Clubs</h2>
           <div>
             {CLUBS.map((club: any) => (
