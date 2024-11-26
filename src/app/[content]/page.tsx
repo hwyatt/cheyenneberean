@@ -48,6 +48,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
     { pageClass: string; eventParam: string | null }
   > = {
     beliefs: { pageClass: `page-${content}`, eventParam: null },
+    kids: { pageClass: `page-${content}`, eventParam: "Kids" },
     youth: { pageClass: `page-${content}`, eventParam: "Youth" },
     "young-adults": {
       pageClass: `page-${content}`,
