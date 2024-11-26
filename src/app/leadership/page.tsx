@@ -6,11 +6,13 @@ import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 
 type StaffMember = {
   position: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   image: {
     url: string;
   };
   email: string;
+  department: string;
 };
 
 const LeadershipPage = async ({}) => {
@@ -61,9 +63,11 @@ const LeadershipPage = async ({}) => {
           }
         }
       }
-      staffMemberCollection(order: name_ASC) {
+      staffMemberCollection(order: lastName_ASC) {
         items {
-          name
+          firstName
+          lastName
+          department
           position
           email
           image {
@@ -80,7 +84,7 @@ const LeadershipPage = async ({}) => {
     pageData;
   const staffContent = data.data.staffMemberCollection;
   const leadPastorContent = staffContent.items.filter(
-    (member: StaffMember) => member.position === "Lead Pastor"
+    (member: StaffMember) => member.department === "Lead Pastor"
   )[0];
 
   return (
@@ -98,7 +102,7 @@ const LeadershipPage = async ({}) => {
       )}
       {leadPastorContent && (
         <TextBlock
-          heading={leadPastorContent.name}
+          heading={`${leadPastorContent.firstName} ${leadPastorContent.lastName}`}
           markdown={leadPastorContent.bio}
           image={{
             url: leadPastorContent.image.url,
@@ -115,9 +119,12 @@ const LeadershipPage = async ({}) => {
             {staffContent.items.map(
               (item: StaffMember) =>
                 item.position !== "Lead Pastor" && (
-                  <div className="col-span-12 md:col-span-3" key={item.name}>
+                  <div
+                    className="col-span-12 md:col-span-3"
+                    key={`${item.firstName} ${item.lastName}`}
+                  >
                     <Card
-                      title={item.name}
+                      title={`${item.firstName} ${item.lastName}`}
                       subtitle={item.position}
                       image={item.image?.url}
                       theme="staff"

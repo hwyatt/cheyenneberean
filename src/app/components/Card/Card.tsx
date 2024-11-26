@@ -49,7 +49,7 @@ export const Card = ({
       )}
       {!image && (
         <img
-          src="/brand/dark-mountains.png"
+          src="/brand/vector.png"
           className="absolute object-contain w-full h-full p-4"
         />
       )}
