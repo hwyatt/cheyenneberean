@@ -108,6 +108,7 @@ const LeadershipPage = async ({}) => {
             url: leadPastorContent.image.url,
             alt: leadPastorContent.name,
           }}
+          thumbnail={leadPastorContent?.thumbnail}
           primaryCtaLabel={`Contact ${leadPastorContent.firstName}`}
           primaryCtaLink={`mailto:${leadPastorContent.email}`}
         />
@@ -149,6 +150,7 @@ const LeadershipPage = async ({}) => {
           <div key={item.header}>
             <TextBlock
               image={item.image}
+              thumbnail={item.thumbnail}
               heading={item.heading}
               markdown={item.markdown}
               reverse={item.reverse}
