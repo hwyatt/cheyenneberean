@@ -27,7 +27,10 @@ export const getPageData = async (content: string, isDraftMode = false) => {
                     heading
                     markdown
                     image {
-                    url
+                      url
+                    }
+                    thumbnail {
+                      url
                     }
                     primaryCtaLabel
                     primaryCtaLink

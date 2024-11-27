@@ -15,6 +15,7 @@ export type PageIntroSection = {
 
 export type TextBlockParams = {
   image?: Image;
+  thumbnail: Image;
   heading: string;
   markdown: string;
   reverse?: boolean;

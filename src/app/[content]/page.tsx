@@ -101,6 +101,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           <div key={item.header} className="w-full">
             <TextBlock
               image={item.image}
+              thumbnail={item.thumbnail}
               heading={item.heading}
               markdown={item.markdown}
               reverse={item.reverse}

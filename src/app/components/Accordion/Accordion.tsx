@@ -4,7 +4,7 @@ export const Accordion = ({ heading, questions, theme }: FAQ) => (
   <div className="bg-palette p-4 md:p-8 w-[calc(100vw-16px)]">
     <div className="flex flex-col items-center gap-4 site-container m-auto">
       <h2 className={`text-2xl font-medium text-dark`}>{heading}</h2>
-      <div className="flex flex-col min-w-full">
+      <div className="flex flex-col min-w-full max-w-full">
         {questions.map((item: FAQQuestionAnswer, index: number) => (
           <div
             className={`collapse collapse-plus ${
@@ -23,7 +23,9 @@ export const Accordion = ({ heading, questions, theme }: FAQ) => (
               {item.question}
             </div>
             <div className="collapse-content">
-              <p className="text-body">{item.answer}</p>
+              <p className="text-body" style={{ overflowWrap: "anywhere" }}>
+                {item.answer}
+              </p>
             </div>
           </div>
         ))}

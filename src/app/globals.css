@@ -45,6 +45,21 @@
   @apply text-body;
 }
 
+.markdown-container ul li {
+  position: relative;
+  padding-left: 2rem;
+  display: flex;
+}
+
+.markdown-container ul li::before {
+  content: "•"; /* Unicode bullet character */
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  @apply text-dark;
+}
+
 .mobile-menu :where(li > details > summary):after {
   height: 0px;
   width: 0px;
