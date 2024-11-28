@@ -9,6 +9,7 @@ import { LinkSection } from "./components/LinkSection/LinkSection";
 import { CustomLink } from "./components/Link/Link";
 import { Button } from "./components/Button/Button";
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
+import { PageNextStepProps } from "./api/types";
 
 const LocationCard = () => (
   <div className="bg-palette rounded-lg flex flex-col justify-start shadow-lg">
@@ -153,7 +154,7 @@ export default async function Home() {
           {promoTilesContent && promoTilesContent.items.length > 0 && (
             <div className="flex flex-col gap-2">
               <div className="flex flex-col md:grid grid-cols-12 gap-4">
-                {promoTilesContent.items.map((promo: any) => (
+                {promoTilesContent.items.map((promo: PageNextStepProps) => (
                   <Tile
                     key={promo._id}
                     heading={promo.heading}

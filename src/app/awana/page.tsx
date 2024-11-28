@@ -71,7 +71,40 @@ const CLUBS = [
   },
 ];
 
-const ClubCard = ({ img, logo, ages, description, bgColor, key }: any) => (
+type Club = {
+  name: string;
+  ages: string;
+  desc: string;
+  img: string;
+  logo: string;
+  bgColor: {
+    light: string;
+    medium: string;
+    dark: string;
+  };
+};
+
+type ClubCardProps = {
+  img: string;
+  logo: string;
+  ages: string;
+  description: string;
+  bgColor: {
+    light: string;
+    medium: string;
+    dark: string;
+  };
+  key: string;
+};
+
+const ClubCard = ({
+  img,
+  logo,
+  ages,
+  description,
+  bgColor,
+  key,
+}: ClubCardProps) => (
   <div
     key={key}
     className="relative flex items-center overflow-hidden w-screen pt-8 pl-8 md:pb-8 md:min-h-[315px]"
@@ -175,7 +208,7 @@ const AwanaPage = async ({}) => {
         <div className="flex flex-col gap-4 items-center w-screen">
           <h2 className="text-2xl font-medium">Awana Clubs</h2>
           <div>
-            {CLUBS.map((club: any) => (
+            {CLUBS.map((club: Club) => (
               <ClubCard
                 key={club.ages}
                 img={club.img}

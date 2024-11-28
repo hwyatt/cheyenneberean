@@ -6,6 +6,7 @@ import { PiShareFat } from "react-icons/pi";
 import { formatGroupDayAndTime } from "../../utils/dates";
 import { Button } from "@/app/components/Button/Button";
 import { Chip } from "@/app/components/Chip/Chip";
+import { Group } from "@/app/api/types";
 
 type GroupPageProps = {
   params: {
@@ -37,7 +38,7 @@ const GroupDetailsPage = async ({ params }: GroupPageProps) => {
     }
   `);
 
-  const group = data.data.group;
+  const group: Group = data.data.group;
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
@@ -56,7 +57,7 @@ const GroupDetailsPage = async ({ params }: GroupPageProps) => {
             <div className="flex flex-col gap-2">
               {group.categories && (
                 <div className="flex gap-2">
-                  {group.categories.map((item: any) => (
+                  {group.categories.map((item) => (
                     <Chip key={item}>{item}</Chip>
                   ))}
                 </div>

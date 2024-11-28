@@ -5,6 +5,7 @@ import { PiShareFat } from "react-icons/pi";
 import { formatEventDayAndTime } from "../../utils/dates";
 import { Button } from "@/app/components/Button/Button";
 import { Chip } from "@/app/components/Chip/Chip";
+import { ContentfulEvent } from "@/app/api/types";
 
 type EventPageProps = {
   params: {
@@ -34,8 +35,6 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
 
   const event = data.data.event;
 
-  console.log(event);
-
   return (
     <div className="min-h-screen flex flex-col items-center gap-8">
       <GMap
@@ -53,9 +52,11 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
             <div className="flex flex-col gap-2">
               {event.categories && (
                 <div className="flex gap-2">
-                  {event.categories.map((item: any) => (
-                    <Chip key={item}>{item}</Chip>
-                  ))}
+                  {event.categories.map(
+                    (item: ContentfulEvent["categories"], index: number) => (
+                      <Chip key={item[0]}>{item}</Chip>
+                    )
+                  )}
                 </div>
               )}
               <h1 className="text-dark font-medium text-2xl md:text-3xl text-balance">

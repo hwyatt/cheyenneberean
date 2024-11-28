@@ -10,12 +10,14 @@ import { SocialIcon } from "react-social-icons";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
 
+type LinkSectionLink = { route: string; icon: string; title: string };
+
 export const LinkSection = ({
   title,
   links,
 }: {
   title: string;
-  links: any[];
+  links: LinkSectionLink[];
 }) => {
   return (
     <div className="flex flex-col gap-2">
@@ -29,7 +31,7 @@ export const LinkSection = ({
   );
 };
 
-const LinkCard = ({ link }: { link: any }) => {
+const LinkCard = ({ link }: { link: LinkSectionLink }) => {
   return (
     <Link
       className="flex items-center justify-between gap-4 p-4 transition ease-in-out md:hover:-translate-y-0.5 md:hover:scale-105 duration-700"

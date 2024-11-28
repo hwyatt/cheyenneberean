@@ -1,6 +1,16 @@
 import Image from "next/image";
 
-export const HeroBanner = ({ title, description, eyebrowText }: any) => {
+type HeroBannerProps = {
+  title: string;
+  description: string;
+  eyebrowText: string;
+};
+
+export const HeroBanner = ({
+  title,
+  description,
+  eyebrowText,
+}: HeroBannerProps) => {
   return (
     <div className="relative overflow-hidden rounded-lg bg-dark shadow-lg p-8 md:p-16 md:min-h-[350px] flex justify-center items-center">
       <div className="mx-auto flex h-full w-full items-center">
@@ -14,10 +24,12 @@ export const HeroBanner = ({ title, description, eyebrowText }: any) => {
           </span>
         </div>
       </div>
-      <img
-        src="brand/nameless-vector.png"
-        className="absolute bottom-0 opacity-5 pointer-events-none"
+      <Image
+        src="/brand/nameless-vector.png"
         alt="Background Image"
+        layout="fill"
+        objectFit="cover"
+        className="absolute bottom-0 opacity-5 pointer-events-none"
       />
     </div>
   );

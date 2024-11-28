@@ -1,4 +1,5 @@
 import { fetchGraphQL } from "../api/contentful";
+import { ContentfulEvent } from "../api/types";
 import { Card } from "../components/Card/Card";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { formatEventDayAndTime } from "../utils/dates";
@@ -41,12 +42,7 @@ const EventPage = async ({}) => {
   }`);
 
   const pageData = data?.data?.pageCollection?.items[0];
-  const {
-    pageIntroSection,
-    pageTextSectionCollection,
-    showEvents,
-    pageConnectSection,
-  } = pageData;
+  const { pageIntroSection, showEvents } = pageData;
 
   const eventData = data?.data?.eventCollection?.items;
 
@@ -65,7 +61,7 @@ const EventPage = async ({}) => {
       )}
       {showEvents && eventData && (
         <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8 w-full">
-          {eventData.map((event: any) => (
+          {eventData.map((event: ContentfulEvent) => (
             <div className="md:col-span-4" key={event.title}>
               <Card
                 title={event.title}

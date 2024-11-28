@@ -1,15 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 import { draftMode } from "next/headers";
 
-export async function POST(request: any) {
-  //   const requestHeaders = new Headers(request.headers);
-  //   const secret = requestHeaders.get("x-vercel-reval-key");
-
-  //   if (secret !== process.env.CONTENTFUL_REVALIDATE_SECRET) {
-  //     return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
-  //   }
-
+export async function POST(request: NextRequest) {
   const body = await request.json();
   const contentType = body.sys?.contentType?.sys?.id;
 

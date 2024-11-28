@@ -1,8 +1,9 @@
+import { NextRequest, NextResponse } from "next/server";
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 import { getPageData } from "../queries/contentPage";
 
-export async function GET(request: any) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const secret = searchParams.get("secret");
   const slug = searchParams.get("slug");
@@ -12,14 +13,10 @@ export async function GET(request: any) {
     return new Response("Missing parameters", { status: 400 });
   }
 
-  //   if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET) {
-  //     return new Response("Invalid token", { status: 401 });
-  //   }
-
   const article = await getPageData(cleanSlug || "");
 
   if (!article) {
-    return new Response("Article not found", { status: 404 });
+    return new NextResponse("Article not found", { status: 404 });
   }
 
   draftMode().enable();

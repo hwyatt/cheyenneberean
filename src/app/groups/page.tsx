@@ -2,6 +2,7 @@ import { fetchGraphQL } from "../api/contentful";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { Card } from "../components/Card/Card";
 import { formatGroupDayAndTime } from "../utils/dates";
+import { Group } from "../api/types";
 
 const GroupsPage = async () => {
   const data = await fetchGraphQL(`
@@ -59,11 +60,11 @@ const GroupsPage = async () => {
         />
       )}
       <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8 w-full">
-        {groups.map((group: any) => (
+        {groups.map((group: Group) => (
           <div className="md:col-span-4" key={group.title}>
             <Card
               title={group.title}
-              key={group.name}
+              key={group.title}
               time={formatGroupDayAndTime(group.dayAndTime)}
               location={group.location}
               people={group.leaders}

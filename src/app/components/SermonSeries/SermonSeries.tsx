@@ -1,13 +1,21 @@
 import Image from "next/image";
 import { Button } from "../Button/Button";
 
+type SermonSeriesProps = {
+  sermonTitle: string;
+  sermonDate: string;
+  sermonSpeaker: string;
+  watchSermonLink: string;
+  imgUrl: string;
+};
+
 export const SermonSeries = ({
   sermonTitle,
   sermonDate,
   sermonSpeaker,
   watchSermonLink,
   imgUrl,
-}: any) => {
+}: SermonSeriesProps) => {
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     const options: Intl.DateTimeFormatOptions = {

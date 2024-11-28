@@ -3,7 +3,12 @@ import ReactMarkdown from "react-markdown";
 import { Button } from "../Button/Button";
 import Image from "next/image";
 
-export function Video({ src, poster }: any) {
+type VideoProps = {
+  src: string;
+  poster: string;
+};
+
+export function Video({ src, poster }: VideoProps) {
   return (
     <div className={`w-full h-auto aspect-video shadow-lg`}>
       <video
@@ -32,7 +37,6 @@ export const TextBlock = ({
   secondaryCtaLink,
   centerText = false,
 }: TextBlockParams) => {
-  console.log(thumbnail);
   return (
     <div
       className={`flex flex-col md:flex-row ${

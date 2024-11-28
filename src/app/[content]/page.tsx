@@ -5,8 +5,10 @@ import {
   ContentfulEvent,
   ContentPageResponse,
   EventCollectionResponse,
+  TextBlockParams,
 } from "../api/types";
 import { Accordion } from "../components/Accordion/Accordion";
+import { Card } from "../components/Card/Card";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { StaffSection } from "../components/StaffSection/StaffSection";
@@ -16,6 +18,7 @@ import {
   KidsPageTiles,
   WelcomePageTiles,
 } from "../components/ValuesTile/ValuesTile";
+import { formatEventDayAndTime } from "../utils/dates";
 
 type ContentPageParams = {
   params: {
@@ -70,6 +73,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
         image {
           url
         }
+        startDateTime
       }
     }
   }`));
@@ -97,8 +101,8 @@ const ContentPage = async ({ params }: ContentPageParams) => {
         <KidsPageTiles />
       ) : null}
       {pageTextSectionCollection &&
-        pageTextSectionCollection.items.map((item: any) => (
-          <div key={item.header} className="w-full">
+        pageTextSectionCollection.items.map((item: TextBlockParams) => (
+          <div key={item.heading} className="w-full">
             <TextBlock
               image={item.image}
               thumbnail={item.thumbnail}
@@ -119,11 +123,13 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
             {pageEvents.map((event: ContentfulEvent) => (
               <div className="md:col-span-4" key={event.title}>
-                <Tile
-                  heading={event.title}
+                <Card
+                  title={event.title}
+                  time={formatEventDayAndTime(event.startDateTime)}
                   image={event.image.url}
-                  ctaLabel="Learn More"
-                  ctaLink={`/events/${event.sys.id}`}
+                  ctaSecondaryLabel="Learn More"
+                  ctaSecondaryLink={`/events/${event.sys.id}`}
+                  imageFit="cover"
                 />
               </div>
             ))}

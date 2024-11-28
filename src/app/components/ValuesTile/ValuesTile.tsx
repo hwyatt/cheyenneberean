@@ -5,6 +5,17 @@ import { AiOutlineSafety } from "react-icons/ai";
 import { LiaCheckCircle } from "react-icons/lia";
 import { TbMoodKid } from "react-icons/tb";
 import { Card } from "../Card/Card";
+import { ReactNode } from "react";
+import Image from "next/image";
+
+type ValuesTileProps = {
+  title?: string;
+  description?: string;
+  icon?: ReactNode;
+  theme?: string;
+  verse?: string;
+  verseText?: string;
+};
 
 export const ValuesTile = ({
   title,
@@ -13,7 +24,7 @@ export const ValuesTile = ({
   theme,
   verse,
   verseText,
-}: any) => {
+}: ValuesTileProps) => {
   let textColor, secondaryTextColor, bgColor, bgImg, iconImg;
 
   if (theme === "kids") {
@@ -54,18 +65,23 @@ export const ValuesTile = ({
       style={{ background: bgColor }}
     >
       {bgImg && (
-        <img
+        <Image
           src={bgImg}
-          className="absolute inset-0 h-full w-full object-cover transform scale-150"
+          alt="BereanKIDS Texture Background"
+          layout="fill"
+          objectFit="cover"
+          className="absolute inset-0 transform scale-150"
         />
       )}
       <div className="flex flex-col gap-1 z-10">
         <div className="flex flex-col gap-4">
           {icon && icon}
           {theme === "awana" && (
-            <img
-              src={iconImg}
+            <Image
+              src={iconImg || ""}
               alt={`Awana value - ${title}`}
+              width={24}
+              height={24}
               className="w-6 h-auto"
             />
           )}
@@ -146,7 +162,13 @@ const VALUES = [
   },
 ];
 
-const CLASSES = [
+type BKCLASS = {
+  title: string;
+  description: string;
+  ages: string;
+};
+
+const CLASSES: BKCLASS[] = [
   {
     title: "Embark",
     description:
@@ -177,28 +199,26 @@ export const KidsPageTiles = () => (
   <>
     <div className="flex flex-col items-center gap-4">
       <h2 className="text-2xl font-medium">What to expect on Sundays</h2>
-      <div className="flex flex-col items-center text-center gap-4 md:grid md:grid-cols-3">
-        {VALUES.map((value) => (
-          <ValuesTile
-            title={value.title}
-            description={value.desc}
-            icon={value.icon}
-            theme="kids"
-            key={value.title}
-          />
-        ))}
-        <ValuesTile
-          theme="kidsVerse"
-          verse="3 John 1:4"
-          verseText={`"I have no greater joy than to hear that my children are walking in the truth."`}
-        />
+      <div className="flex flex-col items-center text-center gap-4">
+        <div className="flex flex-wrap justify-center -my-2">
+          {VALUES.map((value) => (
+            <div className="flex-none w-full md:w-1/3 p-2" key={value.title}>
+              <ValuesTile
+                title={value.title}
+                description={value.desc}
+                icon={value.icon}
+                theme="kids"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
     <div className="flex flex-col items-center gap-4 w-full">
       <h2 className="text-2xl font-medium">Our Kids Environments</h2>
-      <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
-        {CLASSES.map((classroom: any) => (
-          <div className="md:col-span-6 lg:col-span-3" key={classroom.title}>
+      <div className="flex flex-wrap justify-center -my-2">
+        {CLASSES.map((classroom: BKCLASS) => (
+          <div className="flex-none w-full md:w-1/4 p-2" key={classroom.title}>
             <Card
               title={classroom.title}
               description={classroom.description}

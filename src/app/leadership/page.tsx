@@ -3,6 +3,7 @@ import { Card } from "../components/Card/Card";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
+import { TextBlockParams } from "../api/types";
 
 type StaffMember = {
   position: string;
@@ -132,12 +133,8 @@ const LeadershipPage = async ({}) => {
                       image={item.image?.url}
                       theme="staff"
                       imageFit="cover"
-                      ctaSecondaryLabel={
-                        item.email ? `Contact ${item.firstName}` : null
-                      }
-                      ctaSecondaryLink={
-                        item.email ? `mailto:${item.email}` : null
-                      }
+                      ctaSecondaryLabel={`Contact ${item.firstName}`}
+                      ctaSecondaryLink={`mailto:${item.email}`}
                     />
                   </div>
                 )
@@ -146,8 +143,8 @@ const LeadershipPage = async ({}) => {
         </div>
       )}
       {pageTextSectionCollection &&
-        pageTextSectionCollection.items.map((item: any) => (
-          <div key={item.header}>
+        pageTextSectionCollection.items.map((item: TextBlockParams) => (
+          <div key={item.heading}>
             <TextBlock
               image={item.image}
               thumbnail={item.thumbnail}

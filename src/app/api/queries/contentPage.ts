@@ -36,7 +36,8 @@ export const getPageData = async (content: string, isDraftMode = false) => {
                     primaryCtaLink
                     secondaryCtaLabel
                     secondaryCtaLink
-                       }
+                    reverse
+                }
             }
             pageFaQs {
               heading

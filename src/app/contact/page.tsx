@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { FaPhone } from "react-icons/fa6";
@@ -67,11 +67,13 @@ const ContactPage = () => {
 
   const [status, setStatus] = useState<string | null>(null);
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await fetch("/api/email", {

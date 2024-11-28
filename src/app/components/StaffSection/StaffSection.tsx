@@ -1,8 +1,19 @@
+import { StaffMember } from "@/app/api/types";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { Button } from "../Button/Button";
 
-export const StaffSection = ({ heading, staffMember, theme }: any) => (
+type StaffSectionProps = {
+  heading?: string;
+  staffMember: StaffMember;
+  theme: string;
+};
+
+export const StaffSection = ({
+  heading,
+  staffMember,
+  theme,
+}: StaffSectionProps) => (
   <div className="bg-palette p-4 md:p-8 w-[calc(100vw-16px)]">
     <div className="flex flex-col items-center gap-4 site-container m-auto">
       {heading && (

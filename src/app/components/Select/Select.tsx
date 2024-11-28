@@ -2,12 +2,19 @@
 import { useEffect, useState } from "react";
 import Select from "react-select";
 
+type OptionSelectProps = {
+  options: string[];
+  defaultValue: string;
+  isMulti: boolean;
+  placeholder: string;
+};
+
 export const OptionSelect = ({
   options,
   defaultValue,
   isMulti,
   placeholder,
-}: any) => {
+}: OptionSelectProps) => {
   const id = Date.now().toString();
   const [isMounted, setIsMounted] = useState(false);
 
