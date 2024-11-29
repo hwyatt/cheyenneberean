@@ -1,4 +1,5 @@
 import { draftMode } from "next/headers";
+import Image from "next/image";
 import { fetchGraphQL } from "../api/contentful";
 import { getPageData } from "../api/queries/contentPage";
 import {
@@ -154,6 +155,18 @@ const ContentPage = async ({ params }: ContentPageParams) => {
               : "Primary"
           }
         />
+      )}
+      {content === "kids" && (
+        <div className="w-[calc(100vw-16px)] overflow-hidden mb-[-100px] md:mb-[-225px]">
+          <Image
+            src="/kids/mountains-vector.png"
+            alt="BereanKIDS Mountains Vector"
+            layout="responsive"
+            width={4500}
+            height={1830}
+            quality={100}
+          />
+        </div>
       )}
     </div>
   );
