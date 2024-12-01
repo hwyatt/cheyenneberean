@@ -5,6 +5,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { Button } from "../Button/Button";
 import { Chip } from "../Chip/Chip";
 import { BsArrowRight } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
 
 type CardProps = {
   title: string;
@@ -38,7 +39,7 @@ export const Card = ({
   ctaPrimaryLink = "/",
   ctaSecondaryLabel,
   ctaSecondaryLink = "/",
-  ctaStyle,
+  ctaStyle = "button",
   theme,
 }: CardProps) => (
   <div
@@ -116,7 +117,7 @@ export const Card = ({
           )}
         </div>
       )}
-      {(ctaPrimaryLabel || ctaSecondaryLabel) && (
+      {(ctaPrimaryLabel || (ctaSecondaryLabel && theme !== "staff")) && (
         <div className="flex flex-col gap-2 mt-4">
           {ctaPrimaryLabel &&
             (ctaStyle === "link" ? (
@@ -149,6 +150,14 @@ export const Card = ({
               </Button>
             ))}
         </div>
+      )}
+      {(ctaPrimaryLabel || (ctaSecondaryLabel && theme === "staff")) && (
+        <Link
+          href={ctaSecondaryLink}
+          className="flex items-center gap-2 group mt-4"
+        >
+          <MdEmail className="group-hover:text-link" size={24} />
+        </Link>
       )}
     </div>
   </div>
