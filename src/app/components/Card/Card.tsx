@@ -72,7 +72,7 @@ export const Card = ({
           />
         ))}
     </div>
-    <div className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-4 p-4 h-full justify-between">
       <div className="flex flex-col gap-1">
         {context && (
           <div className="flex flex-wrap gap-2">
