@@ -73,50 +73,54 @@ export const Card = ({
         ))}
     </div>
     <div className="flex flex-col gap-4 p-4 h-full justify-between">
-      <div className="flex flex-col gap-1">
-        {context && (
-          <div className="flex flex-wrap gap-2">
-            {context.map((item) => (
-              <Chip key={item}>{item}</Chip>
-            ))}
-          </div>
-        )}
-        {title && (
-          <h3
-            className={`text-dark ${
-              theme === "kids" ? `font-bobby text-2xl` : "text-xl font-medium"
-            }`}
-          >
-            {title}
-          </h3>
-        )}
-        {subtitle && (
-          <span className="text-sm font-light text-body">{subtitle}</span>
-        )}
-      </div>
-      {description && <p className="text-body">{description}</p>}
-      {(time || people || location) && (
+      <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
-          {time && (
-            <div className="flex gap-1 items-center">
-              <FaRegClock className="text-body" />
-              <span className="text-body text-sm">{time}</span>
+          {context && (
+            <div className="flex flex-wrap gap-2">
+              {context.map((item) => (
+                <Chip key={item}>{item}</Chip>
+              ))}
             </div>
           )}
-          {people && (
-            <div className="flex gap-1 items-center">
-              <IoPersonOutline className="text-body" />
-              <span className="text-body text-sm m-0">{people.join(", ")}</span>
-            </div>
+          {title && (
+            <h3
+              className={`text-dark ${
+                theme === "kids" ? `font-bobby text-2xl` : "text-xl font-medium"
+              }`}
+            >
+              {title}
+            </h3>
           )}
-          {location && typeof location === "string" && (
-            <div className="flex gap-1 items-center">
-              <FaLocationDot className="text-body" />
-              <span className="text-body text-sm m-0">{location}</span>
-            </div>
+          {subtitle && (
+            <span className="text-sm font-light text-body">{subtitle}</span>
           )}
         </div>
-      )}
+        {description && <p className="text-body">{description}</p>}
+        {(time || people || location) && (
+          <div className="flex flex-col gap-1">
+            {time && (
+              <div className="flex gap-1 items-center">
+                <FaRegClock className="text-body" />
+                <span className="text-body text-sm">{time}</span>
+              </div>
+            )}
+            {people && (
+              <div className="flex gap-1 items-center">
+                <IoPersonOutline className="text-body" />
+                <span className="text-body text-sm m-0">
+                  {people.join(", ")}
+                </span>
+              </div>
+            )}
+            {location && typeof location === "string" && (
+              <div className="flex gap-1 items-center">
+                <FaLocationDot className="text-body" />
+                <span className="text-body text-sm m-0">{location}</span>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
       {(ctaPrimaryLabel || (ctaSecondaryLabel && theme !== "staff")) && (
         <div className="flex flex-col gap-2 mt-4">
           {ctaPrimaryLabel &&

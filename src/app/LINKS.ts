@@ -49,11 +49,11 @@ export const CONNECT_LINKS = [
   //   icon: "walking",
   //   route: "/next-steps",
   // },
-  {
-    title: "Groups",
-    icon: "people",
-    route: "/groups",
-  },
+  // {
+  //   title: "Groups",
+  //   icon: "people",
+  //   route: "/groups",
+  // },
   {
     title: "Volunteer",
     icon: "serve",

@@ -2,7 +2,7 @@ import { FaRegClock } from "react-icons/fa6";
 import { PiShareFat } from "react-icons/pi";
 import { Button } from "@/app/components/Button/Button";
 import { Chip } from "@/app/components/Chip/Chip";
-import { fetchEvents } from "@/app/api/ccb";
+import { CCBEventResponse, fetchEvents } from "@/app/api/ccb";
 import moment from "moment";
 // import { IoPersonOutline } from "react-icons/io5";
 // import { GMap } from "@/app/components/GMap/GMap";
@@ -34,9 +34,11 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
             <div className="flex flex-col gap-2">
               {[event.event.group.name] && (
                 <div className="flex gap-2">
-                  {[event.event.group.name].map((item: any, index: number) => (
-                    <Chip key={item[0]}>{item}</Chip>
-                  ))}
+                  {[event.event.group.name].map(
+                    (item: CCBEventResponse["event"]["group"]["name"]) => (
+                      <Chip key={item[0]}>{item}</Chip>
+                    )
+                  )}
                 </div>
               )}
               <h1 className="text-dark font-medium text-2xl md:text-3xl text-balance">

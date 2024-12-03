@@ -1,5 +1,7 @@
+import moment from "moment";
 import { draftMode } from "next/headers";
 import Image from "next/image";
+import { CCBEventResponse, fetchEvents } from "../api/ccb";
 import { fetchGraphQL } from "../api/contentful";
 import { getPageData } from "../api/queries/contentPage";
 import {
@@ -9,6 +11,7 @@ import {
   TextBlockParams,
 } from "../api/types";
 import { Accordion } from "../components/Accordion/Accordion";
+import { Button } from "../components/Button/Button";
 import { Card } from "../components/Card/Card";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { IntroSection } from "../components/IntroSection/IntroSection";
@@ -49,37 +52,47 @@ const ContentPage = async ({ params }: ContentPageParams) => {
 
   const contentConfig: Record<
     string,
-    { pageClass: string; eventParam: string | null }
+    {
+      pageClass: string;
+      eventParam: string | null;
+      eventContext: string | null;
+      eventH2: string | null;
+    }
   > = {
-    beliefs: { pageClass: `page-${content}`, eventParam: null },
-    kids: { pageClass: `page-${content}`, eventParam: "Kids" },
-    youth: { pageClass: `page-${content}`, eventParam: "Youth" },
+    beliefs: {
+      pageClass: `page-${content}`,
+      eventParam: null,
+      eventContext: null,
+      eventH2: null,
+    },
+    kids: {
+      pageClass: `page-${content}`,
+      eventParam: "kids",
+      eventContext: "BereanKIDS",
+      eventH2: "BereanKIDS Events",
+    },
+    youth: {
+      pageClass: `page-${content}`,
+      eventParam: "youth",
+      eventContext: "The Refuge",
+      eventH2: "The Refuge Events",
+    },
     "young-adults": {
       pageClass: `page-${content}`,
-      eventParam: "Young Adults",
+      eventParam: "crossroads 412",
+      eventContext: "Crossroads 412",
+      eventH2: "Crossroads 412 Events",
     },
   };
 
-  const { pageClass = "", eventParam = null } = contentConfig[content] || {};
+  const {
+    pageClass = "",
+    eventParam = null,
+    eventContext,
+    eventH2,
+  } = contentConfig[content] || {};
 
-  const eventData: EventCollectionResponse =
-    eventParam &&
-    (await fetchGraphQL(`query {
-    eventCollection(where: { categories_contains_some: ["${eventParam}"] }, limit: 3) {
-      items {
-        sys {
-          id
-        }
-        title
-        image {
-          url
-        }
-        startDateTime
-      }
-    }
-  }`));
-
-  const pageEvents: ContentfulEvent[] = eventData?.data?.eventCollection?.items;
+  const eventData = await fetchEvents(undefined, 3, eventParam ?? "");
 
   return (
     <div
@@ -120,21 +133,32 @@ const ContentPage = async ({ params }: ContentPageParams) => {
       {staff && <StaffSection staffMember={staff} theme="kids" />}
       {showEvents && eventData && (
         <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-2xl font-medium">Events</h2>
+          <h2 className="text-2xl font-medium">
+            {eventH2 ? eventH2 : "Events"}{" "}
+          </h2>
           <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
-            {pageEvents.map((event: ContentfulEvent) => (
-              <div className="md:col-span-4" key={event.title}>
+            {eventData.map((event: CCBEventResponse) => (
+              <div className="md:col-span-4" key={event.event.id}>
                 <Card
-                  title={event.title}
-                  time={formatEventDayAndTime(event.startDateTime)}
-                  image={event.image.url}
+                  title={event.event.name}
+                  time={moment(event.start).format(
+                    "dddd, MMMM D, YYYY [at] h:mm A"
+                  )}
+                  context={eventContext ? [eventContext] : undefined}
+                  // image={event.image.url}
                   ctaSecondaryLabel="Learn More"
-                  ctaSecondaryLink={`/events/${event.sys.id}`}
-                  imageFit="cover"
+                  ctaSecondaryLink={`/events/${event.event.id}-${moment(
+                    event.start
+                  ).format(`YYYYMMDD`)}`}
+                  // imageFit="cover"
+                  ctaStyle="link"
                 />
               </div>
             ))}
           </div>
+          {/* <Button variant="Dark" href="/events" className="mt-4">
+            See All Events
+          </Button> */}
         </div>
       )}
       {pageFaQs && (

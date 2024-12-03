@@ -1,4 +1,4 @@
-import { fetchEvents } from "../api/ccb";
+import { CCBEventResponse, fetchEvents } from "../api/ccb";
 import { fetchGraphQL } from "../api/contentful";
 import { Card } from "../components/Card/Card";
 import { IntroSection } from "../components/IntroSection/IntroSection";
@@ -16,7 +16,7 @@ const EventPage = async () => {
       />
       {eventData && eventData.length > 0 && (
         <div className="flex flex-col md:grid grid-cols-12 gap-4 md:gap-8 w-full">
-          {eventData.map((event: any) => (
+          {eventData.map((event: CCBEventResponse) => (
             <div className="md:col-span-4" key={event.event.id}>
               <Card
                 title={event.event.name}
@@ -34,7 +34,11 @@ const EventPage = async () => {
           ))}
         </div>
       )}
-      <Button size="Large" className="my-8">
+      <Button
+        size="Large"
+        className="my-8"
+        href="https://cheyenneberean.ccbchurch.com/goto/events/public"
+      >
         See All Events on CCB
       </Button>
     </div>
