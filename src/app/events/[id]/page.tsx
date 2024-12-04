@@ -33,9 +33,9 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
           <div className="flex flex-col md:flex-row justify-between md:items-center border-borderPrimary border-b-2 gap-4 pb-4">
             <div className="flex flex-col gap-2">
               <div className="flex flex-col gap-2">
-                {[event.event.group.name] && (
+                {[event?.event?.group?.name] && (
                   <div className="flex gap-2">
-                    {[event.event.group.name].map(
+                    {[event?.event?.group?.name].map(
                       (item: CCBEventResponse["event"]["group"]["name"]) => (
                         <Chip key={item[0]}>{item}</Chip>
                       )
@@ -43,13 +43,20 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
                   </div>
                 )}
                 <h1 className="text-dark font-medium text-2xl md:text-3xl text-balance">
-                  {event.event.name}
+                  {event?.event?.name}
                 </h1>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <Button href={event.registrationLink}>Register Now</Button>
+              <Button
+                href={`https://cheyenneberean.ccbchurch.com/goto/events/public/${
+                  event?.event?.id
+                }/${moment(event?.start).format(`YYYYMMDD`)}`}
+                target="_blank"
+              >
+                Register Now
+              </Button>
               <Button variant="Secondary">
                 <PiShareFat size="20" />
               </Button>
@@ -61,7 +68,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
                 <div className="flex gap-2 items-center">
                   <FaRegClock className="text-body text-lg" />
                   <span className="text-body text-base">
-                    {moment(event.start).format(
+                    {moment(event?.start).format(
                       "dddd, MMMM D, YYYY [at] h:mm A"
                     )}
                   </span>
@@ -76,11 +83,11 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
               </div>
             )} */}
             </div>
-            {event.event.description && (
+            {event?.event?.description && (
               <div className="flex flex-col gap-1 md:w-2/3 text-balance">
                 <h2 className="font-medium text-lg md:text-xl">Description</h2>
                 <p className="text-body md:text-lg">
-                  {event.event.description}
+                  {event?.event?.description}
                 </p>
               </div>
             )}
