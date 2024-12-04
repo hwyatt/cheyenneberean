@@ -3,7 +3,7 @@ import { PiShareFat } from "react-icons/pi";
 import { Button } from "@/app/components/Button/Button";
 import { Chip } from "@/app/components/Chip/Chip";
 import { CCBEventResponse, fetchEvents } from "@/app/api/ccb";
-import moment from "moment";
+import moment from "moment-timezone";
 // import { IoPersonOutline } from "react-icons/io5";
 // import { GMap } from "@/app/components/GMap/GMap";
 
@@ -16,6 +16,16 @@ type EventPageProps = {
 const EventDetailsPage = async ({ params }: EventPageProps) => {
   const { id } = params;
   const event = await fetchEvents(id);
+
+  const timezone = "America/Denver";
+
+  const formattedStartTime = moment
+    .tz(event.start, timezone)
+    .format("dddd, MMMM D, YYYY [at] h:mm A");
+
+  const formattedQueryParam = moment
+    .tz(event.start, timezone)
+    .format("YYYYMMDD");
 
   return (
     event && (
@@ -50,9 +60,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
 
             <div className="flex gap-4">
               <Button
-                href={`https://cheyenneberean.ccbchurch.com/goto/events/public/${
-                  event?.event?.id
-                }/${moment(event?.start).format(`YYYYMMDD`)}`}
+                href={`https://cheyenneberean.ccbchurch.com/goto/events/public/${event?.event?.id}/${formattedQueryParam}`}
                 target="_blank"
               >
                 Register Now
@@ -68,9 +76,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
                 <div className="flex gap-2 items-center">
                   <FaRegClock className="text-body text-lg" />
                   <span className="text-body text-base">
-                    {moment(event?.start).format(
-                      "dddd, MMMM D, YYYY [at] h:mm A"
-                    )}
+                    {formattedStartTime}
                   </span>
                 </div>
               )}

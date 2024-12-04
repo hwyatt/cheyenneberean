@@ -1,9 +1,19 @@
 import { CCBEventResponse } from "@/app/api/ccb";
-import moment from "moment";
+import moment from "moment-timezone";
 import Image from "next/image";
 import { Button } from "../Button/Button";
 
 export const EventBlock = ({ event }: { event: CCBEventResponse }) => {
+  const timezone = "America/Denver";
+
+  const formattedStartTime = moment
+    .tz(event.start, timezone)
+    .format("dddd, MMMM D, YYYY [at] h:mm A");
+
+  const formattedQueryParam = moment
+    .tz(event.start, timezone)
+    .format("YYYYMMDD");
+
   return (
     <div className="flex flex-col md:flex-row gap-4 md:gap-8">
       <div className="w-full md:w-1/3">
@@ -38,9 +48,7 @@ export const EventBlock = ({ event }: { event: CCBEventResponse }) => {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <span className="text-lg font-medium">{event.event.name}</span>
-            <span className="text-sm text-body">
-              {moment(event.start).format("dddd, MMMM D, YYYY [at] h:mm A")}
-            </span>
+            <span className="text-sm text-body">{formattedStartTime}</span>
           </div>
           {event.event.description && (
             <span className="hidden md:block copy-container text-body">
@@ -51,9 +59,7 @@ export const EventBlock = ({ event }: { event: CCBEventResponse }) => {
         <Button
           className="self-start"
           variant="Dark"
-          href={`/events/${event.event.id}-${moment(event.start).format(
-            `YYYYMMDD`
-          )}`}
+          href={`/events/${event.event.id}-${formattedQueryParam}`}
         >
           More Info
         </Button>
