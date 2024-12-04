@@ -35,6 +35,11 @@ export type CCBEventResponse = {
       frequency_modifier: string;
       end: string | null; // Nullable ISO date-time string
     };
+    images: {
+      thumbnail: string;
+      large: string;
+      medium: string;
+    };
     checkin: {
       grouping_id: number;
       room_ratio: number;

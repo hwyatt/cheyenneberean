@@ -14,6 +14,7 @@ import { Accordion } from "../components/Accordion/Accordion";
 import { Button } from "../components/Button/Button";
 import { Card } from "../components/Card/Card";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
+import { EventBlock } from "../components/EventBlock/EventBlock";
 import { IntroSection } from "../components/IntroSection/IntroSection";
 import { StaffSection } from "../components/StaffSection/StaffSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
@@ -133,32 +134,14 @@ const ContentPage = async ({ params }: ContentPageParams) => {
       {staff && <StaffSection staffMember={staff} theme="kids" />}
       {showEvents && eventData && (
         <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-2xl font-medium">
-            {eventH2 ? eventH2 : "Events"}{" "}
+          <h2 className="text-2xl font-medium md:border-b md:border-borderPrimary md:pb-2 md:w-full md:text-center md:mb-4">
+            {eventH2 ? eventH2 : "Events"}
           </h2>
-          <div className="flex flex-col md:grid grid-cols-12 gap-4 w-full">
+          <div className="flex flex-col gap-4 w-full">
             {eventData.map((event: CCBEventResponse) => (
-              <div className="md:col-span-4" key={event.event.id}>
-                <Card
-                  title={event.event.name}
-                  time={moment(event.start).format(
-                    "dddd, MMMM D, YYYY [at] h:mm A"
-                  )}
-                  context={eventContext ? [eventContext] : undefined}
-                  // image={event.image.url}
-                  ctaSecondaryLabel="Learn More"
-                  ctaSecondaryLink={`/events/${event.event.id}-${moment(
-                    event.start
-                  ).format(`YYYYMMDD`)}`}
-                  // imageFit="cover"
-                  ctaStyle="link"
-                />
-              </div>
+              <EventBlock event={event} key={event.event.id} />
             ))}
           </div>
-          {/* <Button variant="Dark" href="/events" className="mt-4">
-            See All Events
-          </Button> */}
         </div>
       )}
       {pageFaQs && (
