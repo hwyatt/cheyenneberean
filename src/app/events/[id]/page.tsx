@@ -37,7 +37,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
                   <div className="flex gap-2">
                     {[event?.event?.group?.name].map(
                       (item: CCBEventResponse["event"]["group"]["name"]) => (
-                        <Chip key={item[0]}>{item}</Chip>
+                        <Chip key={item}>{item}</Chip>
                       )
                     )}
                   </div>
