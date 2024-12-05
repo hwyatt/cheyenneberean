@@ -44,18 +44,18 @@ export const CONNECT_LINKS = [
     icon: "person",
     route: "/welcome",
   },
-  // {
-  //   title: "Next Steps",
-  //   icon: "walking",
-  //   route: "/next-steps",
-  // },
-  // {
-  //   title: "Groups",
-  //   icon: "people",
-  //   route: "/groups",
-  // },
   {
-    title: "Volunteer",
+    title: "Baptism",
+    icon: "baptism",
+    route: "/baptism",
+  },
+  {
+    title: "Groups",
+    icon: "people",
+    route: "/groups",
+  },
+  {
+    title: "Serve",
     icon: "serve",
     route: "/serve",
   },

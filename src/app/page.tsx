@@ -61,7 +61,7 @@ const LocationCard = () => (
           </li>
           <li>
             <CustomLink
-              href="https://maps.app.goo.gl/RR66LxPk2KjXGhEf7"
+              href="https://www.google.com/maps/dir/?api=1&destination=Cheyenne+Berean+Church,+5716+Powderhouse+Rd,+Cheyenne,+WY+82009"
               className="font-medium"
               target="_blank"
               variant="Secondary"
@@ -172,7 +172,7 @@ export default async function Home() {
         </div>
         <div className="col-span-4 flex flex-col gap-8">
           <LocationCard />
-          <LinkSection title="Get Involved" links={CONNECT_LINKS} />
+          <LinkSection title="Next Steps" links={CONNECT_LINKS} />
           <LinkSection title="For Your Family" links={FAMILY_LINKS} />
           <LinkSection title="Connect with Us" links={CONTACT_LINKS} />
           <LoginCard />

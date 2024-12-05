@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CONNECT_LINKS } from "./LINKS";
 import { IoPersonOutline, IoPeopleOutline } from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
-import { FaHandHoldingHeart, FaWalking } from "react-icons/fa";
+import { FaHandHoldingHeart, FaWalking, FaWater } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
@@ -103,6 +102,8 @@ export default function RootLayout({
                       <FaHandHoldingHeart size={24} />
                     ) : link.icon === "prayer" ? (
                       <PiHandsPrayingFill size={24} />
+                    ) : link.icon === "baptism" ? (
+                      <FaWater size={24} />
                     ) : null}
                     <p className="font-medium text-xs group-hover:text-link">
                       {link.title === "Prayer Request" ? "Prayer" : link.title}

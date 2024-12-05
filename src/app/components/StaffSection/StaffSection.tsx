@@ -6,7 +6,7 @@ import { Button } from "../Button/Button";
 type StaffSectionProps = {
   heading?: string;
   staffMember: StaffMember;
-  theme: string;
+  theme: string | null;
 };
 
 export const StaffSection = ({
@@ -19,7 +19,7 @@ export const StaffSection = ({
       {heading && (
         <h2 className={`text-2xl font-medium text-dark`}>{heading}</h2>
       )}
-      <div className="flex flex-col md:flex-row gap-4 md:gap-8 min-w-full items-center justify-center">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-8 min-w-full items-center justify-start">
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-start justify-start">
           <Image
             src={staffMember?.image?.url}
@@ -35,7 +35,7 @@ export const StaffSection = ({
               </span>
               <span className="font-medium text-2xl">{`${staffMember?.firstName} ${staffMember?.lastName}`}</span>
             </div>
-            <ReactMarkdown className="text-balance text-body">
+            <ReactMarkdown className="markdown-container text-balance text-body">
               {staffMember?.bio}
             </ReactMarkdown>
             <Button

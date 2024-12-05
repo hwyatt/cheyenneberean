@@ -49,7 +49,7 @@ export const Footer = () => {
             ))}
           </nav>
           <nav className="flex flex-col gap-2 col-span-6 md:col-span-3">
-            <h6 className="font-medium text-dark mb-2">Get Involved</h6>
+            <h6 className="font-medium text-dark mb-2">Next Steps</h6>
             {CONNECT_LINKS.map((link: Link) => (
               <Link
                 href={link.route}

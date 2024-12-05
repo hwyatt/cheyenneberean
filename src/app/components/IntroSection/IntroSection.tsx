@@ -40,7 +40,9 @@ export const IntroSection = ({
           {primaryCtaLink && (
             <Button
               href={primaryCtaLink}
-              className={!hasTwoButtons ? "md:w-auto" : "md:w-1/2"}
+              className={
+                !hasTwoButtons ? "w-full md:w-auto" : "w-full md:w-1/2"
+              }
             >
               {primaryCtaLabel}
             </Button>
@@ -48,7 +50,9 @@ export const IntroSection = ({
           {secondaryCtaLink && (
             <Button
               href={secondaryCtaLink}
-              className={!hasTwoButtons ? "md:w-auto" : "md:w-1/2"}
+              className={
+                !hasTwoButtons ? "w-full md:w-auto" : "w-full md:w-1/2"
+              }
               variant="Secondary"
             >
               {secondaryCtaLabel}

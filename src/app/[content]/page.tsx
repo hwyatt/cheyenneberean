@@ -1,29 +1,20 @@
-import moment from "moment";
 import { draftMode } from "next/headers";
 import Image from "next/image";
 import { CCBEventResponse, fetchEvents } from "../api/ccb";
-import { fetchGraphQL } from "../api/contentful";
 import { getPageData } from "../api/queries/contentPage";
-import {
-  ContentfulEvent,
-  ContentPageResponse,
-  EventCollectionResponse,
-  TextBlockParams,
-} from "../api/types";
+import { ContentPageResponse, TextBlockParams } from "../api/types";
 import { Accordion } from "../components/Accordion/Accordion";
-import { Button } from "../components/Button/Button";
-import { Card } from "../components/Card/Card";
 import { ConnectSection } from "../components/ConnectSection/ConnectSection";
 import { EventBlock } from "../components/EventBlock/EventBlock";
 import { IntroSection } from "../components/IntroSection/IntroSection";
+import { LinkSection } from "../components/LinkSection/LinkSection";
 import { StaffSection } from "../components/StaffSection/StaffSection";
 import { TextBlock } from "../components/TextBlock/TextBlock";
-import { Tile } from "../components/Tile/Tile";
 import {
   KidsPageTiles,
   WelcomePageTiles,
 } from "../components/ValuesTile/ValuesTile";
-import { formatEventDayAndTime } from "../utils/dates";
+import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "../LINKS";
 
 type ContentPageParams = {
   params: {
@@ -49,7 +40,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
     staff,
     pageFaQs,
     pageConnectSection,
-  } = pageData;
+  } = pageData || {};
 
   const contentConfig: Record<
     string,
@@ -99,6 +90,25 @@ const ContentPage = async ({ params }: ContentPageParams) => {
     <div
       className={`${pageClass} min-h-screen flex flex-col items-center gap-8 md:gap-16`}
     >
+      {!pageData && (
+        <>
+          <IntroSection
+            heading={"Are you lost? That page doesn't exist."}
+            description={`"For the Son of Man came to seek and to save the lost." - Luke 19:10 ESV`}
+          />
+          <div className="flex flex-col md:grid grid-cols-12 gap-8 w-full">
+            <div className="col-span-4">
+              <LinkSection title="Next Steps" links={CONNECT_LINKS} />
+            </div>
+            <div className="col-span-4">
+              <LinkSection title="For Your Family" links={FAMILY_LINKS} />
+            </div>
+            <div className="col-span-4">
+              <LinkSection title="Connect with Us" links={CONTACT_LINKS} />
+            </div>
+          </div>
+        </>
+      )}
       {pageIntroSection && (
         <IntroSection
           heading={pageIntroSection.heading}
@@ -131,10 +141,15 @@ const ContentPage = async ({ params }: ContentPageParams) => {
             />
           </div>
         ))}
-      {staff && <StaffSection staffMember={staff} theme="kids" />}
+      {staff && (
+        <StaffSection
+          staffMember={staff}
+          theme={content === "kids" ? "kids" : null}
+        />
+      )}
       {showEvents && eventData && (
         <div className="flex flex-col items-center gap-4 w-full">
-          <h2 className="text-2xl font-medium md:border-b md:border-borderPrimary md:pb-2 md:w-full md:text-center md:mb-4">
+          <h2 className="text-2xl font-medium md:border-b-2 md:border-borderPrimary md:pb-2 md:w-full md:text-center md:mb-4">
             {eventH2 ? eventH2 : "Events"}
           </h2>
           <div className="flex flex-col gap-4 w-full">
