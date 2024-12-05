@@ -4,7 +4,9 @@ import { ReactNode } from "react";
 type ButtonProps = {
   children: ReactNode;
   className?: string;
+  disabled?: boolean;
   fullWidth?: boolean;
+  loading?: boolean;
   onClick?: () => void;
   size?: "Small" | "Medium" | "Large";
   variant?: "Primary" | "Secondary" | "Dark" | "Cedar";
@@ -15,7 +17,9 @@ type ButtonProps = {
 export const Button = ({
   children,
   className,
+  disabled = false,
   fullWidth = false,
+  loading = false,
   onClick,
   size,
   variant = "Primary",
@@ -49,7 +53,11 @@ export const Button = ({
       {children}
     </Link>
   ) : (
-    <button className={commonClasses} onClick={onClick}>
+    <button
+      className={commonClasses}
+      onClick={onClick}
+      disabled={disabled || loading}
+    >
       {children}
     </button>
   );

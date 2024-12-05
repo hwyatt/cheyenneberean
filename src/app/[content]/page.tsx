@@ -107,6 +107,12 @@ const ContentPage = async ({ params }: ContentPageParams) => {
               <LinkSection title="Connect with Us" links={CONTACT_LINKS} />
             </div>
           </div>
+          <ConnectSection
+            heading="Still need help?"
+            description="Our team would love to connect with you!"
+            ctaLabel="Contact Us"
+            ctaLink="/contact"
+          />
         </>
       )}
       {pageIntroSection && (
