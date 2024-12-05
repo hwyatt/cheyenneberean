@@ -75,6 +75,12 @@ const ContentPage = async ({ params }: ContentPageParams) => {
       eventContext: "Crossroads 412",
       eventH2: "Crossroads 412 Events",
     },
+    welcome: {
+      pageClass: `page-${content}`,
+      eventParam: null,
+      eventContext: "Church",
+      eventH2: "Upcoming Events",
+    },
   };
 
   const {
