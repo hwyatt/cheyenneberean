@@ -45,6 +45,10 @@
   @apply text-body;
 }
 
+.markdown-container a {
+  @apply text-link font-medium hover:underline underline-offset-4;
+}
+
 .markdown-container ul li {
   position: relative;
   padding-left: 2rem;
@@ -72,7 +76,7 @@
 }
 
 .page-beliefs .markdown-container a {
-  @apply bg-white text-xs rounded-lg border border-borderPrimary hover:bg-natural hover:border-borderSecondary py-1 px-2 rounded-xl whitespace-nowrap no-underline;
+  @apply bg-white text-xs rounded-lg border border-borderPrimary hover:bg-natural hover:border-borderSecondary py-1 px-2 rounded-xl whitespace-nowrap no-underline text-dark;
 }
 
 .page-beliefs .markdown-container p:has(a) {
