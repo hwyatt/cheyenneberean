@@ -29,7 +29,7 @@ const config: Config = {
         // moss: "#BFB33E",
         // BRIGHT DAYS:
         moss: "#ccb137",
-        salmonberry: "#E74F3D",
+        salmonberry: "#C05B31",
         // redCedar: "#C7370F",
         // BOSQUE
         redCedar: "#a04303",
