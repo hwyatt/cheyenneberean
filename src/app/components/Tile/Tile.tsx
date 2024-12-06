@@ -62,7 +62,7 @@ export const Tile = ({
             <span
               className={`${
                 theme === "light" ? `text-dark` : `text-white`
-              } text-xl md:text-2xl font-bold`}
+              } text-xl md:text-2xl font-bold text-balance`}
             >
               {heading}
             </span>
@@ -74,8 +74,12 @@ export const Tile = ({
               {description}
             </span>
           </div>
-          <div className="flex">
-            {ctaLink && ctaLabel && <Button href={ctaLink}>{ctaLabel}</Button>}
+          <div className="flex md:mt-4">
+            {ctaLink && ctaLabel && (
+              <Button href={ctaLink} variant="Secondary">
+                {ctaLabel}
+              </Button>
+            )}
           </div>
         </div>
       </div>
@@ -104,21 +108,21 @@ export const Tile = ({
           <span
             className={`${
               theme === "light" ? `text-dark` : `text-white`
-            } text-xl font-bold`}
+            } text-xl font-bold text-balance`}
           >
             {heading}
           </span>
           <span
             className={`${
               theme === "light" ? `text-dark` : `text-white`
-            } text-sm font-light`}
+            } text-sm font-light text-balance`}
           >
             {description}
           </span>
         </div>
-        <div className="flex">
+        <div className="flex md:mt-4">
           {ctaLink && ctaLabel && (
-            <Button href={ctaLink} variant={"Dark"}>
+            <Button href={ctaLink} variant={"Secondary"}>
               {ctaLabel}
             </Button>
           )}
