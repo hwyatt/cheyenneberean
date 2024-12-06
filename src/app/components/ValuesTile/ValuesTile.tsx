@@ -42,17 +42,10 @@ export const ValuesTile = ({
     iconImg = "/awana/yellow-arrowhead.png";
   }
 
-  if (theme === "kidsVerse") {
-    textColor = "text-inverse";
-    secondaryTextColor = null;
-    bgColor = "#a04303";
-    bgImg = null;
-  }
-
   if (theme === "church") {
     textColor = "text-dark";
     secondaryTextColor = "text-body";
-    bgColor = "#f7f5f3";
+    bgColor = "#F5F6F2";
     bgImg = null;
   }
 
