@@ -17,23 +17,18 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        // spruce: "#1F513F",
         // MAGNOLIA:
-        spruce: "#6b7d39",
-        // dark: "#1C1C1A",
+        spruce: "#59692c",
         // BLACKBOARD:
         dark: "#303439",
         // MAGNOLIA DARK:
-        magnoliaDark: "#59692c",
+        magnoliaDark: "#414920",
         sagebrush: "#B3B89C",
-        // moss: "#BFB33E",
         // BRIGHT DAYS:
         moss: "#ccb137",
         salmonberry: "#C05B31",
-        // redCedar: "#C7370F",
         // BOSQUE
         redCedar: "#a04303",
-        // natural: "#F4F2ED",
         // LINEN:
         natural: "#f3f1e9",
         link: "#406eb5",
@@ -42,7 +37,6 @@ const config: Config = {
         borderSecondary: "#928b80",
         inverse: "#f9f8f6",
         buttonDark: "#4e4d49",
-        // palette: "#f7f5f3",
         // TRUE WHITE:
         palette: "#f5f6f2",
         body: "#0c0b08bf",
