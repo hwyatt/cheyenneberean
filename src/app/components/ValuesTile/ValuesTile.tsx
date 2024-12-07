@@ -111,19 +111,26 @@ export const WelcomePageTiles = () => (
       <ValuesTile
         title="Gather"
         description="Strength, companionship, and joy are found in unified gathering. Our lives are changed as we band together pursuing and proclaiming Jesus. We seek to encourage and enjoy one another by gathering together on Sunday mornings and throughout the week in smaller gatherings called grow groups."
-        icon={<BiSolidCircleHalf size={48} className="text-sagebrush" />}
+        icon={
+          <BiSolidCircleHalf size={48} className="text-sagebrush ml-[-22px]" />
+        }
         theme="church"
       />
       <ValuesTile
         title="Grow"
         description="Together, with eyes fixed on Jesus we are being transformed to be more like him. We want to encounter Jesus; be filled with his characteristics and qualities; so that others will experience Jesus who is alive in us."
-        icon={<BiSolidCircleHalf size={48} className="text-moss" />}
+        icon={<BiSolidCircleHalf size={48} className="text-moss ml-[-22px]" />}
         theme="church"
       />
       <ValuesTile
         title="Go"
         description="God lovingly and sovereignly set us in a place, a time, and for a purpose. Together, we are discovering where God is at work around us and joining Him. We are taking steps together and encouraging one another as we make Jesus known locally, regionally, and globally."
-        icon={<BiSolidCircleHalf size={48} className="text-salmonberry" />}
+        icon={
+          <BiSolidCircleHalf
+            size={48}
+            className="text-salmonberry ml-[-22px]"
+          />
+        }
         theme="church"
       />
     </div>
