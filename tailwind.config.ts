@@ -25,7 +25,7 @@ const config: Config = {
         dark: "#303439",
         // MAGNOLIA DARK:
         magnoliaDark: "#59692c",
-        sagebrush: "#ACB4A2",
+        sagebrush: "#B3B89C",
         // moss: "#BFB33E",
         // BRIGHT DAYS:
         moss: "#ccb137",
