@@ -29,7 +29,7 @@ export const HeroBanner = ({
         </div>
         <div className="hidden md:flex flex-col md:flex-row gap-4 md:gap-8 mt-6">
           <Button href="/welcome" size="Large">
-            I'm New Here
+            {`I'm New Here`}
           </Button>
           <Button
             target="_blank"
