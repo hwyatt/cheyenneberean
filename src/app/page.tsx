@@ -133,13 +133,13 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-8">
-      <HeroBanner
+      {/* <HeroBanner
         title={`“They (those in Berea) received the word with all eagerness, examining the Scriptures daily…”`}
         eyebrowText={"Acts 17:11"}
         description={
           "Our mission is to pursue and proclaim Jesus together: Gather, Grow, and Go, being transformed by Him and sharing the Gospel worldwide."
         }
-      />
+      /> */}
       <div className="flex flex-col md:grid grid-cols-12 gap-8">
         <div className="col-span-8 flex flex-col gap-8">
           {sermonContent && (
