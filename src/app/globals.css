@@ -53,6 +53,7 @@
   position: relative;
   padding-left: 2rem;
   display: flex;
+  @apply text-body;
 }
 
 .markdown-container ul li::before {
@@ -61,7 +62,7 @@
   left: 0;
   font-size: 1.5rem;
   line-height: 1;
-  @apply text-dark;
+  @apply text-body;
 }
 
 .mobile-menu :where(li > details > summary):after {
