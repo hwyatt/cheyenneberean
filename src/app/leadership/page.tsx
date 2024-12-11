@@ -144,7 +144,7 @@ const LeadershipPage = async ({}) => {
       )}
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: TextBlockParams) => (
-          <div key={item.heading}>
+          <div key={item.heading} className="w-full">
             <TextBlock
               image={item.image}
               thumbnail={item.thumbnail}
@@ -155,7 +155,7 @@ const LeadershipPage = async ({}) => {
               primaryCtaLink={item.primaryCtaLink}
               secondaryCtaLabel={item.secondaryCtaLabel}
               secondaryCtaLink={item.secondaryCtaLink}
-              centerText
+              // centerText
             />
           </div>
         ))}

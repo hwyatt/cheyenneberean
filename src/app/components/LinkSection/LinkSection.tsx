@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IoPersonOutline, IoPeopleOutline } from "react-icons/io5";
+import {
+  IoPersonOutline,
+  IoPeopleOutline,
+  IoHomeOutline,
+} from "react-icons/io5";
 import { BsArrowRight } from "react-icons/bs";
 import { FaRegMessage } from "react-icons/fa6";
 import { FaHandHoldingHeart, FaWalking, FaWater } from "react-icons/fa";
@@ -63,6 +67,8 @@ const renderIcon = (icon: string) => {
       return <FaWalking size={24} />;
     case "baptism":
       return <FaWater size={24} />;
+    case "membership":
+      return <IoHomeOutline size={24} />;
     case "kids":
       return (
         <Image

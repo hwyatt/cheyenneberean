@@ -45,6 +45,11 @@ export const CONNECT_LINKS = [
     route: "/welcome",
   },
   {
+    title: "Membership",
+    icon: "membership",
+    route: "/membership",
+  },
+  {
     title: "Baptism",
     icon: "baptism",
     route: "/baptism",

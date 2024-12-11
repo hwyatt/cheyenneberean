@@ -3,7 +3,11 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CONNECT_LINKS } from "./LINKS";
-import { IoPersonOutline, IoPeopleOutline } from "react-icons/io5";
+import {
+  IoPersonOutline,
+  IoPeopleOutline,
+  IoHomeOutline,
+} from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
 import { FaHandHoldingHeart, FaWalking, FaWater } from "react-icons/fa";
 import { PiHandsPrayingFill } from "react-icons/pi";
@@ -83,7 +87,12 @@ export default function RootLayout({
             </div>
             <div className="md:hidden border-b border-borderPrimary overflow-x-auto">
               <div className="px-4 pt-4 pb-2 flex justify-between sm:justify-evenly">
-                {CONNECT_LINKS.map((link) => (
+                {CONNECT_LINKS.filter(
+                  (link) =>
+                    link.title !== "Membership" &&
+                    link.title !== "Baptism" &&
+                    link.title !== "Serve"
+                ).map((link) => (
                   <CustomLink
                     key={link.route}
                     href={link.route}
@@ -104,6 +113,8 @@ export default function RootLayout({
                       <PiHandsPrayingFill size={24} />
                     ) : link.icon === "baptism" ? (
                       <FaWater size={24} />
+                    ) : link.icon === "membership" ? (
+                      <IoHomeOutline size={24} />
                     ) : null}
                     <p className="font-medium text-xs group-hover:text-link">
                       {link.title === "Prayer Request" ? "Prayer" : link.title}
