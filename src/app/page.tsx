@@ -1,7 +1,6 @@
 import "react-social-icons/facebook";
 import "react-social-icons/email";
 import { CONNECT_LINKS, CONTACT_LINKS, FAMILY_LINKS } from "./LINKS";
-import { HeroBanner } from "./components/HeroBanner/HeroBanner";
 import { Tile } from "./components/Tile/Tile";
 import { SermonSeries } from "./components/SermonSeries/SermonSeries";
 import { fetchGraphQL } from "./api/contentful";
@@ -104,6 +103,7 @@ query homePage {
           image {
             url
           }
+          notes
     }
   }
   homePageCollection {
@@ -149,6 +149,7 @@ export default async function Home() {
               sermonSpeaker={sermonContent.speaker}
               imgUrl={sermonContent.image.url}
               watchSermonLink={sermonContent.link}
+              notes={sermonContent.notes}
             />
           )}
           {promoTilesContent && promoTilesContent.items.length > 0 && (
