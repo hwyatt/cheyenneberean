@@ -25,7 +25,7 @@ export const Footer = () => {
   return (
     <footer className="px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">
       <div className="flex flex-col md:flex-row gap-16 md:gap-32 mt-8 md:mt-0">
-        <span className="flex md:flex-col text-lg md:text-2xl gap-1 justify-center w-full md:w-auto">
+        <span className="flex md:flex-col text-lg md:text-2xl gap-1 w-full md:w-auto">
           <span className="text-body block">Pursuing</span>
           <span className="text-body block">and</span>
           <span className="text-body block">Proclaiming</span>

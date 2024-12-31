@@ -9,7 +9,8 @@ import {
   IoHomeOutline,
 } from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
-import { FaHandHoldingHeart, FaWalking, FaWater } from "react-icons/fa";
+import { FaWalking, FaWater } from "react-icons/fa";
+import { PiHandHeartFill } from "react-icons/pi";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import "react-social-icons/facebook";
 import "react-social-icons/email";
@@ -108,7 +109,7 @@ export default function RootLayout({
                     ) : link.icon === "people" ? (
                       <FaRegMessage size={24} />
                     ) : link.icon === "give" ? (
-                      <FaHandHoldingHeart size={24} />
+                      <PiHandHeartFill size={24} />
                     ) : link.icon === "prayer" ? (
                       <PiHandsPrayingFill size={24} />
                     ) : link.icon === "baptism" ? (

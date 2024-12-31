@@ -7,7 +7,8 @@ import {
 } from "react-icons/io5";
 import { BsArrowRight } from "react-icons/bs";
 import { FaRegMessage } from "react-icons/fa6";
-import { FaHandHoldingHeart, FaWalking, FaWater } from "react-icons/fa";
+import { FaWalking, FaWater } from "react-icons/fa";
+import { PiHandHeartFill } from "react-icons/pi";
 import { PiHandsPrayingFill } from "react-icons/pi";
 import { MdPhone } from "react-icons/md";
 import { SocialIcon } from "react-social-icons";
@@ -60,7 +61,7 @@ const renderIcon = (icon: string) => {
     case "people":
       return <FaRegMessage size={24} />;
     case "give":
-      return <FaHandHoldingHeart size={24} />;
+      return <PiHandHeartFill size={24} />;
     case "prayer":
       return <PiHandsPrayingFill size={24} />;
     case "walking":
