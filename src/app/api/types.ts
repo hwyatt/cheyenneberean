@@ -24,6 +24,7 @@ export type TextBlockParams = {
   secondaryCtaLabel?: string;
   secondaryCtaLink?: string;
   centerText?: boolean;
+  theme?: string | null;
 };
 
 export type FAQ = {

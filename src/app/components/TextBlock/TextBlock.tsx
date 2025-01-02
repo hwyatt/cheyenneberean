@@ -36,6 +36,7 @@ export const TextBlock = ({
   secondaryCtaLabel,
   secondaryCtaLink,
   centerText = false,
+  theme,
 }: TextBlockParams) => {
   return (
     <div
@@ -77,7 +78,18 @@ export const TextBlock = ({
         {(primaryCtaLabel || secondaryCtaLabel) && (
           <div className="flex flex-col md:flex-row gap-2 md:gap-4 mt-4">
             {primaryCtaLabel && primaryCtaLink && (
-              <Button href={primaryCtaLink}>{primaryCtaLabel}</Button>
+              <Button
+                href={primaryCtaLink}
+                variant={
+                  theme === "kids"
+                    ? "Cedar"
+                    : theme === "youth"
+                    ? "Dark"
+                    : "Primary"
+                }
+              >
+                {primaryCtaLabel}
+              </Button>
             )}
             {secondaryCtaLabel && secondaryCtaLink && (
               <Button href={secondaryCtaLink} variant={"Secondary"}>

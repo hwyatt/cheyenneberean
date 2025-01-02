@@ -139,17 +139,24 @@ const ContentPage = async ({ params }: ContentPageParams) => {
       ) : null}
       {pageTextSectionCollection &&
         pageTextSectionCollection.items.map((item: TextBlockParams) => (
-          <div key={item.heading} className="w-full">
+          <div key={item?.heading} className="w-full">
             <TextBlock
-              image={item.image}
-              thumbnail={item.thumbnail}
-              heading={item.heading}
-              markdown={item.markdown}
-              reverse={item.reverse}
-              primaryCtaLabel={item.primaryCtaLabel}
-              primaryCtaLink={item.primaryCtaLink}
-              secondaryCtaLabel={item.secondaryCtaLabel}
-              secondaryCtaLink={item.secondaryCtaLink}
+              image={item?.image}
+              thumbnail={item?.thumbnail}
+              heading={item?.heading}
+              markdown={item?.markdown}
+              reverse={item?.reverse}
+              primaryCtaLabel={item?.primaryCtaLabel}
+              primaryCtaLink={item?.primaryCtaLink}
+              secondaryCtaLabel={item?.secondaryCtaLabel}
+              secondaryCtaLink={item?.secondaryCtaLink}
+              theme={
+                content.includes("kids")
+                  ? "kids"
+                  : content.includes("youth")
+                  ? "youth"
+                  : null
+              }
             />
           </div>
         ))}
@@ -159,7 +166,7 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           theme={content === "kids" ? "kids" : null}
         />
       )}
-      {showEvents && eventData && (
+      {showEvents && eventData && eventData.length > 0 && (
         <div className="flex flex-col items-center gap-4 w-full">
           <h2 className="text-2xl font-medium md:border-b-2 md:border-borderPrimary md:pb-2 md:w-full md:text-center md:mb-4">
             {eventH2 ? eventH2 : "Events"}
@@ -182,9 +189,9 @@ const ContentPage = async ({ params }: ContentPageParams) => {
           ctaLink={`${pageConnectSection.ctaLink}?referrer=${content}`}
           logo={pageConnectSection.logo}
           theme={
-            content === "youth" || content === "young-adults"
+            content.includes("youth") || content.includes("young-adults")
               ? "youth"
-              : content === "kids"
+              : content.includes("kids")
               ? "kids"
               : "Primary"
           }

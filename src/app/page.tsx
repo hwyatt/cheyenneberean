@@ -41,7 +41,7 @@ const LocationCard = () => (
         </div>
       </div>
       <div className="dropdown dropdown-top mt-4">
-        <Button variant="Dark" size="Small">
+        <Button variant="Primary" size="Small">
           Get Directions
         </Button>
         <ul
