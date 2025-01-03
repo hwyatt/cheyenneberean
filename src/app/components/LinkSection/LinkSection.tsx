@@ -25,7 +25,10 @@ export const LinkSection = ({
   links: LinkSectionLink[];
 }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div
+      className="flex flex-col gap-2"
+      id={title.toLowerCase().replace(/\s+/g, "-")}
+    >
       <h3 className="text-lg font-medium text-dark">{title}</h3>
       <div className="flex flex-col bg-palette rounded-lg shadow-lg">
         {links.map((link) => (
