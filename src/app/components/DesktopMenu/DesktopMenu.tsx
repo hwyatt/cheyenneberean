@@ -60,7 +60,7 @@ export const DesktopMenu = () => {
             size={24}
             className="text-dark group-hover:text-link"
           />
-          <span className="text-dark group-hover:text-link">Log In</span>
+          <span className="text-dark group-hover:text-link">Log Into CCB</span>
         </CustomLink>
       </ul>
     </div>

@@ -86,7 +86,7 @@ const LoginCard = () => (
         className="self-start mt-4"
         size="Small"
       >
-        Log In
+        Log Into CCB
       </Button>
     </div>
   </div>
