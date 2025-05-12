@@ -32,6 +32,7 @@ const config: Config = {
         // LINEN:
         natural: "#f3f1e9",
         link: "#406eb5",
+        linkLight: "#a7bde3",
         linkActive: "#0b2d60",
         borderPrimary: "#dcd6cb",
         borderSecondary: "#928b80",
