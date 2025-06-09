@@ -18,7 +18,6 @@ import { DesktopMenu } from "./components/DesktopMenu/DesktopMenu";
 import { MobileMenu } from "./components/MobileMenu/MobileMenu";
 import { Footer } from "./components/Footer/Footer";
 import { CustomLink } from "./components/Link/Link";
-import { ServiceTimeAlert } from "./components/Alert/Alert";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -127,7 +126,6 @@ export default function RootLayout({
             </div>
             <main className="flex min-h-screen flex-col items-center justify-between bg-white pb-8">
               <div className="site-container w-full px-4 py-8 mx-auto">
-                <ServiceTimeAlert />
                 {children}
               </div>
             </main>

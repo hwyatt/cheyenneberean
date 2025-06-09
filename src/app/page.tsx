@@ -20,7 +20,7 @@ const LocationCard = () => (
           <div className="flex gap-1 items-center">
             <FaRegClock className="text-body" />
             <span className="text-sm text-body">
-              Sundays at 9:00 AM & 10:30 AM
+              Sundays at 9:00 AM & 10:45 AM
             </span>
           </div>
           <div className="flex gap-1 items-center">
@@ -36,7 +36,7 @@ const LocationCard = () => (
         <div className="flex flex-col gap-2">
           <div className="flex gap-1 items-center">
             <FaRegClock className="text-body" />
-            <span className="text-sm text-body">Sundays at 10:30 AM</span>
+            <span className="text-sm text-body">Sundays at 10:45 AM</span>
           </div>
         </div>
       </div>
