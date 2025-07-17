@@ -7,7 +7,7 @@ import { fetchGraphQL } from "./api/contentful";
 import { LinkSection } from "./components/LinkSection/LinkSection";
 import { CustomLink } from "./components/Link/Link";
 import { Button } from "./components/Button/Button";
-import { FaLocationDot, FaRegClock } from "react-icons/fa6";
+import { FaLocationDot, FaRegClock, FaCircleInfo } from "react-icons/fa6";
 import { PageNextStepProps } from "./api/types";
 
 const LocationCard = () => (
@@ -21,6 +21,12 @@ const LocationCard = () => (
             <FaRegClock className="text-body" />
             <span className="text-sm text-body">
               Sundays at 9:00 AM & 10:45 AM
+            </span>
+          </div>
+          <div className="flex gap-1 items-center">
+            <FaCircleInfo className="text-body" />
+            <span className="text-sm text-body">
+              BereanKIDS at 9:00 AM (10:45 AM beginning 8/24)
             </span>
           </div>
           <div className="flex gap-1 items-center">
