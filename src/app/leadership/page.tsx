@@ -133,8 +133,8 @@ const LeadershipPage = async ({}) => {
                       image={item.image?.url}
                       theme="staff"
                       imageFit="cover"
-                      ctaSecondaryLabel={`Email ${item.firstName}`}
-                      ctaSecondaryLink={`mailto:${item.email}?staffer=${item.firstName}-${item.lastName}`}
+{/*                       ctaSecondaryLabel={`Email ${item.firstName}`}
+                      ctaSecondaryLink={`mailto:${item.email}?staffer=${item.firstName}-${item.lastName}`} */}
                     />
                   </div>
                 )
