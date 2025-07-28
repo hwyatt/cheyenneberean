@@ -111,7 +111,7 @@ const LeadershipPage = async ({}) => {
           }}
           thumbnail={leadPastorContent?.thumbnail}
           primaryCtaLabel={`Contact ${leadPastorContent.firstName}`}
-          primaryCtaLink={`mailto:${leadPastorContent.email}`}
+          primaryCtaLink={`/contact`}
         />
       )}
       {staffContent && (
