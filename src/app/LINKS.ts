@@ -26,7 +26,7 @@ export const NAV_LINKS = [
   },
   {
     title: `Events`,
-    route: "/events",
+    route: "https://cheyenneberean.ccbchurch.com/goto/events/public?focus=month&view=calendar",
     icon: "person",
     sub: [],
   },
