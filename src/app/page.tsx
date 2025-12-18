@@ -26,7 +26,7 @@ const LocationCard = () => (
           <div className="flex gap-1 items-center">
             <FaCircleInfo className="text-body" />
             <span className="text-sm text-body">
-              BereanKIDS at 9:00 AM (10:45 AM beginning 8/24)
+              BereanKIDS at 9:00 AM & 10:45 AM
             </span>
           </div>
           <div className="flex gap-1 items-center">
