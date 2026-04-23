@@ -43,7 +43,7 @@ const EventDetailsPage = async ({ params }: EventPageProps) => {
           <div className="flex flex-col md:flex-row justify-between md:items-center border-borderPrimary border-b-2 gap-4 pb-4">
             <div className="flex flex-col gap-2">
               <div className="flex flex-col gap-2">
-                {[event?.event?.group?.name] && (
+                {event?.event?.group?.name && (
                   <div className="flex gap-2">
                     {[event?.event?.group?.name].map(
                       (item: CCBEventResponse["event"]["group"]["name"]) => (

@@ -17,10 +17,10 @@ type Link = {
   route: string;
 };
 
-export const Footer = () => {
+export const Footer = async () => {
   const aboutSection = NAV_LINKS.find((link: Link) => link.title === "About");
 
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
 
   return (
     <footer className="px-4 py-8 md:px-8 site-container m-auto flex flex-col gap-16">

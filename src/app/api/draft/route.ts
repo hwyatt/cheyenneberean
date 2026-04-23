@@ -19,6 +19,7 @@ export async function GET(request: NextRequest) {
     return new NextResponse("Article not found", { status: 404 });
   }
 
-  draftMode().enable();
+  const draft = await draftMode();
+  draft.enable();
   redirect(`${slug}`);
 }

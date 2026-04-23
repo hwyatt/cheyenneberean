@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
   const contentType = body.sys?.contentType?.sys?.id;
 
   if (contentType) {
-    revalidateTag(contentType);
+    revalidateTag(contentType, "route");
   } else {
     return NextResponse.json(
       { message: "Missing content type" },

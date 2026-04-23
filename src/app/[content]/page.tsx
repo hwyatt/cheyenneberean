@@ -23,7 +23,7 @@ type ContentPageParams = {
 };
 
 const ContentPage = async ({ params }: ContentPageParams) => {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { content } = params;
 
   // Filter out the favicon.ico request
