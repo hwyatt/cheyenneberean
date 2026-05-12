@@ -175,26 +175,32 @@ const CLASSES: BKCLASS[] = [
   {
     title: "Embark",
     description:
-      "As we commit to equipping our youngest group, this class will focus on learning the gospel through play and worship. Your child will sing songs, enjoy a snack, and have fellowship with other children up until their 3rd birthday.",
-    ages: "Ages 0-2",
+      "A nurturing environment for our youngest kids where they’ll experience worship, play, songs, snacks, and fellowship while beginning to learn about Jesus.",
+    ages: "Ages 0-1",
   },
   {
     title: "Ascent",
     description:
-      "We know that play and fun is of the upmost importance, alongside learning. Your child's schedule will consist of a routine including: Bible lesson and story, songs, snack, and play! Children in this room range from 3-6 years old.",
-    ages: "Ages 3-5",
+      "A fun and engaging class with Bible stories, songs, snacks, playtime, and routines designed to help preschoolers learn and grow in fellowship with other toddlers.",
+    ages: "Ages 2-3",
+  },
+  {
+    title: "Beta",
+    description:
+      "Alongside learning the gospel, play-based learning is the focus in Beta. Your child's schedule will consist of a routine including: Bible lesson, story, songs, and play!",
+    ages: "Ages 4-5",
   },
   {
     title: "Venture",
     description:
-      "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
-    ages: "1st-3rd Grade",
+      "An interactive class where kids learn the Gospel through discussion, Scripture reading and memorization, and games.",
+    ages: "Ages 6-8",
   },
   {
     title: "Anchor",
     description:
-      "This class will equip your child to participate in conversations, learn the Gospel through discussion, reading, memorizing Scripture, and games.",
-    ages: "4th-6th Grade",
+      "As children approach youth group age, this intentional grouping helps equip them for a smooth transition into youth ministry. It is deeply focused on discipleship through conversation, Scripture, and engaging activities.",
+    ages: "Ages 9-11",
   },
 ];
 
