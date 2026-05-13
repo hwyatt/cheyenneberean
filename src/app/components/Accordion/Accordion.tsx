@@ -1,5 +1,26 @@
 import { FAQ, FAQQuestionAnswer } from "@/app/api/types";
 
+const linkifyText = (text: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlRegex);
+
+  return parts.map((part, i) =>
+    urlRegex.test(part) ? (
+      
+        key={i}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 underline hover:text-blue-800"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+};
+
 export const Accordion = ({ heading, questions, theme }: FAQ) => (
   <div className="bg-palette p-4 md:p-8 w-[calc(100vw-16px)]">
     <div className="flex flex-col items-center gap-4 site-container m-auto">
@@ -24,7 +45,7 @@ export const Accordion = ({ heading, questions, theme }: FAQ) => (
             </div>
             <div className="collapse-content">
               <p className="text-body" style={{ overflowWrap: "anywhere" }}>
-                {item.answer}
+                {linkifyText(item.answer)}
               </p>
             </div>
           </div>
