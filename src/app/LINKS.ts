@@ -19,6 +19,29 @@ export const NAV_LINKS = [
     ],
   },
   {
+    title: `Ministries`,
+    route: "/",
+    icon: "person",
+    sub: [
+      {
+        title: "Kids",
+        route: "/kids",
+      },
+      {
+        title: "Youth",
+        route: "/youth",
+      },
+      {
+        title: "Young Adults",
+        route: "/young-adults",
+      },
+      {
+        title: "Awana",
+        route: "/awana",
+      },
+    ],
+  },
+  {
     title: `I'm New`,
     route: "/welcome",
     icon: "person",
