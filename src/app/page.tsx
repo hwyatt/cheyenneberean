@@ -47,16 +47,16 @@ const LocationCard = () => (
         </div>
       </div>
       <div className="dropdown dropdown-top mt-4">
-        <Button
-          variant="Primary"
-          size="Small"
-          onClick={() => window.open(
-            "https://www.google.com/maps/dir/?api=1&destination=Cheyenne+Berean+Church,+5716+Powderhouse+Rd,+Cheyenne,+WY+82009",
-            "_blank"
-          )}
-        >
+      <a
+        href="https://www.google.com/maps/dir/?api=1&destination=Cheyenne+Berean+Church,+5716+Powderhouse+Rd,+Cheyenne,+WY+82009"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="contents"
+      >
+        <Button variant="Primary" size="Small">
           Get Directions
         </Button>
+      </a>
         {/* <Button variant="Primary" size="Small">
           Get Directions
         </Button>
