@@ -47,7 +47,17 @@ const LocationCard = () => (
         </div>
       </div>
       <div className="dropdown dropdown-top mt-4">
-        <Button variant="Primary" size="Small">
+        <Button
+          variant="Primary"
+          size="Small"
+          onClick={() => window.open(
+            "https://www.google.com/maps/dir/?api=1&destination=Cheyenne+Berean+Church,+5716+Powderhouse+Rd,+Cheyenne,+WY+82009",
+            "_blank"
+          )}
+        >
+          Get Directions
+        </Button>
+        {/* <Button variant="Primary" size="Small">
           Get Directions
         </Button>
         <ul
@@ -74,7 +84,7 @@ const LocationCard = () => (
               Google Maps
             </CustomLink>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   </div>
